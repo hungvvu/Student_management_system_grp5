@@ -47,11 +47,7 @@ void showmenu(int& choice1, int& choice2, string Position)
 
 		while (Position == "-1") {// can't find in the whole data base
 			cout << "username or password is incorect" << endl;
-			cout << "username: ";
-			cin >> username;
-			cout << "password: ";
-			cin >> password;
-			Position = Login(username, password);
+			showmenu(choice1, choice2, Position);
 		}
 		/*****new code*****/
 
