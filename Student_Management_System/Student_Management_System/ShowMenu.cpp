@@ -36,6 +36,25 @@ void showmenu(int& choice1, int& choice2, string Position)
 	mainmenu(choice1);
 	if (choice1 == 1)
 	{
+		/*****new code******/
+		string username;
+		string password;
+		cout << "username: ";
+		cin >> username;
+		cout << "password: ";
+		cin >> password;
+		Position = Login(username, password);
+
+		while (Position == "-1") {// can't find in the whole data base
+			cout << "username or password is incorect" << endl;
+			cout << "username: ";
+			cin >> username;
+			cout << "password: ";
+			cin >> password;
+			Position = Login(username, password);
+		}
+		/*****new code*****/
+
 		if (Position == "Student")
 		{
 			MenuStudent(choice2);
@@ -44,26 +63,24 @@ void showmenu(int& choice1, int& choice2, string Position)
 				showmenu(choice1, choice2, Position);
 			}
 		}
-	}
-	if (choice1 == 1)
-	{
-		if (Position == "Staff")
-		{
-			MenuStudent(choice2);
-			while (choice2 == 0 && choice1 == 1)
+		if (choice1 == 1)
+			if (Position == "Staff")
 			{
-				showmenu(choice1, choice2, Position);
+				MenuStudent(choice2);
+				while (choice2 == 0 && choice1 == 1)
+				{
+					showmenu(choice1, choice2, Position);
+				}
 			}
-		}
-	}
-	if (choice1 == 1)
-	{
-		if (Position == "Lecturer")
+		if (choice1 == 1)
 		{
-			MenuStudent(choice2);
-			while (choice2 == 0 && choice1 == 1)
+			if (Position == "Lecturer")
 			{
-				showmenu(choice1, choice2, Position);
+				MenuStudent(choice2);
+				while (choice2 == 0 && choice1 == 1)
+				{
+					showmenu(choice1, choice2, Position);
+				}
 			}
 		}
 	}

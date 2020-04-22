@@ -9,11 +9,10 @@ using namespace std;
 // data types
 struct Stu {
 	string Fullname;
-	string Username;
+	string ID;
 	string Password;
 	string DoB;
 	string Class;
-	string ID;
 };
 
 struct Lect {
@@ -43,6 +42,10 @@ int MenuLecturer(int& choice2);
 void showmenu(int& choice1, int& choice2, string Position);
 
 
-// Function 1.1
+// Function 1.1 (Login)
 void LoadStudent(ifstream& fin, Stu*& a, int& NumofStu);
+void LoadLect(ifstream& fin, Lect*& a, int& NumofLect);
+void LoadStaf(ifstream& fin, Staf*& a, int& NumofStaf);
+string Login(string user, string pass);
+
 #endif
