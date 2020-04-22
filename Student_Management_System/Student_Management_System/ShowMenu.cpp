@@ -36,7 +36,6 @@ void showmenu(int& choice1, int& choice2, string Position)
 	mainmenu(choice1);
 	if (choice1 == 1)
 	{
-		/*****new code******/
 		string username;
 		string password;
 		cout << "username: ";
@@ -49,7 +48,6 @@ void showmenu(int& choice1, int& choice2, string Position)
 			cout << "username or password is incorect" << endl;
 			showmenu(choice1, choice2, Position);
 		}
-		/*****new code*****/
 
 		if (Position == "Student")
 		{
