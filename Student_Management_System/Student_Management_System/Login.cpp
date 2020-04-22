@@ -61,8 +61,11 @@ void LoadStaf(ifstream& fin, Staf*& a, int& NumofStaf) {
 	}
 }
 
-string Login(string user, string pass) {
-	bool found = false;
+string Login(string &user, string &pass) {
+	cout << "username: ";
+	cin >> user;
+	cout << "password: ";
+	cin >> pass;
 	
 	ifstream fin;
 	fin.open("Staff.txt");

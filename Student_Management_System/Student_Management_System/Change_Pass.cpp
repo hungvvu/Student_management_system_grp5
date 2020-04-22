@@ -1,20 +1,20 @@
 #include "Declarations.h"
 
 // Erase current password from file
-void eraseCurPass(string path, string username) {
+int eraseCurPass(string path, string username) {
 	string line, erased;
 	ifstream fin;
 
 	fin.open(path);
 	if (!fin.is_open()) {
-		cout << "can't delete old password";
+		return -1;// error
 	}
 	else {
 		ofstream temp; // temp file to copy all content from the current file
 		temp.open("temp.txt");
 
 		if (!temp.is_open()) {
-			cout << "can't delete old password";
+			return -2;// error
 		}
 		else {
 			while (getline(fin, line)) {
@@ -36,24 +36,25 @@ void eraseCurPass(string path, string username) {
 			rename("temp.txt", p);
 		}
 	}
+	return 1;
 }
 
 
 // Write the new password to the file
-void WriteNewPass(string path, string username, string newPass) {
+int WriteNewPass(string path, string username, string newPass) {
 	string line, erased;
 	ifstream fin;
 
 	fin.open(path);
 	if (!fin.is_open()) {
-		cout << "can't write new password";
+		return -1;// error
 	}
 	else {
 		ofstream temp; // temp file to copy all content from the current file
 		temp.open("temp.txt");
 
 		if (!temp.is_open()) {
-			cout << "can't write new password";
+			return -2;// error
 		}
 		else {
 			while (getline(fin, line)) {
@@ -75,9 +76,10 @@ void WriteNewPass(string path, string username, string newPass) {
 			rename("temp.txt", p);
 		}
 	}
+	return 1;
 }
 
-void ChangePass(string path, string username, string password) {
+bool ChangePass(string path, string username, string password) {
 	string OldPass, NewPass1, NewPass2;
 
 	do {
@@ -102,4 +104,7 @@ void ChangePass(string path, string username, string password) {
 
 	eraseCurPass(path, username);
 	WriteNewPass(path, username, NewPass2);
+	if (eraseCurPass(path, username) < 0 || WriteNewPass(path, username, NewPass2) < 0)
+		return false;
+	return true;
 }
