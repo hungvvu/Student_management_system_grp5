@@ -62,7 +62,7 @@ void showmenu(int& choice1, int& choice2, string Position)
 		if (choice1 == 1)
 			if (Position == "Staff")
 			{
-				MenuStudent(choice2);
+				MenuStaff(choice2);
 				while (choice2 == 0 && choice1 == 1)
 				{
 					showmenu(choice1, choice2, Position);
@@ -72,7 +72,7 @@ void showmenu(int& choice1, int& choice2, string Position)
 		{
 			if (Position == "Lecturer")
 			{
-				MenuStudent(choice2);
+				MenuLecturer(choice2);
 				while (choice2 == 0 && choice1 == 1)
 				{
 					showmenu(choice1, choice2, Position);

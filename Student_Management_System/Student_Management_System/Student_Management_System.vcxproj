@@ -131,6 +131,8 @@
     <ClInclude Include="Declarations.h" />
   </ItemGroup>
   <ItemGroup>
+    <Text Include="Lecturer.txt" />
+    <Text Include="Staff.txt" />
     <Text Include="Student.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
