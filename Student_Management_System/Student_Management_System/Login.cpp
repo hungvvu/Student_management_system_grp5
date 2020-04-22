@@ -113,7 +113,7 @@ string Login(string user, string pass) {
 
 		for (int i = 0; i < n; i++) {
 			if (user == StuArr[i].ID && pass == StuArr[i].Password)
-				return "Lecturer";
+				return "Student";
 		}
 
 		delete[] StuArr;
