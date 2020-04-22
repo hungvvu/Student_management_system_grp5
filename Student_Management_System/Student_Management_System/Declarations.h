@@ -48,4 +48,9 @@ void LoadLect(ifstream& fin, Lect*& a, int& NumofLect);
 void LoadStaf(ifstream& fin, Staf*& a, int& NumofStaf);
 string Login(string user, string pass);
 
+// Function 1.4 (Change Password)
+void eraseCurPass(string path, string username);
+void WriteNewPass(string path, string username, string newPass);
+void ChangePass(string path, string username, string password);
+
 #endif

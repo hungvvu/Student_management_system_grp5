@@ -24,6 +24,9 @@
     <ClCompile Include="Login.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Change_Pass.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Declarations.h">
@@ -38,6 +41,9 @@
       <Filter>Source Files</Filter>
     </Text>
     <Text Include="Lecturer.txt">
+      <Filter>Source Files</Filter>
+    </Text>
+    <Text Include="temp.txt">
       <Filter>Source Files</Filter>
     </Text>
   </ItemGroup>
