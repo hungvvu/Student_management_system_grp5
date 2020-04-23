@@ -10,7 +10,7 @@ int mainmenu(int& choice1)
 int MenuStudent(int& choice2)
 {
 	cout << "\n-----MENU------\n";
-	cout << "0.Quay Ve\n1.Attendance\n2.Xem Thoi Khoa Bieu\n3.Xem Diem\n4.Xem Bai Tap\n";
+	cout << "0.Quay Ve\n1.Attendance\n2.Timetable\n3.Grade/Score\n4.HomeWork\n";
 	cin >> choice2;
 	return choice2;
 }
