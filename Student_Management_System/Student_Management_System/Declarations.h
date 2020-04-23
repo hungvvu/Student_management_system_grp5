@@ -39,7 +39,7 @@ int MenuStaff(int& choice2);
 
 int MenuLecturer(int& choice2);
 
-void showmenu(int& choice1, int& choice2, string& Position);
+void showmenu(int& choice1, int& choice2, string& Position, string& username, string& password);
 
 
 // Function 1.1 (Login)
@@ -51,6 +51,6 @@ string Login(string &user, string &pass);
 // Function 1.4 (Change Password)
 int eraseCurPass(string path, string username);
 int WriteNewPass(string path, string username, string newPass);
-bool ChangePass(string path, string username, string password);
+bool ChangePass(string path, string username, string& password);
 
 #endif

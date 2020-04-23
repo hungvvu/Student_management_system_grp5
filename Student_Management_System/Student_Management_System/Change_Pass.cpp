@@ -79,7 +79,7 @@ int WriteNewPass(string path, string username, string newPass) {
 	return 1;
 }
 
-bool ChangePass(string path, string username, string password) {
+bool ChangePass(string path, string username, string& password) {
 	string OldPass, NewPass1, NewPass2;
 
 	do {
@@ -104,6 +104,8 @@ bool ChangePass(string path, string username, string password) {
 
 	eraseCurPass(path, username);
 	WriteNewPass(path, username, NewPass2);
+
+	password = NewPass2;// change the password varible for later use
 	if (eraseCurPass(path, username) < 0 || WriteNewPass(path, username, NewPass2) < 0)
 		return false;
 	return true;

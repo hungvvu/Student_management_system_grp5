@@ -31,20 +31,18 @@ int MenuLecturer(int& choice2)
 }
 
 
-void showmenu(int& choice1, int& choice2, string& Position)
+void showmenu(int& choice1, int& choice2, string& Position, string& username, string& password)
 {
 	if (choice1 == 0) 
 		mainmenu(choice1);
 	if (choice1 == 1)
 	{
-		string username;
-		string password;
 		if (Position == "-1")
 			Position = Login(username, password);
 
 		while (Position == "-1") {// can't find in the whole data base
 			cout << "username or password is incorect" << endl;
-			showmenu(choice1, choice2, Position);
+			showmenu(choice1, choice2, Position, username, password);
 		}
 
 		/******DEMO on Student type********/
@@ -52,21 +50,24 @@ void showmenu(int& choice1, int& choice2, string& Position)
 		{
 			MenuStudent(choice2);
 			if (choice2 == 5)
-				if (ChangePass("Student.txt", username, password))
+				if (ChangePass("Student.txt", username, password)) {
 					cout << "password changed successfull" << endl;
-				else
+					showmenu(choice1, choice2, Position, username, password);
+				}
+				else {
 					cout << "change password fail" << endl;
+				}
 
 			while (choice2 == 0 && choice1 == 1)
 			{
 				choice1 = 0;
 				Position = "-1";// logout
-				showmenu(choice1, choice2, Position);
+				showmenu(choice1, choice2, Position, username, password);
 			}
 		}
 		/******DEMO on Student type********/
 
-		if (choice1 == 1)
+		/*if (choice1 == 1)
 			if (Position == "Staff")
 			{
 				MenuStaff(choice2);
@@ -85,6 +86,6 @@ void showmenu(int& choice1, int& choice2, string& Position)
 					showmenu(choice1, choice2, Position);
 				}
 			}
-		}
+		}*/
 	}
 }
