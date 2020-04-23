@@ -56,9 +56,19 @@ void showmenu(int& choice1, int& choice2, string Position)
 			{
 				showmenu(choice1, choice2, Position);
 			}
-			if (choice2 == 5)
+			while (choice2 == 5)
 			{
 				Profile(username, password);
+				cout << endl;
+				cout << "PRESS 0 TO GO BACK: "; cin >> choice2;
+				while (choice2 != 0)
+				{
+					cout << "PRESS 0 TO GO BACK: "; cin >> choice2;;
+				}
+				if (choice2 == 0)
+				{
+					MenuStudent(choice2);
+				}
 			}
 		}
 		if (choice1 == 1)
@@ -69,9 +79,19 @@ void showmenu(int& choice1, int& choice2, string Position)
 				{
 					showmenu(choice1, choice2, Position);
 				}
-				if (choice2 == 7)
+				while (choice2 == 7)
 				{
 					Profile(username, password);
+					cout << endl;
+					cout << "PRESS 0 TO GO BACK: "; cin >> choice2;
+					while (choice2 != 0)
+					{
+						cout << "PRESS 0 TO GO BACK: "; cin >> choice2;;
+					}
+					if (choice2 == 0)
+					{
+						MenuStudent(choice2);
+					}
 				}
 			}
 		if (choice1 == 1)
@@ -83,9 +103,19 @@ void showmenu(int& choice1, int& choice2, string Position)
 				{
 					showmenu(choice1, choice2, Position);
 				}
-				if (choice2 == 4)
+				while (choice2 == 4)
 				{
 					Profile(username, password);
+					cout << endl;
+					cout << "PRESS 0 TO GO BACK: "; cin >> choice2;
+					while (choice2 != 0)
+					{
+						cout << "PRESS 0 TO GO BACK: "; cin >> choice2;;
+					}
+					if (choice2 == 0)
+					{
+						MenuStudent(choice2);
+					}
 				}
 			}
 		}
