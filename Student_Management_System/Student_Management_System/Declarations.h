@@ -43,6 +43,10 @@ void showmenu(int& choice1, int& choice2, string Position);
 
 void Profile(string user, string pass);
 
+void ImportStudent(ifstream& fin, Stu*& a, int& NumofStu);
+
+void CSVStudent();
+
 
 // Function 1.1 (Login)
 void LoadStudent(ifstream& fin, Stu*& a, int& NumofStu);

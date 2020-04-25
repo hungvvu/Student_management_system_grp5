@@ -25,7 +25,7 @@ void CSVStudent()
 {
 	ifstream fin;
 
-	fin.open("ImportStudentInfo.csv");
+	fin.open("Import_Student_Info.csv");
 	if (!fin.is_open()) {
 		cout << "can't open Student file" << endl;
 	}

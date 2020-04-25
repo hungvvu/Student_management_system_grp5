@@ -65,6 +65,10 @@ void showmenu(int& choice1, int& choice2, string Position)
 				{
 					showmenu(choice1, choice2, Position);
 				}
+				if (choice2 == 6)
+				{
+					CSVStudent();
+				}
 			}
 		if (choice1 == 1)
 		{
