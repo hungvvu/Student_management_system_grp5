@@ -123,6 +123,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="ImportStudentInfo.cpp" />
     <ClCompile Include="Login.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="ShowMenu.cpp" />
@@ -134,6 +135,9 @@
     <Text Include="Lecturer.txt" />
     <Text Include="Staff.txt" />
     <Text Include="Student.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\..\..\..\Visual Studio Projects\Import_Student_Info.csv" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
