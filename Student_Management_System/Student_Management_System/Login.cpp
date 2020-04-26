@@ -39,6 +39,7 @@ void LoadLect(ifstream& fin, Lect*& a, int& NumofLect) {
 		getline(fin, a[i].Degree);
 		fin >> a[i].Sex;
 		fin.ignore();// skip the empty line
+		fin.ignore();// skip the empty line
 	}
 }
 
@@ -57,6 +58,7 @@ void LoadStaf(ifstream& fin, Staf*& a, int& NumofStaf) {
 		getline(fin, a[i].Username);
 		getline(fin, a[i].Password);
 		fin >> a[i].Sex;
+		fin.ignore();// skip the empty line
 		fin.ignore();// skip the empty line
 	}
 }

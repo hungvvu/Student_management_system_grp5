@@ -10,7 +10,7 @@ int mainmenu(int& choice1)
 int MenuStudent(int& choice2)
 {
 	cout << "\n-----MENU------\n";
-	cout << "0.Quay Ve\n1.Attendance\n2.Xem Thoi Khoa Bieu\n3.Xem Diem\n4.Xem Bai Tap\n5.Change Password\n";
+	cout << "0.Return\n1.Attendance\n2.Timetable\n3.Grade/Score\n4.HomeWork\n5.Change Password\n";
 	cin >> choice2;
 	return choice2;
 }
@@ -37,7 +37,7 @@ void showmenu(int& choice1, int& choice2, string& Position, string& username, st
 		mainmenu(choice1);
 	if (choice1 == 1)
 	{
-		if (Position == "-1")
+		if (Position == "-1" || Position == "-2")
 			Position = Login(username, password);
 
 		while (Position == "-1") {// can't find in the whole data base
@@ -45,11 +45,10 @@ void showmenu(int& choice1, int& choice2, string& Position, string& username, st
 			showmenu(choice1, choice2, Position, username, password);
 		}
 
-		/******DEMO on Student type********/
 		if (Position == "Student")
 		{
 			MenuStudent(choice2);
-			if (choice2 == 5)
+			if (choice2 == 5)// Change pass
 				if (ChangePass("Student.txt", username, password)) {
 					cout << "password changed successfull" << endl;
 					showmenu(choice1, choice2, Position, username, password);
@@ -61,31 +60,51 @@ void showmenu(int& choice1, int& choice2, string& Position, string& username, st
 			while (choice2 == 0 && choice1 == 1)
 			{
 				choice1 = 0;
-				Position = "-1";// logout
+				Position = "-2";// logout
 				showmenu(choice1, choice2, Position, username, password);
 			}
 		}
-		/******DEMO on Student type********/
 
-		/*if (choice1 == 1)
 			if (Position == "Staff")
 			{
 				MenuStaff(choice2);
+				if (choice2 == 7)// change pass
+					if (ChangePass("Staff.txt", username, password)) {
+						cout << "password changed successfull" << endl;
+						showmenu(choice1, choice2, Position, username, password);
+					}
+					else {
+						cout << "change password fail" << endl;
+					}
+
 				while (choice2 == 0 && choice1 == 1)
 				{
-					showmenu(choice1, choice2, Position);
+					choice1 = 0;
+					Position = "-2";// logout
+					showmenu(choice1, choice2, Position, username, password);
 				}
 			}
-		if (choice1 == 1)
+
 		{
 			if (Position == "Lecturer")
 			{
 				MenuLecturer(choice2);
+				if (choice2 == 4)// change pass
+					if (ChangePass("Lecturer.txt", username, password)) {
+						cout << "password changed successfull" << endl;
+						showmenu(choice1, choice2, Position, username, password);
+					}
+					else {
+						cout << "change password fail" << endl;
+					}
+
 				while (choice2 == 0 && choice1 == 1)
 				{
-					showmenu(choice1, choice2, Position);
+					choice1 = 0;
+					Position = "-2";// logout
+					showmenu(choice1, choice2, Position, username, password);
 				}
 			}
-		}*/
+		}
 	}
 }
