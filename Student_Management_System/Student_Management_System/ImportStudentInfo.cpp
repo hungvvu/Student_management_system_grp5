@@ -35,9 +35,9 @@ void CSVStudent()
 		ImportStudent(fin, StuArr, n);
 		fin.close();
 
-		for (int i = 0; i < n; i++) 
+		for (int i = 0; i <= n; i++) 
 		{
-			cout << "STUDENT 1: " << endl;
+			cout << "STUDENT " << i << " :" << endl;
 			cout << "Name: " << StuArr[i].Fullname << endl;
 			cout << "Class: " << StuArr[i].Class << endl;
 			cout << "ID: " << StuArr[i].ID << endl;
