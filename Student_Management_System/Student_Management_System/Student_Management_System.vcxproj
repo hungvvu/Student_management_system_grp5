@@ -137,7 +137,7 @@
     <Text Include="Student.txt" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="..\..\..\..\Visual Studio Projects\Import_Student_Info.csv" />
+    <None Include="Import_Student_Info.csv" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

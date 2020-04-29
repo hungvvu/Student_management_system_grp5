@@ -3,6 +3,7 @@
 
 #include <iostream>
 #include <fstream>
+#include <sstream>
 #include <string>
 using namespace std;
 
@@ -13,6 +14,8 @@ struct Stu {
 	string Password;
 	string DoB;
 	string Class;
+	string Gender;
+	string Active;
 };
 
 struct Lect {
@@ -42,8 +45,6 @@ int MenuLecturer(int& choice2);
 void showmenu(int& choice1, int& choice2, string Position);
 
 void Profile(string user, string pass);
-
-void ImportStudent(ifstream& fin, Stu*& a, int& NumofStu);
 
 void CSVStudent();
 

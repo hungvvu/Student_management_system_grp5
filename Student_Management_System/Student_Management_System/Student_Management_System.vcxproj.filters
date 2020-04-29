@@ -24,6 +24,9 @@
     <ClCompile Include="Login.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="ImportStudentInfo.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Declarations.h">
@@ -40,5 +43,10 @@
     <Text Include="Lecturer.txt">
       <Filter>Source Files</Filter>
     </Text>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Import_Student_Info.csv">
+      <Filter>Source Files</Filter>
+    </None>
   </ItemGroup>
 </Project>
