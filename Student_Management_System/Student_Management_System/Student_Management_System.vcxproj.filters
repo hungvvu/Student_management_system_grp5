@@ -27,6 +27,9 @@
     <ClCompile Include="Change_Pass.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Add_Stu_Manually.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Declarations.h">
@@ -44,6 +47,9 @@
       <Filter>Source Files</Filter>
     </Text>
     <Text Include="temp.txt">
+      <Filter>Source Files</Filter>
+    </Text>
+    <Text Include="Student-19CLC5.txt">
       <Filter>Source Files</Filter>
     </Text>
   </ItemGroup>

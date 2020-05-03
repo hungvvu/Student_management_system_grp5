@@ -53,4 +53,10 @@ int eraseCurPass(string path, string username);
 int WriteNewPass(string path, string username, string newPass);
 bool ChangePass(string path, string username, string& password);
 
+// Function 2.2 (Manually add student to class)
+int ClassPos(string Class);
+int AddToClass(string Class, Stu newstu);
+int AddToDataBase(Stu newstu);
+int AddStuManually();
+
 #endif

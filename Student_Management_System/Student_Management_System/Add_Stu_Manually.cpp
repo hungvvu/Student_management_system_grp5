@@ -1,0 +1,176 @@
+#include "Declarations.h"
+
+int ClassPos(string Class) {/* function to return the position of a class in the following list: 
+1-19APCS1
+2-19APCS2
+3-19CLC1
+4-19CLC2
+5-19CLC3
+6-19CLC4
+7-19CLC5
+8-19CLC6
+9-19CLC7
+10-19CLC8
+11-19CLC9
+12-19CLC10
+*/
+	if (Class == "19APCS1") return 1;
+	if (Class == "19APCS2") return 2;
+	if (Class == "19CLC1") return 3;
+	if (Class == "19CLC2") return 4;
+	if (Class == "19CLC3") return 5;
+	if (Class == "19CLC4") return 6;
+	if (Class == "19CLC5") return 7;
+	if (Class == "19CLC6") return 8;
+	if (Class == "19CLC7") return 9;
+	if (Class == "19CLC8") return 10;
+	if (Class == "19CLC9") return 11;
+	if (Class == "19CLC10") return 12;
+	return 0;// wrong class code
+}
+
+int AddToClass(string Class, Stu newstu) {
+	int Pos = ClassPos(Class);
+	switch (Pos) {
+		/*********************************************************
+		other case will be filled in later,
+		this version use case 7 (19CLC5) just to test the function
+		*********************************************************/
+		/*case 1: {
+
+		}
+		case 2: {
+
+		}
+		case 3: {
+
+		}
+		case 4: {
+
+		}
+		case 5: {
+
+		}
+		case 6: {
+
+		}*/
+	case 7: {
+		ifstream fin;
+		fin.open("Student-19CLC5.txt");
+		if (!fin.is_open()) {
+			return -1;
+		}
+		else {
+			ofstream temp;
+			temp.open("temp.txt");
+
+			if (!temp.is_open()) {
+				return -2;
+			}
+			else {
+				int numofstu;// number of student
+				fin >> numofstu;
+				fin.ignore();
+
+				temp << numofstu + 1 << endl;// update the number of student in the class
+				string line;
+				while (getline(fin, line)) {// copy all existing student to temp
+						temp << line << endl;
+				}
+				temp << endl;
+
+				// print out the information of the new student
+				temp << newstu.Fullname << endl;
+				temp << newstu.ID << endl;
+				temp << newstu.Password << endl;
+				temp << newstu.DoB << endl;
+			}
+
+			temp.close();
+			fin.close();
+
+			remove("Student-19CLC5.txt");// remove old file
+			rename("temp.txt", "Student-19CLC5.txt");// rename the temp file
+			return 0;
+		}
+	}
+	}
+	return -3;// wrong class
+}
+
+int AddToDataBase(Stu newstu) {
+	ifstream fin;
+	fin.open("Student.txt");
+	if (!fin.is_open()) {
+		return -1;
+	}
+	else {
+		ofstream temp;
+		temp.open("temp.txt");
+
+		if (!temp.is_open()) {
+			return -2;
+		}
+		else {
+			int numofstu;// number of student
+			fin >> numofstu;
+			fin.ignore();
+
+			temp << numofstu + 1 << endl;// update the number of student in the class
+			string line;
+			while (getline(fin, line)) {// copy all existing student to temp
+				temp << line << endl;
+			}
+			temp << endl;
+
+			// print out the information of the new student
+			temp << newstu.Fullname << endl;
+			temp << newstu.ID << endl;
+			temp << newstu.Password << endl;
+			temp << newstu.DoB << endl;
+			temp << newstu.Class << endl;
+		}
+
+		temp.close();
+		fin.close();
+
+		remove("Student.txt");// remove old file
+		rename("temp.txt", "Student.txt");// rename the temp file
+	}
+	return 0;
+}
+
+int AddStuManually() {
+	string C;
+	cout << "Enter class: ";
+	cin >> C;
+
+	if (ClassPos(C) == 0) {
+		do {
+			cout << "Incorrect class code, please re-enter: ";
+			cin >> C;
+		} while (ClassPos(C) == 0);// wrong class code, enter again
+	}
+	cin.ignore();
+
+	Stu newstu;
+	newstu.Class = C;
+	cout << "Enter fullname: ";
+	getline(cin, newstu.Fullname);
+	cout << "Enter ID: ";
+	getline(cin, newstu.ID);
+	cout << "Enter DoB(yyyy-mm-dd): ";
+	getline(cin, newstu.DoB);
+
+	newstu.Password = newstu.DoB;
+	for (int i = 0; i < newstu.Password.length(); i++) {// delete all '-' from the password
+														// Ex: 2001-11-04 will be turn into 20011104
+		if (newstu.Password[i] == '-') {
+			newstu.Password.erase(newstu.Password.begin() + i);// delete the character at position i from the string
+		}
+	}
+
+	if (AddToClass(C, newstu) < 0) return -1;// fail at adding to class
+	if (AddToDataBase(newstu) < 0) return -2;
+	return 0;
+}
