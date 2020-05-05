@@ -53,4 +53,10 @@ int eraseCurPass(string path, string username);
 int WriteNewPass(string path, string username, string newPass);
 bool ChangePass(string path, string username, string& password);
 
+// Function 2.3(Edit Exsiting Student)
+void LoadStudentinClass(ifstream& fin, Stu*& a, int& NumofStu);
+void EditExsitingStudent(string ID, Stu*& a, ifstream& fin, int NumofStu);
+void save(ofstream& fout, Stu*& a, int NumofStu);
+void EditIntoFile(ifstream& fin, ofstream& fout, Stu*& a);
+
 #endif
