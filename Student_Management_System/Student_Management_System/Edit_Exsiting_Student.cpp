@@ -65,8 +65,10 @@ void save(ofstream& fout, Stu*& a, int NumofStu)
 
 }
 
-void EditIntoFile(ifstream &fin, ofstream &fout,Stu *&a)
+void EditIntoFile(Stu *&a)
 {
+	ifstream fin;
+	ofstream fout;
 	int NumofStu = 0;
 	
 	string ID;
