@@ -3,6 +3,7 @@
 int main() {
 	ifstream fin;
 	ofstream fout;
+	string x;
 	int choice1, choice2;
 	string Position = "-1";//Position will get it from files
 	string username, password;

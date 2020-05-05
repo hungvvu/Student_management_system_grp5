@@ -70,15 +70,8 @@ void showmenu(int& choice1, int& choice2, string& Position, string& username, st
 				MenuStaff(choice2);
 				if (choice2 == 2)
 				{
-					//string x;
-					//cout << "Enter Class of Student you want:";
-					//getline(cin, x);
-					//if (x == "19CLC5")
-					//{
 						Stu* a;
-						EditIntoFile(a);
-					//}
-			
+						EditIntoFile(a);	
 				
 				}
 			

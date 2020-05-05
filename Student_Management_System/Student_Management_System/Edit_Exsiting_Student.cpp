@@ -67,30 +67,32 @@ void save(ofstream& fout, Stu*& a, int NumofStu)
 
 void EditIntoFile(Stu *&a)
 {
-	ifstream fin;
-	ofstream fout;
-	int NumofStu = 0;
-	
-	string ID;
-	fin.open("Student-19CLC5.txt");
 
-	if (!fin.is_open()) {
-		cout << "Can not open file" << endl;
-	}
-	else
-	{
-		LoadStudent(fin, a, NumofStu);
-		EditExsitingStudent(ID, a, fin, NumofStu);
-	}
-	fin.close();
-	fout.open("Student-19CLC5.txt");
-	if (!fout.is_open())
-	{
-		cout << "Can not open file" << endl;
-	}
-	else {
-		save(fout, a, NumofStu);
-		fout.close();
-	}
+
+		ifstream fin;
+		ofstream fout;
+		int NumofStu = 0;
+
+		string ID;
+		fin.open("Student-19CLC5.txt");
+
+		if (!fin.is_open()) {
+			cout << "Can not open file" << endl;
+		}
+		else
+		{
+			LoadStudent(fin, a, NumofStu);
+			EditExsitingStudent(ID, a, fin, NumofStu);
+		}
+		fin.close();
+		fout.open("Student-19CLC5.txt");
+		if (!fout.is_open())
+		{
+			cout << "Can not open file" << endl;
+		}
+		else {
+			save(fout, a, NumofStu);
+			fout.close();
+		}
 }
 
