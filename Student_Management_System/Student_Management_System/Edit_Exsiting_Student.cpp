@@ -1,6 +1,37 @@
 #include "Declarations.h"
 
 
+int ClassPos(string Class) {/* function to return the position of a class in the following list:
+1-19APCS1
+2-19APCS2
+3-19CLC1
+4-19CLC2
+5-19CLC3
+6-19CLC4
+7-19CLC5
+8-19CLC6
+9-19CLC7
+10-19CLC8
+11-19CLC9
+12-19CLC10
+*/
+	
+	if (Class == "19APCS1") return 1;
+	if (Class == "19APCS2") return 2;
+	if (Class == "19CLC1") return 3;
+	if (Class == "19CLC2") return 4;
+	if (Class == "19CLC3") return 5;
+	if (Class == "19CLC4") return 6;
+	if (Class == "19CLC5") return 7;
+	if (Class == "19CLC6") return 8;
+	if (Class == "19CLC7") return 9;
+	if (Class == "19CLC8") return 10;
+	if (Class == "19CLC9") return 11;
+	if (Class == "19CLC10") return 12;
+	return 0;// wrong class code
+}
+
+
 void LoadStudentinClass(ifstream& fin, Stu*& a, int& NumofStu) {
 	fin >> NumofStu;
 
@@ -65,10 +96,35 @@ void save(ofstream& fout, Stu*& a, int NumofStu)
 
 }
 
-void EditIntoFile(Stu *&a)
+void EditIntoFile(Stu*& a, string Class)
 {
+	cout << "Enter class of Student:" << endl;
+	cin >> Class;
+	int Pos = ClassPos(Class);
+	switch (Pos) {
+		/*********************************************************
+		other case will be filled in later,
+		this version use case 7 (19CLC5) just to test the function
+		*********************************************************/
+		/*case 1: {
 
+		}
+		case 2: {
 
+		}
+		case 3: {
+
+		}
+		case 4: {
+
+		}
+		case 5: {
+
+		}
+		case 6: {
+
+		}*/
+	case 7: {
 		ifstream fin;
 		ofstream fout;
 		int NumofStu = 0;
@@ -94,5 +150,7 @@ void EditIntoFile(Stu *&a)
 			save(fout, a, NumofStu);
 			fout.close();
 		}
+	}
+	}
 }
 

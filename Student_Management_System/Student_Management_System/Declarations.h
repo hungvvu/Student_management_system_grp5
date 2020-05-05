@@ -57,6 +57,6 @@ bool ChangePass(string path, string username, string& password);
 void LoadStudentinClass(ifstream& fin, Stu*& a, int& NumofStu);
 void EditExsitingStudent(string ID, Stu*& a, ifstream& fin, int NumofStu);
 void save(ofstream& fout, Stu*& a, int NumofStu);
-void EditIntoFile(Stu*& a);
+void EditIntoFile(Stu*& a,string Class);
 
 #endif
