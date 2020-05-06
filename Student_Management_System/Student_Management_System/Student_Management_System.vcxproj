@@ -125,6 +125,7 @@
   <ItemGroup>
     <ClCompile Include="Add_Stu_Manually.cpp" />
     <ClCompile Include="Change_Pass.cpp" />
+    <ClCompile Include="Delete_Student.cpp" />
     <ClCompile Include="Login.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="ShowMenu.cpp" />

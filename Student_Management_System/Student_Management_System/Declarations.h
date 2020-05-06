@@ -8,6 +8,7 @@ using namespace std;
 
 // data types
 struct Stu {
+	int Active;
 	string Fullname;
 	string ID;
 	string Password;
@@ -58,5 +59,8 @@ int ClassPos(string Class);
 int AddToClass(string Class, Stu newstu);
 int AddToDataBase(Stu newstu);
 int AddStuManually();
+
+// Function 2.4 (Delete a student)
+void Delete();
 
 #endif
