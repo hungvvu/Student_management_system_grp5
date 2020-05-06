@@ -17,7 +17,7 @@ int MenuStudent(int& choice2)
 int MenuStaff(int& choice2)
 {
 	cout << "\n-----MENU------\n";
-	cout << " 0.Return\n1.Manully Add Student to a class\n2.Edit an existing student\n3.Remove a student\n4.Change Student's Class\n5.View list of classes\n6.View list of students in a class\n7.Change Password\n9.Manually add a student\n";
+	cout << "0.Return\n1.Manully Add Student to a class\n2.Edit an existing student\n3.Remove a student\n4.Change Student's Class\n5.View list of classes\n6.View list of students in a class\n7.Change Password\n";
 	cin >> choice2;
 	return choice2;
 }
@@ -25,7 +25,7 @@ int MenuStaff(int& choice2)
 int MenuLecturer(int& choice2)
 {
 	cout << "\n-----MENU------\n";
-	cout << " 0.Return\n1.Manully Add Student to a class\n2.Remove a student\3.Change Student's Class\n4.Change Password\n";
+	cout << "0.Return\n1.Manully Add Student to a class\n2.Remove a student\3.Change Student's Class\n4.Change Password\n";
 	cin >> choice2;
 	return choice2;
 }
@@ -79,7 +79,7 @@ void showmenu(int& choice1, int& choice2, string& Position, string& username, st
 					showmenu(choice1, choice2, Position, username, password);// back to main menu
 				}
 
-				if (choice2 == 9) {// Manually add student to class
+				if (choice2 == 1) {// Manually add student to class
 					if (AddStuManually() < 0) {
 						cout << "add student failed" << endl;
 					}

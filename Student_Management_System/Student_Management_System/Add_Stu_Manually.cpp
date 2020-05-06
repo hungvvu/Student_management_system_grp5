@@ -32,28 +32,246 @@ int ClassPos(string Class) {/* function to return the position of a class in the
 int AddToClass(string Class, Stu newstu) {
 	int Pos = ClassPos(Class);
 	switch (Pos) {
-		/*********************************************************
-		other case will be filled in later,
-		this version use case 7 (19CLC5) just to test the function
-		*********************************************************/
-		/*case 1: {
-
+	case 1: {// 19APCS1
+		ifstream fin;
+		fin.open("Student-19APCS1.txt");
+		if (!fin.is_open()) {
+			return -1;
 		}
-		case 2: {
+		else {
+			ofstream temp;
+			temp.open("temp.txt");
 
+			if (!temp.is_open()) {
+				return -2;
+			}
+			else {
+				int numofstu;// number of student
+				fin >> numofstu;
+				fin.ignore();
+
+				temp << numofstu + 1 << endl;// update the number of student in the class
+				string line;
+				while (getline(fin, line)) {// copy all existing student to temp
+					temp << line << endl;
+				}
+
+				// print out the information of the new student
+				temp << newstu.Fullname << endl;
+				temp << newstu.ID << endl;
+				temp << newstu.Password << endl;
+				temp << newstu.DoB << endl;
+				temp << endl;
+			}
+
+			temp.close();
+			fin.close();
+
+			remove("Student-19APCS1.txt");// remove old file
+			rename("temp.txt", "Student-19APCS1.txt");// rename the temp file
+			return 0;
 		}
-		case 3: {
-
+	}
+	case 2: {// 19APCS2
+		ifstream fin;
+		fin.open("Student-19APCS2.txt");
+		if (!fin.is_open()) {
+			return -1;
 		}
-		case 4: {
+		else {
+			ofstream temp;
+			temp.open("temp.txt");
 
+			if (!temp.is_open()) {
+				return -2;
+			}
+			else {
+				int numofstu;// number of student
+				fin >> numofstu;
+				fin.ignore();
+
+				temp << numofstu + 1 << endl;// update the number of student in the class
+				string line;
+				while (getline(fin, line)) {// copy all existing student to temp
+					temp << line << endl;
+				}
+
+				// print out the information of the new student
+				temp << newstu.Fullname << endl;
+				temp << newstu.ID << endl;
+				temp << newstu.Password << endl;
+				temp << newstu.DoB << endl;
+				temp << endl;
+			}
+
+			temp.close();
+			fin.close();
+
+			remove("Student-19APCS2.txt");// remove old file
+			rename("temp.txt", "Student-19APCS2.txt");// rename the temp file
+			return 0;
 		}
-		case 5: {
-
+	}
+	case 3: {// 19CLC1
+		ifstream fin;
+		fin.open("Student-19CLC1.txt");
+		if (!fin.is_open()) {
+			return -1;
 		}
-		case 6: {
+		else {
+			ofstream temp;
+			temp.open("temp.txt");
 
-		}*/
+			if (!temp.is_open()) {
+				return -2;
+			}
+			else {
+				int numofstu;// number of student
+				fin >> numofstu;
+				fin.ignore();
+
+				temp << numofstu + 1 << endl;// update the number of student in the class
+				string line;
+				while (getline(fin, line)) {// copy all existing student to temp
+					temp << line << endl;
+				}
+
+				// print out the information of the new student
+				temp << newstu.Fullname << endl;
+				temp << newstu.ID << endl;
+				temp << newstu.Password << endl;
+				temp << newstu.DoB << endl;
+				temp << endl;
+			}
+
+			temp.close();
+			fin.close();
+
+			remove("Student-19CLC1.txt");// remove old file
+			rename("temp.txt", "Student-19CLC1.txt");// rename the temp file
+			return 0;
+		}
+	}
+	case 4: {// 19CLC2
+		ifstream fin;
+		fin.open("Student-19CLC2.txt");
+		if (!fin.is_open()) {
+			return -1;
+		}
+		else {
+			ofstream temp;
+			temp.open("temp.txt");
+
+			if (!temp.is_open()) {
+				return -2;
+			}
+			else {
+				int numofstu;// number of student
+				fin >> numofstu;
+				fin.ignore();
+
+				temp << numofstu + 1 << endl;// update the number of student in the class
+				string line;
+				while (getline(fin, line)) {// copy all existing student to temp
+					temp << line << endl;
+				}
+
+				// print out the information of the new student
+				temp << newstu.Fullname << endl;
+				temp << newstu.ID << endl;
+				temp << newstu.Password << endl;
+				temp << newstu.DoB << endl;
+				temp << endl;
+			}
+
+			temp.close();
+			fin.close();
+
+			remove("Student-19CLC2.txt");// remove old file
+			rename("temp.txt", "Student-19CLC2.txt");// rename the temp file
+			return 0;
+		}
+	}
+	case 5: {// 19CLC3
+		ifstream fin;
+		fin.open("Student-19CLC3.txt");
+		if (!fin.is_open()) {
+			return -1;
+		}
+		else {
+			ofstream temp;
+			temp.open("temp.txt");
+
+			if (!temp.is_open()) {
+				return -2;
+			}
+			else {
+				int numofstu;// number of student
+				fin >> numofstu;
+				fin.ignore();
+
+				temp << numofstu + 1 << endl;// update the number of student in the class
+				string line;
+				while (getline(fin, line)) {// copy all existing student to temp
+					temp << line << endl;
+				}
+
+				// print out the information of the new student
+				temp << newstu.Fullname << endl;
+				temp << newstu.ID << endl;
+				temp << newstu.Password << endl;
+				temp << newstu.DoB << endl;
+				temp << endl;
+			}
+
+			temp.close();
+			fin.close();
+
+			remove("Student-19CLC3.txt");// remove old file
+			rename("temp.txt", "Student-19CLC3.txt");// rename the temp file
+			return 0;
+		}
+	}
+	case 6: {
+		ifstream fin;
+		fin.open("Student-19CLC4.txt");
+		if (!fin.is_open()) {
+			return -1;
+		}
+		else {
+			ofstream temp;
+			temp.open("temp.txt");
+
+			if (!temp.is_open()) {
+				return -2;
+			}
+			else {
+				int numofstu;// number of student
+				fin >> numofstu;
+				fin.ignore();
+
+				temp << numofstu + 1 << endl;// update the number of student in the class
+				string line;
+				while (getline(fin, line)) {// copy all existing student to temp
+					temp << line << endl;
+				}
+
+				// print out the information of the new student
+				temp << newstu.Fullname << endl;
+				temp << newstu.ID << endl;
+				temp << newstu.Password << endl;
+				temp << newstu.DoB << endl;
+				temp << endl;
+			}
+
+			temp.close();
+			fin.close();
+
+			remove("Student-19CLC4.txt");// remove old file
+			rename("temp.txt", "Student-19CLC4.txt");// rename the temp file
+			return 0;
+		}
+	}
 	case 7: {
 		ifstream fin;
 		fin.open("Student-19CLC5.txt");
@@ -77,13 +295,13 @@ int AddToClass(string Class, Stu newstu) {
 				while (getline(fin, line)) {// copy all existing student to temp
 						temp << line << endl;
 				}
-				temp << endl;
 
 				// print out the information of the new student
 				temp << newstu.Fullname << endl;
 				temp << newstu.ID << endl;
 				temp << newstu.Password << endl;
 				temp << newstu.DoB << endl;
+				temp << endl;
 			}
 
 			temp.close();
@@ -91,6 +309,206 @@ int AddToClass(string Class, Stu newstu) {
 
 			remove("Student-19CLC5.txt");// remove old file
 			rename("temp.txt", "Student-19CLC5.txt");// rename the temp file
+			return 0;
+		}
+	}
+	case 8: {
+		ifstream fin;
+		fin.open("Student-19CLC6.txt");
+		if (!fin.is_open()) {
+			return -1;
+		}
+		else {
+			ofstream temp;
+			temp.open("temp.txt");
+
+			if (!temp.is_open()) {
+				return -2;
+			}
+			else {
+				int numofstu;// number of student
+				fin >> numofstu;
+				fin.ignore();
+
+				temp << numofstu + 1 << endl;// update the number of student in the class
+				string line;
+				while (getline(fin, line)) {// copy all existing student to temp
+					temp << line << endl;
+				}
+
+				// print out the information of the new student
+				temp << newstu.Fullname << endl;
+				temp << newstu.ID << endl;
+				temp << newstu.Password << endl;
+				temp << newstu.DoB << endl;
+				temp << endl;
+			}
+
+			temp.close();
+			fin.close();
+
+			remove("Student-19CLC6.txt");// remove old file
+			rename("temp.txt", "Student-19CLC6.txt");// rename the temp file
+			return 0;
+		}
+	}
+	case 9: {
+		ifstream fin;
+		fin.open("Student-19CLC7.txt");
+		if (!fin.is_open()) {
+			return -1;
+		}
+		else {
+			ofstream temp;
+			temp.open("temp.txt");
+
+			if (!temp.is_open()) {
+				return -2;
+			}
+			else {
+				int numofstu;// number of student
+				fin >> numofstu;
+				fin.ignore();
+
+				temp << numofstu + 1 << endl;// update the number of student in the class
+				string line;
+				while (getline(fin, line)) {// copy all existing student to temp
+					temp << line << endl;
+				}
+
+				// print out the information of the new student
+				temp << newstu.Fullname << endl;
+				temp << newstu.ID << endl;
+				temp << newstu.Password << endl;
+				temp << newstu.DoB << endl;
+				temp << endl;
+			}
+
+			temp.close();
+			fin.close();
+
+			remove("Student-19CLC7.txt");// remove old file
+			rename("temp.txt", "Student-19CLC7.txt");// rename the temp file
+			return 0;
+		}
+	}
+	case 10: {
+		ifstream fin;
+		fin.open("Student-19CLC8.txt");
+		if (!fin.is_open()) {
+			return -1;
+		}
+		else {
+			ofstream temp;
+			temp.open("temp.txt");
+
+			if (!temp.is_open()) {
+				return -2;
+			}
+			else {
+				int numofstu;// number of student
+				fin >> numofstu;
+				fin.ignore();
+
+				temp << numofstu + 1 << endl;// update the number of student in the class
+				string line;
+				while (getline(fin, line)) {// copy all existing student to temp
+					temp << line << endl;
+				}
+
+				// print out the information of the new student
+				temp << newstu.Fullname << endl;
+				temp << newstu.ID << endl;
+				temp << newstu.Password << endl;
+				temp << newstu.DoB << endl;
+				temp << endl;
+			}
+
+			temp.close();
+			fin.close();
+
+			remove("Student-19CLC8.txt");// remove old file
+			rename("temp.txt", "Student-19CLC8.txt");// rename the temp file
+			return 0;
+		}
+	}
+	case 11: {
+		ifstream fin;
+		fin.open("Student-19CLC9.txt");
+		if (!fin.is_open()) {
+			return -1;
+		}
+		else {
+			ofstream temp;
+			temp.open("temp.txt");
+
+			if (!temp.is_open()) {
+				return -2;
+			}
+			else {
+				int numofstu;// number of student
+				fin >> numofstu;
+				fin.ignore();
+
+				temp << numofstu + 1 << endl;// update the number of student in the class
+				string line;
+				while (getline(fin, line)) {// copy all existing student to temp
+					temp << line << endl;
+				}
+
+				// print out the information of the new student
+				temp << newstu.Fullname << endl;
+				temp << newstu.ID << endl;
+				temp << newstu.Password << endl;
+				temp << newstu.DoB << endl;
+				temp << endl;
+			}
+
+			temp.close();
+			fin.close();
+
+			remove("Student-19CLC9.txt");// remove old file
+			rename("temp.txt", "Student-19CLC9.txt");// rename the temp file
+			return 0;
+		}
+	}
+	case 12: {
+		ifstream fin;
+		fin.open("Student-19CLC10.txt");
+		if (!fin.is_open()) {
+			return -1;
+		}
+		else {
+			ofstream temp;
+			temp.open("temp.txt");
+
+			if (!temp.is_open()) {
+				return -2;
+			}
+			else {
+				int numofstu;// number of student
+				fin >> numofstu;
+				fin.ignore();
+
+				temp << numofstu + 1 << endl;// update the number of student in the class
+				string line;
+				while (getline(fin, line)) {// copy all existing student to temp
+					temp << line << endl;
+				}
+
+				// print out the information of the new student
+				temp << newstu.Fullname << endl;
+				temp << newstu.ID << endl;
+				temp << newstu.Password << endl;
+				temp << newstu.DoB << endl;
+				temp << endl;
+			}
+
+			temp.close();
+			fin.close();
+
+			remove("Student-19CLC10.txt");// remove old file
+			rename("temp.txt", "Student-19CLC10.txt");// rename the temp file
 			return 0;
 		}
 	}
@@ -121,7 +539,6 @@ int AddToDataBase(Stu newstu) {
 			while (getline(fin, line)) {// copy all existing student to temp
 				temp << line << endl;
 			}
-			temp << endl;
 
 			// print out the information of the new student
 			temp << newstu.Fullname << endl;
@@ -129,6 +546,7 @@ int AddToDataBase(Stu newstu) {
 			temp << newstu.Password << endl;
 			temp << newstu.DoB << endl;
 			temp << newstu.Class << endl;
+			temp << endl;
 		}
 
 		temp.close();
@@ -171,6 +589,6 @@ int AddStuManually() {
 	}
 
 	if (AddToClass(C, newstu) < 0) return -1;// fail at adding to class
-	if (AddToDataBase(newstu) < 0) return -2;
+	if (AddToDataBase(newstu) < 0) return -2;// fail at adding to data base
 	return 0;
 }
