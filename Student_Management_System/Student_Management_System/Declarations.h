@@ -59,4 +59,7 @@ int AddToClass(string Class, Stu newstu);
 int AddToDataBase(Stu newstu);
 int AddStuManually();
 
+// Function 2.6 (View list of student)
+void ViewStudent();
+
 #endif

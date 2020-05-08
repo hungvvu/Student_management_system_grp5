@@ -88,6 +88,12 @@ void showmenu(int& choice1, int& choice2, string& Position, string& username, st
 					}
 					showmenu(choice1, choice2, Position, username, password);// back to main menu
 				}
+
+				if (choice2 == 6)
+				{
+					ViewStudent();
+					showmenu(choice1, choice2, Position, username, password);// back to main menu
+				}
 					
 
 				if (choice2 == 0 && choice1 == 1)
