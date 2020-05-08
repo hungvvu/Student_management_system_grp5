@@ -89,6 +89,13 @@ void showmenu(int& choice1, int& choice2, string& Position, string& username, st
 					showmenu(choice1, choice2, Position, username, password);// back to main menu
 				}
 					
+				if (choice2 == 4) {
+					if (ChangeStu2Class())
+						cout << "change student's class successfully" << endl;
+					else
+						cout << "change student's class failed" << endl;
+					showmenu(choice1, choice2, Position, username, password);// back to main menu
+				}
 
 				if (choice2 == 0 && choice1 == 1)
 				{
