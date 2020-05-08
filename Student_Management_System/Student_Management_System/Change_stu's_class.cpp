@@ -24,8 +24,7 @@ int Load_1Stu_Class(string Class, string ID, Stu& Student) {
 				getline(fin, Student.ID);
 				getline(fin, Student.Password);
 				getline(fin, Student.DoB);
-				getline(fin, Student.Class);
-				//fin.ignore();// skip the empty line
+				fin.ignore();// skip the empty line
 
 				NumofStu--;
 			} while (Student.ID != ID && NumofStu > 0);// find the student with given ID in this class
@@ -68,8 +67,8 @@ bool RemoveFromClass(string Class, string ID) {
 					getline(fin, Student.ID);
 					getline(fin, Student.Password);
 					getline(fin, Student.DoB);
-					getline(fin, Student.Class);
-					//fin.ignore();// skip the empty line
+					fin.ignore();// skip the empty line
+
 					if (Student.ID != ID) {// copy all other students to temp file
 						temp << Student.Fullname << endl;
 						temp << Student.ID << endl;
@@ -89,6 +88,55 @@ bool RemoveFromClass(string Class, string ID) {
 			}
 		}
 	}
+	}
+}
+
+bool RemoveFromMainData(string ID) {
+	ifstream fin;
+	fin.open("Student.txt");
+	if (!fin.is_open()) {
+		cout << "can't open file";
+		return false;
+	}
+	else {
+		ofstream temp;
+		temp.open("temp.txt");
+		if (!temp.is_open()) {
+			cout << "can't open file";
+			return false;
+		}
+		else {
+			int NumofStu;
+			fin >> NumofStu;
+			fin.ignore();
+
+			temp << NumofStu - 1 << endl;// update the number of student in the database
+			Stu Student;
+			while (NumofStu > 0) {
+				getline(fin, Student.Fullname);
+				getline(fin, Student.ID);
+				getline(fin, Student.Password);
+				getline(fin, Student.DoB);
+				getline(fin, Student.Class);
+				fin.ignore();// skip the empty line
+
+				if (Student.ID != ID) {// copy all other students to temp file
+					temp << Student.Fullname << endl;
+					temp << Student.ID << endl;
+					temp << Student.Password << endl;
+					temp << Student.DoB << endl;
+					temp << Student.Class << endl;
+					temp << endl;
+				}
+				NumofStu--;
+			}
+
+			temp.close();
+			fin.close();
+
+			remove("Student.txt");// remove old file
+			rename("temp.txt", "Student.txt");// rename the temp file
+		}
 	}
 }
 
@@ -129,5 +177,13 @@ bool ChangeStu2Class() {
 
 	if (AddToClass(nC, S) < 0)// add the student to the new class
 		return false;
+
+	// Update the class of that student in the main database
+	if (!RemoveFromMainData(ID))
+		return false;
+	if (!AddToDataBase(S) < 0)
+		return false;
+
+
 	return true;
 }

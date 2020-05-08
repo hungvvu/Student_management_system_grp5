@@ -63,4 +63,5 @@ int AddStuManually();
 int Load_1Stu_Class(string Class, string ID, Stu& Student);
 bool RemoveFromClass(string Class, string ID);
 bool ChangeStu2Class();
+bool RemoveFromMainData(string ID);
 #endif
