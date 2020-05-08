@@ -128,6 +128,7 @@
     <ClCompile Include="Login.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="ShowMenu.cpp" />
+    <ClCompile Include="View_student.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Declarations.h" />
