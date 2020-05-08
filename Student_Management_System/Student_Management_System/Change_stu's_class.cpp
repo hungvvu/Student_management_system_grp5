@@ -29,7 +29,8 @@ int Load_1Stu_Class(string Class, string ID, Stu& Student) {
 				NumofStu--;
 			} while (Student.ID != ID && NumofStu > 0);// find the student with given ID in this class
 			if (Student.ID != ID) return -2;// can't find given student in this class
-			
+			Student.Class = "19CLC5";
+
 			fin.close();
 		}
 		return 0;

@@ -59,9 +59,13 @@ int AddToClass(string Class, Stu newstu);
 int AddToDataBase(Stu newstu);
 int AddStuManually();
 
+//Function 2.4 (Remove a student)
+bool Remove_Student();
+
 // Function 2.5 (Change student's class)
 int Load_1Stu_Class(string Class, string ID, Stu& Student);
 bool RemoveFromClass(string Class, string ID);
 bool ChangeStu2Class();
 bool RemoveFromMainData(string ID);
+
 #endif

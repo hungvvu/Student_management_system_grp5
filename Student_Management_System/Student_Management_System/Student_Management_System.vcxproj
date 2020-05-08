@@ -128,6 +128,7 @@
     <ClCompile Include="Change_stu%27s_class.cpp" />
     <ClCompile Include="Login.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="Remove_Stu.cpp" />
     <ClCompile Include="ShowMenu.cpp" />
   </ItemGroup>
   <ItemGroup>
