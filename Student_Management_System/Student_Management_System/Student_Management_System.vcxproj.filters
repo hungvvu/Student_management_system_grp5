@@ -27,7 +27,7 @@
     <ClCompile Include="Change_Pass.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Add_Stu_Manually.cpp">
+    <ClCompile Include="View_Student.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
