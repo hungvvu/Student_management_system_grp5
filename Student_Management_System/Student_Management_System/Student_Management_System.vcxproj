@@ -128,11 +128,13 @@
     <ClCompile Include="Login.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="ShowMenu.cpp" />
+    <ClCompile Include="ViewListClass.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Declarations.h" />
   </ItemGroup>
   <ItemGroup>
+    <Text Include="Class.txt" />
     <Text Include="Lecturer.txt" />
     <Text Include="Staff.txt" />
     <Text Include="Student-19CLC5.txt" />

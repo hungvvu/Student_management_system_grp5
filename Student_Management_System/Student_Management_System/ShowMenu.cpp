@@ -88,6 +88,15 @@ void showmenu(int& choice1, int& choice2, string& Position, string& username, st
 					}
 					showmenu(choice1, choice2, Position, username, password);// back to main menu
 				}
+
+				if (choice2 == 5)
+				{
+					ifstream fin;
+					int NumOfClass;
+					School* a;
+					ViewListOfClass(fin, NumOfClass, a);
+					showmenu(choice1, choice2, Position, username, password);
+				}
 					
 
 				if (choice2 == 0 && choice1 == 1)

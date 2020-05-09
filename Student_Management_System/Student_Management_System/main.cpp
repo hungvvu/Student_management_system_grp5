@@ -1,6 +1,7 @@
 #include "Declarations.h"
 
 int main() {
+
 	int choice1, choice2;
 	string Position = "-1";//Position will get it from files
 	string username, password;
