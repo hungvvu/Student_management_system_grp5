@@ -82,7 +82,7 @@ void EditExsitingStudent(string ID, Stu*& a, ifstream& fin, int NumofStu) {
 
 void saveEditStudent(ofstream& fout, Stu*& a, int NumofStu)
 {
-	fout << NumofStu << endl;//stream ko cho phep copy
+	fout << NumofStu << endl;
 	for (int i = 0; i < NumofStu; i++)
 	{
 		fout << a[i].Fullname << endl;
