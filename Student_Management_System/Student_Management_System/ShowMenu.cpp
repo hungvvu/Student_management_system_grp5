@@ -10,14 +10,14 @@ int mainmenu(int& choice1)
 int MenuStudent(int& choice2)
 {
 	cout << "\n-----MENU------\n";
-	cout << "0.Return\n1.Attendance\n2.Timetable\n3.Grade/Score\n4.HomeWork\n5.Change Password\n";
+	cout << "0.Return\n1.Attendance\n2.Timetable\n3.Grade/Score\n4.HomeWork\n5.Change Password\n6.View Profile\n";
 	cin >> choice2;
 	return choice2;
 }
 int MenuStaff(int& choice2)
 {
 	cout << "\n-----MENU------\n";
-	cout << "0.Return\n1.Manully Add Student to a class\n2.Edit an existing student\n3.Remove a student\n4.Change Student's Class\n5.View list of classes\n6.View list of students in a class\n7.Change Password\n";
+	cout << "0.Return\n1.Manully Add Student to a class\n2.Edit an existing student\n3.Remove a student\n4.Change Student's Class\n5.View list of classes\n6.View list of students in a class\n7.Change Password\n8.View Profile\n";
 	cin >> choice2;
 	return choice2;
 }
@@ -25,7 +25,7 @@ int MenuStaff(int& choice2)
 int MenuLecturer(int& choice2)
 {
 	cout << "\n-----MENU------\n";
-	cout << "0.Return\n1.Manully Add Student to a class\n2.Remove a student\3.Change Student's Class\n4.Change Password\n";
+	cout << "0.Return\n1.Manully Add Student to a class\n2.Remove a student\3.Change Student's Class\n4.Change Password\n5.View Profile\n";
 	cin >> choice2;
 	return choice2;
 }
@@ -56,6 +56,12 @@ void showmenu(int& choice1, int& choice2, string& Position, string& username, st
 					cout << "change password fail" << endl;
 				}
 				showmenu(choice1, choice2, Position, username, password);// back to main menu
+			}
+
+			if (choice2 == 6)
+			{
+				Profile(username, password);
+				showmenu(choice1, choice2, Position, username, password);
 			}
 
 			while (choice2 == 0 && choice1 == 1)
@@ -96,6 +102,19 @@ void showmenu(int& choice1, int& choice2, string& Position, string& username, st
 					Position = "-2";// logout
 					showmenu(choice1, choice2, Position, username, password);
 				}
+				
+				if(choice2 == 8)
+				{
+					Profile(username, password);
+					showmenu(choice1, choice2, Position, username, password);
+				}
+
+				while (choice2 == 0 && choice1 == 1)
+				{
+					choice1 = 0;
+					Position = "-2";// logout
+					showmenu(choice1, choice2, Position, username, password);
+				}
 			}
 
 		{
@@ -110,6 +129,12 @@ void showmenu(int& choice1, int& choice2, string& Position, string& username, st
 						cout << "change password fail" << endl;
 					}
 					showmenu(choice1, choice2, Position, username, password);// back to main menu
+				}
+
+				if (choice2 == 5)
+				{
+					Profile(username, password);
+					showmenu(choice1, choice2, Position, username, password);
 				}
 
 				while (choice2 == 0 && choice1 == 1)

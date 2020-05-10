@@ -41,6 +41,8 @@ int MenuLecturer(int& choice2);
 
 void showmenu(int& choice1, int& choice2, string& Position, string& username, string& password);
 
+void Profile(string user, string pass);
+
 
 // Function 1.1 (Login)
 void LoadStudent(ifstream& fin, Stu*& a, int& NumofStu);
