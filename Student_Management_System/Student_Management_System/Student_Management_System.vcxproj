@@ -128,6 +128,7 @@
     <ClCompile Include="Edit_Exsiting_Student.cpp" />
     <ClCompile Include="Login.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="Profile.cpp" />
     <ClCompile Include="ShowMenu.cpp" />
     <ClCompile Include="ViewListClass.cpp" />
   </ItemGroup>
