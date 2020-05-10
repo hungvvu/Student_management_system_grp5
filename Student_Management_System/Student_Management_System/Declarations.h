@@ -30,6 +30,11 @@ struct Staf {
 	int Sex;
 };
 
+struct School
+{
+	string Class;
+};
+
 
 int mainmenu(int& choice1);
 
@@ -60,5 +65,16 @@ int ClassPos(string Class);
 int AddToClass(string Class, Stu newstu);
 int AddToDataBase(Stu newstu);
 int AddStuManually();
+
+// Function 2.3(Edit An Exsitng Student)
+void EditExsitingStudent(string ID, Stu*& a, ifstream& fin, int NumofStu);
+void saveEditStudent(ofstream& fout, Stu*& a, int NumofStu);
+void EditIntoFile(Stu*& a, string Class);
+
+
+
+// Function 2.6(View List Of Class)
+void LoadFileClass(ifstream& fin, int& NumofClass, School*& a);
+void ViewListOfClass(ifstream& fin, int& NumofClass, School*& a);
 
 #endif

@@ -33,6 +33,12 @@
     <ClCompile Include="Profile.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="ViewListClass.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Edit_Exsiting_Student.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Declarations.h">
@@ -53,6 +59,9 @@
       <Filter>Source Files</Filter>
     </Text>
     <Text Include="Student-19CLC5.txt">
+      <Filter>Source Files</Filter>
+    </Text>
+    <Text Include="Class.txt">
       <Filter>Source Files</Filter>
     </Text>
   </ItemGroup>

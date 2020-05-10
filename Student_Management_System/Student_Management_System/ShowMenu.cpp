@@ -75,6 +75,14 @@ void showmenu(int& choice1, int& choice2, string& Position, string& username, st
 			if (Position == "Staff")
 			{
 				MenuStaff(choice2);
+				if (choice2 == 2)
+				{
+					Stu* a;
+					string Class;
+					EditIntoFile(a, Class);
+
+				}
+
 				if (choice2 == 7) {// change pass
 					if (ChangePass("Staff.txt", username, password)) {
 						cout << "password changed successfull" << endl;
@@ -93,6 +101,15 @@ void showmenu(int& choice1, int& choice2, string& Position, string& username, st
 						cout << "add student successful" << endl;
 					}
 					showmenu(choice1, choice2, Position, username, password);// back to main menu
+				}
+
+				if (choice2 == 5)
+				{
+					ifstream fin;
+					int NumOfClass;
+					School* a;
+					ViewListOfClass(fin, NumOfClass, a);
+					showmenu(choice1, choice2, Position, username, password);
 				}
 					
 
