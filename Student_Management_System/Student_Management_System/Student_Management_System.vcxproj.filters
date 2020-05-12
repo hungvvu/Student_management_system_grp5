@@ -39,6 +39,9 @@
     <ClCompile Include="Edit_Exsiting_Student.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="View_Student_in_Class.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Declarations.h">
