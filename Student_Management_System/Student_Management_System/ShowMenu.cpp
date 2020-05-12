@@ -91,10 +91,7 @@ void showmenu(int& choice1, int& choice2, string& Position, string& username, st
 
 				if (choice2 == 6) //View student in class
 				{
-					if (ViewStudentChoice() < 0)
-					{
-						cout << "Input File Error !" << endl;
-					}
+					ViewStudentChoice();
 					showmenu(choice1, choice2, Position, username, password);// back to main menu
 				}
 					

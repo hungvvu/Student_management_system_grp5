@@ -14,7 +14,7 @@ int ViewStudent(string Class) {
 
 		if (!fin.is_open())
 		{
-			cout << "CAN'T OPEN FILE !" << endl;
+			cout << "INPUT FILE ERROR !" << endl;
 			return -1;
 		}
 
@@ -64,7 +64,7 @@ int ViewStudent(string Class) {
 
 		if (!fin.is_open())
 		{
-			cout << "CAN'T OPEN FILE !" << endl;
+			cout << "INPUT FILE ERROR !" << endl;
 			return -1;
 		}
 
@@ -114,7 +114,7 @@ int ViewStudent(string Class) {
 
 		if (!fin.is_open())
 		{
-			cout << "CAN'T OPEN FILE !" << endl;
+			cout << "INPUT FILE ERROR !" << endl;
 			return -1;
 		}
 
@@ -164,7 +164,7 @@ int ViewStudent(string Class) {
 
 		if (!fin.is_open())
 		{
-			cout << "CAN'T OPEN FILE !" << endl;
+			cout << "INPUT FILE ERROR !" << endl;
 			return -1;
 		}
 
@@ -214,7 +214,7 @@ int ViewStudent(string Class) {
 
 		if (!fin.is_open())
 		{
-			cout << "CAN'T OPEN FILE !" << endl;
+			cout << "INPUT FILE ERROR !" << endl;
 			return -1;
 		}
 
@@ -264,7 +264,7 @@ int ViewStudent(string Class) {
 
 		if (!fin.is_open())
 		{
-			cout << "CAN'T OPEN FILE !" << endl;
+			cout << "INPUT FILE ERROR !" << endl;
 			return -1;
 		}
 
@@ -314,7 +314,7 @@ int ViewStudent(string Class) {
 
 		if (!fin.is_open())
 		{
-			cout << "CAN'T OPEN FILE !" << endl;
+			cout << "INPUT FILE ERROR !" << endl;
 			return -1;
 		}
 
@@ -364,7 +364,7 @@ int ViewStudent(string Class) {
 
 		if (!fin.is_open())
 		{
-			cout << "CAN'T OPEN FILE !" << endl;
+			cout << "INPUT FILE ERROR !" << endl;
 			return -1;
 		}
 
@@ -414,7 +414,7 @@ int ViewStudent(string Class) {
 
 		if (!fin.is_open())
 		{
-			cout << "CAN'T OPEN FILE !" << endl;
+			cout << "INPUT FILE ERROR !" << endl;
 			return -1;
 		}
 
@@ -464,7 +464,7 @@ int ViewStudent(string Class) {
 
 		if (!fin.is_open())
 		{
-			cout << "CAN'T OPEN FILE !" << endl;
+			cout << "INPUT FILE ERROR !" << endl;
 			return -1;
 		}
 
@@ -514,7 +514,7 @@ int ViewStudent(string Class) {
 
 		if (!fin.is_open())
 		{
-			cout << "CAN'T OPEN FILE !" << endl;
+			cout << "INPUT FILE ERROR !" << endl;
 			return -1;
 		}
 
@@ -564,7 +564,7 @@ int ViewStudent(string Class) {
 
 		if (!fin.is_open())
 		{
-			cout << "CAN'T OPEN FILE !" << endl;
+			cout << "INPUT FILE ERROR !" << endl;
 			return -1;
 		}
 
@@ -603,20 +603,6 @@ int ViewStudent(string Class) {
 		delete[] StuArr;
 
 		return 1;
-	}
-	case 13: {//19CLC11
-		ifstream fin;
-		string line;
-		int count;
-
-		//Open file
-		fin.open("Student-19CLC11.txt");
-
-		if (!fin.is_open())
-		{
-			cout << "CAN'T OPEN FILE !" << endl;
-			return -1;
-		}
 	}
 	default:
 		return -2;//wrong class
