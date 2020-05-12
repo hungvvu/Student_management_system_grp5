@@ -83,6 +83,12 @@ void showmenu(int& choice1, int& choice2, string& Position, string& username, st
 
 				}
 
+				if (choice2 == 6)
+				{
+					ViewStudentChoice();
+					showmenu(choice1, choice2, Position, username, password);// back to main menu
+				}
+
 				if (choice2 == 7) {// change pass
 					if (ChangePass("Staff.txt", username, password)) {
 						cout << "password changed successfull" << endl;
