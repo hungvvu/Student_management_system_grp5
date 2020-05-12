@@ -30,7 +30,6 @@
     <ClCompile Include="Add_Stu_Manually.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-<<<<<<< HEAD
     <ClCompile Include="Profile.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -38,9 +37,6 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Edit_Exsiting_Student.cpp">
-=======
-    <ClCompile Include="View_student.cpp">
->>>>>>> View_student_in_class
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

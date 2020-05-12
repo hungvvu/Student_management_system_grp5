@@ -130,11 +130,7 @@
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Profile.cpp" />
     <ClCompile Include="ShowMenu.cpp" />
-<<<<<<< HEAD
     <ClCompile Include="ViewListClass.cpp" />
-=======
-    <ClCompile Include="View_student.cpp" />
->>>>>>> View_student_in_class
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Declarations.h" />
