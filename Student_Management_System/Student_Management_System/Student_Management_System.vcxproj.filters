@@ -42,6 +42,12 @@
     <ClCompile Include="View_Student_in_Class.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Change_stu%27s_class.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Remove_Stu.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Declarations.h">
