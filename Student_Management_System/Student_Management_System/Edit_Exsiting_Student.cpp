@@ -100,10 +100,6 @@ void EditIntoFile(Stu*& a, string Class)
 	cin >> Class;
 	int Pos = ClassPos(Class);
 	switch (Pos) {
-		/*********************************************************
-		other case will be filled in later,
-		this version use case 7 (19CLC5) just to test the function
-		*********************************************************/
 		case 1: {ifstream fin;
 			ofstream fout;
 			int NumofStu = 0;
