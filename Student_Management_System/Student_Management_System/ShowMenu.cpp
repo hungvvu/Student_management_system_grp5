@@ -89,7 +89,7 @@ void showmenu(int& choice1, int& choice2, string& Position, string& username, st
 					showmenu(choice1, choice2, Position, username, password);// back to main menu
 				}
 
-				if (choice2 == 6)
+				if (choice2 == 6) //View student in class
 				{
 					if (ViewStudentChoice() < 0)
 					{

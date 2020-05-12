@@ -13,6 +13,7 @@ int ClassPos(string Class) {/* function to return the position of a class in the
 10-19CLC8
 11-19CLC9
 12-19CLC10
+13-19CLC11
 */
 	if (Class == "19APCS1") return 1;
 	if (Class == "19APCS2") return 2;
@@ -26,6 +27,7 @@ int ClassPos(string Class) {/* function to return the position of a class in the
 	if (Class == "19CLC8") return 10;
 	if (Class == "19CLC9") return 11;
 	if (Class == "19CLC10") return 12;
+	if (Class == "19CLC11") return 13;
 	return 0;// wrong class code
 }
 

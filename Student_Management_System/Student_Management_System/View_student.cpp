@@ -560,7 +560,7 @@ int ViewStudent(string Class) {
 		int count;
 
 		//Open file
-		fin.open("Student-19CLC3.txt");
+		fin.open("Student-19CLC10.txt");
 
 		if (!fin.is_open())
 		{
@@ -604,6 +604,20 @@ int ViewStudent(string Class) {
 
 		return 1;
 	}
+	case 13: {//19CLC11
+		ifstream fin;
+		string line;
+		int count;
+
+		//Open file
+		fin.open("Student-19CLC11.txt");
+
+		if (!fin.is_open())
+		{
+			cout << "CAN'T OPEN FILE !" << endl;
+			return -1;
+		}
+	}
 	default:
 		return -2;//wrong class
 	}
@@ -616,13 +630,10 @@ int ViewStudentChoice()
 	cout << "Enter Class: ";
 	cin >> C;
 
-	if (ViewStudent(C) == -2)
+	while (ViewStudent(C) == -2)
 	{
-		do
-		{
-			cout << "This class does not exist. Please enter again: ";
-			cin >> C;
-		} while (ViewStudent(C) == -2);
+		cout << "This class does not exist. Please enter again: ";
+		cin >> C;
 	}
 	return 0;
 }
