@@ -76,6 +76,9 @@
     <Text Include="Class.txt">
       <Filter>Source Files</Filter>
     </Text>
+    <Text Include="19CLC5.txt">
+      <Filter>Source Files</Filter>
+    </Text>
   </ItemGroup>
   <ItemGroup>
     <None Include="..\..\..\..\Visual Studio Projects\Import_Student_Info.csv">
