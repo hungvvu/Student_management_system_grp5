@@ -81,7 +81,7 @@
     </Text>
   </ItemGroup>
   <ItemGroup>
-    <None Include="..\..\..\..\Visual Studio Projects\Import_Student_Info.csv">
+    <None Include="Import_Student_Info.csv">
       <Filter>Source Files</Filter>
     </None>
   </ItemGroup>
