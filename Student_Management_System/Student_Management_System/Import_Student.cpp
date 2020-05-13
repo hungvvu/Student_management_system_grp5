@@ -66,10 +66,10 @@ void CSVStudent()
 		NumOfStu[i] = 0;
 	}
 
-	for (int i = 0; i < countAll; i++)
+	for (int j = 0; j < countAll; j++)
 	{
-		string C = StuArr[i].Class;
-		int Pos = ClassPos(C);
+		string Class = StuArr[j].Class;
+		int Pos = ClassPos(Class);
 		switch (Pos)
 		{
 		case 1://19APCS1
