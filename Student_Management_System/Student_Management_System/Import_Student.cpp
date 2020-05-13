@@ -7,7 +7,7 @@ void CSVStudent()
 	string line;
 	int count = 0;
 
-	//Input number of students
+	//Open file first time to input number of students
 	fin.open("Import_Student_Info.csv");
 
 	if (!fin.is_open())
@@ -48,22 +48,19 @@ void CSVStudent()
 		getline(fin, StuArr[i].Class, ',');
 		getline(fin, StuArr[i].DoB, '\n');
 
-		fout << StuArr[i].Fullname << endl;
-		fout << StuArr[i].ID << endl;
-		fout << StuArr[i].Class << endl;
-		fout << StuArr[i].DoB << endl;
-		fout << endl;
+		if (StuArr[i].Class != "19CLC5")
+		{
+			i++;
+		}
+		else
+		{
+			fout << StuArr[i].Fullname << endl;
+			fout << StuArr[i].ID << endl;
+			fout << StuArr[i].DoB << endl;
+			fout << endl;
 
-		i++;
-		/*
-		cout << "STUDENT " << i + 1 << ": " << endl;
-		cout << "Name: " << StuArr[i].Fullname << endl;
-		cout << "ID: " << StuArr[i].ID << endl;
-		cout << "Class: " << StuArr[i].Class << endl;
-		cout << "Date of Birth: " << StuArr[i].DoB << endl;
-		cout << endl;
-		i++;
-		*/
+			i++;
+		}
 	}
 
 	cout << "IMPORT COMPLETE !" << endl;
