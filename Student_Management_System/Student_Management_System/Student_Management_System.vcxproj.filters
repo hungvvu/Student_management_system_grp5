@@ -79,6 +79,9 @@
     <Text Include="19CLC5.txt">
       <Filter>Source Files</Filter>
     </Text>
+    <Text Include="19CLC1.txt">
+      <Filter>Source Files</Filter>
+    </Text>
   </ItemGroup>
   <ItemGroup>
     <None Include="Import_Student_Info.csv">

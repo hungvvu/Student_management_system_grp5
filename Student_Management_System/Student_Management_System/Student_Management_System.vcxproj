@@ -140,6 +140,7 @@
     <ClInclude Include="Declarations.h" />
   </ItemGroup>
   <ItemGroup>
+    <Text Include="19CLC1.txt" />
     <Text Include="19CLC5.txt" />
     <Text Include="Class.txt" />
     <Text Include="Lecturer.txt" />
