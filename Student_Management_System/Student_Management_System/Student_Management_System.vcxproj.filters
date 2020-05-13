@@ -48,6 +48,9 @@
     <ClCompile Include="Remove_Stu.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Import_Student.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Declarations.h">
@@ -73,5 +76,10 @@
     <Text Include="Class.txt">
       <Filter>Source Files</Filter>
     </Text>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\..\..\..\Visual Studio Projects\Import_Student_Info.csv">
+      <Filter>Source Files</Filter>
+    </None>
   </ItemGroup>
 </Project>

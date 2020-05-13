@@ -60,6 +60,9 @@ int eraseCurPass(string path, string username);
 int WriteNewPass(string path, string username, string newPass);
 bool ChangePass(string path, string username, string& password);
 
+// Function 2.1 (Import student from csv file)
+void CSVStudent();
+
 // Function 2.2 (Manually add student to class)
 int ClassPos(string Class);
 int AddToClass(string Class, Stu newstu);
