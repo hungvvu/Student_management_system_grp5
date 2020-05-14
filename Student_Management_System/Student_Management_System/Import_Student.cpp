@@ -43,85 +43,35 @@ void CSVStudent()
 
 	fin.close();
 
-	//Create array contains number of students from different class
+	//**************** Create Student file *******************
+	fout.open("All_Students.txt");
 
-	int NumOfStu[12]; 
-	/*
-	12 is the number of class
-	    a[0] - 19APCS1
-		a[i] - 19APCS2
-		a[2] - 19CLC1
-		a[3] - 19CLC2
-		a[4] - 19CLC3
-		a[5] - 19CLC4
-		a[6] - 19CLC5
-		a[7] - 19CLC6
-		a[8] - 19CLC7
-		a[9] - 19CLC8
-		a[10] - 19CLC9
-		a[11] - 19CLC10
-	*/
-	for (int i = 0; i < 12; i++)
+	if (!fout.is_open())
 	{
-		NumOfStu[i] = 0;
+		cout << "CAN'T OPEN FILE !" << endl;
+		return;
 	}
 
-	for (int j = 0; j < countAll; j++)
+	fout << countAll << endl;
+
+	for (int i = 0; i < countAll; i++)
 	{
-		string Class = StuArr[j].Class;
-		int Pos = ClassPos(Class);
-		switch (Pos)
-		{
-		case 1://19APCS1
-		{
-			NumOfStu[0]++;
+		fout << StuArr[i].Fullname << endl;
+		fout << StuArr[i].ID << endl;
+		fout << StuArr[i].DoB << endl;
+		StuArr[i].Password = StuArr[i].DoB;
+		
+		for (int j = 0; j < StuArr[i].Password.length(); j++) {// delete all '-' from the password
+															// Ex: 2001-11-04 will be turn into 20011104
+			if (StuArr[i].Password[j] == '/') {
+				StuArr[i].Password.erase(StuArr[i].Password.begin() + j);// delete the character at position i from the string
+			}
 		}
-		case 2://19APCS2
-		{
-			NumOfStu[1]++;
-		}
-		case 3://19CLC1
-		{
-			NumOfStu[2]++;
-		}
-		case 4://19CLC2
-		{
-			NumOfStu[3]++;
-		}
-		case 5://19CLC3
-		{
-			NumOfStu[4]++;
-		}
-		case 6://19CLC4
-		{
-			NumOfStu[5]++;
-		}
-		case 7://19CLC5
-		{
-			NumOfStu[6]++;
-		}
-		case 8://19CLC6
-		{
-			NumOfStu[7]++;
-		}
-		case 9://19CLC7
-		{
-			NumOfStu[8]++;
-		}
-		case 10://19CLC8
-		{
-			NumOfStu[9]++;
-		}
-		case 11://19CLC9
-		{
-			NumOfStu[10]++;
-		}
-		case 12://19CLC10
-		{
-			NumOfStu[11]++;
-		}
-		}
+		fout << StuArr[i].Password << endl;
+		fout << endl;
 	}
+
+	fout.close();
 
 	//**************** Create 19APCS1 file *******************
 	fout.open("19APCS1.txt");
@@ -132,7 +82,14 @@ void CSVStudent()
 		return;
 	}
 
-	fout << NumOfStu[0] << endl;
+	int count1 = 0;
+
+	for (int i = 0; i < countAll; i++)
+	{
+		if (StuArr[i].Class == "19APCS1") count1++;
+	}
+
+	fout << count1 << endl;
 
 	for (int i = 0; i < countAll; i++)
 	{
@@ -141,6 +98,15 @@ void CSVStudent()
 			fout << StuArr[i].Fullname << endl;
 			fout << StuArr[i].ID << endl;
 			fout << StuArr[i].DoB << endl;
+			StuArr[i].Password = StuArr[i].DoB;
+
+			for (int j = 0; j < StuArr[i].Password.length(); j++) {// delete all '-' from the password
+																// Ex: 2001-11-04 will be turn into 20011104
+				if (StuArr[i].Password[j] == '/') {
+					StuArr[i].Password.erase(StuArr[i].Password.begin() + j);// delete the character at position i from the string
+				}
+			}
+			fout << StuArr[i].Password << endl;
 			fout << endl;
 		}
 	}
@@ -155,7 +121,14 @@ void CSVStudent()
 		return;
 	}
 
-	fout << NumOfStu[1] << endl;
+	int count2 = 0;
+
+	for (int i = 0; i < countAll; i++)
+	{
+		if (StuArr[i].Class == "19APCS2") count2++;
+	}
+
+	fout << count2 << endl;
 
 	for (int i = 0; i < countAll; i++)
 	{
@@ -164,6 +137,15 @@ void CSVStudent()
 			fout << StuArr[i].Fullname << endl;
 			fout << StuArr[i].ID << endl;
 			fout << StuArr[i].DoB << endl;
+			StuArr[i].Password = StuArr[i].DoB;
+
+			for (int j = 0; j < StuArr[i].Password.length(); j++) {// delete all '-' from the password
+																// Ex: 2001-11-04 will be turn into 20011104
+				if (StuArr[i].Password[j] == '/') {
+					StuArr[i].Password.erase(StuArr[i].Password.begin() + j);// delete the character at position i from the string
+				}
+			}
+			fout << StuArr[i].Password << endl;
 			fout << endl;
 		}
 	}
@@ -178,7 +160,14 @@ void CSVStudent()
 		return;
 	}
 
-	fout << NumOfStu[2] << endl;
+	int count3 = 0;
+
+	for (int i = 0; i < countAll; i++)
+	{
+		if (StuArr[i].Class == "19CLC1") count3++;
+	}
+
+	fout << count3 << endl;
 
 	for (int i = 0; i < countAll; i++)
 	{
@@ -187,6 +176,15 @@ void CSVStudent()
 			fout << StuArr[i].Fullname << endl;
 			fout << StuArr[i].ID << endl;
 			fout << StuArr[i].DoB << endl;
+			StuArr[i].Password = StuArr[i].DoB;
+
+			for (int j = 0; j < StuArr[i].Password.length(); j++) {// delete all '-' from the password
+																// Ex: 2001-11-04 will be turn into 20011104
+				if (StuArr[i].Password[j] == '/') {
+					StuArr[i].Password.erase(StuArr[i].Password.begin() + j);// delete the character at position i from the string
+				}
+			}
+			fout << StuArr[i].Password << endl;
 			fout << endl;
 		}
 	}
@@ -200,8 +198,14 @@ void CSVStudent()
 		cout << "CAN'T OPEN FILE !" << endl;
 		return;
 	}
+	int count4 = 0;
 
-	fout << NumOfStu[3] << endl;
+	for (int i = 0; i < countAll; i++)
+	{
+		if (StuArr[i].Class == "19CLC2") count4++;
+	}
+
+	fout << count4 << endl;
 
 	for (int i = 0; i < countAll; i++)
 	{
@@ -210,6 +214,15 @@ void CSVStudent()
 			fout << StuArr[i].Fullname << endl;
 			fout << StuArr[i].ID << endl;
 			fout << StuArr[i].DoB << endl;
+			StuArr[i].Password = StuArr[i].DoB;
+
+			for (int j = 0; j < StuArr[i].Password.length(); j++) {// delete all '-' from the password
+																// Ex: 2001-11-04 will be turn into 20011104
+				if (StuArr[i].Password[j] == '/') {
+					StuArr[i].Password.erase(StuArr[i].Password.begin() + j);// delete the character at position i from the string
+				}
+			}
+			fout << StuArr[i].Password << endl;
 			fout << endl;
 		}
 	}
@@ -224,7 +237,14 @@ void CSVStudent()
 		return;
 	}
 
-	fout << NumOfStu[4] << endl;
+	int count5 = 0;
+
+	for (int i = 0; i < countAll; i++)
+	{
+		if (StuArr[i].Class == "19CLC3") count5++;
+	}
+
+	fout << count5 << endl;
 
 	for (int i = 0; i < countAll; i++)
 	{
@@ -233,6 +253,15 @@ void CSVStudent()
 			fout << StuArr[i].Fullname << endl;
 			fout << StuArr[i].ID << endl;
 			fout << StuArr[i].DoB << endl;
+			StuArr[i].Password = StuArr[i].DoB;
+
+			for (int j = 0; j < StuArr[i].Password.length(); j++) {// delete all '-' from the password
+																// Ex: 2001-11-04 will be turn into 20011104
+				if (StuArr[i].Password[j] == '/') {
+					StuArr[i].Password.erase(StuArr[i].Password.begin() + j);// delete the character at position i from the string
+				}
+			}
+			fout << StuArr[i].Password << endl;
 			fout << endl;
 		}
 	}
@@ -247,7 +276,14 @@ void CSVStudent()
 		return;
 	}
 
-	fout << NumOfStu[5] << endl;
+	int count6 = 0;
+
+	for (int i = 0; i < countAll; i++)
+	{
+		if (StuArr[i].Class == "19CLC4") count6++;
+	}
+
+	fout << count6 << endl;
 
 	for (int i = 0; i < countAll; i++)
 	{
@@ -256,6 +292,15 @@ void CSVStudent()
 			fout << StuArr[i].Fullname << endl;
 			fout << StuArr[i].ID << endl;
 			fout << StuArr[i].DoB << endl;
+			StuArr[i].Password = StuArr[i].DoB;
+
+			for (int j = 0; j < StuArr[i].Password.length(); j++) {// delete all '-' from the password
+																// Ex: 2001-11-04 will be turn into 20011104
+				if (StuArr[i].Password[j] == '/') {
+					StuArr[i].Password.erase(StuArr[i].Password.begin() + j);// delete the character at position i from the string
+				}
+			}
+			fout << StuArr[i].Password << endl;
 			fout << endl;
 		}
 	}
@@ -270,7 +315,14 @@ void CSVStudent()
 		return;
 	}
 
-	fout << NumOfStu[6] << endl;
+	int count7 = 0;
+
+	for (int i = 0; i < countAll; i++)
+	{
+		if (StuArr[i].Class == "19CLC5") count7++;
+	}
+
+	fout << count7 << endl;
 
 	for (int i = 0; i < countAll; i++)
 	{
@@ -279,6 +331,15 @@ void CSVStudent()
 			fout << StuArr[i].Fullname << endl;
 			fout << StuArr[i].ID << endl;
 			fout << StuArr[i].DoB << endl;
+			StuArr[i].Password = StuArr[i].DoB;
+
+			for (int j = 0; j < StuArr[i].Password.length(); j++) {// delete all '-' from the password
+																// Ex: 2001-11-04 will be turn into 20011104
+				if (StuArr[i].Password[j] == '/') {
+					StuArr[i].Password.erase(StuArr[i].Password.begin() + j);// delete the character at position i from the string
+				}
+			}
+			fout << StuArr[i].Password << endl;
 			fout << endl;
 		}
 	}
@@ -293,7 +354,14 @@ void CSVStudent()
 		return;
 	}
 
-	fout << NumOfStu[7] << endl;
+	int count8 = 0;
+
+	for (int i = 0; i < countAll; i++)
+	{
+		if (StuArr[i].Class == "19CLC6") count8++;
+	}
+
+	fout << count8 << endl;
 
 	for (int i = 0; i < countAll; i++)
 	{
@@ -302,6 +370,15 @@ void CSVStudent()
 			fout << StuArr[i].Fullname << endl;
 			fout << StuArr[i].ID << endl;
 			fout << StuArr[i].DoB << endl;
+			StuArr[i].Password = StuArr[i].DoB;
+
+			for (int j = 0; j < StuArr[i].Password.length(); j++) {// delete all '-' from the password
+																// Ex: 2001-11-04 will be turn into 20011104
+				if (StuArr[i].Password[j] == '/') {
+					StuArr[i].Password.erase(StuArr[i].Password.begin() + j);// delete the character at position i from the string
+				}
+			}
+			fout << StuArr[i].Password << endl;
 			fout << endl;
 		}
 	}
@@ -316,7 +393,14 @@ void CSVStudent()
 		return;
 	}
 
-	fout << NumOfStu[8] << endl;
+	int count9 = 0;
+
+	for (int i = 0; i < countAll; i++)
+	{
+		if (StuArr[i].Class == "19CLC7") count9++;
+	}
+
+	fout << count9 << endl;
 
 	for (int i = 0; i < countAll; i++)
 	{
@@ -325,6 +409,15 @@ void CSVStudent()
 			fout << StuArr[i].Fullname << endl;
 			fout << StuArr[i].ID << endl;
 			fout << StuArr[i].DoB << endl;
+			StuArr[i].Password = StuArr[i].DoB;
+
+			for (int j = 0; j < StuArr[i].Password.length(); j++) {// delete all '-' from the password
+																// Ex: 2001-11-04 will be turn into 20011104
+				if (StuArr[i].Password[j] == '/') {
+					StuArr[i].Password.erase(StuArr[i].Password.begin() + j);// delete the character at position i from the string
+				}
+			}
+			fout << StuArr[i].Password << endl;
 			fout << endl;
 		}
 	}
@@ -339,7 +432,14 @@ void CSVStudent()
 		return;
 	}
 
-	fout << NumOfStu[9] << endl;
+	int count10 = 0;
+
+	for (int i = 0; i < countAll; i++)
+	{
+		if (StuArr[i].Class == "19CLC8") count10++;
+	}
+
+	fout << count10 << endl;
 
 	for (int i = 0; i < countAll; i++)
 	{
@@ -348,6 +448,15 @@ void CSVStudent()
 			fout << StuArr[i].Fullname << endl;
 			fout << StuArr[i].ID << endl;
 			fout << StuArr[i].DoB << endl;
+			StuArr[i].Password = StuArr[i].DoB;
+
+			for (int j = 0; j < StuArr[i].Password.length(); j++) {// delete all '-' from the password
+																// Ex: 2001-11-04 will be turn into 20011104
+				if (StuArr[i].Password[j] == '/') {
+					StuArr[i].Password.erase(StuArr[i].Password.begin() + j);// delete the character at position i from the string
+				}
+			}
+			fout << StuArr[i].Password << endl;
 			fout << endl;
 		}
 	}
@@ -362,7 +471,14 @@ void CSVStudent()
 		return;
 	}
 
-	fout << NumOfStu[10] << endl;
+	int count11 = 0;
+
+	for (int i = 0; i < countAll; i++)
+	{
+		if (StuArr[i].Class == "19CLC9") count11++;
+	}
+
+	fout << count11 << endl;
 
 	for (int i = 0; i < countAll; i++)
 	{
@@ -371,6 +487,15 @@ void CSVStudent()
 			fout << StuArr[i].Fullname << endl;
 			fout << StuArr[i].ID << endl;
 			fout << StuArr[i].DoB << endl;
+			StuArr[i].Password = StuArr[i].DoB;
+
+			for (int j = 0; j < StuArr[i].Password.length(); j++) {// delete all '-' from the password
+																// Ex: 2001-11-04 will be turn into 20011104
+				if (StuArr[i].Password[j] == '/') {
+					StuArr[i].Password.erase(StuArr[i].Password.begin() + j);// delete the character at position i from the string
+				}
+			}
+			fout << StuArr[i].Password << endl;
 			fout << endl;
 		}
 	}
@@ -385,7 +510,14 @@ void CSVStudent()
 		return;
 	}
 
-	fout << NumOfStu[11] << endl;
+	int count12 = 0;
+
+	for (int i = 0; i < countAll; i++)
+	{
+		if (StuArr[i].Class == "19CLC10") count12++;
+	}
+
+	fout << count12 << endl;
 
 	for (int i = 0; i < countAll; i++)
 	{
@@ -394,6 +526,15 @@ void CSVStudent()
 			fout << StuArr[i].Fullname << endl;
 			fout << StuArr[i].ID << endl;
 			fout << StuArr[i].DoB << endl;
+			StuArr[i].Password = StuArr[i].DoB;
+
+			for (int j = 0; j < StuArr[i].Password.length(); j++) {// delete all '-' from the password
+																// Ex: 2001-11-04 will be turn into 20011104
+				if (StuArr[i].Password[j] == '/') {
+					StuArr[i].Password.erase(StuArr[i].Password.begin() + j);// delete the character at position i from the string
+				}
+			}
+			fout << StuArr[i].Password << endl;
 			fout << endl;
 		}
 	}
