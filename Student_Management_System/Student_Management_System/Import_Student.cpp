@@ -58,7 +58,6 @@ void CSVStudent()
 	{
 		fout << StuArr[i].Fullname << endl;
 		fout << StuArr[i].ID << endl;
-		fout << StuArr[i].DoB << endl;
 		StuArr[i].Password = StuArr[i].DoB;
 		
 		for (int j = 0; j < StuArr[i].Password.length(); j++) {// delete all '-' from the password
@@ -68,6 +67,7 @@ void CSVStudent()
 			}
 		}
 		fout << StuArr[i].Password << endl;
+		fout << StuArr[i].DoB << endl;
 		fout << endl;
 	}
 
@@ -97,7 +97,6 @@ void CSVStudent()
 		{
 			fout << StuArr[i].Fullname << endl;
 			fout << StuArr[i].ID << endl;
-			fout << StuArr[i].DoB << endl;
 			StuArr[i].Password = StuArr[i].DoB;
 
 			for (int j = 0; j < StuArr[i].Password.length(); j++) {// delete all '-' from the password
@@ -107,6 +106,7 @@ void CSVStudent()
 				}
 			}
 			fout << StuArr[i].Password << endl;
+			fout << StuArr[i].DoB << endl;
 			fout << endl;
 		}
 	}
@@ -136,7 +136,6 @@ void CSVStudent()
 		{
 			fout << StuArr[i].Fullname << endl;
 			fout << StuArr[i].ID << endl;
-			fout << StuArr[i].DoB << endl;
 			StuArr[i].Password = StuArr[i].DoB;
 
 			for (int j = 0; j < StuArr[i].Password.length(); j++) {// delete all '-' from the password
@@ -146,6 +145,7 @@ void CSVStudent()
 				}
 			}
 			fout << StuArr[i].Password << endl;
+			fout << StuArr[i].DoB << endl;
 			fout << endl;
 		}
 	}
@@ -175,7 +175,6 @@ void CSVStudent()
 		{
 			fout << StuArr[i].Fullname << endl;
 			fout << StuArr[i].ID << endl;
-			fout << StuArr[i].DoB << endl;
 			StuArr[i].Password = StuArr[i].DoB;
 
 			for (int j = 0; j < StuArr[i].Password.length(); j++) {// delete all '-' from the password
@@ -185,6 +184,7 @@ void CSVStudent()
 				}
 			}
 			fout << StuArr[i].Password << endl;
+			fout << StuArr[i].DoB << endl;
 			fout << endl;
 		}
 	}
@@ -213,7 +213,6 @@ void CSVStudent()
 		{
 			fout << StuArr[i].Fullname << endl;
 			fout << StuArr[i].ID << endl;
-			fout << StuArr[i].DoB << endl;
 			StuArr[i].Password = StuArr[i].DoB;
 
 			for (int j = 0; j < StuArr[i].Password.length(); j++) {// delete all '-' from the password
@@ -223,6 +222,7 @@ void CSVStudent()
 				}
 			}
 			fout << StuArr[i].Password << endl;
+			fout << StuArr[i].DoB << endl;
 			fout << endl;
 		}
 	}
@@ -252,7 +252,6 @@ void CSVStudent()
 		{
 			fout << StuArr[i].Fullname << endl;
 			fout << StuArr[i].ID << endl;
-			fout << StuArr[i].DoB << endl;
 			StuArr[i].Password = StuArr[i].DoB;
 
 			for (int j = 0; j < StuArr[i].Password.length(); j++) {// delete all '-' from the password
@@ -262,6 +261,7 @@ void CSVStudent()
 				}
 			}
 			fout << StuArr[i].Password << endl;
+			fout << StuArr[i].DoB << endl;
 			fout << endl;
 		}
 	}
@@ -291,7 +291,6 @@ void CSVStudent()
 		{
 			fout << StuArr[i].Fullname << endl;
 			fout << StuArr[i].ID << endl;
-			fout << StuArr[i].DoB << endl;
 			StuArr[i].Password = StuArr[i].DoB;
 
 			for (int j = 0; j < StuArr[i].Password.length(); j++) {// delete all '-' from the password
@@ -301,6 +300,7 @@ void CSVStudent()
 				}
 			}
 			fout << StuArr[i].Password << endl;
+			fout << StuArr[i].DoB << endl;
 			fout << endl;
 		}
 	}
@@ -330,7 +330,6 @@ void CSVStudent()
 		{
 			fout << StuArr[i].Fullname << endl;
 			fout << StuArr[i].ID << endl;
-			fout << StuArr[i].DoB << endl;
 			StuArr[i].Password = StuArr[i].DoB;
 
 			for (int j = 0; j < StuArr[i].Password.length(); j++) {// delete all '-' from the password
@@ -340,6 +339,7 @@ void CSVStudent()
 				}
 			}
 			fout << StuArr[i].Password << endl;
+			fout << StuArr[i].DoB << endl;
 			fout << endl;
 		}
 	}
@@ -369,7 +369,6 @@ void CSVStudent()
 		{
 			fout << StuArr[i].Fullname << endl;
 			fout << StuArr[i].ID << endl;
-			fout << StuArr[i].DoB << endl;
 			StuArr[i].Password = StuArr[i].DoB;
 
 			for (int j = 0; j < StuArr[i].Password.length(); j++) {// delete all '-' from the password
@@ -379,6 +378,7 @@ void CSVStudent()
 				}
 			}
 			fout << StuArr[i].Password << endl;
+			fout << StuArr[i].DoB << endl;
 			fout << endl;
 		}
 	}
@@ -408,7 +408,6 @@ void CSVStudent()
 		{
 			fout << StuArr[i].Fullname << endl;
 			fout << StuArr[i].ID << endl;
-			fout << StuArr[i].DoB << endl;
 			StuArr[i].Password = StuArr[i].DoB;
 
 			for (int j = 0; j < StuArr[i].Password.length(); j++) {// delete all '-' from the password
@@ -418,6 +417,7 @@ void CSVStudent()
 				}
 			}
 			fout << StuArr[i].Password << endl;
+			fout << StuArr[i].DoB << endl;
 			fout << endl;
 		}
 	}
@@ -447,7 +447,6 @@ void CSVStudent()
 		{
 			fout << StuArr[i].Fullname << endl;
 			fout << StuArr[i].ID << endl;
-			fout << StuArr[i].DoB << endl;
 			StuArr[i].Password = StuArr[i].DoB;
 
 			for (int j = 0; j < StuArr[i].Password.length(); j++) {// delete all '-' from the password
@@ -457,6 +456,7 @@ void CSVStudent()
 				}
 			}
 			fout << StuArr[i].Password << endl;
+			fout << StuArr[i].DoB << endl;
 			fout << endl;
 		}
 	}
@@ -486,7 +486,6 @@ void CSVStudent()
 		{
 			fout << StuArr[i].Fullname << endl;
 			fout << StuArr[i].ID << endl;
-			fout << StuArr[i].DoB << endl;
 			StuArr[i].Password = StuArr[i].DoB;
 
 			for (int j = 0; j < StuArr[i].Password.length(); j++) {// delete all '-' from the password
@@ -496,6 +495,7 @@ void CSVStudent()
 				}
 			}
 			fout << StuArr[i].Password << endl;
+			fout << StuArr[i].DoB << endl;
 			fout << endl;
 		}
 	}
@@ -525,7 +525,6 @@ void CSVStudent()
 		{
 			fout << StuArr[i].Fullname << endl;
 			fout << StuArr[i].ID << endl;
-			fout << StuArr[i].DoB << endl;
 			StuArr[i].Password = StuArr[i].DoB;
 
 			for (int j = 0; j < StuArr[i].Password.length(); j++) {// delete all '-' from the password
@@ -535,6 +534,7 @@ void CSVStudent()
 				}
 			}
 			fout << StuArr[i].Password << endl;
+			fout << StuArr[i].DoB << endl;
 			fout << endl;
 		}
 	}
@@ -544,9 +544,4 @@ void CSVStudent()
 	cout << "IMPORT COMPLETE !" << endl;
 
 	delete[] StuArr;
-}
-
-void AddToStudentTextFile()
-{
-
 }
