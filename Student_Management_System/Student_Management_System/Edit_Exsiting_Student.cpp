@@ -50,6 +50,26 @@
 //	}
 //}
 
+void LoadStudentClass(ifstream& fin, Stu*& a, int& NumofStu) {
+	fin >> NumofStu;
+
+	if (NumofStu == 0) {
+		return;
+	}
+
+	// alocate new array of student
+	a = new Stu[NumofStu];
+
+	fin.ignore();// get rid of the "\n"
+	for (int i = 0; i < NumofStu; i++) {
+		getline(fin, a[i].Fullname);
+		getline(fin, a[i].ID);
+		getline(fin, a[i].Password);
+		getline(fin, a[i].DoB);
+		fin.ignore();// skip the empty line
+	}
+}
+
 
 void EditExsitingStudent(string ID, Stu*& a, ifstream& fin, int NumofStu) {
 	cout << "Enter student ID: ";
@@ -100,6 +120,7 @@ void EditIntoFile(Stu*& a, string Class)
 	cin >> Class;
 	int Pos = ClassPos(Class);
 	switch (Pos) {
+
 		case 1: {ifstream fin;
 			ofstream fout;
 			int NumofStu = 0;
@@ -112,7 +133,7 @@ void EditIntoFile(Stu*& a, string Class)
 			}
 			else
 			{
-				LoadStudent(fin, a, NumofStu);
+				LoadStudentClass(fin, a, NumofStu);
 				EditExsitingStudent(ID, a, fin, NumofStu);
 			}
 			fin.close();
@@ -139,7 +160,7 @@ void EditIntoFile(Stu*& a, string Class)
 			}
 			else
 			{
-				LoadStudent(fin, a, NumofStu);
+				LoadStudentClass(fin, a, NumofStu);
 				EditExsitingStudent(ID, a, fin, NumofStu);
 			}
 			fin.close();
@@ -166,7 +187,7 @@ void EditIntoFile(Stu*& a, string Class)
 			}
 			else
 			{
-				LoadStudent(fin, a, NumofStu);
+				LoadStudentClass(fin, a, NumofStu);
 				EditExsitingStudent(ID, a, fin, NumofStu);
 			}
 			fin.close();
@@ -193,7 +214,7 @@ void EditIntoFile(Stu*& a, string Class)
 			}
 			else
 			{
-				LoadStudent(fin, a, NumofStu);
+				LoadStudentClass(fin, a, NumofStu);
 				EditExsitingStudent(ID, a, fin, NumofStu);
 			}
 			fin.close();
@@ -220,7 +241,7 @@ void EditIntoFile(Stu*& a, string Class)
 			}
 			else
 			{
-				LoadStudent(fin, a, NumofStu);
+				LoadStudentClass(fin, a, NumofStu);
 				EditExsitingStudent(ID, a, fin, NumofStu);
 			}
 			fin.close();
@@ -247,7 +268,7 @@ void EditIntoFile(Stu*& a, string Class)
 			}
 			else
 			{
-				LoadStudent(fin, a, NumofStu);
+				LoadStudentClass(fin, a, NumofStu);
 				EditExsitingStudent(ID, a, fin, NumofStu);
 			}
 			fin.close();
@@ -275,7 +296,7 @@ void EditIntoFile(Stu*& a, string Class)
 			}
 			else
 			{
-				LoadStudent(fin, a, NumofStu);
+				LoadStudentClass(fin, a, NumofStu);
 				EditExsitingStudent(ID, a, fin, NumofStu);
 			}
 			fin.close();
@@ -302,7 +323,7 @@ void EditIntoFile(Stu*& a, string Class)
 			}
 			else
 			{
-				LoadStudent(fin, a, NumofStu);
+				LoadStudentClass(fin, a, NumofStu);
 				EditExsitingStudent(ID, a, fin, NumofStu);
 			}
 			fin.close();
@@ -329,7 +350,7 @@ void EditIntoFile(Stu*& a, string Class)
 			}
 			else
 			{
-				LoadStudent(fin, a, NumofStu);
+				LoadStudentClass(fin, a, NumofStu);
 				EditExsitingStudent(ID, a, fin, NumofStu);
 			}
 			fin.close();
@@ -356,7 +377,7 @@ void EditIntoFile(Stu*& a, string Class)
 			}
 			else
 			{
-				LoadStudent(fin, a, NumofStu);
+				LoadStudentClass(fin, a, NumofStu);
 				EditExsitingStudent(ID, a, fin, NumofStu);
 			}
 			fin.close();
@@ -383,7 +404,7 @@ void EditIntoFile(Stu*& a, string Class)
 			}
 			else
 			{
-				LoadStudent(fin, a, NumofStu);
+				LoadStudentClass(fin, a, NumofStu);
 				EditExsitingStudent(ID, a, fin, NumofStu);
 			}
 			fin.close();

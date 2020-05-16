@@ -36,6 +36,25 @@ struct School
 };
 
 
+struct FileSchedule {
+	string No;
+	string courseID;
+	string courseName;
+	string Class;
+	string LUser;
+	string LName;
+	string Ldegree;
+	string Lgender;
+	string startdate;
+	string enddate;
+	string dayofweek;
+	string starthour;
+	string startminute;
+	string endhour;
+	string endminute;
+	string Room;
+};
+
 int mainmenu(int& choice1);
 
 int MenuStudent(int& choice2);
@@ -67,6 +86,7 @@ int AddToDataBase(Stu newstu);
 int AddStuManually();
 
 // Function 2.3(Edit An Exsitng Student)
+void LoadStudentClass(ifstream& fin, Stu*& a, int& NumofStu);
 void EditExsitingStudent(string ID, Stu*& a, ifstream& fin, int NumofStu);
 void saveEditStudent(ofstream& fout, Stu*& a, int NumofStu);
 void EditIntoFile(Stu*& a, string Class);
@@ -87,5 +107,11 @@ void ViewListOfClass(ifstream& fin, int& NumofClass, School*& a);
 // Function 2.7(View List of Student in Class)
 int ViewStudent(string Class);
 int ViewStudentChoice();
+
+
+// Function 3.2(Import Schedule)
+void LoadScheduleCsv(ifstream& fin, FileSchedule*& s, int& countcsv);
+void ImportSchedule(ifstream& fin, FileSchedule*& a, int& countcsv);
+void SaveSchedule(ofstream& fout, FileSchedule*& s, int& countcsv);
 
 #endif

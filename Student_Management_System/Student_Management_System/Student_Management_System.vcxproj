@@ -127,6 +127,7 @@
     <ClCompile Include="Change_Pass.cpp" />
     <ClCompile Include="Change_stu%27s_class.cpp" />
     <ClCompile Include="Edit_Exsiting_Student.cpp" />
+    <ClCompile Include="ImportSchedule.cpp" />
     <ClCompile Include="Login.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Profile.cpp" />
@@ -145,6 +146,9 @@
     <Text Include="Student-19CLC5.txt" />
     <Text Include="Student.txt" />
     <Text Include="temp.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\..\..\..\..\Desktop\19CLC5-Schedule.csv" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

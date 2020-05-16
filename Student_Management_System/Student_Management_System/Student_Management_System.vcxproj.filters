@@ -48,6 +48,9 @@
     <ClCompile Include="Remove_Stu.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="ImportSchedule.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Declarations.h">
@@ -73,5 +76,8 @@
     <Text Include="Class.txt">
       <Filter>Source Files</Filter>
     </Text>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\..\..\..\..\Desktop\19CLC5-Schedule.csv" />
   </ItemGroup>
 </Project>
