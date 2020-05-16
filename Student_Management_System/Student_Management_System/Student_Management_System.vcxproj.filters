@@ -77,7 +77,4 @@
       <Filter>Source Files</Filter>
     </Text>
   </ItemGroup>
-  <ItemGroup>
-    <None Include="..\..\..\..\..\Desktop\19CLC5-Schedule.csv" />
-  </ItemGroup>
 </Project>
