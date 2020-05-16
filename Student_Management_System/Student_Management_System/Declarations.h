@@ -111,7 +111,8 @@ int ViewStudentChoice();
 
 // Function 3.2(Import Schedule)
 void LoadScheduleCsv(ifstream& fin, FileSchedule*& s, int& countcsv);
-void ImportSchedule(ifstream& fin, FileSchedule*& a, int& countcsv);
+void ImportSchedule(ifstream& fin, FileSchedule*& s, int& countcsv, ifstream& fin2, Stu*& a, int& NumofStu);
 void SaveSchedule(ofstream& fout, FileSchedule*& s, int& countcsv);
+void saveListOfStudent(ofstream& Schedule, Stu*& a, int& NumofStu);
 
 #endif
