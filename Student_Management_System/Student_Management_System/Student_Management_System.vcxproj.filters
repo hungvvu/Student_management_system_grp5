@@ -76,5 +76,8 @@
     <Text Include="Class.txt">
       <Filter>Source Files</Filter>
     </Text>
+    <Text Include="Semester.txt">
+      <Filter>Source Files</Filter>
+    </Text>
   </ItemGroup>
 </Project>
