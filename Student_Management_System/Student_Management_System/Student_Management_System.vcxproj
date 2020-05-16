@@ -147,6 +147,9 @@
     <Text Include="Student.txt" />
     <Text Include="temp.txt" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="19CLC5-Schedule.csv" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
