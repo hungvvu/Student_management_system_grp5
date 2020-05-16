@@ -89,7 +89,7 @@ void ImportSchedule(ifstream &fin,FileSchedule *&s,int &countcsv,ifstream &fin2,
 	
 	//x = "string";
 	//x = x + ".txt";
-	f = x + "-" + y + "-" + "Schedule" + Class + ".txt"; //f for example 2019-2020-HK2-Schedule-19CLC5.txt
+	f = x + "-" + y + "-" + "Schedule-" + Class + ".txt"; //f for example 2019-2020-HK2-Schedule-19CLC5.txt
 
 	fin.open(z.c_str()); //open file schedule
 	while (!fin.is_open())
@@ -97,6 +97,7 @@ void ImportSchedule(ifstream &fin,FileSchedule *&s,int &countcsv,ifstream &fin2,
 		cout << "Cant open file";
 		cout << "\nPlease enter file Schedule Name again: " << endl;
 		getline(cin, z);
+		fin.close();
 		fin.open(z.c_str());
 	}
 	LoadScheduleCsv(fin, s, countcsv);
