@@ -5,11 +5,10 @@ void LoadScheduleCsv(ifstream& fin,FileSchedule *&s,int &countcsv) {
 
 	int i = 0;
 	s = new FileSchedule[20]; 
-	fin.ignore();//skip the first Line
+	//fin.ignore();//skip the first Line
 
 	while (fin.good())
 	{
-		++i;
 		getline(fin, s[i].No, ',');
 		getline(fin, s[i].courseID, ',');
 		getline(fin, s[i].courseName, ',');
@@ -25,7 +24,8 @@ void LoadScheduleCsv(ifstream& fin,FileSchedule *&s,int &countcsv) {
 		getline(fin, s[i].startminute, ',');
 		getline(fin, s[i].endhour, ',');
 		getline(fin, s[i].endminute, ',');
-		getline(fin, s[i].Room, ',');
+		getline(fin, s[i].Room, '\n');
+		i++;
 	}
 	countcsv = i;
 
@@ -33,25 +33,25 @@ void LoadScheduleCsv(ifstream& fin,FileSchedule *&s,int &countcsv) {
 
 void SaveSchedule(ofstream &fout, FileSchedule*& s,int &countcsv)
 {
-	cout << countcsv;
-	for (int i = 0; i < countcsv; i++)
+	for (int i = 0; i < countcsv-1; i++)
 	{
-		cout << s[i].courseID << endl;
-		cout << s[i].courseName<< endl;
-		cout << s[i].Class << endl;
-		cout << s[i].LUser << endl;
-		cout << s[i].LName << endl;
-		cout << s[i].Ldegree << endl;
-		cout << s[i].Lgender << endl;
-		cout << s[i].startdate << endl;
-		cout << s[i].enddate << endl;
-		cout << s[i].dayofweek << endl;
-		cout << s[i].starthour << endl;
-		cout << s[i].startminute << endl;
-		cout << s[i].endhour << endl;
-		cout << s[i].endminute << endl;
-		cout << s[i].Room << endl;
-		cout << endl;
+		fout << s[i].No << endl;
+		fout << s[i].courseID << endl;
+		fout << s[i].courseName<< endl;
+		fout << s[i].Class << endl;
+		fout << s[i].LUser << endl;
+		fout << s[i].LName << endl;
+		fout << s[i].Ldegree << endl;
+		fout << s[i].Lgender << endl;
+		fout << s[i].startdate << endl;
+		fout << s[i].enddate << endl;
+		fout << s[i].dayofweek << endl;
+		fout << s[i].starthour << endl;
+		fout << s[i].startminute << endl;
+		fout << s[i].endhour << endl;
+		fout << s[i].endminute << endl;
+		fout << s[i].Room << endl;
+		fout << endl;
 	}
 }
 
@@ -122,7 +122,7 @@ void ImportSchedule(ifstream &fin,FileSchedule *&s,int &countcsv,ifstream &fin2,
 	LoadStudentClass(fin2, a, NumofStu); // Read  file Student-19CLC5-txt
 	fin2.close();
 
-	for (int i = 0; i < countcsv; i++)
+	for (int i = 0; i < countcsv-1; i++)
 	{
 		string filename;
 		filename = x + "-" + y + "-" + Class + "-" + s[i].courseID + "-Student.txt"; //2019-2020-HK2-19CLC5-CS1612-Student.txt or cm101
