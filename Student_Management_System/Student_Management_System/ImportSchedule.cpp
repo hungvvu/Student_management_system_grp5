@@ -64,6 +64,10 @@ void saveListOfStudent(ofstream& Schedule, Stu*& a, int &NumofStu)
 		Schedule << a[i].ID << endl;
 		Schedule << a[i].Password << endl;
 		Schedule << a[i].DoB << endl;
+		Schedule << "-1"<<endl;
+		Schedule << "-1" << endl;
+		Schedule << "-1" << endl;
+		Schedule << "-1"<<endl;
 		Schedule << endl;
 	}
 
@@ -134,5 +138,5 @@ void ImportSchedule(ifstream &fin,FileSchedule *&s,int &countcsv,ifstream &fin2,
 		}
 		Schedule.close();
 	}
-	cout << "Import Success Fully";
+	cout << "\nImport SuccessFully!!!!!";
 }
