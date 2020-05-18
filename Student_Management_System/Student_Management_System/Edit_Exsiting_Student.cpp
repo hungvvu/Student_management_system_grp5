@@ -139,7 +139,7 @@ void EditIntoFile(Stu*& a, string Class)
 		}
 		else
 		{
-			LoadStudent(fin, a, NumofStu);
+			LoadStudentinClass(fin, a, NumofStu);
 			EditExsitingStudent(ID, a, fin, NumofStu);
 		}
 		fin.close();
