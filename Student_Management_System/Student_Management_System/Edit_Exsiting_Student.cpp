@@ -30,29 +30,30 @@
 //}
 
 
-//void LoadStudentinClass(ifstream& fin, Stu*& a, int& NumofStu) {
-//	fin >> NumofStu;
-//
-//	if (NumofStu == 0) {
-//		return;
-//	}
-//
-//	// alocate new array of student
-//	a = new Stu[NumofStu];
-//
-//	fin.ignore();// get rid of the "\n"
-//	for (int i = 0; i < NumofStu; i++) {
-//		getline(fin, a[i].Fullname);
-//		getline(fin, a[i].ID);
-//		getline(fin, a[i].Password);
-//		getline(fin, a[i].DoB);
-//		fin.ignore();// skip the empty line
-//	}
-//}
+void LoadStudentinClass(ifstream& fin, Stu*& a, int& NumofStu) {
+	fin >> NumofStu;
+
+	if (NumofStu == 0) {
+		return;
+	}
+
+	// alocate new array of student
+	a = new Stu[NumofStu];
+
+	fin.ignore();// get rid of the "\n"
+	for (int i = 0; i < NumofStu; i++) {
+		getline(fin, a[i].Fullname);
+		getline(fin, a[i].ID);
+		getline(fin, a[i].Password);
+		getline(fin, a[i].DoB);
+		fin.ignore();// skip the empty line
+	}
+}
 
 
 void EditExsitingStudent(string ID, Stu*& a, ifstream& fin, int NumofStu) {
-	cout << "Enter student ID: ";
+	cout << "\nEnter student ID: "<<endl;
+	cin.ignore();
 	getline(cin, ID);
 	int i = 0;
 	while (a[i].ID != ID)
@@ -65,11 +66,12 @@ void EditExsitingStudent(string ID, Stu*& a, ifstream& fin, int NumofStu) {
 	}
 	if (i > NumofStu)
 	{
-		cout << "Cant not find student" << endl;
+		cout << "\nCant not find student. Enter random number to retry: ";
+		cin.ignore();
 		EditExsitingStudent(ID, a, fin, NumofStu);
 	}
 	else {
-		cout << "Edit Name of student: ";
+		cout << "\nEdit Name of student: ";
 		getline(cin, a[i].Fullname);
 		cout << "Edit ID of student: ";
 		getline(cin, a[i].ID);
@@ -77,6 +79,7 @@ void EditExsitingStudent(string ID, Stu*& a, ifstream& fin, int NumofStu) {
 		getline(cin, a[i].Password);
 		cout << "Edit Date of birth of student(YY-MM-DD): ";
 		getline(cin, a[i].DoB);
+		cout << "\nEdit Successfully"<<endl;
 	}
 }
 
@@ -99,303 +102,307 @@ void EditIntoFile(Stu*& a, string Class)
 	cout << "Enter class of Student:" << endl;
 	cin >> Class;
 	int Pos = ClassPos(Class);
-	switch (Pos) {
-		case 1: {ifstream fin;
-			ofstream fout;
-			int NumofStu = 0;
+	if (Pos == 1) {
+		ifstream fin;
+		ofstream fout;
+		int NumofStu = 0;
 
-			string ID;
-			fin.open("Student-19APCS1.txt");
+		string ID;
+		fin.open("Student-19APCS1.txt");
 
-			if (!fin.is_open()) {
-				cout << "Can not open file" << endl;
-			}
-			else
-			{
-				LoadStudent(fin, a, NumofStu);
-				EditExsitingStudent(ID, a, fin, NumofStu);
-			}
-			fin.close();
-			fout.open("Student-19CLC5.txt");
-			if (!fout.is_open())
-			{
-				cout << "Can not open file" << endl;
-			}
-			else {
-				saveEditStudent(fout, a, NumofStu);
-				fout.close();
-			}
-
+		if (!fin.is_open()) {
+			cout << "Can not open file" << endl;
 		}
-		case 2: {ifstream fin;
-			ofstream fout;
-			int NumofStu = 0;
-
-			string ID;
-			fin.open("Student-19APCS2.txt");
-
-			if (!fin.is_open()) {
-				cout << "Can not open file" << endl;
-			}
-			else
-			{
-				LoadStudent(fin, a, NumofStu);
-				EditExsitingStudent(ID, a, fin, NumofStu);
-			}
-			fin.close();
-			fout.open("Student-19CLC5.txt");
-			if (!fout.is_open())
-			{
-				cout << "Can not open file" << endl;
-			}
-			else {
-				saveEditStudent(fout, a, NumofStu);
-				fout.close();
-			}
-
+		else
+		{
+			LoadStudentinClass(fin, a, NumofStu);
+			EditExsitingStudent(ID, a, fin, NumofStu);
 		}
-		case 3: {ifstream fin;
-			ofstream fout;
-			int NumofStu = 0;
-
-			string ID;
-			fin.open("Student-19CLC1.txt");
-
-			if (!fin.is_open()) {
-				cout << "Can not open file" << endl;
-			}
-			else
-			{
-				LoadStudent(fin, a, NumofStu);
-				EditExsitingStudent(ID, a, fin, NumofStu);
-			}
-			fin.close();
-			fout.open("Student-19CLC5.txt");
-			if (!fout.is_open())
-			{
-				cout << "Can not open file" << endl;
-			}
-			else {
-				saveEditStudent(fout, a, NumofStu);
-				fout.close();
-			}
-
+		fin.close();
+		fout.open("Student-19CLC5.txt");
+		if (!fout.is_open())
+		{
+			cout << "Can not open file" << endl;
 		}
-		case 4: {ifstream fin;
-			ofstream fout;
-			int NumofStu = 0;
-
-			string ID;
-			fin.open("Student-19CLC2.txt");
-
-			if (!fin.is_open()) {
-				cout << "Can not open file" << endl;
-			}
-			else
-			{
-				LoadStudent(fin, a, NumofStu);
-				EditExsitingStudent(ID, a, fin, NumofStu);
-			}
-			fin.close();
-			fout.open("Student-19CLC5.txt");
-			if (!fout.is_open())
-			{
-				cout << "Can not open file" << endl;
-			}
-			else {
-				saveEditStudent(fout, a, NumofStu);
-				fout.close();
-			}
-
+		else {
+			saveEditStudent(fout, a, NumofStu);
+			fout.close();
 		}
-		case 5: {ifstream fin;
-			ofstream fout;
-			int NumofStu = 0;
 
-			string ID;
-			fin.open("Student-19CLC3.txt");
+	}
+	if (Pos == 2) {
+		ifstream fin;
+		ofstream fout;
+		int NumofStu = 0;
 
-			if (!fin.is_open()) {
-				cout << "Can not open file" << endl;
-			}
-			else
-			{
-				LoadStudent(fin, a, NumofStu);
-				EditExsitingStudent(ID, a, fin, NumofStu);
-			}
-			fin.close();
-			fout.open("Student-19CLC5.txt");
-			if (!fout.is_open())
-			{
-				cout << "Can not open file" << endl;
-			}
-			else {
-				saveEditStudent(fout, a, NumofStu);
-				fout.close();
-			}
+		string ID;
+		fin.open("Student-19APCS2.txt");
 
+		if (!fin.is_open()) {
+			cout << "Can not open file" << endl;
 		}
-		case 6: {ifstream fin;
-			ofstream fout;
-			int NumofStu = 0;
-
-			string ID;
-			fin.open("Student-19CLC4.txt");
-
-			if (!fin.is_open()) {
-				cout << "Can not open file" << endl;
-			}
-			else
-			{
-				LoadStudent(fin, a, NumofStu);
-				EditExsitingStudent(ID, a, fin, NumofStu);
-			}
-			fin.close();
-			fout.open("Student-19CLC5.txt");
-			if (!fout.is_open())
-			{
-				cout << "Can not open file" << endl;
-			}
-			else {
-				saveEditStudent(fout, a, NumofStu);
-				fout.close();
-			}
-
+		else
+		{
+			LoadStudentinClass(fin, a, NumofStu);
+			EditExsitingStudent(ID, a, fin, NumofStu);
 		}
-		case 7: {
-			ifstream fin;
-			ofstream fout;
-			int NumofStu = 0;
-
-			string ID;
-			fin.open("Student-19CLC5.txt");
-
-			if (!fin.is_open()) {
-				cout << "Can not open file" << endl;
-			}
-			else
-			{
-				LoadStudent(fin, a, NumofStu);
-				EditExsitingStudent(ID, a, fin, NumofStu);
-			}
-			fin.close();
-			fout.open("Student-19CLC5.txt");
-			if (!fout.is_open())
-			{
-				cout << "Can not open file" << endl;
-			}
-			else {
-				saveEditStudent(fout, a, NumofStu);
-				fout.close();
-			}
+		fin.close();
+		fout.open("Student-19CLC5.txt");
+		if (!fout.is_open())
+		{
+			cout << "Can not open file" << endl;
 		}
-		case 8: {
-			ifstream fin;
-			ofstream fout;
-			int NumofStu = 0;
-
-			string ID;
-			fin.open("Student-19CLC6.txt");
-
-			if (!fin.is_open()) {
-				cout << "Can not open file" << endl;
-			}
-			else
-			{
-				LoadStudent(fin, a, NumofStu);
-				EditExsitingStudent(ID, a, fin, NumofStu);
-			}
-			fin.close();
-			fout.open("Student-19CLC5.txt");
-			if (!fout.is_open())
-			{
-				cout << "Can not open file" << endl;
-			}
-			else {
-				saveEditStudent(fout, a, NumofStu);
-				fout.close();
-			}
+		else {
+			saveEditStudent(fout, a, NumofStu);
+			fout.close();
 		}
-		case 9: {
-			ifstream fin;
-			ofstream fout;
-			int NumofStu = 0;
 
-			string ID;
-			fin.open("Student-19CLC7.txt");
+	}
+	if (Pos == 3) {
+		ifstream fin;
+		ofstream fout;
+		int NumofStu = 0;
 
-			if (!fin.is_open()) {
-				cout << "Can not open file" << endl;
-			}
-			else
-			{
-				LoadStudent(fin, a, NumofStu);
-				EditExsitingStudent(ID, a, fin, NumofStu);
-			}
-			fin.close();
-			fout.open("Student-19CLC5.txt");
-			if (!fout.is_open())
-			{
-				cout << "Can not open file" << endl;
-			}
-			else {
-				saveEditStudent(fout, a, NumofStu);
-				fout.close();
-			}
+		string ID;
+		fin.open("Student-19CLC1.txt");
+
+		if (!fin.is_open()) {
+			cout << "Can not open file" << endl;
 		}
-		case 10: {
-			ifstream fin;
-			ofstream fout;
-			int NumofStu = 0;
-
-			string ID;
-			fin.open("Student-19CLC8.txt");
-
-			if (!fin.is_open()) {
-				cout << "Can not open file" << endl;
-			}
-			else
-			{
-				LoadStudent(fin, a, NumofStu);
-				EditExsitingStudent(ID, a, fin, NumofStu);
-			}
-			fin.close();
-			fout.open("Student-19CLC5.txt");
-			if (!fout.is_open())
-			{
-				cout << "Can not open file" << endl;
-			}
-			else {
-				saveEditStudent(fout, a, NumofStu);
-				fout.close();
-			}
+		else
+		{
+			LoadStudentinClass(fin, a, NumofStu);
+			EditExsitingStudent(ID, a, fin, NumofStu);
 		}
-		case 11: {
-			ifstream fin;
-			ofstream fout;
-			int NumofStu = 0;
+		fin.close();
+		fout.open("Student-19CLC5.txt");
+		if (!fout.is_open())
+		{
+			cout << "Can not open file" << endl;
+		}
+		else {
+			saveEditStudent(fout, a, NumofStu);
+			fout.close();
+		}
 
-			string ID;
-			fin.open("Student-19CLC9.txt");
+	}
+	if (Pos == 4) {
+		ifstream fin;
+		ofstream fout;
+		int NumofStu = 0;
 
-			if (!fin.is_open()) {
-				cout << "Can not open file" << endl;
-			}
-			else
-			{
-				LoadStudent(fin, a, NumofStu);
-				EditExsitingStudent(ID, a, fin, NumofStu);
-			}
-			fin.close();
-			fout.open("Student-19CLC5.txt");
-			if (!fout.is_open())
-			{
-				cout << "Can not open file" << endl;
-			}
-			else {
-				saveEditStudent(fout, a, NumofStu);
-				fout.close();
-			}
+		string ID;
+		fin.open("Student-19CLC2.txt");
+
+		if (!fin.is_open()) {
+			cout << "Can not open file" << endl;
+		}
+		else
+		{
+			LoadStudentinClass(fin, a, NumofStu);
+			EditExsitingStudent(ID, a, fin, NumofStu);
+		}
+		fin.close();
+		fout.open("Student-19CLC5.txt");
+		if (!fout.is_open())
+		{
+			cout << "Can not open file" << endl;
+		}
+		else {
+			saveEditStudent(fout, a, NumofStu);
+			fout.close();
+		}
+
+	}
+	if (Pos == 5) {
+		ifstream fin;
+		ofstream fout;
+		int NumofStu = 0;
+
+		string ID;
+		fin.open("Student-19CLC3.txt");
+
+		if (!fin.is_open()) {
+			cout << "Can not open file" << endl;
+		}
+		else
+		{
+			LoadStudentinClass(fin, a, NumofStu);
+			EditExsitingStudent(ID, a, fin, NumofStu);
+		}
+		fin.close();
+		fout.open("Student-19CLC5.txt");
+		if (!fout.is_open())
+		{
+			cout << "Can not open file" << endl;
+		}
+		else {
+			saveEditStudent(fout, a, NumofStu);
+			fout.close();
+		}
+
+	}
+	if (Pos == 6) {
+		ifstream fin;
+		ofstream fout;
+		int NumofStu = 0;
+
+		string ID;
+		fin.open("Student-19CLC4.txt");
+
+		if (!fin.is_open()) {
+			cout << "Can not open file" << endl;
+		}
+		else
+		{
+			LoadStudentinClass(fin, a, NumofStu);
+			EditExsitingStudent(ID, a, fin, NumofStu);
+		}
+		fin.close();
+		fout.open("Student-19CLC5.txt");
+		if (!fout.is_open())
+		{
+			cout << "Can not open file" << endl;
+		}
+		else {
+			saveEditStudent(fout, a, NumofStu);
+			fout.close();
+		}
+
+	}
+	if (Pos == 7) {
+		ifstream fin;
+		ofstream fout;
+		int NumofStu = 0;
+
+		string ID;
+		fin.open("Student-19CLC5.txt");
+
+		if (!fin.is_open()) {
+			cout << "Can not open file" << endl;
+		}
+		else
+		{
+			LoadStudentinClass(fin, a, NumofStu);
+			EditExsitingStudent(ID, a, fin, NumofStu);
+		}
+		fin.close();
+		fout.open("Student-19CLC5.txt");
+		if (!fout.is_open())
+		{
+			cout << "Can not open file" << endl;
+		}
+		else {
+			saveEditStudent(fout, a, NumofStu);
+			fout.close();
+		}
+	}
+	if (Pos == 8) {
+		ifstream fin;
+		ofstream fout;
+		int NumofStu = 0;
+
+		string ID;
+		fin.open("Student-19CLC6.txt");
+
+		if (!fin.is_open()) {
+			cout << "Can not open file" << endl;
+		}
+		else
+		{
+			LoadStudentinClass(fin, a, NumofStu);
+			EditExsitingStudent(ID, a, fin, NumofStu);
+		}
+		fin.close();
+		fout.open("Student-19CLC5.txt");
+		if (!fout.is_open())
+		{
+			cout << "Can not open file" << endl;
+		}
+		else {
+			saveEditStudent(fout, a, NumofStu);
+			fout.close();
+		}
+	}
+	if (Pos == 9) {
+		ifstream fin;
+		ofstream fout;
+		int NumofStu = 0;
+
+		string ID;
+		fin.open("Student-19CLC7.txt");
+
+		if (!fin.is_open()) {
+			cout << "Can not open file" << endl;
+		}
+		else
+		{
+			LoadStudentinClass(fin, a, NumofStu);
+			EditExsitingStudent(ID, a, fin, NumofStu);
+		}
+		fin.close();
+		fout.open("Student-19CLC5.txt");
+		if (!fout.is_open())
+		{
+			cout << "Can not open file" << endl;
+		}
+		else {
+			saveEditStudent(fout, a, NumofStu);
+			fout.close();
+		}
+	}
+	if (Pos == 10) {
+		ifstream fin;
+		ofstream fout;
+		int NumofStu = 0;
+
+		string ID;
+		fin.open("Student-19CLC8.txt");
+
+		if (!fin.is_open()) {
+			cout << "Can not open file" << endl;
+		}
+		else
+		{
+			LoadStudentinClass(fin, a, NumofStu);
+			EditExsitingStudent(ID, a, fin, NumofStu);
+		}
+		fin.close();
+		fout.open("Student-19CLC5.txt");
+		if (!fout.is_open())
+		{
+			cout << "Can not open file" << endl;
+		}
+		else {
+			saveEditStudent(fout, a, NumofStu);
+			fout.close();
+		}
+	}
+	if (Pos == 11) {
+		ifstream fin;
+		ofstream fout;
+		int NumofStu = 0;
+
+		string ID;
+		fin.open("Student-19CLC9.txt");
+
+		if (!fin.is_open()) {
+			cout << "Can not open file" << endl;
+		}
+		else
+		{
+			LoadStudentinClass(fin, a, NumofStu);
+			EditExsitingStudent(ID, a, fin, NumofStu);
+		}
+		fin.close();
+		fout.open("Student-19CLC5.txt");
+		if (!fout.is_open())
+		{
+			cout << "Can not open file" << endl;
+		}
+		else {
+			saveEditStudent(fout, a, NumofStu);
+			fout.close();
 		}
 	}
 }
