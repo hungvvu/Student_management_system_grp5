@@ -55,6 +55,7 @@ void LoadStudentinClass(ifstream& fin, Stu*& a, int& NumofStu) {
 
 void EditExsitingStudent(string ID, Stu*& a, ifstream& fin, int NumofStu) {
 	cout << "Enter student ID: ";
+	cin.ignore();
 	getline(cin, ID);
 	int i = 0;
 	while (a[i].ID != ID)
@@ -79,6 +80,7 @@ void EditExsitingStudent(string ID, Stu*& a, ifstream& fin, int NumofStu) {
 		getline(cin, a[i].Password);
 		cout << "Edit Date of birth of student(YY-MM-DD): ";
 		getline(cin, a[i].DoB);
+		cout << "\nEdit Successfully" << endl;
 	}
 }
 

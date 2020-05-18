@@ -72,7 +72,8 @@ void showmenu(int& choice1, int& choice2, string& Position, string& username, st
 				{
 						Stu* a;
 						string Class;
-						EditIntoFile(a,Class);	
+						EditIntoFile(a,Class);
+						showmenu(choice1, choice2, Position, username, password);
 				
 				}
 			
