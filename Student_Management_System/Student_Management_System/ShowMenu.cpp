@@ -17,7 +17,7 @@ int MenuStudent(int& choice2)
 int MenuStaff(int& choice2)
 {
 	cout << "\n-----MENU------\n";
-	cout << "0.Return\n1.Manully Add Student to a class\n2.Edit an existing student\n3.Remove a student\n4.Change Student's Class\n5.View list of classes\n6.View list of students in a class\n7.Change Password\n8.View Profile\n9.ImportSchedule\n";
+	cout << "0.Return\n1.Manully Add Student to a class\n2.Edit an existing student\n3.Remove a student\n4.Change Student's Class\n5.View list of classes\n6.View list of students in a class\n7.Change Password\n8.View Profile\n10.Import Course(Schedule)\n";
 	cin >> choice2;
 	return choice2;
 }
@@ -148,7 +148,7 @@ void showmenu(int& choice1, int& choice2, string& Position, string& username, st
 					showmenu(choice1, choice2, Position, username, password);
 				}
 
-				if (choice2 == 9)
+				if (choice2 == 10)
 				{
 					ifstream fin;
 					FileSchedule* s;

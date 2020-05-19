@@ -17,8 +17,12 @@ void LoadScheduleCsv(ifstream& fin,FileSchedule *&s,int &countcsv) {
 		getline(fin, s[i].LName, ',');
 		getline(fin, s[i].Ldegree, ',');
 		getline(fin, s[i].Lgender, ',');
-		getline(fin, s[i].startdate, ',');
-		getline(fin, s[i].enddate, ',');
+		getline(fin, s[i].startdateday, '/');
+		getline(fin, s[i].startdatemonth, '/');
+		getline(fin, s[i].startdateyear, ',');
+		getline(fin, s[i].enddateday, '/');
+		getline(fin, s[i].enddatemonth, '/');
+		getline(fin, s[i].enddateyear, ',');
 		getline(fin, s[i].dayofweek, ',');
 		getline(fin, s[i].starthour, ',');
 		getline(fin, s[i].startminute, ',');
@@ -26,6 +30,7 @@ void LoadScheduleCsv(ifstream& fin,FileSchedule *&s,int &countcsv) {
 		getline(fin, s[i].endminute, ',');
 		getline(fin, s[i].Room, '\n');
 		i++;
+		
 	}
 	countcsv = i;
 
@@ -43,8 +48,12 @@ void SaveSchedule(ofstream &fout, FileSchedule*& s,int &countcsv)
 		fout << s[i].LName << endl;
 		fout << s[i].Ldegree << endl;
 		fout << s[i].Lgender << endl;
-		fout << s[i].startdate << endl;
-		fout << s[i].enddate << endl;
+		fout << s[i].startdateday << " ";
+		fout << s[i].startdatemonth << " ";
+		fout << s[i].startdateyear << endl;
+		fout << s[i].enddateday << " ";
+		fout << s[i].enddatemonth << " ";
+		fout << s[i].enddateyear << endl;
 		fout << s[i].dayofweek << endl;
 		fout << s[i].starthour << endl;
 		fout << s[i].startminute << endl;
@@ -55,8 +64,12 @@ void SaveSchedule(ofstream &fout, FileSchedule*& s,int &countcsv)
 	}
 }
 
-void saveListOfStudent(ofstream& Schedule, Stu*& a, int &NumofStu)
+void saveListOfStudent(ofstream& Schedule, Stu*& a, int &NumofStu,int&j,FileSchedule* &s)
 {
+	int d1=0, d2=0;
+	int m1=0, m2=0;
+	int y1=0, y2=0;
+	int weekdays=0;
 	Schedule << NumofStu << endl;
 	for (int i = 0; i < NumofStu; i++)
 	{
@@ -68,6 +81,7 @@ void saveListOfStudent(ofstream& Schedule, Stu*& a, int &NumofStu)
 		Schedule << "-1" << endl;
 		Schedule << "-1" << endl;
 		Schedule << "-1"<<endl;
+		DateToFIle(Schedule, d1, d2, m1, m2, y1, y2, weekdays, s, j);
 		Schedule << endl;
 	}
 
@@ -125,16 +139,20 @@ void ImportSchedule(ifstream &fin,FileSchedule *&s,int &countcsv,ifstream &fin2,
 	fin2.open(Student_Class.c_str());
 	LoadStudentClass(fin2, a, NumofStu); // Read  file Student-19CLC5-txt
 	fin2.close();
-
+	int j;
 	for (int i = 0; i < countcsv-1; i++)
 	{
 		string filename;
 		filename = x + "-" + y + "-" + Class + "-" + s[i].courseID + "-Student.txt"; //2019-2020-HK2-19CLC5-CS1612-Student.txt or cm101
+		
+		j = i;
+
 		Schedule.open(filename.c_str());
 		if (!Schedule.is_open())
 			cout << "Cant open file:";
 		else {
-			saveListOfStudent(Schedule, a, NumofStu);
+			cout << j << "is" << s[j].enddateday << endl;
+			saveListOfStudent(Schedule, a, NumofStu,j,s);
 		}
 		Schedule.close();
 	}
