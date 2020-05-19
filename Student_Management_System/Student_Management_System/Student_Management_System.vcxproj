@@ -127,6 +127,7 @@
     <ClCompile Include="Change_Pass.cpp" />
     <ClCompile Include="Change_stu%27s_class.cpp" />
     <ClCompile Include="Edit_Exsiting_Student.cpp" />
+    <ClCompile Include="InputToFilename.cpp" />
     <ClCompile Include="Login.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Profile.cpp" />

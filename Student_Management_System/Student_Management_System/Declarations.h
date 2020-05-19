@@ -89,4 +89,8 @@ void ViewListOfClass(ifstream& fin, int& NumofClass, School*& a);
 int ViewStudent(string Class);
 int ViewStudentChoice();
 
+// Suport Function (Turn user input to file names)
+void OpenInputedClassFile();// function to test file open
+string FileName_Stu_Classes(string Class);// function to convert a class name to valid file name for class
+
 #endif

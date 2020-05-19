@@ -48,6 +48,9 @@
     <ClCompile Include="Remove_Stu.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="InputToFilename.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Declarations.h">
