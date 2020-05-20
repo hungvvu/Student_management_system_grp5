@@ -64,15 +64,46 @@ void SaveSchedule(ofstream &fout, FileSchedule*& s,int &countcsv)
 	}
 }
 
-void saveListOfStudent(ofstream& Schedule, Stu*& a, int &NumofStu,int&j,FileSchedule* &s)
+void saveListOfStudent(ofstream& Schedule, Stu*& a, int &NumofStu,int&j,FileSchedule* &s, int& d1, int& d2, int& m1, int& m2, int& y1, int& y2, int& weekdays)
 {
-	int d1=0, d2=0;
+	/*int d1=0, d2=0;
 	int m1=0, m2=0;
 	int y1=0, y2=0;
-	int weekdays=0;
+	int weekdays=0;*/
 	Schedule << NumofStu << endl;
 	for (int i = 0; i < NumofStu; i++)
 	{
+		int d1 = stoi(s[j].startdateday);
+		int m1 = stoi(s[j].startdatemonth);
+		int y1 = stoi(s[j].startdateyear);
+		int d2 = stoi(s[j].enddateday);
+		int m2 = stoi(s[j].enddatemonth);
+		int y2 = stoi(s[j].enddateyear);
+		int weekdays = 0;
+		if (s[j].dayofweek == "MON")
+		{
+			weekdays = 2;
+		}
+		if (s[j].dayofweek == "TUE")
+		{
+			weekdays = 3;
+		}
+		if (s[j].dayofweek == "WED")
+		{
+			weekdays = 4;
+		}
+		if (s[j].dayofweek == "THUR")
+		{
+			weekdays = 5;
+		}
+		if (s[j].dayofweek == "FRI")
+		{
+			weekdays = 6;
+		}
+		if (s[j].dayofweek == "SAT")
+		{
+			weekdays = 7;
+		}
 		Schedule << a[i].Fullname << endl;
 		Schedule << a[i].ID << endl;
 		Schedule << a[i].Password << endl;
@@ -82,6 +113,7 @@ void saveListOfStudent(ofstream& Schedule, Stu*& a, int &NumofStu,int&j,FileSche
 		Schedule << "-1" << endl;
 		Schedule << "-1"<<endl;
 		DateToFIle(Schedule, d1, d2, m1, m2, y1, y2, weekdays, s, j);
+		/*Schedule <<" "<< s[j].starthour << " " << s[j].startminute << " " << s[j].endhour << " " << s[j].endminute << " "<< "-1"<<endl;*/
 		Schedule << endl;
 	}
 
@@ -151,8 +183,39 @@ void ImportSchedule(ifstream &fin,FileSchedule *&s,int &countcsv,ifstream &fin2,
 		if (!Schedule.is_open())
 			cout << "Cant open file:";
 		else {
-			cout << j << "is" << s[j].enddateday << endl;
-			saveListOfStudent(Schedule, a, NumofStu,j,s);
+			int d1 = 0;
+			int m1 = 0;
+			int y1 = 0;
+			int d2 =0;
+			int m2 = 0;
+			int y2 = 0;
+			int weekdays = 0;
+			//if (s[j].dayofweek == "MON")
+			//{
+			//	weekdays = 2;
+			//}
+			//if (s[j].dayofweek == "TUE")
+			//{
+			//	weekdays = 3;
+			//}
+			//if (s[j].dayofweek == "WED")
+			//{
+			//	weekdays = 4;
+			//}
+			//if (s[j].dayofweek == "THUR")
+			//{
+			//	weekdays = 5;
+			//}
+			//if (s[j].dayofweek == "FRI")
+			//{
+			//	weekdays = 6;
+			//}
+			//if (s[j].dayofweek == "SAT")
+			//{
+			//	weekdays = 7;
+			//}
+			
+			saveListOfStudent(Schedule, a, NumofStu,j,s, d1, d2, m1, m2,y1, y2, weekdays);
 		}
 		Schedule.close();
 	}

@@ -92,15 +92,16 @@ void nextmonth(int& d1, int& m1, int& y1)
 		m1 += 1;
 	}
 }
-void DateToFIle(ofstream& fout, int& d1, int &d2, int& m1, int &m2, int& y1, int &y2, int& weekdays,FileSchedule *&s,int &j)//must include struct....
+void DateToFIle(ofstream& fout, int& d1, int &d2, int& m1, int &m2, int& y1, int &y2, int& weekdays,FileSchedule *&s,int &j)
 {
-	d1 = stoi(s[j].startdateday);
-	m1 = stoi(s[j].startdatemonth);
-	y1 = stoi(s[j].startdateyear);
-	d2 = stoi(s[j].enddateday);
-	m2 = stoi(s[j].enddatemonth);
-	y2 = stoi(s[j].enddateyear);
-	if (s[j].dayofweek == "MON")
+	
+	//d1 = stoi(s[j].startdateday);
+	//m1 = stoi(s[j].startdatemonth);
+	//y1 = stoi(s[j].startdateyear);
+	//d2 = stoi(s[j].enddateday);
+	//m2 = stoi(s[j].enddatemonth);
+	//y2 = stoi(s[j].enddateyear);
+	/*if (s[j].dayofweek == "MON")
 	{
 		weekdays = 2;
 	}
@@ -123,7 +124,7 @@ void DateToFIle(ofstream& fout, int& d1, int &d2, int& m1, int &m2, int& y1, int
 	if (s[j].dayofweek == "Sat")
 	{
 		weekdays = 7;
-	}
+	}*/
 	switch (weekdays)
 	{
 	case 2: {
@@ -155,31 +156,31 @@ void DateToFIle(ofstream& fout, int& d1, int &d2, int& m1, int &m2, int& y1, int
 			{
 				d1 += 7;
 				nextmonth(d1, m1, y1);
-				fout << d1 << " " << m1 << " " << y1 << endl;
+				fout << d1 << " " << m1 << " " << y1 << " " << s[j].starthour << " " << s[j].startminute << " " << s[j].endhour << " " << s[j].endminute << " " << "-1" << endl;
 			}
 			if (get_day(d1, m1, y1) == "Thu 3")
 			{
 				d1 += 6;
 				nextmonth(d1, m1, y1);
-				fout << d1 << " " << m1 << " " << y1 << endl;
+				fout << d1 << " " << m1 << " " << y1 << " " << s[j].starthour << " " << s[j].startminute << " " << s[j].endhour << " " << s[j].endminute << " " << "-1" << endl;
 			}
 			if (get_day(d1, m1, y1) == "Thu 4")
 			{
 				d1 += 5;
 				nextmonth(d1, m1, y1);
-				fout << d1 << " " << m1 << " " << y1 << endl;
+				fout << d1 << " " << m1 << " " << y1 << " " << s[j].starthour << " " << s[j].startminute << " " << s[j].endhour << " " << s[j].endminute << " " << "-1" << endl;
 			}
 			if (get_day(d1, m1, y1) == "Thu 5")
 			{
 				d1 += 4;
 				nextmonth(d1, m1, y1);
-				fout << d1 << " " << m1 << " " << y1 << endl;
+				fout << d1 << " " << m1 << " " << y1 << " " << s[j].starthour << " " << s[j].startminute << " " << s[j].endhour << " " << s[j].endminute << " " << "-1" << endl;
 			}
 			if (get_day(d1, m1, y1) == "Thu 6")
 			{
 				d1 += 3;
 				nextmonth(d1, m1, y1);
-				fout << d1 << " " << m1 << " " << y1 << endl;
+				fout << d1 << " " << m1 << " " << y1 << " " << s[j].starthour << " " << s[j].startminute << " " << s[j].endhour << " " << s[j].endminute << " " << "-1" << endl;
 			}
 			if (get_day(d1, m1, y1) == "Thu 7")
 			{
@@ -207,7 +208,7 @@ void DateToFIle(ofstream& fout, int& d1, int &d2, int& m1, int &m2, int& y1, int
 			{
 				d1 += 1;
 				nextmonth(d1, m1, y1);
-				fout << d1 << " " << m1 << " " << y1 << endl;
+				fout << d1 << " " << m1 << " " << y1 << " " << s[j].starthour << " " << s[j].startminute << " " << s[j].endhour << " " << s[j].endminute << " " << "-1" << endl;
 			}
 			if (/*d1 <= d2 && y1 <= y2 && m1 <= m2*/d1 >= d2 && y1 == y2 && m1 == m2)
 			{
@@ -246,37 +247,37 @@ void DateToFIle(ofstream& fout, int& d1, int &d2, int& m1, int &m2, int& y1, int
 			{
 				d1 += 1;
 				nextmonth(d1, m1, y1);
-				fout << d1 << " " << m1 << " " << y1 << endl;
+				fout << d1 << " " << m1 << " " << y1 << " " << s[j].starthour << " " << s[j].startminute << " " << s[j].endhour << " " << s[j].endminute << " " << "-1" << endl;
 			}
 			if (get_day(d1, m1, y1) == "Thu 3")
 			{
 				d1 += 7;
 				nextmonth(d1, m1, y1);
-				fout << d1 << " " << m1 << " " << y1 << endl;
+				fout << d1 << " " << m1 << " " << y1 << " " << s[j].starthour << " " << s[j].startminute << " " << s[j].endhour << " " << s[j].endminute << " " << "-1" << endl;
 			}
 			if (get_day(d1, m1, y1) == "Thu 4")
 			{
 				d1 += 6;
 				nextmonth(d1, m1, y1);
-				fout << d1 << " " << m1 << " " << y1 << endl;
+				fout << d1 << " " << m1 << " " << y1 << " " << s[j].starthour << " " << s[j].startminute << " " << s[j].endhour << " " << s[j].endminute << " " << "-1" << endl;
 			}
 			if (get_day(d1, m1, y1) == "Thu 5")
 			{
 				d1 += 5;
 				nextmonth(d1, m1, y1);
-				fout << d1 << " " << m1 << " " << y1 << endl;
+				fout << d1 << " " << m1 << " " << y1 << " " << s[j].starthour << " " << s[j].startminute << " " << s[j].endhour << " " << s[j].endminute << " " << "-1" << endl;
 			}
 			if (get_day(d1, m1, y1) == "Thu 6")
 			{
 				d1 += 4;
 				nextmonth(d1, m1, y1);
-				fout << d1 << " " << m1 << " " << y1 << endl;
+				fout << d1 << " " << m1 << " " << y1 << " " << s[j].starthour << " " << s[j].startminute << " " << s[j].endhour << " " << s[j].endminute << " " << "-1" << endl;
 			}
 			if (get_day(d1, m1, y1) == "Thu 7")
 			{
 				d1 += 3;
 				nextmonth(d1, m1, y1);
-				fout << d1 << " " << m1 << " " << y1 << endl;
+				fout << d1 << " " << m1 << " " << y1 << " " << s[j].starthour << " " << s[j].startminute << " " << s[j].endhour << " " << s[j].endminute << " " << "-1" << endl;
 			}
 			if (get_day(d1, m1, y1) == "Chu nhat")
 			{
@@ -359,37 +360,37 @@ void DateToFIle(ofstream& fout, int& d1, int &d2, int& m1, int &m2, int& y1, int
 			{
 				d1 += 1;
 				nextmonth(d1, m1, y1);
-				fout << d1 << " " << m1 << " " << y1 << endl;
+				fout << d1 << " " << m1 << " " << y1 << " " << s[j].starthour << " " << s[j].startminute << " " << s[j].endhour << " " << s[j].endminute << " " << "-1" << endl;
 			}
 			if (get_day(d1, m1, y1) == "Thu 4")
 			{
 				d1 += 7;
 				nextmonth(d1, m1, y1);
-				fout << d1 << " " << m1 << " " << y1 << endl;
+				fout << d1 << " " << m1 << " " << y1 << " " << s[j].starthour << " " << s[j].startminute << " " << s[j].endhour << " " << s[j].endminute << " " << "-1" << endl;
 			}
 			if (get_day(d1, m1, y1) == "Thu 5")
 			{
 				d1 += 6;
 				nextmonth(d1, m1, y1);
-				fout << d1 << " " << m1 << " " << y1 << endl;
+				fout << d1 << " " << m1 << " " << y1 << " " << s[j].starthour << " " << s[j].startminute << " " << s[j].endhour << " " << s[j].endminute << " " << "-1" << endl;
 			}
 			if (get_day(d1, m1, y1) == "Thu 6")
 			{
 				d1 += 5;
 				nextmonth(d1, m1, y1);
-				fout << d1 << " " << m1 << " " << y1 << endl;
+				fout << d1 << " " << m1 << " " << y1 << " " << s[j].starthour << " " << s[j].startminute << " " << s[j].endhour << " " << s[j].endminute << " " << "-1" << endl;
 			}
 			if (get_day(d1, m1, y1) == "Thu 7")
 			{
 				d1 += 4;
 				nextmonth(d1, m1, y1);
-				fout << d1 << " " << m1 << " " << y1 << endl;
+				fout << d1 << " " << m1 << " " << y1 << " " << s[j].starthour << " " << s[j].startminute << " " << s[j].endhour << " " << s[j].endminute << " " << "-1" << endl;
 			}
 			if (get_day(d1, m1, y1) == "Chu nhat")
 			{
 				d1 += 3;
 				nextmonth(d1, m1, y1);
-				fout << d1 << " " << m1 << " " << y1 << endl;
+				fout << d1 << " " << m1 << " " << y1 << " " << s[j].starthour << " " << s[j].startminute << " " << s[j].endhour << " " << s[j].endminute << " " << "-1" << endl;
 			}
 			if (d1 >= d2 && y1 == y2 && m1 == m2)
 			{
@@ -428,7 +429,7 @@ void DateToFIle(ofstream& fout, int& d1, int &d2, int& m1, int &m2, int& y1, int
 			{
 				d1 += 3;
 				nextmonth(d1, m1, y1);
-				fout << d1 << " " << m1 << " " << y1 << endl;
+				fout << d1 << " " << m1 << " " << y1 << " " << s[j].starthour << " " << s[j].startminute << " " << s[j].endhour << " " << s[j].endminute << " " << "-1" << endl;
 			}
 			if (get_day(d1, m1, y1) == "Thu 3")
 			{
@@ -456,31 +457,31 @@ void DateToFIle(ofstream& fout, int& d1, int &d2, int& m1, int &m2, int& y1, int
 			{
 				d1 += 1;
 				nextmonth(d1, m1, y1);
-				fout << d1 << " " << m1 << " " << y1 << endl;
+				fout << d1 << " " << m1 << " " << y1 << " " << s[j].starthour << " " << s[j].startminute << " " << s[j].endhour << " " << s[j].endminute << " " << "-1" << endl;
 			}
 			if (get_day(d1, m1, y1) == "Thu 5")
 			{
 				d1 += 7;
 				nextmonth(d1, m1, y1);
-				fout << d1 << " " << m1 << " " << y1 << endl;
+				fout << d1 << " " << m1 << " " << y1 << " " << s[j].starthour << " " << s[j].startminute << " " << s[j].endhour << " " << s[j].endminute << " " << "-1" << endl;
 			}
 			if (get_day(d1, m1, y1) == "Thu 6")
 			{
 				d1 += 6;
 				nextmonth(d1, m1, y1);
-				fout << d1 << " " << m1 << " " << y1 << endl;
+				fout << d1 << " " << m1 << " " << y1 << " " << s[j].starthour << " " << s[j].startminute << " " << s[j].endhour << " " << s[j].endminute << " " << "-1" << endl;
 			}
 			if (get_day(d1, m1, y1) == "Thu 7")
 			{
 				d1 += 5;
 				nextmonth(d1, m1, y1);
-				fout << d1 << " " << m1 << " " << y1 << endl;
+				fout << d1 << " " << m1 << " " << y1 << " " << s[j].starthour << " " << s[j].startminute << " " << s[j].endhour << " " << s[j].endminute << " " << "-1" << endl;
 			}
 			if (get_day(d1, m1, y1) == "Chu nhat")
 			{
 				d1 += 4;
 				nextmonth(d1, m1, y1);
-				fout << d1 << " " << m1 << " " << y1 << endl;
+				fout << d1 << " " << m1 << " " << y1 << " " << s[j].starthour << " " << s[j].startminute << " " << s[j].endhour << " " << s[j].endminute << " " << "-1" << endl;
 			}
 			if (d1 >= d2 && y1 == y2 && m1 == m2)
 			{
@@ -519,13 +520,13 @@ void DateToFIle(ofstream& fout, int& d1, int &d2, int& m1, int &m2, int& y1, int
 			{
 				d1 += 4;
 				nextmonth(d1, m1, y1);
-				fout << d1 << " " << m1 << " " << y1 << endl;
+				fout << d1 << " " << m1 << " " << y1 << " " << s[j].starthour << " " << s[j].startminute << " " << s[j].endhour << " " << s[j].endminute << " " << "-1" << endl;
 			}
 			if (get_day(d1, m1, y1) == "Thu 3")
 			{
 				d1 += 3;
 				nextmonth(d1, m1, y1);
-				fout << d1 << " " << m1 << " " << y1 << endl;
+				fout << d1 << " " << m1 << " " << y1 << " " << s[j].starthour << " " << s[j].startminute << " " << s[j].endhour << " " << s[j].endminute << " " << "-1" << endl;
 			}
 			if (get_day(d1, m1, y1) == "Thu 4")
 			{
@@ -553,13 +554,13 @@ void DateToFIle(ofstream& fout, int& d1, int &d2, int& m1, int &m2, int& y1, int
 			{
 				d1 += 1;
 				nextmonth(d1, m1, y1);
-				fout << d1 << " " << m1 << " " << y1 << endl;
+				fout << d1 << " " << m1 << " " << y1 << " " << s[j].starthour << " " << s[j].startminute << " " << s[j].endhour << " " << s[j].endminute << " " << "-1" << endl;
 			}
 			if (get_day(d1, m1, y1) == "Thu 6")
 			{
 				d1 += 7;
 				nextmonth(d1, m1, y1);
-				fout << d1 << " " << m1 << " " << y1 << endl;
+				fout << d1 << " " << m1 << " " << y1 << " " << s[j].starthour << " " << s[j].startminute << " " << s[j].endhour << " " << s[j].endminute << " " << "-1" << endl;
 			}
 			if (get_day(d1, m1, y1) == "Thu 7")
 			{
@@ -610,19 +611,19 @@ void DateToFIle(ofstream& fout, int& d1, int &d2, int& m1, int &m2, int& y1, int
 			{
 				d1 += 5;
 				nextmonth(d1, m1, y1);
-				fout << d1 << " " << m1 << " " << y1 << endl;
+				fout << d1 << " " << m1 << " " << y1 << " " << s[j].starthour << " " << s[j].startminute << " " << s[j].endhour << " " << s[j].endminute << " " << "-1" << endl;
 			}
 			if (get_day(d1, m1, y1) == "Thu 3")
 			{
 				d1 += 4;
 				nextmonth(d1, m1, y1);
-				fout << d1 << " " << m1 << " " << y1 << endl;
+				fout << d1 << " " << m1 << " " << y1 << " " << s[j].starthour << " " << s[j].startminute << " " << s[j].endhour << " " << s[j].endminute << " " << "-1" << endl;
 			}
 			if (get_day(d1, m1, y1) == "Thu 4")
 			{
 				d1 += 3;
 				nextmonth(d1, m1, y1);
-				fout << d1 << " " << m1 << " " << y1 << endl;
+				fout << d1 << " " << m1 << " " << y1 << " " << s[j].starthour << " " << s[j].startminute << " " << s[j].endhour << " " << s[j].endminute << " " << "-1" << endl;
 			}
 			if (get_day(d1, m1, y1) == "Thu 5")
 			{
@@ -650,19 +651,19 @@ void DateToFIle(ofstream& fout, int& d1, int &d2, int& m1, int &m2, int& y1, int
 			{
 				d1 += 1;
 				nextmonth(d1, m1, y1);
-				fout << d1 << " " << m1 << " " << y1 << endl;
+				fout << d1 << " " << m1 << " " << y1 << " " << s[j].starthour << " " << s[j].startminute << " " << s[j].endhour << " " << s[j].endminute << " " << "-1" << endl;
 			}
 			if (get_day(d1, m1, y1) == "Thu 7")
 			{
 				d1 += 7;
 				nextmonth(d1, m1, y1);
-				fout << d1 << " " << m1 << " " << y1 << endl;
+				fout << d1 << " " << m1 << " " << y1 << " " << s[j].starthour << " " << s[j].startminute << " " << s[j].endhour << " " << s[j].endminute << " " << "-1" << endl;
 			}
 			if (get_day(d1, m1, y1) == "Chu nhat")
 			{
 				d1 += 6;
 				nextmonth(d1, m1, y1);
-				fout << d1 << " " << m1 << " " << y1 << endl;
+				fout << d1 << " " << m1 << " " << y1 << " " << s[j].starthour << " " << s[j].startminute << " " << s[j].endhour << " " << s[j].endminute << " " << "-1" << endl;
 			}
 			if (d1 >= d2 && y1 == y2 && m1 == m2)
 			{
