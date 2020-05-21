@@ -77,7 +77,7 @@ void EditExsitingStudent(string ID, Stu*& a, ifstream& fin, int NumofStu) {
 		getline(cin, a[i].ID);
 		cout << "Edit Password of student: ";//in case when student forget password so staff can help
 		getline(cin, a[i].Password);
-		cout << "Edit Date of birth of student(YY-MM-DD): ";
+		cout << "Edit Date of birth of student(YYYY-MM-DD): ";
 		getline(cin, a[i].DoB);
 		cout << "\nEdit Successfully"<<endl;
 	}
@@ -119,7 +119,7 @@ void EditIntoFile(Stu*& a, string Class)
 			EditExsitingStudent(ID, a, fin, NumofStu);
 		}
 		fin.close();
-		fout.open("Student-19CLC5.txt");
+		fout.open("Student-19APCS1.txt");
 		if (!fout.is_open())
 		{
 			cout << "Can not open file" << endl;
@@ -147,7 +147,7 @@ void EditIntoFile(Stu*& a, string Class)
 			EditExsitingStudent(ID, a, fin, NumofStu);
 		}
 		fin.close();
-		fout.open("Student-19CLC5.txt");
+		fout.open("Student-19APCS2.txt");
 		if (!fout.is_open())
 		{
 			cout << "Can not open file" << endl;
@@ -175,7 +175,7 @@ void EditIntoFile(Stu*& a, string Class)
 			EditExsitingStudent(ID, a, fin, NumofStu);
 		}
 		fin.close();
-		fout.open("Student-19CLC5.txt");
+		fout.open("Student-19CLC1.txt");
 		if (!fout.is_open())
 		{
 			cout << "Can not open file" << endl;
@@ -203,7 +203,7 @@ void EditIntoFile(Stu*& a, string Class)
 			EditExsitingStudent(ID, a, fin, NumofStu);
 		}
 		fin.close();
-		fout.open("Student-19CLC5.txt");
+		fout.open("Student-19CLC2.txt");
 		if (!fout.is_open())
 		{
 			cout << "Can not open file" << endl;
@@ -231,7 +231,7 @@ void EditIntoFile(Stu*& a, string Class)
 			EditExsitingStudent(ID, a, fin, NumofStu);
 		}
 		fin.close();
-		fout.open("Student-19CLC5.txt");
+		fout.open("Student-19CLC3.txt");
 		if (!fout.is_open())
 		{
 			cout << "Can not open file" << endl;
@@ -259,7 +259,7 @@ void EditIntoFile(Stu*& a, string Class)
 			EditExsitingStudent(ID, a, fin, NumofStu);
 		}
 		fin.close();
-		fout.open("Student-19CLC5.txt");
+		fout.open("Student-19CLC4.txt");
 		if (!fout.is_open())
 		{
 			cout << "Can not open file" << endl;
@@ -314,7 +314,7 @@ void EditIntoFile(Stu*& a, string Class)
 			EditExsitingStudent(ID, a, fin, NumofStu);
 		}
 		fin.close();
-		fout.open("Student-19CLC5.txt");
+		fout.open("Student-19CLC6.txt");
 		if (!fout.is_open())
 		{
 			cout << "Can not open file" << endl;
@@ -341,7 +341,7 @@ void EditIntoFile(Stu*& a, string Class)
 			EditExsitingStudent(ID, a, fin, NumofStu);
 		}
 		fin.close();
-		fout.open("Student-19CLC5.txt");
+		fout.open("Student-19CLC7.txt");
 		if (!fout.is_open())
 		{
 			cout << "Can not open file" << endl;
@@ -368,7 +368,7 @@ void EditIntoFile(Stu*& a, string Class)
 			EditExsitingStudent(ID, a, fin, NumofStu);
 		}
 		fin.close();
-		fout.open("Student-19CLC5.txt");
+		fout.open("Student-19CLC8.txt");
 		if (!fout.is_open())
 		{
 			cout << "Can not open file" << endl;
@@ -395,7 +395,7 @@ void EditIntoFile(Stu*& a, string Class)
 			EditExsitingStudent(ID, a, fin, NumofStu);
 		}
 		fin.close();
-		fout.open("Student-19CLC5.txt");
+		fout.open("Student-19CLC9.txt");
 		if (!fout.is_open())
 		{
 			cout << "Can not open file" << endl;
