@@ -141,30 +141,10 @@ void EditIntoFile(Stu*& a, string Class)
 	cout << "Enter class of Student:" << endl;
 	cin >> Class;
 	int Pos = ClassPos(Class);
-	switch (Pos) {
-		/*********************************************************
-		other case will be filled in later,
-		this version use case 7 (19CLC5) just to test the function
-		*********************************************************/
-		/*case 1: {
+	string k = "Student-" + Class + ".txt";
+	//switch (Pos) {
 
-		}
-		case 2: {
-
-		}
-		case 3: {
-
-		}
-		case 4: {
-
-		}
-		case 5: {
-
-		}
-		case 6: {
-
-		}*/
-	case 7: {
+	//case 7: {
 		string ID;
 		cout << "Enter student ID: ";
 		cin.ignore();
@@ -176,7 +156,7 @@ void EditIntoFile(Stu*& a, string Class)
 		int NumofStu = 0;
 
 		/*string ID;*/
-		fin.open("Student-19CLC5.txt");
+		fin.open(k.c_str());
 
 		if (!fin.is_open()) {
 			cout << "Can not open file" << endl;
@@ -187,7 +167,7 @@ void EditIntoFile(Stu*& a, string Class)
 			EditExsitingStudent(ID, a, fin, NumofStu,x);
 		}
 		fin.close();
-		fout.open("Student-19CLC5.txt");
+		fout.open(k.c_str());
 		if (!fout.is_open())
 		{
 			cout << "Can not open file" << endl;
@@ -220,6 +200,6 @@ void EditIntoFile(Stu*& a, string Class)
 			}
 		}
 	}
-	}
-}
+//	/*}*/
+//}
 
