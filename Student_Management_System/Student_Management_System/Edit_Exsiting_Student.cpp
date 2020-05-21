@@ -68,7 +68,7 @@ void EditExsitingStudent(string &ID, Stu*& a, ifstream& fin, int NumofStu,int &x
 	}
 	if (i > NumofStu)
 	{
-		cout << "Cant not find student. Enter random number to retry: ";
+		cout << "Cant not find student. Enter 1 to retry: ";
 		
 		cin.ignore();
 		cout << "Enter student ID: ";
