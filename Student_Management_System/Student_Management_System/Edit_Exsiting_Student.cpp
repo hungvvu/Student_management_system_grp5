@@ -53,10 +53,10 @@ void LoadStudentinClass(ifstream& fin, Stu*& a, int& NumofStu) {
 }
 
 
-void EditExsitingStudent(string ID, Stu*& a, ifstream& fin, int NumofStu) {
-	cout << "Enter student ID: ";
-	cin.ignore();
-	getline(cin, ID);
+void EditExsitingStudent(string &ID, Stu*& a, ifstream& fin, int NumofStu,int &x) {
+	//cout << "Enter student ID: ";
+	//cin.ignore();
+	//getline(cin, ID);
 	int i = 0;
 	while (a[i].ID != ID)
 	{
@@ -68,17 +68,23 @@ void EditExsitingStudent(string ID, Stu*& a, ifstream& fin, int NumofStu) {
 	}
 	if (i > NumofStu)
 	{
-		cout << "Cant not find student" << endl;
-		EditExsitingStudent(ID, a, fin, NumofStu);
+		cout << "Cant not find student. Enter random number to retry: ";
+		
+		cin.ignore();
+		cout << "Enter student ID: ";
+		cin.ignore();
+		getline(cin, ID);
+		EditExsitingStudent(ID, a, fin, NumofStu,x);
 	}
 	else {
+		int x = i; //Save x for later
 		cout << "Edit Name of student: ";
 		getline(cin, a[i].Fullname);
 		cout << "Edit ID of student: ";
 		getline(cin, a[i].ID);
 		cout << "Edit Password of student: ";//in case when student forget password so staff can help
 		getline(cin, a[i].Password);
-		cout << "Edit Date of birth of student(YY-MM-DD): ";
+		cout << "Edit Date of birth of student(YYYY-MM-DD): ";
 		getline(cin, a[i].DoB);
 		cout << "\nEdit Successfully" << endl;
 	}
@@ -98,8 +104,40 @@ void save(ofstream& fout, Stu*& a, int NumofStu)
 
 }
 
+void save2(ofstream& fout2, Stu*& a, int NumofStu, string& ID, Stu*& b, int x)
+{
+	int k=0;
+	while (b[k].ID != ID)
+	{
+		k++;
+		if (k > NumofStu)
+		{
+			break;
+		}
+	}
+	b[k].Fullname=a[x].Fullname;
+	b[k].ID = a[x].ID;
+	b[k].Password = a[x].Password;
+	b[k].DoB = a[x].DoB;
+	
+
+	
+
+	fout2 << NumofStu << endl;//stream ko cho phep copy
+	for (int i = 0; i < NumofStu; i++)
+	{
+		fout2 << b[i].Fullname << endl;
+		fout2 << b[i].ID << endl;
+		fout2 << b[i].Password << endl;
+		fout2 << b[i].DoB << endl;
+		fout2 << b[i].Class << endl;
+		fout2 << endl;
+	}
+}
+
 void EditIntoFile(Stu*& a, string Class)
 {
+	int x = 0;
 	cout << "Enter class of Student:" << endl;
 	cin >> Class;
 	int Pos = ClassPos(Class);
@@ -127,11 +165,17 @@ void EditIntoFile(Stu*& a, string Class)
 
 		}*/
 	case 7: {
+		string ID;
+		cout << "Enter student ID: ";
+		cin.ignore();
+		getline(cin, ID);
+
+		
 		ifstream fin;
 		ofstream fout;
 		int NumofStu = 0;
 
-		string ID;
+		/*string ID;*/
 		fin.open("Student-19CLC5.txt");
 
 		if (!fin.is_open()) {
@@ -140,7 +184,7 @@ void EditIntoFile(Stu*& a, string Class)
 		else
 		{
 			LoadStudentinClass(fin, a, NumofStu);
-			EditExsitingStudent(ID, a, fin, NumofStu);
+			EditExsitingStudent(ID, a, fin, NumofStu,x);
 		}
 		fin.close();
 		fout.open("Student-19CLC5.txt");
@@ -151,6 +195,29 @@ void EditIntoFile(Stu*& a, string Class)
 		else {
 			save(fout, a, NumofStu);
 			fout.close();
+
+
+
+			ifstream fin2;
+			ofstream fout2;
+			Stu* b;
+			fin2.open("Student.txt");
+			if (!fin2.is_open())
+			{
+				cout << "Can not open file" << endl;
+			}
+			else {
+				LoadStudent(fin2, b, NumofStu);
+				fout2.open("Student.txt");
+				if (!fout2.is_open())
+				{
+					cout << "Can not open file" << endl;
+				}
+				else {
+					save2(fout2, a, NumofStu, ID, b, x);
+
+				}
+			}
 		}
 	}
 	}

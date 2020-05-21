@@ -1,4 +1,4 @@
-2
+3
 Vu Viet Hung
 19127155
 o
@@ -10,3 +10,10 @@ Nguyen Van A
 ThisIsNew
 2001-04-01
 19CLC6
+
+Van Dinh Khoi
+19127454
+khoinumber2
+2001-08-04
+19CLC5
+
