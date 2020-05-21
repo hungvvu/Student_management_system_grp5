@@ -48,6 +48,9 @@
     <ClCompile Include="Remove_Stu.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Create_semester.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Declarations.h">
@@ -71,6 +74,9 @@
       <Filter>Source Files</Filter>
     </Text>
     <Text Include="Class.txt">
+      <Filter>Source Files</Filter>
+    </Text>
+    <Text Include="Semester.txt">
       <Filter>Source Files</Filter>
     </Text>
   </ItemGroup>

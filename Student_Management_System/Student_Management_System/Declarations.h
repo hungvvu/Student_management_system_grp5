@@ -89,4 +89,8 @@ void ViewListOfClass(ifstream& fin, int& NumofClass, School*& a);
 int ViewStudent(string Class);
 int ViewStudentChoice();
 
+// Function 3.1 (Create new semester)
+bool New_Semester();
+string Cur_Semester();
+
 #endif
