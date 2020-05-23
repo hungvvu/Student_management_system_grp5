@@ -68,9 +68,10 @@ int AddStuManually();
 
 // Function 2.3(Edit An Exsitng Student)
 void LoadStudentinClass(ifstream& fin, Stu*& a, int& NumofStu);
-void EditExsitingStudent(string ID, Stu*& a, ifstream& fin, int NumofStu);
-void saveEditStudent(ofstream& fout, Stu*& a, int NumofStu);
+void EditExsitingStudent(string& ID, Stu*& a, ifstream& fin, int NumofStu, int& x);
+void save(ofstream& fout, Stu*& a, int NumofStu);
 void EditIntoFile(Stu*& a, string Class);
+void save2(ofstream& fout2, Stu*& a, int NumofStu, string& ID, Stu*& b, int x);
 
 //Function 2.4 (Remove a student)
 bool Remove_Student();
