@@ -169,7 +169,7 @@ void ImportSchedule(ifstream &fin,FileSchedule *&s,int &countcsv,ifstream &fin2,
 	string Student_Class;
 	Student_Class = "Student-" + Class + ".txt";
 	fin2.open(Student_Class.c_str());
-	LoadStudentinClass(fin2, a, NumofStu); // Read  file Student-19CLC5-txt
+	LoadStudentClass(fin2, a, NumofStu); // Read  file Student-19CLC5-txt
 	fin2.close();
 	int j;
 	for (int i = 0; i < countcsv-1; i++)
