@@ -56,7 +56,7 @@ void LoadScheduleCsv(ifstream& fin, FileSchedule*& s, int& countcsv) {
 
 void SaveSchedule(ofstream& fout, FileSchedule*& s, int& countcsv)
 {
-	for (int i = 0; i < countcsv - 1; i++)
+	for (int i = 0; i < countcsv ; i++)
 	{
 		fout << s[i].No << endl;
 		fout << s[i].courseID << endl;
