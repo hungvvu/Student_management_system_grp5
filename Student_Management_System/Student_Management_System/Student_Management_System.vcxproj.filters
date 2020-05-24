@@ -86,4 +86,9 @@
       <Filter>Source Files</Filter>
     </Text>
   </ItemGroup>
+  <ItemGroup>
+    <None Include="19CLC5-Schedule.csv">
+      <Filter>Source Files</Filter>
+    </None>
+  </ItemGroup>
 </Project>

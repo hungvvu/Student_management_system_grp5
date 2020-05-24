@@ -190,7 +190,7 @@ void ImportSchedule(ifstream& fin, FileSchedule*& s, int& countcsv, ifstream& fi
 	LoadStudentClass(fin2, a, NumofStu); // Read  file Student-19CLC5-txt
 	fin2.close();
 	int j;
-	for (int i = 0; i < countcsv - 1; i++)
+	for (int i = 0; i < countcsv ; i++)
 	{
 		string filename;
 		filename = x + "-" + y + "-" + Class + "-" + s[i].courseID + "-Student.txt"; //2019-2020-HK2-19CLC5-CS1612-Student.txt or cm101
