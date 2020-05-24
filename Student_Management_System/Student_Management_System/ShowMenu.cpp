@@ -165,6 +165,15 @@ void showmenu(int& choice1, int& choice2, string& Position, string& username, st
 					ImportSchedule(fin, s, countcsv, fin2, a, NumofStu);
 					showmenu(choice1, choice2, Position, username, password);
 				}
+
+				if (choice2 == 13)
+				{
+					FileSchedule *s;
+					int counts;
+					string k;
+					RemoveCourse( s,counts,k);
+					showmenu(choice1, choice2, Position, username, password);
+				}
 			}
 
 		{
