@@ -51,6 +51,12 @@
     <ClCompile Include="Create_semester.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="DateFunction.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Import_Course_Schedule.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Declarations.h">

@@ -35,6 +35,28 @@ struct School
 	string Class;
 };
 
+struct FileSchedule {
+	string No;
+	string courseID;
+	string courseName;
+	string Class;
+	string LUser;
+	string LName;
+	string Ldegree;
+	string Lgender;
+	string startdateday;
+	string startdatemonth;
+	string startdateyear;
+	string enddateday;
+	string enddatemonth;
+	string enddateyear;
+	string dayofweek;
+	string starthour;
+	string startminute;
+	string endhour;
+	string endminute;
+	string Room;
+};
 
 int mainmenu(int& choice1);
 
@@ -93,5 +115,20 @@ int ViewStudentChoice();
 // Function 3.1 (Create new semester)
 bool New_Semester();
 string Cur_Semester();
+
+// Function 3.2(Import Schedule)
+void LoadStudentClass(ifstream& fin, Stu*& a, int& NumofStu);
+void LoadScheduleCsv(ifstream& fin, FileSchedule*& s, int& countcsv);
+void ImportSchedule(ifstream& fin, FileSchedule*& s, int& countcsv, ifstream& fin2, Stu*& a, int& NumofStu);
+void SaveSchedule(ofstream& fout, FileSchedule*& s, int& countcsv);
+void saveListOfStudent(ofstream& Schedule, Stu*& a, int& NumofStu, int& j, FileSchedule*& s, int& d1, int& d2, int& m1, int& m2, int& y1, int& y2, int& weekdays);
+
+bool check_date(int day, int month);
+bool check_month(int month);
+bool check_year(int year);
+bool check_leap_year(int year);
+const char* get_day(int day, int month, int year);
+void nextmonth(int& d1, int& m1, int& y1);
+void DateToFIle(ofstream& fout, int& d1, int& d2, int& m1, int& m2, int& y1, int& y2, int& weekdays, FileSchedule*& s, int& j);
 
 #endif
