@@ -140,4 +140,8 @@ void Load_Schedule_txt(ifstream& fin, FileSchedule*& s,int &counts);
 void RemoveCourseInSchedule(string& CourseID, FileSchedule*& s, int& counts,string &k, ofstream& fout);
 void RemoveCourse(FileSchedule*& s, int& counts,string&k);
 
+//Function 3.8 (View List of course)
+void Load_Schedule_txt(ifstream& fin, FileSchedule*& s, int& counts);
+void View_List_Of_Course(FileSchedule*& s, int& counts);
+
 #endif
