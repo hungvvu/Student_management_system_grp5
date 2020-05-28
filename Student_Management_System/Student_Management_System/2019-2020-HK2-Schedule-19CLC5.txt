@@ -1,19 +1,19 @@
 1
 CS162
-Introduction to Programming
+Introduction to flying
 19CLC5
-dbtien
-Dinh Ba Tien
-TS
-Male
-4 6 2020
-30 11 2020
-MON
-7
+Test User with a lot of spaces
+Test Name with a lot of spaces
+test degree with ...
+test gender to lazy to type
+9 6 2020
+1 12 2020
+WEN
+9
 30
 11
 30
-I42
+I4444
 
 2
 CM101

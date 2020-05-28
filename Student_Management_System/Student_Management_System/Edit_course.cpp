@@ -121,13 +121,14 @@ void editCourseField(FileSchedule& course, int choice) {
 	}
 }
 
-void EditCourseArray(FileSchedule*& courses, int n) {
+int EditCourseArray(FileSchedule*& courses, int n, string& oldID) {
 	bool found = false;
 	do {
 		string ID;
 		cout << "enter course ID to edit: ";
 		cin >> ID;
 		cout << endl;
+		oldID = ID;// save the old ID in case of edit the ID
 
 		for (int i = 0; i < n && !found; ++i) {// find the course in the array to edit
 			if (courses[i].courseID == ID) {
@@ -165,7 +166,7 @@ void EditCourseArray(FileSchedule*& courses, int n) {
 				} while (choice != 0);
 			}
 			if (found)// found and edited the chosen course, exit this function
-				return;
+				return i;// return the index of the course in the array
 		}
 		// can't find course, ask user to re-enter
 		cout << "cannot find the course, please check your input" << endl;
@@ -210,6 +211,7 @@ void EditCourse() {
 	string FileName;
 	FileName = year + "-" + semester + "-Schedule-" + Class + ".txt";
 
+	// edit in schedule file
 	ifstream fin;
 	fin.open(FileName.c_str());
 	if (!fin.is_open()) {
@@ -220,7 +222,9 @@ void EditCourse() {
 		FileSchedule* Courses;
 		int n = 0;
 		LoadCourse(fin, Courses, n);// load the courses to an array
-		EditCourseArray(Courses, n);// edit a course in the array
+
+		string OldID;
+		int index = EditCourseArray(Courses, n, OldID);// edit a course in the array, get the index of chosen course
 
 		ofstream fout;
 		fout.open(FileName.c_str());
@@ -234,6 +238,90 @@ void EditCourse() {
 		}
 
 		fin.close();
+
+		// edit the atendance date for student in the student list file
+		string ClassFile = "Student-" + Class + ".txt";
+		ifstream  ReadClass;
+		ReadClass.open(ClassFile.c_str());
+		if (!ReadClass.is_open()) {
+			cout << "cannot read from class file";
+		}
+		else {
+			///*|*|*|*|*|*|*|*|*|*|*|*|*|*|*|*|*|*|*|*|*|*|*|*|*|*|*|*|*|*|*|*|*|*|*|*|*|*|*|
+			//	The codes below try to save the current grade of the student to the new file,
+			//	But because this function is only used at the start of
+			//	a semester, so the grade will all be "-1"
+			//*|*|*|*|*|*|*|*|*|*|*|*|*|*|*|*|*|*|*|*|*|*|*|*|*|*|*|*|*|*|*|*|*|*|*|*|*|*|*|/
+			//string OldStuFile = year + "-" + semester + "-" + Class + "-" + OldID + "-Student.txt";// the old student file
+			//ifstream OldFile;
+			//OldFile.open(OldStuFile.c_str());
+			//if (!OldFile.is_open()) {
+			//	cout << "cannot open student list file";
+			//}
+			//else {
+				//string NewFileName = year + "-" + semester + "-" + Class + "-" + Courses[index].courseID + "-Student.txt";// the new student file
+			//	fout.open("temp.txt");
+			//	if (!fout.is_open()) {
+			//		cout << "cannot write in student list file";
+			//	}
+			//	else {
+			//		//// save the new edited course atendance list
+			//		//int d1 = 0;
+			//		//int m1 = 0;
+			//		//int y1 = 0;
+			//		//int d2 = 0;
+			//		//int m2 = 0;
+			//		//int y2 = 0;
+			//		//int weekdays = 0;
+
+			//		//// read and write number of student
+			//		//int NumOfStu;
+			//		//OldFile >> NumOfStu;
+			//		//OldFile.ignore();
+
+			//		//for (int j = 0; j < NumOfStu; ++j) {
+			//		//	for (int i = 0; i < 9; ++i) {// copy the first 9 lines of each student
+			//		//								 // since they will not be edited
+			//		//		string temp;
+			//		//		getline(fin, temp);
+			//		//		fout << temp << endl;
+			//		//	}
+
+			//		//	DateToFIle(fout, d1, d2, m1, m2, y1, y2, weekdays, Courses, index);// pritn out the atendance list for
+			//		//	/*saveListOfStudent(fout, Students, NumOfStu, index, Courses, d1, d2, m1, m2, y1, y2, weekdays);*/
+			//		//	fout.close();
+			//		//}
+			//	
+			//}
+		
+			Stu* Students;
+			int NumOfStu;
+			LoadStudentClass(ReadClass, Students, NumOfStu);// load the students in the class to an array
+			string OldStuFile = year + "-" + semester + "-" + Class + "-" + OldID + "-Student.txt";// the old student file
+			string NewFileName = year + "-" + semester + "-" + Class + "-" + Courses[index].courseID + "-Student.txt";// the new student file
+			
+			fout.open(NewFileName.c_str());
+			if (!fout.is_open()) {
+				cout << "fail to write in the new file" << endl;
+			}
+			else {
+				int d1 = 0;
+				int m1 = 0;
+				int y1 = 0;
+				int d2 = 0;
+				int m2 = 0;
+				int y2 = 0;
+				int weekdays = 0;
+		
+				remove(OldStuFile.c_str());// remove the old file, in case the ID was changed and
+										   // by fout to the new file name, the old file still exist and create spare file
+				saveListOfStudent(fout, Students, NumOfStu, index, Courses, d1, d2, m1, m2, y1, y2, weekdays);
+			}
+			fout.close();
+
+			delete[] Students;
+		}
+		delete[] Courses;
 	}
 	cout << "edit course succesfully" << endl;
 }

@@ -238,5 +238,8 @@ void ImportSchedule(ifstream& fin, FileSchedule*& s, int& countcsv, ifstream& fi
 		}
 		Schedule.close();
 	}
+
+	delete[] a;
+	delete[] s;
 	cout << "\nImport SuccessFully!!!!!";
 }

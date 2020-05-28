@@ -135,7 +135,7 @@ void DateToFIle(ofstream& fout, int& d1, int& d2, int& m1, int& m2, int& y1, int
 int CountCourse(ifstream& fin);// count how many courses are there in the file
 void LoadCourse(ifstream& fin, FileSchedule*& Courses, int& n);
 void editCourseField(FileSchedule& course, int choice);
-void EditCourseArray(FileSchedule*& courses, int n);
+int EditCourseArray(FileSchedule*& courses, int n, string& oldID);
 void SaveCoursesToFile(ofstream& fout, FileSchedule* courses, int n);// save the array with the edited course back to the file
 void EditCourse();
 
