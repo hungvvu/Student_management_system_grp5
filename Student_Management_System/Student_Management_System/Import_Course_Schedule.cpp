@@ -171,7 +171,7 @@ void ImportSchedule(ifstream& fin, FileSchedule*& s, int& countcsv, ifstream& fi
 	LoadScheduleCsv(fin, s, countcsv);
 	fin.close();
 
-	/*fin.open("Lecturer.txt");
+	fin.open("Lecturer.txt");
 	Lect* b;
 	int NumofLect = 0;
 	LoadLect2(fin, b, NumofLect);
@@ -200,7 +200,7 @@ void ImportSchedule(ifstream& fin, FileSchedule*& s, int& countcsv, ifstream& fi
 	ofstream fout;
 	fout.open("Lecturer.txt");
 	SaveLectFromCsv(fout, b, NumofLect);
-	fout.close();*/
+	fout.close();
 
 
 	ofstream Schedule;
@@ -311,12 +311,12 @@ bool checkLecturer(FileSchedule*& s, Lect*& b, int& NumofLect, int& countcsv, in
 {
 	for (int i = 0; i < NumofLect; i++)
 	{
-		if (b[i].Username != s[h].LUser)
+		if (b[i].Username == s[h].LUser)
 		{
-			return true;
+			return false;
 		}
 	}
-	return false;
+	return true;
 }
 void LoadLect2(ifstream& fin, Lect*& a, int& NumofLect) {
 	fin >> NumofLect;
