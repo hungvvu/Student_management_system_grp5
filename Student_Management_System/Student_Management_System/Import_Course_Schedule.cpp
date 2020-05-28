@@ -307,12 +307,12 @@ bool checkLecturer(FileSchedule*& s, Lect*& b, int& NumofLect, int& countcsv, in
 {
 	for (int i = 0; i < NumofLect; i++)
 	{
-		if (b[i].Username != s[h].LUser)
+		if (b[i].Username == s[h].LUser)
 		{
-			return true;
+			return false;
 		}
 	}
-	return false;
+	return true;
 }
 void LoadLect2(ifstream& fin, Lect*& a, int& NumofLect) {
 	fin >> NumofLect;
