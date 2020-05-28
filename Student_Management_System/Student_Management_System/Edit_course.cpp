@@ -97,7 +97,7 @@ void editCourseField(FileSchedule& course, int choice) {
 		return;
 	}
 	case 7: {
-		cout << "enter day of week(MON, TUS, WEN,...): ";
+		cout << "enter day of week(MON, TUE, WED, THUR, FRI, SAT): ";
 		cin >> course.dayofweek;
 
 		return;
