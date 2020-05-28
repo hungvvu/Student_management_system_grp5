@@ -57,6 +57,9 @@
     <ClCompile Include="Import_Course_Schedule.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Add_Course_Manually.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Declarations.h">
@@ -83,6 +86,9 @@
       <Filter>Source Files</Filter>
     </Text>
     <Text Include="Semester.txt">
+      <Filter>Source Files</Filter>
+    </Text>
+    <Text Include="2019-2020-2-Schedule-19CLC5.txt">
       <Filter>Source Files</Filter>
     </Text>
   </ItemGroup>
