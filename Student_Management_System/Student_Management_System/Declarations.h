@@ -125,6 +125,9 @@ void LoadScheduleCsv(ifstream& fin, FileSchedule*& s, int& countcsv);
 void ImportSchedule(ifstream& fin, FileSchedule*& s, int& countcsv, ifstream& fin2, Stu*& a, int& NumofStu);
 void SaveSchedule(ofstream& fout, FileSchedule*& s, int& countcsv);
 void saveListOfStudent(ofstream& Schedule, Stu*& a, int& NumofStu, int& j, FileSchedule*& s, int& d1, int& d2, int& m1, int& m2, int& y1, int& y2, int& weekdays);
+bool checkLecturer(FileSchedule*& s, Lect*& b, int& NumofLect, int& countcsv, int& h);
+void SaveLectFromCsv(ofstream& fout3, Lect*& b, int& NumofLect);
+void LoadLect2(ifstream& fin, Lect*& a, int& NumofLect);
 
 bool check_date(int day, int month);
 bool check_month(int month);

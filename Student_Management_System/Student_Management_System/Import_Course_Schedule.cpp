@@ -56,7 +56,7 @@ void LoadScheduleCsv(ifstream& fin, FileSchedule*& s, int& countcsv) {
 
 void SaveSchedule(ofstream& fout, FileSchedule*& s, int& countcsv)
 {
-	for (int i = 0; i < countcsv ; i++)
+	for (int i = 0; i < countcsv; i++)
 	{
 		fout << s[i].No << endl;
 		fout << s[i].courseID << endl;
@@ -126,7 +126,6 @@ void saveListOfStudent(ofstream& Schedule, Stu*& a, int& NumofStu, int& j, FileS
 		Schedule << a[i].ID << endl;
 		Schedule << a[i].Password << endl;
 		Schedule << a[i].DoB << endl;
-		Schedule << "1" << endl; //active or inactive
 		Schedule << "-1" << endl;
 		Schedule << "-1" << endl;
 		Schedule << "-1" << endl;
@@ -172,6 +171,32 @@ void ImportSchedule(ifstream& fin, FileSchedule*& s, int& countcsv, ifstream& fi
 	LoadScheduleCsv(fin, s, countcsv);
 	fin.close();
 
+	fin.open("Lecturer.txt");
+	Lect* b;
+	int NumofLect = 0;
+	LoadLect2(fin, b, NumofLect);
+	fin.close();
+	int h = 0;
+	while (h < countcsv)
+	{
+		if (checkLecturer(s, b, NumofLect, countcsv, h) == true)
+		{
+			NumofLect++;
+			b[NumofLect - 1].Username = s[h].LUser;
+			b[NumofLect - 1].Name = s[h].LName;
+			b[NumofLect - 1].Password = s[h].LUser;
+			b[NumofLect - 1].Degree = s[h].Ldegree;
+			if (s[h].Lgender == "Male")
+			{
+				b[NumofLect - 1].Sex = 0;
+			}
+		}
+		h++;
+	}
+	ofstream fout;
+	fout.open("Lecturer.txt");
+	SaveLectFromCsv(fout, b, NumofLect);
+	fout.close();
 
 
 	ofstream Schedule;
@@ -191,7 +216,7 @@ void ImportSchedule(ifstream& fin, FileSchedule*& s, int& countcsv, ifstream& fi
 	LoadStudentClass(fin2, a, NumofStu); // Read  file Student-19CLC5-txt
 	fin2.close();
 	int j;
-	for (int i = 0; i < countcsv ; i++)
+	for (int i = 0; i < countcsv; i++)
 	{
 		string filename;
 		filename = x + "-" + y + "-" + Class + "-" + s[i].courseID + "-Student.txt"; //2019-2020-HK2-19CLC5-CS1612-Student.txt or cm101
@@ -238,5 +263,88 @@ void ImportSchedule(ifstream& fin, FileSchedule*& s, int& countcsv, ifstream& fi
 		}
 		Schedule.close();
 	}
+
+	//	int i = 0;
+	//	if (checkLecturer(s, b, NumofLect, countcsv) == true)
+	//	{
+	//		NumofLect++;
+	//		ofstream fout3;
+	//		fout3.open("Lecturer.txt");
+	//		if (!fout3.is_open())
+	//		{
+	//			cout << "Cant open file Lecturer.txt";
+	//		}
+	//		else
+	//		{
+	//			i = 0;
+	//			while (i < countcsv)
+	//			{
+	//				NumofLect++;
+	//				b[NumofLect - 1].Name = s[i].LName;
+	//				b[NumofLect - 1].Username=s[i].LUser;
+	//				b[NumofLect - 1].Password = s[i].LUser;
+	//				b[NumofLect - 1].Degree = s[i].Ldegree;
+	//				if (s[i].Lgender == "Male")
+	//				{
+	//					b[NumofLect - 1].Sex = 0;
+	//				}
+	//				else
+	//				{
+	//					b[NumofLect - 1].Sex = 1;
+	//				}
+	//			}
+	//		}
+	//		SaveLectFromCsv(fout3, b, NumofLect);
+	//	}
+
+	//}
+	delete[] a;
+	delete[] s;
 	cout << "\nImport SuccessFully!!!!!";
+}
+
+bool checkLecturer(FileSchedule*& s, Lect*& b, int& NumofLect, int& countcsv, int& h)
+{
+	for (int i = 0; i < NumofLect; i++)
+	{
+		if (b[i].Username != s[h].LUser)
+		{
+			return true;
+		}
+	}
+	return false;
+}
+void LoadLect2(ifstream& fin, Lect*& a, int& NumofLect) {
+	fin >> NumofLect;
+
+	if (NumofLect == 0) {
+		return;
+	}
+
+	a = new Lect[100];
+
+	fin.ignore();// get rid of the "\n"
+	for (int i = 0; i < NumofLect; i++) {
+		getline(fin, a[i].Name);
+		getline(fin, a[i].Username);
+		getline(fin, a[i].Password);
+		getline(fin, a[i].Degree);
+		fin >> a[i].Sex;
+		fin.ignore();// skip the empty line
+		fin.ignore();// skip the empty line
+	}
+}
+//
+void SaveLectFromCsv(ofstream& fout3, Lect*& b, int& NumofLect)
+{
+	fout3 << NumofLect << endl;
+	for (int i = 0; i < NumofLect; i++)
+	{
+		fout3 << b[i].Name << endl;
+		fout3 << b[i].Username << endl;
+		fout3 << b[i].Password << endl;
+		fout3 << b[i].Degree << endl;
+		fout3 << b[i].Sex << endl;
+		fout3 << endl;
+	}
 }
