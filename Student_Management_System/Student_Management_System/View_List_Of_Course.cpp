@@ -33,5 +33,6 @@ void View_List_Of_Course(FileSchedule*& s, int& counts)
 			cout << i+1 << ". " << s[i].courseID << ":" << s[i].courseName << endl;
 			i++;
 		} while (i < counts);
+		delete[] s;
 	}
 }
