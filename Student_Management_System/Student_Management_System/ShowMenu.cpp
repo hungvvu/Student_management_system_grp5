@@ -17,7 +17,7 @@ int MenuStudent(int& choice2)
 int MenuStaff(int& choice2)
 {
 	cout << "\n-----MENU------\n";
-	cout << "0.Return\n1.Manully Add Student to a class\n2.Edit an existing student\n3.Remove a student\n4.Change Student's Class\n5.View list of classes\n6.View list of students in a class\n7.Change Password\n8.View Profile\n9.Create semester\n10.Import Course(Schedule)\n";
+	cout << "0.Return\n1.Manully Add Student to a class\n2.Edit an existing student\n3.Remove a student\n4.Change Student's Class\n5.View list of classes\n6.View list of students in a class\n7.Change Password\n8.View Profile\n9.Create semester\n10.Import Course(Schedule)\n11.Manually add Course\n";
 	cin >> choice2;
 	return choice2;
 }
@@ -164,6 +164,20 @@ void showmenu(int& choice1, int& choice2, string& Position, string& username, st
 					int NumofStu;
 					ImportSchedule(fin, s, countcsv, fin2, a, NumofStu);
 					showmenu(choice1, choice2, Position, username, password);
+				}
+
+				if (choice2 == 11) //Manually add course
+				{
+					int c = AddCourseManually();
+					if (c == 1)
+					{
+						showmenu(choice1, choice2, Position, username, password);
+					}
+					else
+					{
+						cout << "ADD SUCCESSFULLY" << endl;
+						showmenu(choice1, choice2, Position, username, password);
+					}
 				}
 			}
 

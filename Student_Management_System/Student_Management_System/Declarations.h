@@ -131,4 +131,8 @@ const char* get_day(int day, int month, int year);
 void nextmonth(int& d1, int& m1, int& y1);
 void DateToFIle(ofstream& fout, int& d1, int& d2, int& m1, int& m2, int& y1, int& y2, int& weekdays, FileSchedule*& s, int& j);
 
+// Function 3.3(Manually Add course)
+int AddCourseManually();
+void AddToCourseFile(FileSchedule newCourse);
+
 #endif
