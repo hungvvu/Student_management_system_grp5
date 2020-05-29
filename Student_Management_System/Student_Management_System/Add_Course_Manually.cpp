@@ -30,9 +30,7 @@ int AddCourseManually()
 
 	cout << "Enter Course ID: ";
 	cin >> newCourse.courseID;
-	cin.ignore();
 	cout << "Enter Course Name: ";
-	cin >> newCourse.courseName;
 	getline(cin, newCourse.courseName);
 	cout << "Enter Class: ";
 	cin >> newCourse.Class;
