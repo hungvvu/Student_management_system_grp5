@@ -143,6 +143,7 @@
     <ClInclude Include="Declarations.h" />
   </ItemGroup>
   <ItemGroup>
+    <Text Include="2019-2020-2-19CLC5-CM101-Student.txt" />
     <Text Include="2019-2020-2-Schedule-19CLC5.txt" />
     <Text Include="Class.txt" />
     <Text Include="Course_temp.txt" />
