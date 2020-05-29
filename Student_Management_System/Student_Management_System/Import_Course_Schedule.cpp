@@ -148,9 +148,9 @@ void ImportSchedule(ifstream& fin, FileSchedule*& s, int& countcsv, ifstream& fi
 	cin.ignore();
 	getline(cin, x);
 
-	cout << "\nEnter semester:" << endl;//HK2
+	cout << "\nEnter semester (Ex:HK2) :" << endl;//HK2
 	getline(cin, y);
-	cout << "\nEnter class" << endl;//19CLC5
+	cout << "\nEnter class (Ex:19CLC5)" << endl;//19CLC5
 	getline(cin, Class);
 	cout << "\nEnter file Schedule Name:" << endl;//19CLC5-Schedule.csv
 	getline(cin, z);

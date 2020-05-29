@@ -1,4 +1,4 @@
-2
+4
 Lecturer 1
 ltr1
 123
@@ -11,5 +11,15 @@ ltr2
 Prof
 1
 
+Dinh Ba Tien
+dbtien
+dbtien
+TS
+0
 
+Duong Nguyen Vu
+dnvu
+dnvu
+GS
+0
 

@@ -113,9 +113,9 @@ void RemoveCourse(FileSchedule*& s, int& counts, string& k)
 	cout << "\nEnter academic year(YYYY-YYYY) to remove: " << endl;//2019-2020
 	cin.ignore();
 	getline(cin, x);
-	cout << "\nEnter semester to remove:" << endl;//HK2
+	cout << "\nEnter semester to remove (Ex:HK2):" << endl;//HK2
 	getline(cin, y);
-	cout << "\nEnter class to remove" << endl;//19CLC5
+	cout << "\nEnter class to remove(Ex:19CLC5)" << endl;//19CLC5
 	getline(cin, Class);
 	cout << "\nEnter course ID" << endl;
 	getline(cin, CourseID);
