@@ -138,6 +138,7 @@
     <ClCompile Include="ShowMenu.cpp" />
     <ClCompile Include="ViewListClass.cpp" />
     <ClCompile Include="View_Course.cpp" />
+    <ClCompile Include="View_Lecturers.cpp" />
     <ClCompile Include="View_Student_in_Class.cpp" />
   </ItemGroup>
   <ItemGroup>

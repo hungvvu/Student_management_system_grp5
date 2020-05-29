@@ -2,13 +2,13 @@
 Lecturer 1
 ltr1
 123
-Dr
+TS
 0
 
 Lecturer 2
 ltr2
 456
-Prof
+GS
 1
 
 Dinh Ba Tien

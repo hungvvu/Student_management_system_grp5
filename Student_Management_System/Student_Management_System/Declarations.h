@@ -147,4 +147,7 @@ void RemoveCourse(FileSchedule*& s, int& counts, string& k);
 void Load_Schedule_txt(ifstream& fin, FileSchedule*& s, int& counts);
 void View_List_Of_Course(FileSchedule*& s, int& counts);
 
+//Function 3.11(View All Lecturers)
+void View_ALL_Lecturers(ifstream& fin, Lect*& a, int& NumofLect);
+
 #endif
