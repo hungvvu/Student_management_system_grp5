@@ -32,7 +32,6 @@ int AddCourseManually()
 	cin >> newCourse.courseID;
 	cin.ignore();
 	cout << "Enter Course Name: ";
-	cin >> newCourse.courseName;
 	getline(cin, newCourse.courseName);
 	cout << "Enter Class: ";
 	cin >> newCourse.Class;
@@ -40,7 +39,6 @@ int AddCourseManually()
 	cin >> newCourse.LUser;
 	cin.ignore();
 	cout << "Enter Lecturer Name: ";
-	cin >> newCourse.LName;
 	getline(cin, newCourse.LName);
 	cout << "Enter Lecturer Degree: ";
 	cin >> newCourse.Ldegree;
@@ -70,8 +68,6 @@ int AddCourseManually()
 		check2 = check_date(d1, m1);
 	}
 
-	newCourse.dayofweek = get_day(d1, m1, y);
-
 	cout << "Enter End Date (dd/mm/yyyy): ";
 	cin >> newCourse.enddateday;
 	int d2 = stoi(newCourse.enddateday);
@@ -93,6 +89,25 @@ int AddCourseManually()
 		check3 = check_month(m2);
 		check4 = check_date(d2, m2);
 	}
+
+	string day;
+	cout << "Enter weekday (MON, TUE, WED, THUR, FRI, SAT): ";
+	cin >> day;
+	string a[] = { "MON", "TUE", "WED", "THUR", "FRI", "SAT" };
+	bool cday = false;
+	while (cday == false)
+	{
+		for (int i = 0; i < 6; i++)
+		{
+			if (day == a[i]) cday = true;
+		}
+		if (cday == false)
+		{
+			cout << "Please enter again: ";
+			cin >> day;
+		}
+	}
+	newCourse.dayofweek = day;
 
 	cout << "Enter Start Time (hh:mm): ";
 	cin >> newCourse.starthour;
@@ -134,21 +149,60 @@ int AddCourseManually()
 		min2 = stoi(newCourse.endminute);
 	}
 
+	cin.ignore();
 	cout << "Enter Room: ";
-	cin >> newCourse.Room;
+	getline(cin, newCourse.Room);
 
-	AddToCourseFile(newCourse);
+	AddToCourseFile(fin, newCourse);
 
 	fin.close();
+
+	TransferDataFile(course);
 
 	return 0;
 }
 
-void AddToCourseFile(FileSchedule newCourse)
+void TransferDataFile(string course)
+{
+	ifstream fin;
+	fin.open("Course_temp.txt");
+	if (!fin)
+	{
+		cout << "TEMP FILE ERROR !" << endl;
+		return;
+	}
+
+	ofstream fout;
+	fout.open(course);
+
+	string line;
+	while (getline(fin, line))
+	{
+		fout << line << endl;
+	}
+
+	fout.close();
+	fin.close();
+}
+
+void AddToCourseFile(ifstream &fin, FileSchedule newCourse)
 {
 	ofstream temp;
-	temp.open("temp.txt");
+	temp.open("Course_temp.txt");
 
+	string line;
+	int count = 0;
+	while (getline(fin, line)) 
+	{
+		temp << line << endl;
+		count++;
+	}
+	count = count / 16;
+	count++;
+	newCourse.No = to_string(count);
+
+	temp << endl;
+	temp << newCourse.No << endl;
 	temp << newCourse.courseID << endl;
 	temp << newCourse.courseName << endl;
 	temp << newCourse.Class << endl;

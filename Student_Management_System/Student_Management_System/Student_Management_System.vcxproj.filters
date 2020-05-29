@@ -76,9 +76,6 @@
     <Text Include="Lecturer.txt">
       <Filter>Source Files</Filter>
     </Text>
-    <Text Include="temp.txt">
-      <Filter>Source Files</Filter>
-    </Text>
     <Text Include="Student-19CLC5.txt">
       <Filter>Source Files</Filter>
     </Text>
@@ -89,6 +86,9 @@
       <Filter>Source Files</Filter>
     </Text>
     <Text Include="2019-2020-2-Schedule-19CLC5.txt">
+      <Filter>Source Files</Filter>
+    </Text>
+    <Text Include="Course_temp.txt">
       <Filter>Source Files</Filter>
     </Text>
   </ItemGroup>

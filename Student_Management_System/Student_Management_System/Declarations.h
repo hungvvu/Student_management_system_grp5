@@ -133,6 +133,7 @@ void DateToFIle(ofstream& fout, int& d1, int& d2, int& m1, int& m2, int& y1, int
 
 // Function 3.3(Manually Add course)
 int AddCourseManually();
-void AddToCourseFile(FileSchedule newCourse);
+void AddToCourseFile(ifstream &fin, FileSchedule newCourse);
+void TransferDataFile(string course);
 
 #endif
