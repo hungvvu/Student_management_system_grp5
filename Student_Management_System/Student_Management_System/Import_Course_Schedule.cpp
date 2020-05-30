@@ -126,6 +126,7 @@ void saveListOfStudent(ofstream& Schedule, Stu*& a, int& NumofStu, int& j, FileS
 		Schedule << a[i].ID << endl;
 		Schedule << a[i].Password << endl;
 		Schedule << a[i].DoB << endl;
+		Schedule << "-1" << endl;//active and inactive
 		Schedule << "-1" << endl;
 		Schedule << "-1" << endl;
 		Schedule << "-1" << endl;
