@@ -1,5 +1,65 @@
 #include "Declarations.h"
 
+int CheckLectInfo(string LUser)
+{
+	ifstream fin;
+	fin.open("Lecturer.txt");
+
+	if (!fin)
+	{
+		cout << "LECTURER FILE ERROR !" << endl;
+		return -1;
+	}
+
+	bool check = false;
+	string line;
+	while (!fin.eof() && check == false)
+	{
+		getline(fin, line);
+		if (line == LUser)
+		{
+			check = true;
+		}
+	}
+
+	fin.close();
+
+	if (check == true) return 1;
+	else return 0;
+}
+
+void UpdateLectFile(string LUser)
+{
+	int check = CheckLectInfo(LUser);
+
+	if (check == -1) return;
+	if (check == 0)
+	{
+		cout << "This username already exist." << endl;
+		return;
+	}
+	ifstream fin;
+	fin.open("Lecturer.txt");
+	ofstream temp;
+	temp.open("UpdateLect.txt");
+
+	int num;
+	fin >> num;
+	fin.ignore();
+	temp << num + 1 << endl;
+
+	string line;
+	while (getline(fin, line))
+	{
+		temp << line << endl;
+	}
+
+	temp.close();
+	fin.close();
+
+	return;
+}
+
 int AddCourseManually()
 {
 	ifstream fin;
@@ -154,6 +214,8 @@ int AddCourseManually()
 	getline(cin, newCourse.Room);
 
 	AddToCourseFile(fin, newCourse);
+
+	UpdateLectFile(newCourse.LUser);
 
 	fin.close();
 

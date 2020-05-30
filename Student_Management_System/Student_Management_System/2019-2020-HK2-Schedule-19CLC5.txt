@@ -32,3 +32,38 @@ SAT
 30
 I23
 
+
+3
+MTH00003
+Vi tich phan
+19CLC5
+nttrung
+Nguyen Tan Trung
+Dr
+male
+30 5 2020
+30 7 2020
+TUE
+7
+30
+11
+30
+C22
+
+4
+BAA00005
+Macro Economics
+19CLC5
+htlna
+Huynh Thi Ly Na
+Dr
+Female
+7 4 2020
+10 6 2020
+SAT
+13
+30
+17
+30
+Hall I
+

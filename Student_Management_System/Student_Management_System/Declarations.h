@@ -135,5 +135,7 @@ void DateToFIle(ofstream& fout, int& d1, int& d2, int& m1, int& m2, int& y1, int
 int AddCourseManually();
 void AddToCourseFile(ifstream &fin, FileSchedule newCourse);
 void TransferDataFile(string course);
+int CheckLectInfo(string LUser);
+void UpdateLectFile(string LUser);
 
 #endif
