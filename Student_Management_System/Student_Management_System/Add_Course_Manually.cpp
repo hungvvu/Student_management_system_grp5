@@ -1,72 +1,24 @@
 #include "Declarations.h"
 
-int CheckLectInfo(string LUser)
-{
-	ifstream fin;
-	fin.open("Lecturer.txt");
-
-	if (!fin)
-	{
-		cout << "LECTURER FILE ERROR !" << endl;
-		return -1;
-	}
-
-	bool check = false;
-	string line;
-	while (!fin.eof() && check == false)
-	{
-		getline(fin, line);
-		if (line == LUser)
-		{
-			check = true;
-		}
-	}
-
-	fin.close();
-
-	if (check == true) return 1;
-	else return 0;
-}
-
-void UpdateLectFile(string LUser)
-{
-	int check = CheckLectInfo(LUser);
-
-	if (check == -1) return;
-	if (check == 0)
-	{
-		cout << "This username already exist." << endl;
-		return;
-	}
-	ifstream fin;
-	fin.open("Lecturer.txt");
-	ofstream temp;
-	temp.open("UpdateLect.txt");
-
-	int num;
-	fin >> num;
-	fin.ignore();
-	temp << num + 1 << endl;
-
-	string line;
-	while (getline(fin, line))
-	{
-		temp << line << endl;
-	}
-
-	temp.close();
-	fin.close();
-
-	return;
-}
 
 int AddCourseManually()
 {
 	ifstream fin;
-	string course;
+	string a, b, f, Class;
 	int menu = 0;
-	cout << "Enter file course name: "; cin >> course;
-	fin.open(course);
+	
+	cout << "Enter academic year(YYYY-YYYY): " << endl;//2019-2020
+	cin.ignore();
+	getline(cin, a);
+
+	cout << "Enter semester:" << endl;//HK2
+	getline(cin, b);
+	cout << "Enter class" << endl;//19CLC5
+	getline(cin, Class);
+
+	f = a + "-" + b + "-" + "Schedule-" + Class + ".txt"; //f for example 2019-2020-HK2-Schedule-19CLC5.txt
+
+	fin.open(f.c_str());
 	while (!fin || menu == 1)
 	{
 		cout << "INPUT ERROR !" << endl;
@@ -81,22 +33,34 @@ int AddCourseManually()
 		}
 		else
 		{
-			cout << "Enter file course name: "; cin >> course;
-			fin.open(course);
+			cout << "Enter academic year(YYYY-YYYY): " << endl;//2019-2020
+			cin.ignore();
+			getline(cin, a);
+
+			cout << "Enter semester:" << endl;//HK2
+			getline(cin, b);
+			cout << "Enter class" << endl;//19CLC5
+			getline(cin, Class);
+
+			f = a + "-" + b + "-" + "Schedule-" + Class + ".txt"; //f for example 2019-2020-HK2-Schedule-19CLC5.txt
+
+			fin.open(f.c_str());
 		}
 	}
 
 	FileSchedule newCourse;
+	newCourse.Class = Class;
 
 	cout << "Enter Course ID: ";
 	cin >> newCourse.courseID;
 	cin.ignore();
+	//Neu trung thi chuyen sang Edit course
+
 	cout << "Enter Course Name: ";
 	getline(cin, newCourse.courseName);
-	cout << "Enter Class: ";
-	cin >> newCourse.Class;
 	cout << "Enter Lecturer Username: ";
 	cin >> newCourse.LUser;
+	string user = newCourse.LUser;
 	cin.ignore();
 	cout << "Enter Lecturer Name: ";
 	getline(cin, newCourse.LName);
@@ -104,6 +68,21 @@ int AddCourseManually()
 	cin >> newCourse.Ldegree;
 	cout << "Enter Lecturer Gender: ";
 	cin >> newCourse.Lgender;
+	string gender = newCourse.Lgender;
+	bool cgender = false;
+	while (cgender == false)
+	{
+		if (gender == "Male" || gender == "male" || gender == "Female" || gender == "female")
+		{
+			cgender = true;
+		}
+		else
+		{
+			cout << "Please enter again (male / female): ";
+			cin >> gender;
+		}
+	}
+	newCourse.Lgender = gender;
 
 	cout << "Enter Start Date (dd/mm/yyyy): ";
 	cin >> newCourse.startdateday;
@@ -153,13 +132,13 @@ int AddCourseManually()
 	string day;
 	cout << "Enter weekday (MON, TUE, WED, THUR, FRI, SAT): ";
 	cin >> day;
-	string a[] = { "MON", "TUE", "WED", "THUR", "FRI", "SAT" };
+	string dayArray[] = { "MON", "TUE", "WED", "THUR", "FRI", "SAT" };
 	bool cday = false;
 	while (cday == false)
 	{
 		for (int i = 0; i < 6; i++)
 		{
-			if (day == a[i]) cday = true;
+			if (day == dayArray[i]) cday = true;
 		}
 		if (cday == false)
 		{
@@ -215,11 +194,11 @@ int AddCourseManually()
 
 	AddToCourseFile(fin, newCourse);
 
-	UpdateLectFile(newCourse.LUser);
+	UpdateLectFile(newCourse, user);
 
 	fin.close();
 
-	TransferDataFile(course);
+	TransferDataFile(f.c_str());
 
 	return 0;
 }
@@ -287,4 +266,15 @@ void AddToCourseFile(ifstream &fin, FileSchedule newCourse)
 	temp << endl;
 
 	temp.close();
+}
+
+void CreateNewCFile(string Class)
+{
+	string SFile;
+	SFile = "Student-" + Class + ".txt";
+
+	ifstream fin;
+	fin.open(SFile.c_str());
+
+
 }

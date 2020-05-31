@@ -60,6 +60,9 @@
     <ClCompile Include="Add_Course_Manually.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Update_Lect_File.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Declarations.h">
@@ -95,6 +98,9 @@
       <Filter>Source Files</Filter>
     </Text>
     <Text Include="2019-2020-HK2-Schedule-19CLC5.txt">
+      <Filter>Source Files</Filter>
+    </Text>
+    <Text Include="UpdateLect.txt">
       <Filter>Source Files</Filter>
     </Text>
   </ItemGroup>

@@ -136,6 +136,7 @@
     <ClCompile Include="Profile.cpp" />
     <ClCompile Include="Remove_Stu.cpp" />
     <ClCompile Include="ShowMenu.cpp" />
+    <ClCompile Include="Update_Lect_File.cpp" />
     <ClCompile Include="ViewListClass.cpp" />
     <ClCompile Include="View_Student_in_Class.cpp" />
   </ItemGroup>
@@ -153,6 +154,7 @@
     <Text Include="Staff.txt" />
     <Text Include="Student-19CLC5.txt" />
     <Text Include="Student.txt" />
+    <Text Include="UpdateLect.txt" />
   </ItemGroup>
   <ItemGroup>
     <None Include="19CLC5-Schedule.csv" />
