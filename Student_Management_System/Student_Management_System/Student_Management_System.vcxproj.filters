@@ -66,6 +66,9 @@
     <ClCompile Include="View_Lecturers.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Add_Stu_To_Course.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Declarations.h">
