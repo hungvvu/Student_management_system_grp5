@@ -126,6 +126,7 @@ void saveListOfStudent(ofstream& Schedule, Stu*& a, int& NumofStu, int& j, FileS
 		Schedule << a[i].ID << endl;
 		Schedule << a[i].Password << endl;
 		Schedule << a[i].DoB << endl;
+		Schedule << "-1" << endl;//active and inactive
 		Schedule << "-1" << endl;
 		Schedule << "-1" << endl;
 		Schedule << "-1" << endl;
@@ -186,14 +187,10 @@ void ImportSchedule(ifstream& fin, FileSchedule*& s, int& countcsv, ifstream& fi
 			b[NumofLect - 1].Name = s[h].LName;
 			b[NumofLect - 1].Password = s[h].LUser;
 			b[NumofLect - 1].Degree = s[h].Ldegree;
-			if (s[h].Lgender == "Male")
+			if (s[h].Lgender == "Male"|| s[h].Lgender == "male")
 			{
 				b[NumofLect - 1].Sex = 0;
 			}
-		}
-		else
-		{
-			return;
 		}
 		h++;
 	}
