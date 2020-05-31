@@ -61,6 +61,20 @@ struct FileSchedule {
 	string enddate;
 };
 
+struct FileCourse
+{
+	string Name;
+	string ID;
+	string Password;
+	string DoB;
+	string miterm;
+	string active;
+	string final;
+	string bonus;
+	string total;
+	string learning;
+};
+
 int mainmenu(int& choice1);
 
 int MenuStudent(int& choice2);
@@ -149,5 +163,9 @@ void View_List_Of_Course(FileSchedule*& s, int& counts);
 
 //Function 3.11(View All Lecturers)
 void View_ALL_Lecturers(ifstream& fin, Lect*& a, int& NumofLect);
+
+//Function 4.11(Search and View ScoreBoard)
+void readcoursefile(ifstream& fin, FileCourse**& a, int& NumofStu, int& countdays);
+void printoutscore(ifstream& fin, FileCourse**& a, int& NumofStu, int& countdays);
 
 #endif

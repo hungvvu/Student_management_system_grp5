@@ -192,10 +192,6 @@ void ImportSchedule(ifstream& fin, FileSchedule*& s, int& countcsv, ifstream& fi
 				b[NumofLect - 1].Sex = 0;
 			}
 		}
-		else
-		{
-			return;
-		}
 		h++;
 	}
 	ofstream fout;
