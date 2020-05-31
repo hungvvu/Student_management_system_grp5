@@ -69,6 +69,9 @@
     <ClCompile Include="Add_Stu_To_Course.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Edit_course.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Declarations.h">
