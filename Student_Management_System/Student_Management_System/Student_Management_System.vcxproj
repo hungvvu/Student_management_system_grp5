@@ -138,6 +138,7 @@
     <ClCompile Include="Remove_Stu.cpp" />
     <ClCompile Include="ShowMenu.cpp" />
     <ClCompile Include="ViewListClass.cpp" />
+    <ClCompile Include="ViewListStudentCourse.cpp" />
     <ClCompile Include="View_Course.cpp" />
     <ClCompile Include="View_Lecturers.cpp" />
     <ClCompile Include="View_Student_in_Class.cpp" />
