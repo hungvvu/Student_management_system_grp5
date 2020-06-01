@@ -200,6 +200,14 @@ int AddCourseManually()
 
 	TransferDataFile(f.c_str());
 
+	FileSchedule* ncourse = new FileSchedule[1];
+
+	ncourse[0] = newCourse;
+
+	CreateNewCFile(Class, ncourse, a, b);
+
+	delete[] ncourse;
+
 	return 0;
 }
 
@@ -242,7 +250,6 @@ void AddToCourseFile(ifstream &fin, FileSchedule newCourse)
 	count++;
 	newCourse.No = to_string(count);
 
-	temp << endl;
 	temp << newCourse.No << endl;
 	temp << newCourse.courseID << endl;
 	temp << newCourse.courseName << endl;
@@ -268,13 +275,53 @@ void AddToCourseFile(ifstream &fin, FileSchedule newCourse)
 	temp.close();
 }
 
-void CreateNewCFile(string Class)
+void CreateNewCFile(string Class, FileSchedule*& newCourse, string x, string y)
 {
 	string SFile;
 	SFile = "Student-" + Class + ".txt";
 
-	ifstream fin;
-	fin.open(SFile.c_str());
+	string CFile;
+	CFile = x + "-" + y + "-" + Class + "-" + newCourse[0].courseID + "-Student.txt"; //2019-2020-HK2-19CLC5-CS1612-Student.txt or cm101
 
+	ifstream Student;
+	Student.open(SFile.c_str());
+	if (!Student)
+	{
+		cout << "STUDENT FILE ERROR !" << endl;
+		return;
+	}
 
+	int numofstu;
+	Student >> numofstu;
+	Student.ignore();
+	Stu* SArray = new Stu[numofstu];
+
+	for (int i = 0; i < numofstu; i++) {
+		getline(Student, SArray[i].Fullname);
+		getline(Student, SArray[i].ID);
+		getline(Student, SArray[i].Password);
+		getline(Student, SArray[i].DoB);
+		Student.ignore();// skip the empty line
+	}
+
+	int d1 = 0;
+	int m1 = 0;
+	int y1 = 0;
+	int d2 = 0;
+	int m2 = 0;
+	int y2 = 0;
+	int weekdays = 0;
+	int j = 0;
+
+	ofstream Course;
+	Course.open(CFile.c_str());
+
+	saveListOfStudent(Course, SArray, numofstu, j, newCourse, d1, d2, m1, m2, y1, y2, weekdays);
+
+	delete[] SArray;
+
+	Course.close();
+	Student.close();
+
+	cout << CFile << " is created." << endl;
 }

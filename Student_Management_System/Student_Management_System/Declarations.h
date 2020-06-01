@@ -137,5 +137,6 @@ void AddToCourseFile(ifstream &fin, FileSchedule newCourse);
 void TransferDataFile(string course);
 int CheckLectInfo(string LUser);
 void UpdateLectFile(FileSchedule newCourse, string LUser);
+void CreateNewCFile(string Class, FileSchedule*& newCourse, string x, string y);
 
 #endif

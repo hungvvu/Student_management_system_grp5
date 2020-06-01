@@ -32,25 +32,7 @@ SAT
 30
 I23
 
-
 3
-BAA00005
-Macro Economics
-19CLC5
-htlna
-Huynh Thi Ly Na
-F
-Female
-30 5 2020
-30 7 2020
-MON
-7
-30
-9
-30
-Hall I
-
-4
 MTH00003
 Vi tich phan
 19CLC5
@@ -58,12 +40,29 @@ nttrung
 Nguyen Tan Trung
 Dr
 male
-2 2 2000
-3 3 2000
-TUE
+1 6 2020
+1 8 2020
+WED
 7
 30
 11
 30
 C22
+
+4
+BAA00005
+Macro Economics
+19CLC5
+htlna
+Huynh Thi Ly Na
+Dr
+female
+1 4 2020
+30 6 2020
+FRI
+13
+30
+15
+30
+Hall I
 
