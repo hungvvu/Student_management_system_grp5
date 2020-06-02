@@ -128,6 +128,34 @@ void DateToFIle(ofstream& fout, int& d1, int& d2, int& m1, int& m2, int& y1, int
 	switch (weekdays)
 	{
 	case 2: {
+		if (check_year(y1)) {
+		}
+		else {
+			break;
+		}
+		if (check_month(m1)) {
+		}
+		else {
+			break;
+		}
+		if (check_date(d1, m1)) {
+		}
+		else {
+			break;
+		}
+		if (check_leap_year(y1) == true) {
+		}
+		else {
+			if (m1 == 2 && d1 == 29)
+			{
+				break;
+			}
+		}
+		if (get_day(d1, m1, y1) == "Thu 2")
+		{
+			fout << d1 << " " << m1 << " " << y1 << " " << s[j].starthour << " " << s[j].startminute << " " << s[j].endhour << " " << s[j].endminute << " " << "-1" << endl;
+		}
+
 		while (1) {
 			if (check_year(y1)) {
 			}
@@ -156,69 +184,117 @@ void DateToFIle(ofstream& fout, int& d1, int& d2, int& m1, int& m2, int& y1, int
 			{
 				d1 += 7;
 				nextmonth(d1, m1, y1);
-				fout << d1 << " " << m1 << " " << y1 << " " << s[j].starthour << " " << s[j].startminute << " " << s[j].endhour << " " << s[j].endminute << " " << "-1" << endl;
+				if (/*d1 <= d2 && y1 <= y2 && m1 <= m2*/(d1 > d2&& y1 == y2 && m1 == m2) || m1 > m2)
+				{
+					break;
+				}
+				else
+					fout << d1 << " " << m1 << " " << y1 << " " << s[j].starthour << " " << s[j].startminute << " " << s[j].endhour << " " << s[j].endminute << " " << "-1" << endl;
 			}
 			if (get_day(d1, m1, y1) == "Thu 3")
 			{
 				d1 += 6;
 				nextmonth(d1, m1, y1);
-				fout << d1 << " " << m1 << " " << y1 << " " << s[j].starthour << " " << s[j].startminute << " " << s[j].endhour << " " << s[j].endminute << " " << "-1" << endl;
+				if (/*d1 <= d2 && y1 <= y2 && m1 <= m2*/(d1 > d2&& y1 == y2 && m1 == m2) || m1 > m2)
+				{
+					break;
+				}
+				else
+					fout << d1 << " " << m1 << " " << y1 << " " << s[j].starthour << " " << s[j].startminute << " " << s[j].endhour << " " << s[j].endminute << " " << "-1" << endl;
 			}
 			if (get_day(d1, m1, y1) == "Thu 4")
 			{
 				d1 += 5;
 				nextmonth(d1, m1, y1);
-				fout << d1 << " " << m1 << " " << y1 << " " << s[j].starthour << " " << s[j].startminute << " " << s[j].endhour << " " << s[j].endminute << " " << "-1" << endl;
+				if (/*d1 <= d2 && y1 <= y2 && m1 <= m2*/(d1 > d2&& y1 == y2 && m1 == m2) || m1 > m2)
+				{
+					break;
+				}
+				else
+					fout << d1 << " " << m1 << " " << y1 << " " << s[j].starthour << " " << s[j].startminute << " " << s[j].endhour << " " << s[j].endminute << " " << "-1" << endl;
 			}
 			if (get_day(d1, m1, y1) == "Thu 5")
 			{
 				d1 += 4;
 				nextmonth(d1, m1, y1);
-				fout << d1 << " " << m1 << " " << y1 << " " << s[j].starthour << " " << s[j].startminute << " " << s[j].endhour << " " << s[j].endminute << " " << "-1" << endl;
+				if (/*d1 <= d2 && y1 <= y2 && m1 <= m2*/(d1 > d2&& y1 == y2 && m1 == m2) || m1 > m2)
+				{
+					break;
+				}
+				else
+					fout << d1 << " " << m1 << " " << y1 << " " << s[j].starthour << " " << s[j].startminute << " " << s[j].endhour << " " << s[j].endminute << " " << "-1" << endl;
 			}
 			if (get_day(d1, m1, y1) == "Thu 6")
 			{
 				d1 += 3;
 				nextmonth(d1, m1, y1);
-				fout << d1 << " " << m1 << " " << y1 << " " << s[j].starthour << " " << s[j].startminute << " " << s[j].endhour << " " << s[j].endminute << " " << "-1" << endl;
+				if (/*d1 <= d2 && y1 <= y2 && m1 <= m2*/(d1 > d2&& y1 == y2 && m1 == m2) || m1 > m2)
+				{
+					break;
+				}
+				else
+					fout << d1 << " " << m1 << " " << y1 << " " << s[j].starthour << " " << s[j].startminute << " " << s[j].endhour << " " << s[j].endminute << " " << "-1" << endl;
 			}
 			if (get_day(d1, m1, y1) == "Thu 7")
 			{
 				d1 += 2;
-				if ((d1 > 30 && m1 == 4) || (d1 > 30 && m1 == 6) || (d1 > 30 && m1 == 9) || (d1 > 30 && m1 == 11))
+				nextmonth(d1, m1, y1);
+				if (/*d1 <= d2 && y1 <= y2 && m1 <= m2*/(d1 > d2&& y1 == y2 && m1 == m2) || m1 > m2)
 				{
-					d1 = d1 - 30;
-					m1 += 1;
+					break;
 				}
-				if ((d1 > 31 && m1 == 1) || (d1 > 31 && m1 == 3) || (d1 > 31 && m1 == 5) || (d1 > 31 && m1 == 7) || (d1 > 31 && m1 == 8) || (d1 > 31 && m1 == 10) || (d1 > 31 && m1 == 12))
-				{
-					d1 = d1 - 31;
-					m1 += 1;
-				}
-				if (d1 > 28 && m1 == 2 && check_leap_year(y1) == false) {
-					d1 = d1 - 28;
-					m1 += 1;
-				}
-				if (d1 > 29 && m1 == 2 && check_leap_year(y1)) {
-					d1 = d1 - 29;
-					m1 += 1;
-				}
+				else
+					fout << d1 << " " << m1 << " " << y1 << " " << s[j].starthour << " " << s[j].startminute << " " << s[j].endhour << " " << s[j].endminute << " " << "-1" << endl;
 			}
 			if (get_day(d1, m1, y1) == "Chu nhat")
 			{
 				d1 += 1;
 				nextmonth(d1, m1, y1);
-				fout << d1 << " " << m1 << " " << y1 << " " << s[j].starthour << " " << s[j].startminute << " " << s[j].endhour << " " << s[j].endminute << " " << "-1" << endl;
+				if (/*d1 <= d2 && y1 <= y2 && m1 <= m2*/(d1 > d2&& y1 == y2 && m1 == m2) || m1 > m2)
+				{
+					break;
+				}
+				else
+					fout << d1 << " " << m1 << " " << y1 << " " << s[j].starthour << " " << s[j].startminute << " " << s[j].endhour << " " << s[j].endminute << " " << "-1" << endl;
 			}
-			if (/*d1 <= d2 && y1 <= y2 && m1 <= m2*/d1 >= d2 && y1 == y2 && m1 == m2)
-			{
-				break;
-			}
+			//if (/*d1 <= d2 && y1 <= y2 && m1 <= m2*/(d1 >= d2 && y1 == y2 && m1 == m2)||m1>m2)
+			//{
+			//	break;
+			//}
+			//else
+
 		}
 		break;
 	}
 	case 3:
 	{
+		if (check_year(y1)) {
+		}
+		else {
+			break;
+		}
+		if (check_month(m1)) {
+		}
+		else {
+			break;
+		}
+		if (check_date(d1, m1)) {
+		}
+		else {
+			break;
+		}
+		if (check_leap_year(y1) == true) {
+		}
+		else {
+			if (m1 == 2 && d1 == 29)
+			{
+				break;
+			}
+		}
+		if (get_day(d1, m1, y1) == "Thu 3")
+		{
+			fout << d1 << " " << m1 << " " << y1 << " " << s[j].starthour << " " << s[j].startminute << " " << s[j].endhour << " " << s[j].endminute << " " << "-1" << endl;
+		}
 		while (1) {
 			if (check_year(y1)) {
 			}
@@ -247,69 +323,115 @@ void DateToFIle(ofstream& fout, int& d1, int& d2, int& m1, int& m2, int& y1, int
 			{
 				d1 += 1;
 				nextmonth(d1, m1, y1);
-				fout << d1 << " " << m1 << " " << y1 << " " << s[j].starthour << " " << s[j].startminute << " " << s[j].endhour << " " << s[j].endminute << " " << "-1" << endl;
+				if (/*d1 <= d2 && y1 <= y2 && m1 <= m2*/(d1 > d2&& y1 == y2 && m1 == m2) || m1 > m2)
+				{
+					break;
+				}
+				else
+					fout << d1 << " " << m1 << " " << y1 << " " << s[j].starthour << " " << s[j].startminute << " " << s[j].endhour << " " << s[j].endminute << " " << "-1" << endl;
 			}
 			if (get_day(d1, m1, y1) == "Thu 3")
 			{
 				d1 += 7;
 				nextmonth(d1, m1, y1);
-				fout << d1 << " " << m1 << " " << y1 << " " << s[j].starthour << " " << s[j].startminute << " " << s[j].endhour << " " << s[j].endminute << " " << "-1" << endl;
+				if (/*d1 <= d2 && y1 <= y2 && m1 <= m2*/(d1 > d2&& y1 == y2 && m1 == m2) || m1 > m2)
+				{
+					break;
+				}
+				else
+					fout << d1 << " " << m1 << " " << y1 << " " << s[j].starthour << " " << s[j].startminute << " " << s[j].endhour << " " << s[j].endminute << " " << "-1" << endl;
 			}
 			if (get_day(d1, m1, y1) == "Thu 4")
 			{
 				d1 += 6;
 				nextmonth(d1, m1, y1);
-				fout << d1 << " " << m1 << " " << y1 << " " << s[j].starthour << " " << s[j].startminute << " " << s[j].endhour << " " << s[j].endminute << " " << "-1" << endl;
+				if (/*d1 <= d2 && y1 <= y2 && m1 <= m2*/(d1 > d2&& y1 == y2 && m1 == m2) || m1 > m2)
+				{
+					break;
+				}
+				else
+					fout << d1 << " " << m1 << " " << y1 << " " << s[j].starthour << " " << s[j].startminute << " " << s[j].endhour << " " << s[j].endminute << " " << "-1" << endl;
 			}
 			if (get_day(d1, m1, y1) == "Thu 5")
 			{
 				d1 += 5;
 				nextmonth(d1, m1, y1);
-				fout << d1 << " " << m1 << " " << y1 << " " << s[j].starthour << " " << s[j].startminute << " " << s[j].endhour << " " << s[j].endminute << " " << "-1" << endl;
+				if (/*d1 <= d2 && y1 <= y2 && m1 <= m2*/(d1 > d2&& y1 == y2 && m1 == m2) || m1 > m2)
+				{
+					break;
+				}
+				else
+					fout << d1 << " " << m1 << " " << y1 << " " << s[j].starthour << " " << s[j].startminute << " " << s[j].endhour << " " << s[j].endminute << " " << "-1" << endl;
 			}
 			if (get_day(d1, m1, y1) == "Thu 6")
 			{
 				d1 += 4;
 				nextmonth(d1, m1, y1);
-				fout << d1 << " " << m1 << " " << y1 << " " << s[j].starthour << " " << s[j].startminute << " " << s[j].endhour << " " << s[j].endminute << " " << "-1" << endl;
+				if (/*d1 <= d2 && y1 <= y2 && m1 <= m2*/(d1 > d2&& y1 == y2 && m1 == m2) || m1 > m2)
+				{
+					break;
+				}
+				else
+					fout << d1 << " " << m1 << " " << y1 << " " << s[j].starthour << " " << s[j].startminute << " " << s[j].endhour << " " << s[j].endminute << " " << "-1" << endl;
 			}
 			if (get_day(d1, m1, y1) == "Thu 7")
 			{
 				d1 += 3;
 				nextmonth(d1, m1, y1);
-				fout << d1 << " " << m1 << " " << y1 << " " << s[j].starthour << " " << s[j].startminute << " " << s[j].endhour << " " << s[j].endminute << " " << "-1" << endl;
+				if (/*d1 <= d2 && y1 <= y2 && m1 <= m2*/(d1 > d2&& y1 == y2 && m1 == m2) || m1 > m2)
+				{
+					break;
+				}
+				else
+					fout << d1 << " " << m1 << " " << y1 << " " << s[j].starthour << " " << s[j].startminute << " " << s[j].endhour << " " << s[j].endminute << " " << "-1" << endl;
 			}
 			if (get_day(d1, m1, y1) == "Chu nhat")
 			{
 				d1 += 2;
-				if ((d1 > 30 && m1 == 4) || (d1 > 30 && m1 == 6) || (d1 > 30 && m1 == 9) || (d1 > 30 && m1 == 11))
+				nextmonth(d1, m1, y1);
+				if (/*d1 <= d2 && y1 <= y2 && m1 <= m2*/(d1 > d2&& y1 == y2 && m1 == m2) || m1 > m2)
 				{
-					d1 = d1 - 30;
-					m1 += 1;
+					break;
 				}
-				if ((d1 > 31 && m1 == 1) || (d1 > 31 && m1 == 3) || (d1 > 31 && m1 == 5) || (d1 > 31 && m1 == 7) || (d1 > 31 && m1 == 8) || (d1 > 31 && m1 == 10) || (d1 > 31 && m1 == 12))
-				{
-					d1 = d1 - 31;
-					m1 += 1;
-				}
-				if (d1 > 28 && m1 == 2) {
-					d1 = d1 - 28;
-					m1 += 1;
-				}
-				if (d1 > 29 && m1 == 2 && check_leap_year(y1)) {
-					d1 = d1 - 28;
-					m1 += 1;
-				}
+				else
+					fout << d1 << " " << m1 << " " << y1 << " " << s[j].starthour << " " << s[j].startminute << " " << s[j].endhour << " " << s[j].endminute << " " << "-1" << endl;
 			}
-			if (d1 >= d2 && y1 == y2 && m1 == m2)
-			{
-				break;
-			}
+			//if (d1 >= d2 && y1 == y2 && m1 == m2)
+			//{
+			//	break;
+			//}
 		}
 		break;
 	}
 	case 4:
 	{
+		if (check_year(y1)) {
+		}
+		else {
+			break;
+		}
+		if (check_month(m1)) {
+		}
+		else {
+			break;
+		}
+		if (check_date(d1, m1)) {
+		}
+		else {
+			break;
+		}
+		if (check_leap_year(y1) == true) {
+		}
+		else {
+			if (m1 == 2 && d1 == 29)
+			{
+				break;
+			}
+		}
+		if (get_day(d1, m1, y1) == "Thu 4")
+		{
+			fout << d1 << " " << m1 << " " << y1 << " " << s[j].starthour << " " << s[j].startminute << " " << s[j].endhour << " " << s[j].endminute << " " << "-1" << endl;
+		}
 		while (1) {
 			if (check_year(y1)) {
 			}
@@ -337,70 +459,116 @@ void DateToFIle(ofstream& fout, int& d1, int& d2, int& m1, int& m2, int& y1, int
 			if (get_day(d1, m1, y1) == "Thu 2")
 			{
 				d1 += 2;
-				if ((d1 > 30 && m1 == 4) || (d1 > 30 && m1 == 6) || (d1 > 30 && m1 == 9) || (d1 > 30 && m1 == 11))
+				nextmonth(d1, m1, y1);
+				if (/*d1 <= d2 && y1 <= y2 && m1 <= m2*/(d1 > d2&& y1 == y2 && m1 == m2) || m1 > m2)
 				{
-					d1 = d1 - 30;
-					m1 += 1;
+					break;
 				}
-				if ((d1 > 31 && m1 == 1) || (d1 > 31 && m1 == 3) || (d1 > 31 && m1 == 5) || (d1 > 31 && m1 == 7) || (d1 > 31 && m1 == 8) || (d1 > 31 && m1 == 10) || (d1 > 31 && m1 == 12))
-				{
-					d1 = d1 - 31;
-					m1 += 1;
-				}
-				if (d1 > 28 && m1 == 2) {
-					d1 = d1 - 28;
-					m1 += 1;
-				}
-				if (d1 > 29 && m1 == 2 && check_leap_year(y1)) {
-					d1 = d1 - 28;
-					m1 += 1;
-				}
+				else
+					fout << d1 << " " << m1 << " " << y1 << " " << s[j].starthour << " " << s[j].startminute << " " << s[j].endhour << " " << s[j].endminute << " " << "-1" << endl;
 			}
 			if (get_day(d1, m1, y1) == "Thu 3")
 			{
 				d1 += 1;
 				nextmonth(d1, m1, y1);
-				fout << d1 << " " << m1 << " " << y1 << " " << s[j].starthour << " " << s[j].startminute << " " << s[j].endhour << " " << s[j].endminute << " " << "-1" << endl;
+				if (/*d1 <= d2 && y1 <= y2 && m1 <= m2*/(d1 > d2&& y1 == y2 && m1 == m2) || m1 > m2)
+				{
+					break;
+				}
+				else
+					fout << d1 << " " << m1 << " " << y1 << " " << s[j].starthour << " " << s[j].startminute << " " << s[j].endhour << " " << s[j].endminute << " " << "-1" << endl;
 			}
 			if (get_day(d1, m1, y1) == "Thu 4")
 			{
 				d1 += 7;
 				nextmonth(d1, m1, y1);
-				fout << d1 << " " << m1 << " " << y1 << " " << s[j].starthour << " " << s[j].startminute << " " << s[j].endhour << " " << s[j].endminute << " " << "-1" << endl;
+				if (/*d1 <= d2 && y1 <= y2 && m1 <= m2*/(d1 > d2&& y1 == y2 && m1 == m2) || m1 > m2)
+				{
+					break;
+				}
+				else
+					fout << d1 << " " << m1 << " " << y1 << " " << s[j].starthour << " " << s[j].startminute << " " << s[j].endhour << " " << s[j].endminute << " " << "-1" << endl;
 			}
 			if (get_day(d1, m1, y1) == "Thu 5")
 			{
 				d1 += 6;
 				nextmonth(d1, m1, y1);
-				fout << d1 << " " << m1 << " " << y1 << " " << s[j].starthour << " " << s[j].startminute << " " << s[j].endhour << " " << s[j].endminute << " " << "-1" << endl;
+				if (/*d1 <= d2 && y1 <= y2 && m1 <= m2*/(d1 > d2&& y1 == y2 && m1 == m2) || m1 > m2)
+				{
+					break;
+				}
+				else
+					fout << d1 << " " << m1 << " " << y1 << " " << s[j].starthour << " " << s[j].startminute << " " << s[j].endhour << " " << s[j].endminute << " " << "-1" << endl;
 			}
 			if (get_day(d1, m1, y1) == "Thu 6")
 			{
 				d1 += 5;
 				nextmonth(d1, m1, y1);
-				fout << d1 << " " << m1 << " " << y1 << " " << s[j].starthour << " " << s[j].startminute << " " << s[j].endhour << " " << s[j].endminute << " " << "-1" << endl;
+				if (/*d1 <= d2 && y1 <= y2 && m1 <= m2*/(d1 > d2&& y1 == y2 && m1 == m2) || m1 > m2)
+				{
+					break;
+				}
+				else
+					fout << d1 << " " << m1 << " " << y1 << " " << s[j].starthour << " " << s[j].startminute << " " << s[j].endhour << " " << s[j].endminute << " " << "-1" << endl;
 			}
 			if (get_day(d1, m1, y1) == "Thu 7")
 			{
 				d1 += 4;
 				nextmonth(d1, m1, y1);
-				fout << d1 << " " << m1 << " " << y1 << " " << s[j].starthour << " " << s[j].startminute << " " << s[j].endhour << " " << s[j].endminute << " " << "-1" << endl;
+				if (/*d1 <= d2 && y1 <= y2 && m1 <= m2*/(d1 > d2&& y1 == y2 && m1 == m2) || m1 > m2)
+				{
+					break;
+				}
+				else
+					fout << d1 << " " << m1 << " " << y1 << " " << s[j].starthour << " " << s[j].startminute << " " << s[j].endhour << " " << s[j].endminute << " " << "-1" << endl;
 			}
 			if (get_day(d1, m1, y1) == "Chu nhat")
 			{
 				d1 += 3;
 				nextmonth(d1, m1, y1);
-				fout << d1 << " " << m1 << " " << y1 << " " << s[j].starthour << " " << s[j].startminute << " " << s[j].endhour << " " << s[j].endminute << " " << "-1" << endl;
+				if (/*d1 <= d2 && y1 <= y2 && m1 <= m2*/(d1 > d2&& y1 == y2 && m1 == m2) || m1 > m2)
+				{
+					break;
+				}
+				else
+					fout << d1 << " " << m1 << " " << y1 << " " << s[j].starthour << " " << s[j].startminute << " " << s[j].endhour << " " << s[j].endminute << " " << "-1" << endl;
 			}
-			if (d1 >= d2 && y1 == y2 && m1 == m2)
-			{
-				break;
-			}
+			//if (d1 >= d2 && y1 == y2 && m1 == m2)
+			//{
+			//	break;
+			//}
 		}
 		break;
 	}
 	case 5:
 	{
+		if (check_year(y1)) {
+		}
+		else {
+			break;
+		}
+		if (check_month(m1)) {
+		}
+		else {
+			break;
+		}
+		if (check_date(d1, m1)) {
+		}
+		else {
+			break;
+		}
+		if (check_leap_year(y1) == true) {
+		}
+		else {
+			if (m1 == 2 && d1 == 29)
+			{
+				break;
+			}
+		}
+		if (get_day(d1, m1, y1) == "Thu 5")
+		{
+			fout << d1 << " " << m1 << " " << y1 << " " << s[j].starthour << " " << s[j].startminute << " " << s[j].endhour << " " << s[j].endminute << " " << "-1" << endl;
+		}
 		while (1) {
 			if (check_year(y1)) {
 			}
@@ -429,69 +597,115 @@ void DateToFIle(ofstream& fout, int& d1, int& d2, int& m1, int& m2, int& y1, int
 			{
 				d1 += 3;
 				nextmonth(d1, m1, y1);
-				fout << d1 << " " << m1 << " " << y1 << " " << s[j].starthour << " " << s[j].startminute << " " << s[j].endhour << " " << s[j].endminute << " " << "-1" << endl;
+				if (/*d1 <= d2 && y1 <= y2 && m1 <= m2*/(d1 > d2&& y1 == y2 && m1 == m2) || m1 > m2)
+				{
+					break;
+				}
+				else
+					fout << d1 << " " << m1 << " " << y1 << " " << s[j].starthour << " " << s[j].startminute << " " << s[j].endhour << " " << s[j].endminute << " " << "-1" << endl;
 			}
 			if (get_day(d1, m1, y1) == "Thu 3")
 			{
 				d1 += 2;
-				if ((d1 > 30 && m1 == 4) || (d1 > 30 && m1 == 6) || (d1 > 30 && m1 == 9) || (d1 > 30 && m1 == 11))
+				nextmonth(d1, m1, y1);
+				if (/*d1 <= d2 && y1 <= y2 && m1 <= m2*/(d1 > d2&& y1 == y2 && m1 == m2) || m1 > m2)
 				{
-					d1 = d1 - 30;
-					m1 += 1;
+					break;
 				}
-				if ((d1 > 31 && m1 == 1) || (d1 > 31 && m1 == 3) || (d1 > 31 && m1 == 5) || (d1 > 31 && m1 == 7) || (d1 > 31 && m1 == 8) || (d1 > 31 && m1 == 10) || (d1 > 31 && m1 == 12))
-				{
-					d1 = d1 - 31;
-					m1 += 1;
-				}
-				if (d1 > 28 && m1 == 2) {
-					d1 = d1 - 28;
-					m1 += 1;
-				}
-				if (d1 > 29 && m1 == 2 && check_leap_year(y1)) {
-					d1 = d1 - 28;
-					m1 += 1;
-				}
+				else
+					fout << d1 << " " << m1 << " " << y1 << " " << s[j].starthour << " " << s[j].startminute << " " << s[j].endhour << " " << s[j].endminute << " " << "-1" << endl;
 			}
 			if (get_day(d1, m1, y1) == "Thu 4")
 			{
 				d1 += 1;
 				nextmonth(d1, m1, y1);
-				fout << d1 << " " << m1 << " " << y1 << " " << s[j].starthour << " " << s[j].startminute << " " << s[j].endhour << " " << s[j].endminute << " " << "-1" << endl;
+				if (/*d1 <= d2 && y1 <= y2 && m1 <= m2*/(d1 > d2&& y1 == y2 && m1 == m2) || m1 > m2)
+				{
+					break;
+				}
+				else
+					fout << d1 << " " << m1 << " " << y1 << " " << s[j].starthour << " " << s[j].startminute << " " << s[j].endhour << " " << s[j].endminute << " " << "-1" << endl;
 			}
 			if (get_day(d1, m1, y1) == "Thu 5")
 			{
 				d1 += 7;
 				nextmonth(d1, m1, y1);
-				fout << d1 << " " << m1 << " " << y1 << " " << s[j].starthour << " " << s[j].startminute << " " << s[j].endhour << " " << s[j].endminute << " " << "-1" << endl;
+				if (/*d1 <= d2 && y1 <= y2 && m1 <= m2*/(d1 > d2&& y1 == y2 && m1 == m2) || m1 > m2)
+				{
+					break;
+				}
+				else
+					fout << d1 << " " << m1 << " " << y1 << " " << s[j].starthour << " " << s[j].startminute << " " << s[j].endhour << " " << s[j].endminute << " " << "-1" << endl;
 			}
 			if (get_day(d1, m1, y1) == "Thu 6")
 			{
 				d1 += 6;
 				nextmonth(d1, m1, y1);
-				fout << d1 << " " << m1 << " " << y1 << " " << s[j].starthour << " " << s[j].startminute << " " << s[j].endhour << " " << s[j].endminute << " " << "-1" << endl;
+				if (/*d1 <= d2 && y1 <= y2 && m1 <= m2*/(d1 > d2&& y1 == y2 && m1 == m2) || m1 > m2)
+				{
+					break;
+				}
+				else
+					fout << d1 << " " << m1 << " " << y1 << " " << s[j].starthour << " " << s[j].startminute << " " << s[j].endhour << " " << s[j].endminute << " " << "-1" << endl;
 			}
 			if (get_day(d1, m1, y1) == "Thu 7")
 			{
 				d1 += 5;
 				nextmonth(d1, m1, y1);
-				fout << d1 << " " << m1 << " " << y1 << " " << s[j].starthour << " " << s[j].startminute << " " << s[j].endhour << " " << s[j].endminute << " " << "-1" << endl;
+				if (/*d1 <= d2 && y1 <= y2 && m1 <= m2*/(d1 > d2&& y1 == y2 && m1 == m2) || m1 > m2)
+				{
+					break;
+				}
+				else
+					fout << d1 << " " << m1 << " " << y1 << " " << s[j].starthour << " " << s[j].startminute << " " << s[j].endhour << " " << s[j].endminute << " " << "-1" << endl;
 			}
 			if (get_day(d1, m1, y1) == "Chu nhat")
 			{
 				d1 += 4;
 				nextmonth(d1, m1, y1);
-				fout << d1 << " " << m1 << " " << y1 << " " << s[j].starthour << " " << s[j].startminute << " " << s[j].endhour << " " << s[j].endminute << " " << "-1" << endl;
+				if (/*d1 <= d2 && y1 <= y2 && m1 <= m2*/(d1 > d2&& y1 == y2 && m1 == m2) || m1 > m2)
+				{
+					break;
+				}
+				else
+					fout << d1 << " " << m1 << " " << y1 << " " << s[j].starthour << " " << s[j].startminute << " " << s[j].endhour << " " << s[j].endminute << " " << "-1" << endl;
 			}
-			if (d1 >= d2 && y1 == y2 && m1 == m2)
-			{
-				break;
-			}
+			//if (d1 >= d2 && y1 == y2 && m1 == m2)
+			//{
+			//	break;
+			//}
 		}
 		break;
 	}
 	case 6:
 	{
+		if (check_year(y1)) {
+		}
+		else {
+			break;
+		}
+		if (check_month(m1)) {
+		}
+		else {
+			break;
+		}
+		if (check_date(d1, m1)) {
+		}
+		else {
+			break;
+		}
+		if (check_leap_year(y1) == true) {
+		}
+		else {
+			if (m1 == 2 && d1 == 29)
+			{
+				break;
+			}
+		}
+		if (get_day(d1, m1, y1) == "Thu 6")
+		{
+			fout << d1 << " " << m1 << " " << y1 << " " << s[j].starthour << " " << s[j].startminute << " " << s[j].endhour << " " << s[j].endminute << " " << "-1" << endl;
+		}
 		while (1) {
 			if (check_year(y1)) {
 			}
@@ -520,69 +734,115 @@ void DateToFIle(ofstream& fout, int& d1, int& d2, int& m1, int& m2, int& y1, int
 			{
 				d1 += 4;
 				nextmonth(d1, m1, y1);
-				fout << d1 << " " << m1 << " " << y1 << " " << s[j].starthour << " " << s[j].startminute << " " << s[j].endhour << " " << s[j].endminute << " " << "-1" << endl;
+				if (/*d1 <= d2 && y1 <= y2 && m1 <= m2*/(d1 > d2&& y1 == y2 && m1 == m2) || m1 > m2)
+				{
+					break;
+				}
+				else
+					fout << d1 << " " << m1 << " " << y1 << " " << s[j].starthour << " " << s[j].startminute << " " << s[j].endhour << " " << s[j].endminute << " " << "-1" << endl;
 			}
 			if (get_day(d1, m1, y1) == "Thu 3")
 			{
 				d1 += 3;
 				nextmonth(d1, m1, y1);
-				fout << d1 << " " << m1 << " " << y1 << " " << s[j].starthour << " " << s[j].startminute << " " << s[j].endhour << " " << s[j].endminute << " " << "-1" << endl;
+				if (/*d1 <= d2 && y1 <= y2 && m1 <= m2*/(d1 > d2&& y1 == y2 && m1 == m2) || m1 > m2)
+				{
+					break;
+				}
+				else
+					fout << d1 << " " << m1 << " " << y1 << " " << s[j].starthour << " " << s[j].startminute << " " << s[j].endhour << " " << s[j].endminute << " " << "-1" << endl;
 			}
 			if (get_day(d1, m1, y1) == "Thu 4")
 			{
 				d1 += 2;
-				if ((d1 > 30 && m1 == 4) || (d1 > 30 && m1 == 6) || (d1 > 30 && m1 == 9) || (d1 > 30 && m1 == 11))
+				nextmonth(d1, m1, y1);
+				if (/*d1 <= d2 && y1 <= y2 && m1 <= m2*/(d1 > d2&& y1 == y2 && m1 == m2) || m1 > m2)
 				{
-					d1 = d1 - 30;
-					m1 += 1;
+					break;
 				}
-				if ((d1 > 31 && m1 == 1) || (d1 > 31 && m1 == 3) || (d1 > 31 && m1 == 5) || (d1 > 31 && m1 == 7) || (d1 > 31 && m1 == 8) || (d1 > 31 && m1 == 10) || (d1 > 31 && m1 == 12))
-				{
-					d1 = d1 - 31;
-					m1 += 1;
-				}
-				if (d1 > 28 && m1 == 2) {
-					d1 = d1 - 28;
-					m1 += 1;
-				}
-				if (d1 > 29 && m1 == 2 && check_leap_year(y1)) {
-					d1 = d1 - 28;
-					m1 += 1;
-				}
+				else
+					fout << d1 << " " << m1 << " " << y1 << " " << s[j].starthour << " " << s[j].startminute << " " << s[j].endhour << " " << s[j].endminute << " " << "-1" << endl;
 			}
 			if (get_day(d1, m1, y1) == "Thu 5")
 			{
 				d1 += 1;
 				nextmonth(d1, m1, y1);
-				fout << d1 << " " << m1 << " " << y1 << " " << s[j].starthour << " " << s[j].startminute << " " << s[j].endhour << " " << s[j].endminute << " " << "-1" << endl;
+				if (/*d1 <= d2 && y1 <= y2 && m1 <= m2*/(d1 > d2&& y1 == y2 && m1 == m2) || m1 > m2)
+				{
+					break;
+				}
+				else
+					fout << d1 << " " << m1 << " " << y1 << " " << s[j].starthour << " " << s[j].startminute << " " << s[j].endhour << " " << s[j].endminute << " " << "-1" << endl;
 			}
 			if (get_day(d1, m1, y1) == "Thu 6")
 			{
 				d1 += 7;
 				nextmonth(d1, m1, y1);
-				fout << d1 << " " << m1 << " " << y1 << " " << s[j].starthour << " " << s[j].startminute << " " << s[j].endhour << " " << s[j].endminute << " " << "-1" << endl;
+				if (/*d1 <= d2 && y1 <= y2 && m1 <= m2*/(d1 > d2&& y1 == y2 && m1 == m2) || m1 > m2)
+				{
+					break;
+				}
+				else
+					fout << d1 << " " << m1 << " " << y1 << " " << s[j].starthour << " " << s[j].startminute << " " << s[j].endhour << " " << s[j].endminute << " " << "-1" << endl;
 			}
 			if (get_day(d1, m1, y1) == "Thu 7")
 			{
 				d1 += 6;
 				nextmonth(d1, m1, y1);
-				fout << d1 << " " << m1 << " " << y1 << endl;
+				if (/*d1 <= d2 && y1 <= y2 && m1 <= m2*/(d1 > d2&& y1 == y2 && m1 == m2) || m1 > m2)
+				{
+					break;
+				}
+				else
+					fout << d1 << " " << m1 << " " << y1 << " " << s[j].starthour << " " << s[j].startminute << " " << s[j].endhour << " " << s[j].endminute << " " << "-1" << endl;
 			}
 			if (get_day(d1, m1, y1) == "Chu nhat")
 			{
 				d1 += 5;
 				nextmonth(d1, m1, y1);
-				fout << d1 << " " << m1 << " " << y1 << endl;
+				if (/*d1 <= d2 && y1 <= y2 && m1 <= m2*/(d1 > d2&& y1 == y2 && m1 == m2) || m1 > m2)
+				{
+					break;
+				}
+				else
+					fout << d1 << " " << m1 << " " << y1 << " " << s[j].starthour << " " << s[j].startminute << " " << s[j].endhour << " " << s[j].endminute << " " << "-1" << endl;
 			}
-			if (d1 >= d2 && y1 == y2 && m1 == m2)
-			{
-				break;
-			}
+			//if (d1 >= d2 && y1 == y2 && m1 == m2)
+			//{
+			//	break;
+			//}
 		}
 		break;
 	}
 	case 7:
 	{
+		if (check_year(y1)) {
+		}
+		else {
+			break;
+		}
+		if (check_month(m1)) {
+		}
+		else {
+			break;
+		}
+		if (check_date(d1, m1)) {
+		}
+		else {
+			break;
+		}
+		if (check_leap_year(y1) == true) {
+		}
+		else {
+			if (m1 == 2 && d1 == 29)
+			{
+				break;
+			}
+		}
+		if (get_day(d1, m1, y1) == "Thu 7")
+		{
+			fout << d1 << " " << m1 << " " << y1 << " " << s[j].starthour << " " << s[j].startminute << " " << s[j].endhour << " " << s[j].endminute << " " << "-1" << endl;
+		}
 		while (1) {
 			if (check_year(y1)) {
 			}
@@ -611,71 +871,85 @@ void DateToFIle(ofstream& fout, int& d1, int& d2, int& m1, int& m2, int& y1, int
 			{
 				d1 += 5;
 				nextmonth(d1, m1, y1);
-				fout << d1 << " " << m1 << " " << y1 << " " << s[j].starthour << " " << s[j].startminute << " " << s[j].endhour << " " << s[j].endminute << " " << "-1" << endl;
+				if (/*d1 <= d2 && y1 <= y2 && m1 <= m2*/(d1 > d2&& y1 == y2 && m1 == m2) || m1 > m2)
+				{
+					break;
+				}
+				else
+					fout << d1 << " " << m1 << " " << y1 << " " << s[j].starthour << " " << s[j].startminute << " " << s[j].endhour << " " << s[j].endminute << " " << "-1" << endl;
 			}
 			if (get_day(d1, m1, y1) == "Thu 3")
 			{
 				d1 += 4;
 				nextmonth(d1, m1, y1);
-				fout << d1 << " " << m1 << " " << y1 << " " << s[j].starthour << " " << s[j].startminute << " " << s[j].endhour << " " << s[j].endminute << " " << "-1" << endl;
+				if (/*d1 <= d2 && y1 <= y2 && m1 <= m2*/(d1 > d2&& y1 == y2 && m1 == m2) || m1 > m2)
+				{
+					break;
+				}
+				else
+					fout << d1 << " " << m1 << " " << y1 << " " << s[j].starthour << " " << s[j].startminute << " " << s[j].endhour << " " << s[j].endminute << " " << "-1" << endl;
 			}
 			if (get_day(d1, m1, y1) == "Thu 4")
 			{
 				d1 += 3;
 				nextmonth(d1, m1, y1);
-				fout << d1 << " " << m1 << " " << y1 << " " << s[j].starthour << " " << s[j].startminute << " " << s[j].endhour << " " << s[j].endminute << " " << "-1" << endl;
+				if (/*d1 <= d2 && y1 <= y2 && m1 <= m2*/(d1 > d2&& y1 == y2 && m1 == m2) || m1 > m2)
+				{
+					break;
+				}
+				else
+					fout << d1 << " " << m1 << " " << y1 << " " << s[j].starthour << " " << s[j].startminute << " " << s[j].endhour << " " << s[j].endminute << " " << "-1" << endl;
 			}
 			if (get_day(d1, m1, y1) == "Thu 5")
 			{
 				d1 += 2;
-				if ((d1 > 30 && m1 == 4) || (d1 > 30 && m1 == 6) || (d1 > 30 && m1 == 9) || (d1 > 30 && m1 == 11))
+				nextmonth(d1, m1, y1);
+				if (/*d1 <= d2 && y1 <= y2 && m1 <= m2*/(d1 > d2&& y1 == y2 && m1 == m2) || m1 > m2)
 				{
-					d1 = d1 - 30;
-					m1 += 1;
+					break;
 				}
-				if ((d1 > 31 && m1 == 1) || (d1 > 31 && m1 == 3) || (d1 > 31 && m1 == 5) || (d1 > 31 && m1 == 7) || (d1 > 31 && m1 == 8) || (d1 > 31 && m1 == 10) || (d1 > 31 && m1 == 12))
-				{
-					d1 = d1 - 31;
-					m1 += 1;
-				}
-				if (d1 > 28 && m1 == 2) {
-					d1 = d1 - 28;
-					m1 += 1;
-				}
-				if (d1 > 29 && m1 == 2 && check_leap_year(y1)) {
-					d1 = d1 - 28;
-					m1 += 1;
-				}
+				else
+					fout << d1 << " " << m1 << " " << y1 << " " << s[j].starthour << " " << s[j].startminute << " " << s[j].endhour << " " << s[j].endminute << " " << "-1" << endl;
 			}
 			if (get_day(d1, m1, y1) == "Thu 6")
 			{
 				d1 += 1;
 				nextmonth(d1, m1, y1);
-				fout << d1 << " " << m1 << " " << y1 << " " << s[j].starthour << " " << s[j].startminute << " " << s[j].endhour << " " << s[j].endminute << " " << "-1" << endl;
+				if (/*d1 <= d2 && y1 <= y2 && m1 <= m2*/(d1 > d2&& y1 == y2 && m1 == m2) || m1 > m2)
+				{
+					break;
+				}
+				else
+					fout << d1 << " " << m1 << " " << y1 << " " << s[j].starthour << " " << s[j].startminute << " " << s[j].endhour << " " << s[j].endminute << " " << "-1" << endl;
 			}
 			if (get_day(d1, m1, y1) == "Thu 7")
 			{
 				d1 += 7;
 				nextmonth(d1, m1, y1);
-				fout << d1 << " " << m1 << " " << y1 << " " << s[j].starthour << " " << s[j].startminute << " " << s[j].endhour << " " << s[j].endminute << " " << "-1" << endl;
+				if (/*d1 <= d2 && y1 <= y2 && m1 <= m2*/(d1 > d2&& y1 == y2 && m1 == m2) || m1 > m2)
+				{
+					break;
+				}
+				else
+					fout << d1 << " " << m1 << " " << y1 << " " << s[j].starthour << " " << s[j].startminute << " " << s[j].endhour << " " << s[j].endminute << " " << "-1" << endl;
 			}
 			if (get_day(d1, m1, y1) == "Chu nhat")
 			{
 				d1 += 6;
 				nextmonth(d1, m1, y1);
-				fout << d1 << " " << m1 << " " << y1 << " " << s[j].starthour << " " << s[j].startminute << " " << s[j].endhour << " " << s[j].endminute << " " << "-1" << endl;
+				if (/*d1 <= d2 && y1 <= y2 && m1 <= m2*/(d1 > d2&& y1 == y2 && m1 == m2) || m1 > m2)
+				{
+					break;
+				}
+				else
+					fout << d1 << " " << m1 << " " << y1 << " " << s[j].starthour << " " << s[j].startminute << " " << s[j].endhour << " " << s[j].endminute << " " << "-1" << endl;
 			}
-			if (d1 >= d2 && y1 == y2 && m1 == m2)
-			{
-				break;
-			}
+			//if (d1 >= d2 && y1 == y2 && m1 == m2)
+			//{
+			//	break;
+			//}
 		}
 		break;
 	}
 	}
-
-
-
-
-
 }
