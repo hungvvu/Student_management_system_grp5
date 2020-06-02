@@ -103,6 +103,9 @@
     <Text Include="2019-2020-HK2-19CLC5-BAA00005-Student.txt">
       <Filter>Source Files</Filter>
     </Text>
+    <Text Include="2019-2020-HK2-19CLC5-MTH00003-Student.txt">
+      <Filter>Source Files</Filter>
+    </Text>
   </ItemGroup>
   <ItemGroup>
     <None Include="19CLC5-Schedule.csv">

@@ -39,7 +39,23 @@ int ViewListStuCourse()
 		}
 	}
 
+	int numofstu;
+	fin >> numofstu;
+	fin.ignore();
 
+	Stu* SArray = new Stu[numofstu];
+
+	for (int i = 0; i < numofstu; i++)
+	{
+		getline(fin, SArray[i].Fullname);
+		getline(fin, SArray[i].ID);
+		getline(fin, SArray[i].Password);
+		getline(fin, SArray[i].DoB);
+
+		fin.ignore();// skip the empty line
+	}
+
+	delete[] SArray;
 
 	fin.close();
 }
