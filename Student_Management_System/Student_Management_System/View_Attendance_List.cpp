@@ -9,11 +9,11 @@ int CountDates(ifstream& fin) {// count how many study dates the course have
 	// count the number of dates the course have
 	// from the first student data
 	int count = 0;
-	while (temp != "\n") {// count until the end of this student (\n is the seperating line between students)
+	while (temp != "") {// count until the end of this student ("" is the seperating line between students)
 		getline(fin, temp);
 		++count;
 	}
-	return count - 1;// minus the last line "\n"
+	return count - 1;// minus the last line ""
 }
 
 void SaveDates(ifstream& fin, Date_n_Time*& arr, int n) {
@@ -39,11 +39,11 @@ void SaveATD_Info(ifstream& fin, Attendance*& ATDinfo, int& NumofStu, int NumofD
 	fin >> NumofStu;
 	fin.ignore();
 
-	Attendance* ATDinfo = new Attendance[NumofStu];// array to store attendance infomation of the students
+	ATDinfo = new Attendance[NumofStu];// array to store attendance infomation of the students
 
 	for (int i = 0; i < NumofStu; ++i) {
-		ATDinfo[i].ATD_Status = new string[NumofDates];// alocate an array for each student to
-													   // store his/her attendance status of each day
+		ATDinfo[i].ATD_Status = new bool[NumofDates];// alocate an array for each student to
+													 // store his/her attendance status of each day
 	}
 
 	// save the attendance information of all students
@@ -65,16 +65,37 @@ void SaveATD_Info(ifstream& fin, Attendance*& ATDinfo, int& NumofStu, int NumofD
 				getline(fin, temp, ' ');
 			}
 
-			string Stat;
-			getline(fin, Stat);
+			int Stat;
+			fin >> Stat;
+			fin.ignore();
 
-			if (Stat == "-1") {
-				ATDinfo[i].ATD_Status[j] = "A";// A = absent
+			if (Stat == -1) {
+				ATDinfo[i].ATD_Status[j] = false;// absent
 			}
 			else {
-				ATDinfo[i].ATD_Status[j] = Stat;// not absent, Stat is LA (stand for late) or P (Present)
+				ATDinfo[i].ATD_Status[j] = true;// present
 			}
 		}
+		getline(fin, temp);// skip the separation line
+	}
+}
+
+void DisplayATD(Attendance* ATDinfo, int numofstu, Date_n_Time* Dates, int numofdates) {
+	for (int i = 0; i < numofdates;++i) {// print each list for each day
+		// print the date and time
+		cout << "- " << Dates[i].day << "/" << Dates[i].month << "/" << Dates[i].year << ", "
+			<< Dates[i].sHour << ":" << Dates[i].sMin << "-" << Dates[i].eHour << ":" << Dates[i].eMin << endl;
+
+		// print out the student and his/her atendance status in the current day
+		for (int j = 0; j < numofstu; ++j) {
+			cout << j + 1 << ". " << ATDinfo[j].StuInfo.Fullname << ". ";
+			if (!ATDinfo[j].ATD_Status[i])
+				cout << "Absent";// absent
+			else
+				cout << "Present";// present
+			cout << endl;
+		}
+		cout << "*========*" << endl;
 	}
 }
 
@@ -109,5 +130,15 @@ void ViewAttendanceList() {
 
 		int NumofStu = 0;
 		Attendance* ATDinfo;// array to store attendance infomation of the students
+		SaveATD_Info(fin, ATDinfo, NumofStu, NumofDates);// save the attendance info to the array
+
+		DisplayATD(ATDinfo, NumofStu, ATD_Dates, NumofDates);
+		delete[] ATD_Dates;
+		for (int i = 0; i < NumofStu; ++i) {// loop to delete all array that store the attendance status
+			delete[] ATDinfo[i].ATD_Status;
+		}
+		delete[] ATDinfo;
+
+		fin.close();
 	}
 }

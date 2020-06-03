@@ -73,7 +73,7 @@ struct Date_n_Time {// represent a study date and time
 
 struct Attendance {// the attendance information of a student in a course
 	Stu StuInfo;// information of the student
-	string* ATD_Status;// represent the status of each attendance date for this student
+	bool* ATD_Status;// represent the status of each attendance date for this student
 					 // (true = present, false = absent)
 };
 
@@ -179,4 +179,11 @@ void EditCourse();
 // Function 3.7 (Add a student to a course)
 void AddToFile(ifstream& fin, string OldFileName, Stu S, FileSchedule* Courses, int CourseIndex);
 void AddStu2Course();
+
+// Funciton 3.10 (view attendance list)
+int CountDates(ifstream& fin);// count how many study dates the course have
+void SaveDates(ifstream& fin, Date_n_Time*& arr, int n);
+void SaveATD_Info(ifstream& fin, Attendance*& ATDinfo, int& NumofStu, int NumofDates);
+void DisplayATD(Attendance* ATDinfo, int numofstu, Date_n_Time* Dates, int numofdates);
+void ViewAttendanceList();
 #endif
