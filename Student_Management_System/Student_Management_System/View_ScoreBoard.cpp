@@ -55,6 +55,7 @@ void printoutscore(ifstream& fin, FileCourse**& a, int& NumofStu, int& countdays
 	if (!fin.is_open())
 	{
 		cout << "Cant open file" << endl;
+		return;
 	}
 	else
 	{
