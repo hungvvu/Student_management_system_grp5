@@ -17,7 +17,7 @@ int MenuStudent(int& choice2)
 int MenuStaff(int& choice2)
 {
 
-	cout << "0.Return\n1.Manully Add Student to a class\n2.Edit an existing student\n3.Remove a student\n4.Change Student's Class\n5.View list of classes\n6.View list of students in a class\n7.Change Password\n8.View Profile\n9.Create semester\n10.Import Course(Schedule)\n11.Edit a course\n12.Add a student to a course\n13.Remove Course\n16.View List of Course\n19.View All Lecturers\n";
+	cout << "0.Return\n1.Manully Add Student to a class\n2.Edit an existing student\n3.Remove a student\n4.Change Student's Class\n5.View list of classes\n6.View list of students in a class\n7.Change Password\n8.View Profile\n9.Create semester\n10.Import Course(Schedule)\n11.Edit a course\n12.Add a student to a course\n13.Remove Course\n16.View List of Course\n19.View All Lecturers\n20.Search and View Scoreboard\n";
 	cin >> choice2;
 	return choice2;
 }
@@ -187,6 +187,16 @@ void showmenu(int& choice1, int& choice2, string& Position, string& username, st
 					ifstream fin;
 					int NumofLect;
 					View_ALL_Lecturers(fin, a, NumofLect);
+					showmenu(choice1, choice2, Position, username, password);
+				}
+
+				if (choice2 == 20)
+				{
+					ifstream fin;
+					FileCourse** a;
+					int NumofStu = 0;
+					int countdays = 0;
+					printoutscore(fin, a, NumofStu, countdays);
 					showmenu(choice1, choice2, Position, username, password);
 				}
 

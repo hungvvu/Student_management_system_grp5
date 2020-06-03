@@ -61,6 +61,20 @@ struct FileSchedule {
 	string enddate;
 };
 
+struct FileCourse
+{
+	string Name;
+	string ID;
+	string Password;
+	string DoB;
+	string miterm;
+	string active;
+	string final;
+	string bonus;
+	string total;
+	string learning;
+};
+
 int mainmenu(int& choice1);
 
 int MenuStudent(int& choice2);
@@ -138,20 +152,6 @@ void nextmonth(int& d1, int& m1, int& y1);
 void DateToFIle(ofstream& fout, int& d1, int& d2, int& m1, int& m2, int& y1, int& y2, int& weekdays, FileSchedule*& s, int& j);
 
 
-// Function 3.5 (Remove Course)
-void Load_Schedule_txt(ifstream& fin, FileSchedule*& s, int& counts);
-void RemoveCourseInSchedule(string& CourseID, FileSchedule*& s, int& counts, string& k, ofstream& fout);
-void RemoveCourse(FileSchedule*& s, int& counts, string& k);
-
-
-//Function 3.8 (View List of course)
-void Load_Schedule_txt(ifstream& fin, FileSchedule*& s, int& counts);
-void View_List_Of_Course(FileSchedule*& s, int& counts);
-
-//Function 3.11(View All Lecturers)
-void View_ALL_Lecturers(ifstream& fin, Lect*& a, int& NumofLect);
-
-
 // Function 3.4 (Edit a course)
 int CountCourse(ifstream& fin);// count how many courses are there in the file
 void LoadCourse(ifstream& fin, FileSchedule*& Courses, int& n);
@@ -160,7 +160,25 @@ int EditCourseArray(FileSchedule*& courses, int n, string& oldID);
 void SaveCoursesToFile(ofstream& fout, FileSchedule* courses, int n);// save the array with the edited course back to the file
 void EditCourse();
 
+// Function 3.5 (Remove Course)
+void Load_Schedule_txt(ifstream& fin, FileSchedule*& s, int& counts);
+void RemoveCourseInSchedule(string& CourseID, FileSchedule*& s, int& counts, string& k, ofstream& fout);
+void RemoveCourse(FileSchedule*& s, int& counts, string& k);
+
 // Function 3.7 (Add a student to a course)
 void AddToFile(ifstream& fin, string OldFileName, Stu S, FileSchedule* Courses, int CourseIndex);
 void AddStu2Course();
+
+//Function 3.8 (View List of course)
+void Load_Schedule_txt(ifstream& fin, FileSchedule*& s, int& counts);
+void View_List_Of_Course(FileSchedule*& s, int& counts);
+
+//Function 3.11(View All Lecturers)
+void View_ALL_Lecturers(ifstream& fin, Lect*& a, int& NumofLect);
+
+//Function 4.1(Search and View ScoreBoard)
+void readcoursefile(ifstream& fin, FileCourse**& a, int& NumofStu, int& countdays);
+void printoutscore(ifstream& fin, FileCourse**& a, int& NumofStu, int& countdays);
+
+
 #endif
