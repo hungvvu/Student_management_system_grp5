@@ -43,7 +43,12 @@ int ViewListStuCourse()
 	fin >> numofstu;
 	fin.ignore();
 
+	cout << "There are " << numofstu << " students in this course." << endl;
+	cout << endl;
+
 	Stu* SArray = new Stu[numofstu];
+	int* active = new int [numofstu];
+	string check;
 
 	for (int i = 0; i < numofstu; i++)
 	{
@@ -51,11 +56,31 @@ int ViewListStuCourse()
 		getline(fin, SArray[i].ID);
 		getline(fin, SArray[i].Password);
 		getline(fin, SArray[i].DoB);
+		fin >> active[i]; fin.ignore();
+		getline(fin, check);
+		while (check != "")
+		{
+			fin.ignore(15, '-1');
+			getline(fin, check);
+		}
 
 		fin.ignore();// skip the empty line
 	}
 
+	for (int i = 0; i < numofstu; i++)
+	{
+		cout << SArray[i].Fullname << endl;
+		cout << SArray[i].ID << endl;
+		cout << SArray[i].Password << endl;
+		cout << SArray[i].DoB << endl;
+		cout << active[i] << endl;
+		cout << endl;
+	}
+
+	delete[] active;
 	delete[] SArray;
 
 	fin.close();
+
+	return 0;
 }

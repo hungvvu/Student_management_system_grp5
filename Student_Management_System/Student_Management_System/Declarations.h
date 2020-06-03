@@ -160,5 +160,7 @@ int EditCourseArray(FileSchedule*& courses, int n, string& oldID);
 void SaveCoursesToFile(ofstream& fout, FileSchedule* courses, int n);// save the array with the edited course back to the file
 void EditCourse();
 
+// Function 3.9 (View List Student of Course)
+int ViewListStuCourse();
 
 #endif
