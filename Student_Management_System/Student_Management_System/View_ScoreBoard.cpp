@@ -61,15 +61,17 @@ void printoutscore(ifstream& fin, FileCourse**& a, int& NumofStu, int& countdays
 	{
 		readcoursefile(fin, a, NumofStu, countdays);
 		cout << "Score Board: " << Class << " - " << course << endl;
-		cout << "No\tFull Name Students    \tMidterm\t      Final\t\   Bonus\t    Total\n";
+		cout << "No\tID\t        Full Name   \t      Midterm\t    Final\t\  Bonus\t         Total\n";
 		for (int i = 0; i < NumofStu; i++)
 		{
 			/*cout << "No\tFull Name Students    \tMidterm\t      Final\t\   Bonus\t    Total\n";*/
-			cout << i + 1 << "\t" << a[i][0].Name;
-			cout << "\t" << "          " << a[i][0].miterm;
-			cout << "\t" << "       " << a[i][0].final;
-			cout << "\t" << "    " << a[i][0].bonus;
-			cout << "\t" << "             " << a[i][0].total << endl << endl;
+			
+			cout << i + 1 << "\t" << a[i][0].ID;
+			cout << "\t"  << a[i][0].Name;
+			cout << "\t" << "        " << a[i][0].miterm;
+			cout << "\t" << "     " << a[i][0].final;
+			cout << "\t" << "           " << a[i][0].bonus;
+			cout << "\t" << "          " << a[i][0].total << endl << endl;
 			/*cout << a[i][25].learning << endl;*/ //0-25
 		}
 	}
