@@ -61,6 +61,22 @@ struct FileSchedule {
 	string enddate;
 };
 
+struct Date_n_Time {// represent a study date and time
+	string day;
+	string month;
+	string year;
+	string sHour;// start hour
+	string sMin;// start minute
+	string eHour;// end hour
+	string eMin;// end minute
+};
+
+struct Attendance {// the attendance information of a student in a course
+	Stu StuInfo;// information of the student
+	string* ATD_Status;// represent the status of each attendance date for this student
+					 // (true = present, false = absent)
+};
+
 int mainmenu(int& choice1);
 
 int MenuStudent(int& choice2);
