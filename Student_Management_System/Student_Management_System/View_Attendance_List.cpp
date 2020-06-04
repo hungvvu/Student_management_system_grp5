@@ -35,11 +35,12 @@ void SaveDates(ifstream& fin, Date_n_Time*& arr, int n) {
 	}
 }
 
-void SaveATD_Info(ifstream& fin, Attendance*& ATDinfo, int& NumofStu, int NumofDates) {
+void SaveATD_Info(ifstream& fin, Attendance*& ATDinfo, int& NumofStu, int NumofDates, bool*& Active) {
 	fin >> NumofStu;
 	fin.ignore();
 
 	ATDinfo = new Attendance[NumofStu];// array to store attendance infomation of the students
+	Active = new bool[NumofStu];// array to store active//inactive status
 
 	for (int i = 0; i < NumofStu; ++i) {
 		ATDinfo[i].ATD_Status = new bool[NumofDates];// alocate an array for each student to
@@ -52,10 +53,17 @@ void SaveATD_Info(ifstream& fin, Attendance*& ATDinfo, int& NumofStu, int NumofD
 		getline(fin, ATDinfo[i].StuInfo.ID);
 		getline(fin, ATDinfo[i].StuInfo.Password);
 		getline(fin, ATDinfo[i].StuInfo.DoB);
+		string temp;
+		getline(fin, temp);
+		if (temp == "0") {// inactive
+			Active[i] = false;
+		}
+		else {// active
+			Active[i] = true;
+		}
 
 		// skip five lines that store the grades
-		string temp;
-		for (int k =0;k<5;++k){
+		for (int k =0;k<4;++k){
 			getline(fin, temp);
 		}
 
@@ -80,7 +88,7 @@ void SaveATD_Info(ifstream& fin, Attendance*& ATDinfo, int& NumofStu, int NumofD
 	}
 }
 
-void DisplayATD(Attendance* ATDinfo, int numofstu, Date_n_Time* Dates, int numofdates) {
+void DisplayATD(Attendance* ATDinfo, int numofstu, Date_n_Time* Dates, int numofdates, bool* Active) {
 	for (int i = 0; i < numofdates;++i) {// print each list for each day
 		// print the date and time
 		cout << "- " << Dates[i].day << "/" << Dates[i].month << "/" << Dates[i].year << ", "
@@ -93,6 +101,11 @@ void DisplayATD(Attendance* ATDinfo, int numofstu, Date_n_Time* Dates, int numof
 				cout << "Absent";// absent
 			else
 				cout << "Present";// present
+
+			// inform user if this student is inactive
+			if (!Active[j])
+				cout << ". (Inactive)";
+
 			cout << endl;
 		}
 		cout << "*========*" << endl;
@@ -130,14 +143,16 @@ void ViewAttendanceList() {
 
 		int NumofStu = 0;
 		Attendance* ATDinfo;// array to store attendance infomation of the students
-		SaveATD_Info(fin, ATDinfo, NumofStu, NumofDates);// save the attendance info to the array
+		bool* Active;
+		SaveATD_Info(fin, ATDinfo, NumofStu, NumofDates, Active);// save the attendance info to the array
 
-		DisplayATD(ATDinfo, NumofStu, ATD_Dates, NumofDates);
+		DisplayATD(ATDinfo, NumofStu, ATD_Dates, NumofDates, Active);
 		delete[] ATD_Dates;
 		for (int i = 0; i < NumofStu; ++i) {// loop to delete all array that store the attendance status
 			delete[] ATDinfo[i].ATD_Status;
 		}
 		delete[] ATDinfo;
+		delete[] Active;
 
 		fin.close();
 	}
