@@ -60,7 +60,7 @@ void Edit_Attandance(ifstream& fin, ofstream& fout, FileCourse**& a, FileSchedul
 			else {
 				NumofStu = 0;
 				countdays = 0;
-				readcoursefile2(fin, a, NumofStu, countdays);
+				readcoursefile(fin, a, NumofStu, countdays);
 				fin.close();
 				cout << "Enter ID of Student:" << endl;
 				getline(cin, ID);
@@ -80,12 +80,11 @@ void Edit_Attandance(ifstream& fin, ofstream& fout, FileCourse**& a, FileSchedul
 
 				}
 				else {
-					cout << "countdays is:" << countdays << endl;
 					cout << a[i][0].ID << "-" << a[i][0].Name << endl;
 					int h = 1;
 					for (int j = 0; j < countdays; j++)
 					{
-						cout << h << ". " << a[i][j].day <<" "<< a[i][j].month <<" "<< a[i][j].year <<" "<< a[i][j].starthour <<" "<< a[i][j].startminute <<" "<< a[i][j].endhour <<" "<< a[i][j].endminute <<" "<< a[i][j].attend << endl;
+						cout << h << ". " << a[i][j].learning << endl;
 						h++;
 						//if (h > countdays)
 						//{
@@ -100,8 +99,23 @@ void Edit_Attandance(ifstream& fin, ofstream& fout, FileCourse**& a, FileSchedul
 						cout << "Cant find the day you choose\nChoose again" << endl;
 						cin >> choicedate;
 					}
-					cout << "Date:" << a[i][choicedate-1].day << a[i][choicedate - 1].month << a[i][choicedate - 1].year << a[i][choicedate - 1].starthour << a[i][choicedate - 1].startminute << a[i][choicedate - 1].endhour << a[i][choicedate - 1].endminute << a[i][choicedate - 1].attend << endl;
-
+					cout << "Date:" << a[i][choicedate - 1].learning << endl;
+					string temp = a[i][choicedate - 1].learning;
+					for (int k = temp.length()-1; k >= 0; k--)
+					{
+						if (temp[k] != ' ')
+						{
+							temp.pop_back();
+						}
+						else
+							break;
+					}
+					string sth;
+					cout << "Enter attend you want to fix (-1 for absent and 1 for present): " << endl;
+					cin >> sth;
+					temp += sth;
+					cout << temp;
+			
 
 					delete[] a;
 					delete[] s;
@@ -111,40 +125,3 @@ void Edit_Attandance(ifstream& fin, ofstream& fout, FileCourse**& a, FileSchedul
 	}
 }
 
-void readcoursefile2(ifstream& fin, FileCourse**& a, int& NumofStu, int& countdays) //to read seperately from check in
-{
-	fin >> NumofStu;
-	fin.ignore();
-	a = new FileCourse * [100];
-	for (int i = 0; i < 100; i++)
-	{
-		a[i] = new FileCourse[100];
-	}
-	for (int i = 0; i < NumofStu; i++)
-	{
-		countdays = 0;
-		getline(fin, a[i][0].Name);
-		getline(fin, a[i][0].ID);
-		getline(fin, a[i][0].Password);
-		getline(fin, a[i][0].DoB);
-		getline(fin, a[i][0].active);
-		getline(fin, a[i][0].miterm);
-		getline(fin, a[i][0].final);
-		getline(fin, a[i][0].bonus);
-		getline(fin, a[i][0].total);
-		getline(fin, a[i][0].day,'\0');
-		getline(fin, a[i][0].month, '\0');
-		getline(fin, a[i][0].year, '\0');
-		getline(fin, a[i][0].starthour, '\0');
-		getline(fin, a[i][0].startminute, '\0');
-		getline(fin, a[i][0].endhour, '\0');
-		getline(fin, a[i][0].endminute, '\0');
-		getline(fin, a[i][0].attend, '\n');
-		int j = 1;
-		while (getline(fin, a[i][j].day, '\0')&& getline(fin, a[i][j].month, '\0')&& getline(fin, a[i][0].year, '\0')&& getline(fin, a[i][0].starthour, '\0') && getline(fin, a[i][0].startminute, '\0')&& getline(fin, a[i][0].endhour, '\0') && getline(fin, a[i][0].endminute, '\0') && getline(fin, a[i][0].attend, '\n') &&a[i][j].day != "")
-		{
-			j++;
-		}
-		countdays = j;
-	}
-}

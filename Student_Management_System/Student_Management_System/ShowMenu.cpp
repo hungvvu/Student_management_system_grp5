@@ -25,7 +25,7 @@ int MenuStaff(int& choice2)
 int MenuLecturer(int& choice2)
 {
 	cout << "\n-----MENU------\n";
-	cout << "0.Return\n1.Manully Add Student to a class\n2.Remove a student\3.Change Student's Class\n4.Change Password\n5.View Profile\n6.Edit an Attandance\n";
+	cout << "0.Return\n1.Manully Add Student to a class\n2.Remove a student\n3.Change Student's Class\n4.Change Password\n5.View Profile\n6.Edit an Attandance\n";
 	cin >> choice2;
 	return choice2;
 }
