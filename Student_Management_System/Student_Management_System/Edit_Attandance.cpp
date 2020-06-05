@@ -24,7 +24,6 @@ void Edit_Attandance(ifstream& fin, ofstream& fout, FileCourse**& a, FileSchedul
 	if (!fin.is_open())
 	{
 		cout << "\nCant find Class" << endl;
-		fin.close();
 		return;
 	}
 	else
@@ -45,7 +44,6 @@ void Edit_Attandance(ifstream& fin, ofstream& fout, FileCourse**& a, FileSchedul
 		{
 			cout << "\nYou do not teach " << Class << " class " << endl;
 			return;
-
 		}
 		else {
 			string CourseID = s[i].courseID;
@@ -101,7 +99,7 @@ void Edit_Attandance(ifstream& fin, ofstream& fout, FileCourse**& a, FileSchedul
 					}
 					cout << "Date:" << a[i][choicedate - 1].learning << endl;
 					string temp = a[i][choicedate - 1].learning;
-					for (int k = temp.length()-1; k >= 0; k--)
+					for (int k = temp.length() - 1; k >= 0; k--)
 					{
 						if (temp[k] != ' ')
 						{
@@ -114,14 +112,48 @@ void Edit_Attandance(ifstream& fin, ofstream& fout, FileCourse**& a, FileSchedul
 					cout << "Enter attend you want to fix (-1 for absent and 1 for present): " << endl;
 					cin >> sth;
 					temp += sth;
-					cout << temp;
-			
+					/*cout << temp;*/
+					a[i][choicedate - 1].learning = temp;
+					fout.open(z.c_str());
+					if (!fout.is_open())
+					{
+						cout << "Cant open file course" << endl;
+					}
+					else
+					{
+						savetocoursefile(fout, NumofStu, countdays, a);
+						fout.close();
+						cout << "Edit An Attandance sucessfully" << endl;
+					}
 
 					delete[] a;
 					delete[] s;
- 				}
+				}
 			}
 		}
+	}
+}
+
+void savetocoursefile(ofstream& fout, int& NumofStu, int& countdays, FileCourse**& a)
+{
+
+	fout << NumofStu << endl;
+	for (int i = 0; i < NumofStu; i++)
+	{
+		fout << a[i][0].Name << endl;
+		fout << a[i][0].ID << endl;
+		fout << a[i][0].Password << endl;
+		fout << a[i][0].DoB << endl;
+		fout << a[i][0].active << endl;
+		fout << a[i][0].miterm << endl;
+		fout << a[i][0].final << endl;
+		fout << a[i][0].bonus << endl;
+		fout << a[i][0].total << endl;
+		for (int j = 0; j < countdays; j++)
+		{
+			fout << a[i][j].learning << endl;
+		}
+		fout << endl;
 	}
 }
 

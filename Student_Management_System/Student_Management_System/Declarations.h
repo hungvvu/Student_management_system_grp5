@@ -195,6 +195,7 @@ void Load_Schedule_txt(ifstream& fin, FileSchedule*& s, int& counts);
 //void readcoursefile2(ifstream& fin, FileCourse**& a, int& NumofStu, int& countdays); //to read seperately from check in
 void readcoursefile(ifstream& fin, FileCourse**& a, int& NumofStu, int& countdays);
 void Edit_Attandance(ifstream& fin, ofstream& fout, FileCourse**& a, FileSchedule*& s, int& counts, string& username, int& NumofStu, int& countdays);
+void savetocoursefile(ofstream& fout, int& NumofStu, int& countdays, FileCourse**& a);
 
 
 
