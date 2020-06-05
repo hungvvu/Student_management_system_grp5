@@ -111,6 +111,11 @@ void Edit_Attandance(ifstream& fin, ofstream& fout, FileCourse**& a, FileSchedul
 					string sth;
 					cout << "Enter attend you want to fix (-1 for absent and 1 for present): " << endl;
 					cin >> sth;
+					while (sth != "1" && sth != "-1")
+					{
+						cout << "Please enter attend again (-1 for absent and 1 for present):" << endl;
+						cin >> sth;
+					}
 					temp += sth;
 					/*cout << temp;*/
 					a[i][choicedate - 1].learning = temp;
