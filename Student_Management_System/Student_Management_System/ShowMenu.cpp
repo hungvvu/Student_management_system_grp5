@@ -25,7 +25,7 @@ int MenuStaff(int& choice2)
 int MenuLecturer(int& choice2)
 {
 	cout << "\n-----MENU------\n";
-	cout << "0.Return\n1.Manully Add Student to a class\n2.Remove a student\3.Change Student's Class\n4.Change Password\n5.View Profile\n";
+	cout << "0.Return\n1.Manully Add Student to a class\n2.Remove a student\3.Change Student's Class\n4.Change Password\n5.View Profile\n6.Edit an Attandance\n";
 	cin >> choice2;
 	return choice2;
 }
@@ -229,6 +229,18 @@ void showmenu(int& choice1, int& choice2, string& Position, string& username, st
 				{
 					Profile(username, password);
 					showmenu(choice1, choice2, Position, username, password);
+				}
+
+				if (choice2 == 6)
+				{
+					ifstream fin;
+					ofstream fout; 
+					FileCourse** a;
+					FileSchedule* s;
+					int counts;
+					int NumofStu;
+					int countdays;
+					Edit_Attandance(fin,fout,a,s,counts, username,NumofStu,countdays);
 				}
 
 				while (choice2 == 0 && choice1 == 1)

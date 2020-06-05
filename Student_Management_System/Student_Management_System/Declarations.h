@@ -73,6 +73,16 @@ struct FileCourse
 	string bonus;
 	string total;
 	string learning;
+
+	//add 
+	string day;
+	string month;
+	string year;
+	string starthour;
+	string startminute;
+	string endhour;
+	string endminute;
+	string attend;
 };
 
 int mainmenu(int& choice1);
@@ -179,6 +189,13 @@ void View_ALL_Lecturers(ifstream& fin, Lect*& a, int& NumofLect);
 //Function 4.1(Search and View ScoreBoard)
 void readcoursefile(ifstream& fin, FileCourse**& a, int& NumofStu, int& countdays);
 void printoutscore(ifstream& fin, FileCourse**& a, int& NumofStu, int& countdays);
+
+//Function 6.4(Edit an Attandance)
+void Load_Schedule_txt(ifstream& fin, FileSchedule*& s, int& counts);
+void readcoursefile2(ifstream& fin, FileCourse**& a, int& NumofStu, int& countdays); //to read seperately from check in
+void readcoursefile(ifstream& fin, FileCourse**& a, int& NumofStu, int& countdays);
+void Edit_Attandance(ifstream& fin, ofstream& fout, FileCourse**& a, FileSchedule*& s, int& counts, string& username, int& NumofStu, int& countdays);
+
 
 
 #endif
