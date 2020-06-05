@@ -48,6 +48,8 @@ int ViewListStuCourse()
 
 	Stu* SArray = new Stu[numofstu];
 	int* active = new int [numofstu];
+	int* date = new int * 100;
+	
 	string check;
 
 	for (int i = 0; i < numofstu; i++)
@@ -57,11 +59,12 @@ int ViewListStuCourse()
 		getline(fin, SArray[i].Password);
 		getline(fin, SArray[i].DoB);
 		fin >> active[i]; fin.ignore();
-		getline(fin, check);
-		while (check != "")
+		
+		getline(fin, date[i][0].learning);
+		int j = 1;
+		while (getline(fin, a[i][j].learning) && a[i][j].learning != "")
 		{
-			fin.ignore(15, '-1');
-			getline(fin, check);
+			j++;
 		}
 
 		fin.ignore();// skip the empty line
@@ -83,4 +86,33 @@ int ViewListStuCourse()
 	fin.close();
 
 	return 0;
+
+	fin >> NumofStu;
+	fin.ignore();
+	a = new FileCourse * [100];
+	for (int i = 0; i < 100; i++)
+	{
+		a[i] = new FileCourse[100];
+	}
+	for (int i = 0; i < NumofStu; i++)
+	{
+		countdays = 0;
+		getline(fin, a[i][0].Name);
+		getline(fin, a[i][0].ID);
+		getline(fin, a[i][0].Password);
+		getline(fin, a[i][0].DoB);
+		getline(fin, a[i][0].active);
+		getline(fin, a[i][0].miterm);
+		getline(fin, a[i][0].final);
+		getline(fin, a[i][0].bonus);
+		getline(fin, a[i][0].total);
+		getline(fin, a[i][0].learning);
+		int j = 1;
+		while (getline(fin, a[i][j].learning) && a[i][j].learning != "")
+		{
+			j++;
+		}
+		countdays = j;
+	}
+
 }
