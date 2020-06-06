@@ -31,18 +31,17 @@ void printoutStuinfo(ifstream& fin, FileCourse**& a, int& NumofStu, int& countda
 	{
 		readcoursefile(fin, a, NumofStu, countdays);
 		cout << "Student Info: " << Class << " - " << course << endl;
-		cout << "No\tID\t        Full Name   \t      Password\t    DoB\t\          Active\n";
+		cout << "No\tID\t        Full Name   \t      DoB\t\          Active\n";
 		for (int i = 0; i < NumofStu; i++)
 		{
-			/*cout << "No\tFull Name Students    \tPassword\t      DoB\t\          Active\n;*/
+			/*cout << "No\tFull Name Students    DoB\t\          Active\n;*/
 
 			cout << i + 1 << "\t" << a[i][0].ID;
 			cout << "\t" << a[i][0].Name;
-			cout << "\t" << "      " << a[i][0].Password;
-			cout << "\t" << "    " << a[i][0].DoB;
+			cout << "\t" << "      " << a[i][0].DoB;
 			if (a[i][0].active == "0")
 			{
-				cout << "\t" << "          Inactive" << endl;
+				cout << "\t" << "  Inactive" << endl;
 			}
 			else
 				cout << endl;

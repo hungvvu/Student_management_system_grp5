@@ -176,7 +176,10 @@ void EditCourse();
 
 // Function 3.9 (View List Student of Course)
 void readcoursefile(ifstream& fin, FileCourse**& a, int& NumofStu, int& countdays);
-void printoutscore(ifstream& fin, FileCourse**& a, int& NumofStu, int& countdays);
 void printoutStuinfo(ifstream& fin, FileCourse**& a, int& NumofStu, int& countdays);
+
+// Function 4.1
+void readcoursefile(ifstream& fin, FileCourse**& a, int& NumofStu, int& countdays);
+void printoutscore(ifstream& fin, FileCourse**& a, int& NumofStu, int& countdays);
 
 #endif
