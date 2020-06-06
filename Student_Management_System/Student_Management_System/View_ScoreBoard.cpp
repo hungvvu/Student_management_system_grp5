@@ -1,4 +1,5 @@
 #include "Declarations.h"
+
 void readcoursefile(ifstream& fin, FileCourse**& a, int& NumofStu, int& countdays)
 {
 	fin >> NumofStu;

@@ -108,7 +108,7 @@ void Profile(string user, string pass);
 void LoadStudent(ifstream& fin, Stu*& a, int& NumofStu);
 void LoadLect(ifstream& fin, Lect*& a, int& NumofLect);
 void LoadStaf(ifstream& fin, Staf*& a, int& NumofStaf);
-string Login(string &user, string &pass);
+string Login(string& user, string& pass);
 
 // Function 1.4 (Change Password)
 int eraseCurPass(string path, string username);
