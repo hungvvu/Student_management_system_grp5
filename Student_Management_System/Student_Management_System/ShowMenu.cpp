@@ -225,51 +225,47 @@ void showmenu(int& choice1, int& choice2, string& Position, string& username, st
 				int countdays = 0;
 				printoutStuinfo(fin, a, NumofStu, countdays);
 				showmenu(choice1, choice2, Position, username, password);
-
-
-				if (choice2 == 14) //Manually add course
-				{
-					int c = AddCourseManually();
-					if (c == 1)
-					{
-						showmenu(choice1, choice2, Position, username, password);
-					}
-					else
-					{
-						cout << "ADD SUCCESSFULLY" << endl;
-						showmenu(choice1, choice2, Position, username, password);
-					}
-
-				}
 			}
 
+			if (choice2 == 14) //Manually add course
 			{
-				if (Position == "Lecturer")
+				int c = AddCourseManually();
+				if (c == 1)
 				{
-					MenuLecturer(choice2);
-					if (choice2 == 4) {// change pass
-						if (ChangePass("Lecturer.txt", username, password)) {
-							cout << "password changed successfull" << endl;
-						}
-						else {
-							cout << "change password fail" << endl;
-						}
-						showmenu(choice1, choice2, Position, username, password);// back to main menu
-					}
-
-					if (choice2 == 5)
-					{
-						Profile(username, password);
-						showmenu(choice1, choice2, Position, username, password);
-					}
-
-					while (choice2 == 0 && choice1 == 1)
-					{
-						choice1 = 0;
-						Position = "-2";// logout
-						showmenu(choice1, choice2, Position, username, password);
-					}
+					showmenu(choice1, choice2, Position, username, password);
 				}
+				else
+				{
+					cout << "ADD SUCCESSFULLY" << endl;
+					showmenu(choice1, choice2, Position, username, password);
+				}
+
+			}
+		}
+		if (Position == "Lecturer")
+		{
+			MenuLecturer(choice2);
+			if (choice2 == 4) {// change pass
+				if (ChangePass("Lecturer.txt", username, password)) {
+					cout << "password changed successfull" << endl;
+				}
+				else {
+					cout << "change password fail" << endl;
+				}
+				showmenu(choice1, choice2, Position, username, password);// back to main menu
+			}
+
+			if (choice2 == 5)
+			{
+				Profile(username, password);
+				showmenu(choice1, choice2, Position, username, password);
+			}
+
+			while (choice2 == 0 && choice1 == 1)
+			{
+				choice1 = 0;
+				Position = "-2";// logout
+				showmenu(choice1, choice2, Position, username, password);
 			}
 		}
 	}
