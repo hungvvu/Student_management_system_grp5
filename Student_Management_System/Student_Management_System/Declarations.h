@@ -203,5 +203,7 @@ void SaveATD_Info(ifstream& fin, Attendance*& ATDinfo, int& NumofStu, int NumofD
 void DisplayATD(Attendance* ATDinfo, int numofstu, Date_n_Time* Dates, int numofdates);
 void ViewAttendanceList();
 
+// Function 3.9 (View List of Student of Course)
+void printoutStuinfo(ifstream& fin, FileCourse**& a, int& NumofStu, int& countdays);
 
 #endif
