@@ -39,30 +39,13 @@ Vi tich phan
 nttrung
 Nguyen Tan Trung
 Dr
-male
-1 6 2020
-1 8 2020
+Male
+6 6 2020
+7 7 2020
 WED
 7
 30
 11
 30
 C22
-
-4
-BAA00005
-Macro Economics
-19CLC5
-htlna
-Huynh Thi Ly Na
-Dr
-female
-1 4 2020
-30 6 2020
-FRI
-13
-30
-15
-30
-Hall I
 

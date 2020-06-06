@@ -2,12 +2,14 @@
 
 int CountCourse(ifstream& fin) {// count how many courses are there in the file
 	int count = 0;
-	while (true) {
+	while (!fin.eof()) {
 		for (int i = 0; i < 17; ++i) {// ignore a block of 17 lines (a courses)
 			fin.ignore(100, '\n');
 
+			/*
 			if (fin.eof())// reached end of file, return the number of courses
 				return count;
+				*/
 		}
 		++count;// each time we skip through 17 lines,
 				// increase the number of counted courses by 1

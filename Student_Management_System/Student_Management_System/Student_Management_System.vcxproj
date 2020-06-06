@@ -139,6 +139,7 @@
     <ClCompile Include="Remove_Course.cpp" />
     <ClCompile Include="Remove_Stu.cpp" />
     <ClCompile Include="ShowMenu.cpp" />
+    <ClCompile Include="Update_Lect_File.cpp" />
     <ClCompile Include="ViewListClass.cpp" />
     <ClCompile Include="ViewListStudentCourse.cpp" />
     <ClCompile Include="View_Attendance_List.cpp" />
@@ -151,7 +152,10 @@
     <ClInclude Include="Declarations.h" />
   </ItemGroup>
   <ItemGroup>
+    <Text Include="2019-2020-2-Schedule-19CLC5.txt" />
     <Text Include="2019-2020-HK2-19CLC5-CM101-Student.txt" />
+    <Text Include="2019-2020-HK2-19CLC5-MTH00003-Student.txt" />
+    <Text Include="2019-2020-HK2-Schedule-19CLC5.txt" />
     <Text Include="Class.txt" />
     <Text Include="Lecturer.txt" />
     <Text Include="Semester.txt" />

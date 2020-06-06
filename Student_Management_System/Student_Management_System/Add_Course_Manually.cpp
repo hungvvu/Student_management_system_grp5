@@ -3,7 +3,7 @@
 
 int AddCourseManually()
 {
-	ifstream fin;
+	ifstream fin, fin2;
 	string a, b, f, Class;
 	int menu = 0;
 	
@@ -49,12 +49,72 @@ int AddCourseManually()
 	}
 
 	FileSchedule newCourse;
+	FileSchedule* newCourse2;
 	newCourse.Class = Class;
 
 	cout << "Enter Course ID: ";
 	cin >> newCourse.courseID;
 	cin.ignore();
-	//Neu trung thi chuyen sang Edit course
+	//If ID already exists ask to re-enter or edit that course
+	fin2.open(f.c_str());
+	int n = 0, i = 0;
+	LoadCourse(fin2, newCourse2, n);
+	fin2.close();
+	bool idcheck = false;
+	while (i < n && idcheck == false)
+	{
+		if (newCourse2[i].courseID == newCourse.courseID)
+		{
+			idcheck = true;
+		}
+		i++;
+	}
+
+	while (idcheck == true)
+	{
+		int edit;
+		cout << "This ID already exists." << endl;
+		cout << "Press 0 to re-enter\nPress 1 to edit this ID course\nPress 2 to return to menu\n"; 
+		cout << "Your choice: "; cin >> edit;
+		while (edit < 0 || edit > 2)
+		{
+			cout << "Press 0 to re-enter\nPress 1 to edit this ID course\nPress 2 to return to menu\n"; cin >> edit;
+		}
+		if (edit == 0)
+		{
+			cout << "Enter Course ID: ";
+			cin >> newCourse.courseID;
+			cin.ignore();
+			fin2.open(f.c_str());
+			int n = 0, i = 0;
+			LoadCourse(fin2, newCourse2, n);
+			fin2.close();
+			idcheck = false;
+			while (i < n && idcheck == false)
+			{
+				if (newCourse2[i].courseID == newCourse.courseID)
+				{
+					idcheck = true;
+				}
+				i++;
+			}
+		}
+
+		if (edit == 1)
+		{
+			fin.close();
+			delete[] newCourse2;
+			return 2;
+		}
+		if (edit == 2)
+		{
+			fin.close();
+			delete[] newCourse2;
+			return 1;
+		}
+	}
+
+	delete[] newCourse2;
 
 	cout << "Enter Course Name: ";
 	getline(cin, newCourse.courseName);

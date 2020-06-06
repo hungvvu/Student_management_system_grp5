@@ -1,25 +1,18 @@
-4
+3
 Lecturer 1
 ltr1
 123
-Dr
+TS
 0
 
 Lecturer 2
 ltr2
 456
-Prof
+GS
 1
-
 Nguyen Tan Trung
 nttrung
 nttrung
 Dr
 0
-
-Huynh Thi Ly Na
-htlna
-htlna
-Dr
-1
 
