@@ -40,29 +40,44 @@ nttrung
 Nguyen Tan Trung
 Dr
 male
-1 6 2020
-1 8 2020
-WED
+29 5 2020
+30 7 2020
+MON
 7
 30
 11
 30
 C22
-
 4
 BAA00005
-Macro Economics
+Mac Lenin
+19CLC5
+nguyenvana
+Nguyen Van A
+Dr
+male
+30 6 2020
+30 8 2020
+TUE
+7
+30
+9
+30
+C24
+5
+BAA00003
+Kinh Te
 19CLC5
 htlna
 Huynh Thi Ly Na
 Dr
 female
-1 4 2020
+2 4 2020
 30 6 2020
 FRI
 13
 30
-15
+17
 30
-Hall I
+Hoi truong I
 

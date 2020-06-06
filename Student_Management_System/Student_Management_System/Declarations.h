@@ -206,4 +206,12 @@ void ViewAttendanceList();
 // Function 3.9 (View List of Student of Course)
 void printoutStuinfo(ifstream& fin, FileCourse**& a, int& NumofStu, int& countdays);
 
+// Function 3.3(Manually Add course)
+int AddCourseManually();
+void AddToCourseFile(ifstream &fin, FileSchedule newCourse);
+void TransferDataFile(string course);
+int CheckLectInfo(string LUser);
+void UpdateLectFile(FileSchedule newCourse, string LUser);
+void CreateNewCFile(string Class, FileSchedule*& newCourse, string x, string y);
+
 #endif
