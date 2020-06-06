@@ -75,6 +75,22 @@ struct FileCourse
 	string learning;
 };
 
+struct Date_n_Time {// represent a study date and time
+	string day;
+	string month;
+	string year;
+	string sHour;// start hour
+	string sMin;// start minute
+	string eHour;// end hour
+	string eMin;// end minute
+};
+
+struct Attendance {// the attendance information of a student in a course
+	Stu StuInfo;// information of the student
+	bool* ATD_Status;// represent the status of each attendance date for this student
+					 // (true = present, false = absent)
+};
+
 int mainmenu(int& choice1);
 
 int MenuStudent(int& choice2);
@@ -92,7 +108,7 @@ void Profile(string user, string pass);
 void LoadStudent(ifstream& fin, Stu*& a, int& NumofStu);
 void LoadLect(ifstream& fin, Lect*& a, int& NumofLect);
 void LoadStaf(ifstream& fin, Staf*& a, int& NumofStaf);
-string Login(string &user, string &pass);
+string Login(string& user, string& pass);
 
 // Function 1.4 (Change Password)
 int eraseCurPass(string path, string username);
@@ -152,20 +168,6 @@ void nextmonth(int& d1, int& m1, int& y1);
 void DateToFIle(ofstream& fout, int& d1, int& d2, int& m1, int& m2, int& y1, int& y2, int& weekdays, FileSchedule*& s, int& j);
 
 
-// Function 3.5 (Remove Course)
-void Load_Schedule_txt(ifstream& fin, FileSchedule*& s, int& counts);
-void RemoveCourseInSchedule(string& CourseID, FileSchedule*& s, int& counts, string& k, ofstream& fout);
-void RemoveCourse(FileSchedule*& s, int& counts, string& k);
-
-
-//Function 3.8 (View List of course)
-void Load_Schedule_txt(ifstream& fin, FileSchedule*& s, int& counts);
-void View_List_Of_Course(FileSchedule*& s, int& counts);
-
-//Function 3.11(View All Lecturers)
-void View_ALL_Lecturers(ifstream& fin, Lect*& a, int& NumofLect);
-
-
 // Function 3.4 (Edit a course)
 int CountCourse(ifstream& fin);// count how many courses are there in the file
 void LoadCourse(ifstream& fin, FileSchedule*& Courses, int& n);
@@ -174,12 +176,34 @@ int EditCourseArray(FileSchedule*& courses, int n, string& oldID);
 void SaveCoursesToFile(ofstream& fout, FileSchedule* courses, int n);// save the array with the edited course back to the file
 void EditCourse();
 
-// Function 3.9 (View List Student of Course)
-void readcoursefile(ifstream& fin, FileCourse**& a, int& NumofStu, int& countdays);
-void printoutStuinfo(ifstream& fin, FileCourse**& a, int& NumofStu, int& countdays);
+// Function 3.5 (Remove Course)
+void Load_Schedule_txt(ifstream& fin, FileSchedule*& s, int& counts);
+void RemoveCourseInSchedule(string& CourseID, FileSchedule*& s, int& counts, string& k, ofstream& fout);
+void RemoveCourse(FileSchedule*& s, int& counts, string& k);
+
+// Function 3.7 (Add a student to a course)
+void AddToFile(ifstream& fin, string OldFileName, Stu S, FileSchedule* Courses, int CourseIndex);
+void AddStu2Course();
+
+//Function 3.8 (View List of course)
+void Load_Schedule_txt(ifstream& fin, FileSchedule*& s, int& counts);
+void View_List_Of_Course(FileSchedule*& s, int& counts);
+
+//Function 3.11(View All Lecturers)
+void View_ALL_Lecturers(ifstream& fin, Lect*& a, int& NumofLect);
 
 //Function 4.1(Search and View ScoreBoard)
 void readcoursefile(ifstream& fin, FileCourse**& a, int& NumofStu, int& countdays);
 void printoutscore(ifstream& fin, FileCourse**& a, int& NumofStu, int& countdays);
+
+// Funciton 3.10 (view attendance list)
+int CountDates(ifstream& fin);// count how many study dates the course have
+void SaveDates(ifstream& fin, Date_n_Time*& arr, int n);
+void SaveATD_Info(ifstream& fin, Attendance*& ATDinfo, int& NumofStu, int NumofDates);
+void DisplayATD(Attendance* ATDinfo, int numofstu, Date_n_Time* Dates, int numofdates);
+void ViewAttendanceList();
+
+// Function 3.9 (View List of Student of Course)
+void printoutStuinfo(ifstream& fin, FileCourse**& a, int& NumofStu, int& countdays);
 
 #endif
