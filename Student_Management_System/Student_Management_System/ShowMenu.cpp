@@ -213,6 +213,8 @@ void showmenu(int& choice1, int& choice2, string& Position, string& username, st
 					ViewAttendanceList();
 					showmenu(choice1, choice2, Position, username, password);
 				}
+
+
 			}
 
 		{
