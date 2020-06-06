@@ -178,7 +178,7 @@ void EditCourse();
 void readcoursefile(ifstream& fin, FileCourse**& a, int& NumofStu, int& countdays);
 void printoutStuinfo(ifstream& fin, FileCourse**& a, int& NumofStu, int& countdays);
 
-// Function 4.1
+//Function 4.11(Search and View ScoreBoard)
 void readcoursefile(ifstream& fin, FileCourse**& a, int& NumofStu, int& countdays);
 void printoutscore(ifstream& fin, FileCourse**& a, int& NumofStu, int& countdays);
 
