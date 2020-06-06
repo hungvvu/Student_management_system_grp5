@@ -72,8 +72,13 @@ void printoutscore(ifstream& fin, FileCourse**& a, int& NumofStu, int& countdays
 			cout << "\t" << "        " << a[i][0].miterm;
 			cout << "\t" << "     " << a[i][0].final;
 			cout << "\t" << "           " << a[i][0].bonus;
-			cout << "\t" << "          " << a[i][0].total << endl << endl;
-			/*cout << a[i][25].learning << endl;*/ //0-25
+			cout << "\t" << "          " << a[i][0].total;
+			if (a[i][0].active == "0")
+			{
+				cout << "\t" << "    Inactive" << endl;
+			}
+			else
+				cout << endl;
 		}
 	}
 	delete[] a;

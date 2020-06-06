@@ -38,13 +38,13 @@ void EditExsitingStudent(string& ID, Stu*& a, ifstream& fin, int NumofStu, int& 
 	}
 	if (i > NumofStu)
 	{
-		cout << "Cant not find student. Enter 1 to retry: ";
-
-		cin.ignore();
-		cout << "Enter student ID: ";
-		cin.ignore();
-		getline(cin, ID);
-		EditExsitingStudent(ID, a, fin, NumofStu, x);
+		cout << "Cant not find student. ";
+		return;
+		//cin.ignore();
+		//cout << "Enter student ID: ";
+		//cin.ignore();
+		//getline(cin, ID);
+		//EditExsitingStudent(ID, a, fin, NumofStu, x);
 	}
 	else {
 		int x = i; //Save x for later
