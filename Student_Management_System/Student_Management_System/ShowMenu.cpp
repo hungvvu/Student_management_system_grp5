@@ -194,6 +194,11 @@ void showmenu(int& choice1, int& choice2, string& Position, string& username, st
 					showmenu(choice1, choice2, Position, username, password);
 				}
 
+				if (choice2 == 18) {
+					ViewAttendanceList();
+					showmenu(choice1, choice2, Position, username, password);
+				}
+
 				if (choice2 == 17)
 				{
 					ifstream fin;
