@@ -61,6 +61,20 @@ struct FileSchedule {
 	string enddate;
 };
 
+struct FileCourse
+{
+	string Name;
+	string ID;
+	string Password;
+	string DoB;
+	string miterm;
+	string active;
+	string final;
+	string bonus;
+	string total;
+	string learning;
+};
+
 int mainmenu(int& choice1);
 
 int MenuStudent(int& choice2);
@@ -161,6 +175,8 @@ void SaveCoursesToFile(ofstream& fout, FileSchedule* courses, int n);// save the
 void EditCourse();
 
 // Function 3.9 (View List Student of Course)
-int ViewListStuCourse();
+void readcoursefile(ifstream& fin, FileCourse**& a, int& NumofStu, int& countdays);
+void printoutscore(ifstream& fin, FileCourse**& a, int& NumofStu, int& countdays);
+void printoutStuinfo(ifstream& fin, FileCourse**& a, int& NumofStu, int& countdays);
 
 #endif

@@ -201,7 +201,7 @@ void showmenu(int& choice1, int& choice2, string& Position, string& username, st
 					FileCourse** a;
 					int NumofStu = 0;
 					int countdays = 0;
-					printoutscore(fin, a, NumofStu, countdays);
+					printoutStuinfo(fin, a, NumofStu, countdays);
 					showmenu(choice1, choice2, Position, username, password);
 				}
 			}

@@ -1,118 +1,55 @@
 #include "Declarations.h"
 
-int ViewListStuCourse()
+void printoutStuinfo(ifstream& fin, FileCourse**& a, int& NumofStu, int& countdays)
 {
-	string f, AcaYear, Semester, Class, CourseID;
+	string x;
+	string y;
+	string course;
+	string f;
+	string Class;
+	cout << "\nEnter academic year(YYYY-YYYY): " << endl;//2019-2020
+	cin.ignore();
+	getline(cin, x);
 
-	cout << "Enter Academic Year (yyyy-yyyy): "; cin.ignore(); getline(cin, AcaYear);
-	cout << "Enter Semester (HKn): "; getline(cin, Semester);
-	cout << "Enter Class: "; getline(cin, Class);
-	cout << "Enter Course ID: "; getline(cin, CourseID);
+	cout << "\nEnter semester (Ex:HK2) :" << endl;//HK2
+	getline(cin, y);
+	cout << "\nEnter class (Ex:19CLC5)" << endl;//19CLC5
+	getline(cin, Class);
+	cout << "\nEnter course (Ex:CS162) " << endl;//19CLC5-Schedule.csv
+	getline(cin, course);
 
-	f = AcaYear + "-" + Semester + "-" + Class + "-" + CourseID + "-Student.txt";
-
-	ifstream fin;
+	//x = "string";
+	//x = x + ".txt";
+	f = x + "-" + y + "-" + Class + "-" + course + "-Student.txt"; //f for example 2019-2020-HK2-19CLC5-CS162-Student.txt
 	fin.open(f.c_str());
-	int choice;
-	while (!fin)
+	if (!fin.is_open())
 	{
-		cout << "INPUT ERROR !" << endl;
-		cout << "Press 0 to re-enter / Press 1 to return to menu: "; cin >> choice;
-		while (choice < 0 || choice > 1)
+		cout << "Cant open file" << endl;
+		return;
+	}
+	else
+	{
+		readcoursefile(fin, a, NumofStu, countdays);
+		cout << "Student Info: " << Class << " - " << course << endl;
+		cout << "No\tID\t        Full Name   \t      Password\t    DoB\t\          Active\n";
+		for (int i = 0; i < NumofStu; i++)
 		{
-			cout << "Press 0 to re-enter / Press 1 to return to menu: "; cin >> choice;
-		}
-		if (choice == 1)
-		{
-			return 1;
-		}
-		else
-		{
-			cout << "Enter Academic Year (yyyy-yyyy): "; cin.ignore(); getline(cin, AcaYear);
-			cout << "Enter Semester (HKn): "; getline(cin, Semester);
-			cout << "Enter Class: "; getline(cin, Class);
-			cout << "Enter Course ID: "; getline(cin, CourseID);
+			/*cout << "No\tFull Name Students    \tPassword\t      DoB\t\          Active\n;*/
 
-			f = AcaYear + "-" + Semester + "-" + Class + "-" + CourseID + "-Student.txt";
-
-			fin.open(f.c_str());
+			cout << i + 1 << "\t" << a[i][0].ID;
+			cout << "\t" << a[i][0].Name;
+			cout << "\t" << "      " << a[i][0].Password;
+			cout << "\t" << "    " << a[i][0].DoB;
+			if (a[i][0].active == "0")
+			{
+				cout << "\t" << "          Inactive" << endl;
+			}
+			else
+				cout << endl;
+			/*cout << a[i][25].learning << endl;*/ //0-25
 		}
 	}
-
-	int numofstu;
-	fin >> numofstu;
-	fin.ignore();
-
-	cout << "There are " << numofstu << " students in this course." << endl;
 	cout << endl;
 
-	Stu* SArray = new Stu[numofstu];
-	int* active = new int [numofstu];
-	int* date = new int * 100;
-	
-	string check;
-
-	for (int i = 0; i < numofstu; i++)
-	{
-		getline(fin, SArray[i].Fullname);
-		getline(fin, SArray[i].ID);
-		getline(fin, SArray[i].Password);
-		getline(fin, SArray[i].DoB);
-		fin >> active[i]; fin.ignore();
-		
-		getline(fin, date[i][0].learning);
-		int j = 1;
-		while (getline(fin, a[i][j].learning) && a[i][j].learning != "")
-		{
-			j++;
-		}
-
-		fin.ignore();// skip the empty line
-	}
-
-	for (int i = 0; i < numofstu; i++)
-	{
-		cout << SArray[i].Fullname << endl;
-		cout << SArray[i].ID << endl;
-		cout << SArray[i].Password << endl;
-		cout << SArray[i].DoB << endl;
-		cout << active[i] << endl;
-		cout << endl;
-	}
-
-	delete[] active;
-	delete[] SArray;
-
-	fin.close();
-
-	return 0;
-
-	fin >> NumofStu;
-	fin.ignore();
-	a = new FileCourse * [100];
-	for (int i = 0; i < 100; i++)
-	{
-		a[i] = new FileCourse[100];
-	}
-	for (int i = 0; i < NumofStu; i++)
-	{
-		countdays = 0;
-		getline(fin, a[i][0].Name);
-		getline(fin, a[i][0].ID);
-		getline(fin, a[i][0].Password);
-		getline(fin, a[i][0].DoB);
-		getline(fin, a[i][0].active);
-		getline(fin, a[i][0].miterm);
-		getline(fin, a[i][0].final);
-		getline(fin, a[i][0].bonus);
-		getline(fin, a[i][0].total);
-		getline(fin, a[i][0].learning);
-		int j = 1;
-		while (getline(fin, a[i][j].learning) && a[i][j].learning != "")
-		{
-			j++;
-		}
-		countdays = j;
-	}
-
+	delete[] a;
 }
