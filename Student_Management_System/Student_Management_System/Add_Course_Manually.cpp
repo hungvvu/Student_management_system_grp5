@@ -78,9 +78,9 @@ int AddCourseManually()
 		cout << "Your choice: "; cin >> edit;
 		while (edit < 0 || edit > 2)
 		{
-			cout << "Press 0 to re-enter\nPress 1 to edit this ID course\nPress 2 to return to menu\n"; cin >> edit;
+			cout << "Press 0 to return to menu\nPress 1 to edit this ID course\nPress 2 to re-enter\n"; cin >> edit;
 		}
-		if (edit == 0)
+		if (edit == 2)
 		{
 			cout << "Enter Course ID: ";
 			cin >> newCourse.courseID;
@@ -104,9 +104,10 @@ int AddCourseManually()
 		{
 			fin.close();
 			delete[] newCourse2;
-			return 2;
+			EditCourse2(a, b, Class, newCourse.courseID);
+			return 1;
 		}
-		if (edit == 2)
+		if (edit == 0)
 		{
 			fin.close();
 			delete[] newCourse2;

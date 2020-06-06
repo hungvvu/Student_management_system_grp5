@@ -213,5 +213,7 @@ void TransferDataFile(string course);
 int CheckLectInfo(string LUser);
 void UpdateLectFile(FileSchedule newCourse, string LUser);
 void CreateNewCFile(string Class, FileSchedule*& newCourse, string x, string y);
+void EditCourse2(string year, string semester, string Class, string OldID);
+int EditCourseArray2(FileSchedule*& courses, int n, string& oldID);
 
 #endif

@@ -16,7 +16,7 @@ MON
 I42
 
 2
-CM101
+CM102
 Communications
 19CLC5
 dnvu
@@ -39,13 +39,46 @@ Vi tich phan
 nttrung
 Nguyen Tan Trung
 Dr
-Male
+male
 6 6 2020
-7 7 2020
+8 8 2020
 WED
 7
 30
 11
 30
 C22
+
+4
+BAA00005
+Macro Economics
+19CLC5
+htlna
+Huynh Thi Ly Na
+Dr
+female
+6 6 2020
+8 8 2020
+FRI
+13
+30
+17
+30
+Hall I
+5
+CSC10001
+Cong nghe thong tin
+19CLC5
+nva
+Nguyen Van A
+Dr
+male
+6 6 2020
+8 8 2020
+TUE
+7
+30
+11
+30
+B11A
 

@@ -327,3 +327,124 @@ void EditCourse() {
 	}
 	cout << "edit course succesfully" << endl;
 }
+
+void EditCourse2(string year, string semester, string Class, string OldID) 
+{
+	// create a file name from user input
+	string FileName;
+	FileName = year + "-" + semester + "-Schedule-" + Class + ".txt";
+
+	// edit in schedule file
+	ifstream fin;
+	fin.open(FileName.c_str());
+	if (!fin.is_open()) {
+		cout << "Invalid input";
+		return;
+	}
+	else {
+		FileSchedule* Courses;
+		int n = 0;
+		LoadCourse(fin, Courses, n);// load the courses to an array
+
+		int index = EditCourseArray2(Courses, n, OldID);// edit a course in the array, get the index of chosen course
+
+		ofstream fout;
+		fout.open(FileName.c_str());
+		if (!fout.is_open()) {
+			cout << "fail to save the edited course" << endl;
+			return;
+		}
+		else {
+			SaveCoursesToFile(fout, Courses, n);
+			fout.close();
+		}
+
+		fin.close();
+
+		// edit the atendance date for student in the student list file
+		string ClassFile = "Student-" + Class + ".txt";
+		ifstream  ReadClass;
+		ReadClass.open(ClassFile.c_str());
+		if (!ReadClass.is_open()) {
+			cout << "cannot read from class file";
+		}
+		else {
+
+			Stu* Students;
+			int NumOfStu;
+			LoadStudentClass(ReadClass, Students, NumOfStu);// load the students in the class to an array
+			string OldStuFile = year + "-" + semester + "-" + Class + "-" + OldID + "-Student.txt";// the old student file
+			string NewFileName = year + "-" + semester + "-" + Class + "-" + Courses[index].courseID + "-Student.txt";// the new student file
+
+			fout.open(NewFileName.c_str());
+			if (!fout.is_open()) {
+				cout << "fail to write in the new file" << endl;
+			}
+			else {
+				int d1 = 0;
+				int m1 = 0;
+				int y1 = 0;
+				int d2 = 0;
+				int m2 = 0;
+				int y2 = 0;
+				int weekdays = 0;
+
+				remove(OldStuFile.c_str());// remove the old file, in case the ID was changed and
+										   // by fout to the new file name, the old file still exist and create spare file
+				saveListOfStudent(fout, Students, NumOfStu, index, Courses, d1, d2, m1, m2, y1, y2, weekdays);
+			}
+			fout.close();
+
+			delete[] Students;
+		}
+		delete[] Courses;
+	}
+	cout << "edit course succesfully" << endl;
+}
+
+int EditCourseArray2(FileSchedule*& courses, int n, string& oldID) {
+	bool found = false;
+	do {
+
+		for (int i = 0; i < n && !found; ++i) {// find the course in the array to edit
+			if (courses[i].courseID == oldID) {
+				found = true;
+				int choice;
+				do {
+					cout << "1. CourseID: " << courses[i].courseID << endl;
+					cout << "2. Course name: " << courses[i].courseName << endl;
+
+					cout << "3. Class: " << courses[i].Class << endl;/***dev note*** "should remove this field since it won't be use a lot" */
+
+					cout << "4. Lecturer information: " << endl;// print out the lecturer information
+					cout << " - User: " << courses[i].LUser << endl;
+					cout << " - Name: " << courses[i].LName << endl;
+					cout << " - Degree: " << courses[i].Ldegree << endl;
+					cout << " - Sex: " << courses[i].Lgender << endl;
+					cout << "5. Start date: " << courses[i].startdateday << "/" << courses[i].startdatemonth << "/" << courses[i].startdateyear << endl;
+					cout << "6. End date: " << courses[i].enddateday << "/" << courses[i].enddatemonth << "/" << courses[i].enddateyear << endl;
+					cout << "7. Day of week: " << courses[i].dayofweek << endl;
+					cout << "8. Time: " << courses[i].starthour << ":" << courses[i].startminute << " - " << courses[i].endhour << ":" << courses[i].endminute << endl;
+					cout << "9 Room: " << courses[i].Room << endl;
+
+					cout << "choose a field to edit: ";
+					cin >> choice;
+					while (choice < 0 || choice > 9) {
+						cout << "invalid choice, enter again: ";
+						cin >> choice;
+					}
+					editCourseField(courses[i], choice);// edit the chosen field
+
+					cout << "would you like to continue editing?" << endl;
+					cout << "0.No\n1.Yes\n";
+					cin >> choice;
+					cout << endl;
+				} while (choice != 0);
+			}
+			if (found)// found and edited the chosen course, exit this function
+				return i;// return the index of the course in the array
+		}
+		// can't find course, ask user to re-enter
+		cout << "cannot find the course, please check your input" << endl;
+	} while (!found);// re-enter course id if not found the course
+}
