@@ -1,4 +1,4 @@
-6
+4
 Lecturer 1
 ltr1
 123
@@ -11,21 +11,15 @@ ltr2
 GS
 1
 
-Nguyen Tan Trung
-nttrung
-nttrung
-Dr
+Dinh Ba Tien
+dbtien
+dbtien
+TS
 0
 
-Huynh Thi Ly Na
-htlna
-htlna
-Dr
-1
-
-Nguyen Van A
-nva
-nva
-Dr
+Duong Nguyen Vu
+dnvu
+dnvu
+GS
 0
 
