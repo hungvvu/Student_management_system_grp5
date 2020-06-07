@@ -4,6 +4,7 @@
 #include <iostream>
 #include <fstream>
 #include <string>
+#include <windows.h>
 using namespace std;
 
 // data types
@@ -73,6 +74,16 @@ struct FileCourse
 	string bonus;
 	string total;
 	string learning;
+
+	//add
+	string day;
+	string month;
+	string year;
+	string starthour;
+	string startminute;
+	string endhour;
+	string endminute;
+	string checkin;
 };
 
 struct Date_n_Time {// represent a study date and time
@@ -223,5 +234,8 @@ void readcoursefile(ifstream& fin, FileCourse**& a, int& NumofStu, int& countday
 void Edit_Attandance(ifstream& fin, ofstream& fout, FileCourse**& a, FileSchedule*& s, int& counts, string& username, int& NumofStu, int& countdays);
 void savetocoursefile(ofstream& fout, int& NumofStu, int& countdays, FileCourse**& a);
 
+//Function 7.1 (Check In)
+void readcoursefile2(ifstream& fin, FileCourse**& b, int& NumofStu, int& countdays);
+void checkin(ifstream& fin, ofstream& fout, FileCourse**& a, FileCourse**& b, FileSchedule*& s, int& counts, string& username, int& NumofStu, int& countdays);
 
 #endif
