@@ -26,7 +26,7 @@ int MenuStaff(int& choice2)
 int MenuLecturer(int& choice2)
 {
 	cout << "\n-----MENU------\n";
-	cout << "0.Return\n1.Manully Add Student to a class\n2.Remove a student\3.Change Student's Class\n4.Change Password\n5.View Profile\n";
+	cout << "0.Return\n1.View List of Course\n2.View List of Student of Course\n3.View Attandance List of Course\n4.Edit An Attandance\n5.Import ScoreBoard of Course\n6.Edit Grade of Student\n7.View Scoreboard\n8.Change Password\n9.View Profile\n";
 	cin >> choice2;
 	return choice2;
 }
@@ -245,7 +245,20 @@ void showmenu(int& choice1, int& choice2, string& Position, string& username, st
 		if (Position == "Lecturer")
 		{
 			MenuLecturer(choice2);
-			if (choice2 == 4) {// change pass
+			if (choice2 == 4)
+			{
+				ifstream fin;
+				ofstream fout;
+				FileCourse** a;
+				FileSchedule* s;
+				int counts;
+				int NumofStu;
+				int countdays;
+				string z;
+				Edit_Attandance(fin, fout, a, s, counts, username, NumofStu, countdays);
+				showmenu(choice1, choice2, Position, username, password);
+			}
+			if (choice2 == 8) {// change pass
 				if (ChangePass("Lecturer.txt", username, password)) {
 					cout << "password changed successfull" << endl;
 				}
@@ -255,7 +268,7 @@ void showmenu(int& choice1, int& choice2, string& Position, string& username, st
 				showmenu(choice1, choice2, Position, username, password);// back to main menu
 			}
 
-			if (choice2 == 5)
+			if (choice2 == 9)
 			{
 				Profile(username, password);
 				showmenu(choice1, choice2, Position, username, password);

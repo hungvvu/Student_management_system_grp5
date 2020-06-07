@@ -130,6 +130,7 @@
     <ClCompile Include="Change_stu%27s_class.cpp" />
     <ClCompile Include="Create_semester.cpp" />
     <ClCompile Include="DateFunction.cpp" />
+    <ClCompile Include="Edit_Attandance.cpp" />
     <ClCompile Include="Edit_course.cpp" />
     <ClCompile Include="Edit_Exsiting_Student.cpp" />
     <ClCompile Include="Import_Course_Schedule.cpp" />
