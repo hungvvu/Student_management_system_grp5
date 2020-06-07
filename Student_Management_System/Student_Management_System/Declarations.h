@@ -199,8 +199,8 @@ void printoutscore(ifstream& fin, FileCourse**& a, int& NumofStu, int& countdays
 // Funciton 3.10 (view attendance list)
 int CountDates(ifstream& fin);// count how many study dates the course have
 void SaveDates(ifstream& fin, Date_n_Time*& arr, int n);
-void SaveATD_Info(ifstream& fin, Attendance*& ATDinfo, int& NumofStu, int NumofDates);
-void DisplayATD(Attendance* ATDinfo, int numofstu, Date_n_Time* Dates, int numofdates);
+void SaveATD_Info(ifstream& fin, Attendance*& ATDinfo, int& NumofStu, int NumofDates, bool*& Active);
+void DisplayATD(Attendance* ATDinfo, int numofstu, Date_n_Time* Dates, int numofdates, bool* Active);
 void ViewAttendanceList();
 
 // Function 3.9 (View List of Student of Course)
@@ -214,4 +214,7 @@ int CheckLectInfo(string LUser);
 void UpdateLectFile(FileSchedule newCourse, string LUser);
 void CreateNewCFile(string Class, FileSchedule*& newCourse, string x, string y);
 
+// Funciton 5.2(Export atendance)
+void Export_Atendance();
+void Export_to_CSV(string CourseID, Attendance* ATDinfo, int numofstu, Date_n_Time* Dates, int numofdates, bool* Active);
 #endif

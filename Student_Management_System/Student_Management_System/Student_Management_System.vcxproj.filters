@@ -87,6 +87,9 @@
     <ClCompile Include="Update_Lect_File.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Export_Atendance.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Declarations.h">

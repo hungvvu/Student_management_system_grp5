@@ -132,6 +132,7 @@
     <ClCompile Include="DateFunction.cpp" />
     <ClCompile Include="Edit_course.cpp" />
     <ClCompile Include="Edit_Exsiting_Student.cpp" />
+    <ClCompile Include="Export_Atendance.cpp" />
     <ClCompile Include="Import_Course_Schedule.cpp" />
     <ClCompile Include="Login.cpp" />
     <ClCompile Include="main.cpp" />
