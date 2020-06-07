@@ -258,6 +258,20 @@ void showmenu(int& choice1, int& choice2, string& Position, string& username, st
 				Edit_Attandance(fin, fout, a, s, counts, username, NumofStu, countdays);
 				showmenu(choice1, choice2, Position, username, password);
 			}
+			if (choice2 == 6)
+			{
+				ifstream fin;
+				ofstream fout;
+				FileCourse** a;
+				FileSchedule* s;
+				int counts;
+				int NumofStu;
+				int countdays;
+				string z;
+				EditScoreboard(fin, fout, a, s, counts, username, NumofStu, countdays);
+				showmenu(choice1, choice2, Position, username, password);
+			}
+
 			if (choice2 == 8) {// change pass
 				if (ChangePass("Lecturer.txt", username, password)) {
 					cout << "password changed successfull" << endl;
