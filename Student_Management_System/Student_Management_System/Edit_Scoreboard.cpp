@@ -99,7 +99,8 @@ void EditScoreboard(ifstream& fin, ofstream& fout, FileCourse**& a, FileSchedule
 					float final;
 					float bonus;
 					float total;
-					cout << "0.Return Menu\n1.Edit Midterm\n2.Edit Final\n3.Edit Bonus\nYour choice is?\n";
+					cout << "\n-----MENU------\n";
+					cout << "0.Return Menu\n1.Edit Midterm\n2.Edit Final\n3.Edit Bonus\nYour choice is? (Only return menu score will save)\n";
 					cin >> choice;
 					while (choice > 3 || choice < 0)
 					{
@@ -120,23 +121,59 @@ void EditScoreboard(ifstream& fin, ofstream& fout, FileCourse**& a, FileSchedule
 						final = stoi(a[i][0].final);
 						bonus = stoi(a[i][0].bonus);
 						total = ((midterm + final * 2) / 3) + bonus;
-						cout << setprecision(1) << fixed <<  total << endl;
-						cout << "\n0.Return Menu\n1.Edit Midterm\n2.Edit Final\n3.Edit Bonus\nYour choice is?\n";
+						cout <<"Total after fix: " <<setprecision(1) << fixed <<  total << endl;
+						a[i][0].total = to_string(total);
+						cout << "\n-----MENU------\n";
+						cout << "0.Return Menu\n1.Edit Midterm\n2.Edit Final\n3.Edit Bonus\nYour choice is?(Only return menu score will save)\n";
 						cin >> choice;
 					}
 					while (choice == 2)
 					{
-						cout << "Edit final score(Ex:9.0) :" << endl;
-						cin >> a[i][0].final;
-						cout << "\n0.Return Menu\n1.Edit Midterm\n2.Edit Final\n3.Edit Bonus\nYour choice is?\n";
+						cout << "Edit final score(Ex:9.0) :";
+						cin >> final;
+						while (final > 10 || final < 0)
+						{
+							cout << "Please Enter final again:";
+							cin >> final;
+						}
+						a[i][0].final = to_string(final);
+						midterm = stoi(a[i][0].miterm);
+						bonus = stoi(a[i][0].bonus);
+						total = ((midterm + final * 2) / 3) + bonus;
+						cout << "Total after fix: " << setprecision(1) << fixed << total << endl;
+						a[i][0].total = to_string(total);
+						cout << "\n-----MENU------\n";
+						cout << "0.Return Menu\n1.Edit Midterm\n2.Edit Final\n3.Edit Bonus\nYour choice is?(Only return menu score will save)\n";
+						cin >> choice;
+					}
+					while (choice == 3)
+					{
+						cout << "Edit bonus score(Ex:1.0)(Bonus<2) :";
+						cin >> bonus;
+						while (bonus > 2 || bonus < 0)
+						{
+							cout << "Please Enter bonus again:";
+							cin >> bonus;
+						}
+						a[i][0].bonus = to_string(bonus);
+						midterm = stoi(a[i][0].miterm);
+						final = stoi(a[i][0].final);
+						total = ((midterm + final * 2) / 3) + bonus;
+						cout << "Total after fix: " << setprecision(1) << fixed << total << endl;
+						a[i][0].total = to_string(total);
+						cout << "\n-----MENU------\n";
+						cout << "0.Return Menu\n1.Edit Midterm\n2.Edit Final\n3.Edit Bonus\nYour choice is?(Only return menu score will save)\n";
 						cin >> choice;
 					}
 					if (choice == 0)
 					{
+						fout.open(z.c_str());
+						savetocoursefile(fout, NumofStu, countdays, a);
+						fout.close();
+						delete[] a;
+						delete[] s;
 						return;
 					}
-
-
 				}
 			}
 		}
