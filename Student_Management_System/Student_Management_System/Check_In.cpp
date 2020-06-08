@@ -69,11 +69,64 @@ void checkin(ifstream& fin, ofstream& fout, FileCourse**& a, FileCourse**& b, Fi
 				cout << Class << "-" << CourseID<<endl;
 				readcoursefile2(fin, b, NumofStu, countdays);
 				fin.close();
-				cout << b[3][0].Name;
 				
+				for (int j = 0; j < countdays; j++)
+				{
+					int daycheck = stoi(b[i][j].day);
+					int monthcheck = stoi(b[i][j].month);
+					int yearcheck = stoi(b[i][j].year);
+					int hourstartcheck = stoi(b[i][j].starthour);
+					int minutestartcheck = stoi(b[i][j].startminute);
+					int hourendcheck = stoi(b[i][j].endhour);
+					int minuteendcheck = stoi(b[i][j].endminute);
+
+					int secondcheck1 = hourstartcheck * 3600 + minutestartcheck * 60; //turn into second for easy checking
+					int secondcheck2 = hourendcheck * 3600 + minuteendcheck * 60;
+					int secondsystem = hoursystem * 3600 + minutesystem * 60;
+					if (daycheck == daysystem&&monthcheck==monthsystem&&yearcheck==yearsystem)
+					{
+						if (secondsystem>= secondcheck1&& secondsystem<= secondcheck2)
+						{
+							if (b[i][j].checkin == "1")
+							{
+								cout << "You are already checkin today: " << b[i][j].day << "/" << b[i][j].month << "/" << b[i][j].year << endl;
+							}
+							if (b[i][j].checkin == "-1")
+							{
+								cout << "You are available to checkin today: " << b[i][j].day << "/" << b[i][j].month << "/" << b[i][j].year << endl;
+								cout << "Check in complete!!!!" << endl;
+								b[i][j].checkin = "1";
+							}
+
+							 
+						}
+						else
+						{
+							cout << "You are not available to check in" << endl;
+						}
+						break;
+					}
+					if (j == countdays - 1 && daycheck != daysystem || monthcheck != monthsystem && yearcheck != yearsystem)
+					{
+						cout << "Course has not begin yet" << endl;
+					}
+				}
+				fout.open(z.c_str());
+				if (!fout.is_open())
+				{
+					cout << "Cant open file" << endl;
+				}
+				else
+				{
+					SaveCheckIntoCourse(fout, b, countdays, NumofStu);
+					fout.close();
+				}
+				
+
+				delete[] b;
 				return;
 				
-				//delete[] b;
+				
 			}
 		}
 	}
@@ -111,5 +164,27 @@ void readcoursefile2(ifstream& fin, FileCourse**& b, int& NumofStu, int& countda
 			getline(fin, b[i][j].checkin,'\n');
 		}
 		fin.ignore();
+	}
+}
+
+void SaveCheckIntoCourse(ofstream& fout, FileCourse**& b,int &countdays,int &NumofStu)
+{
+	fout << NumofStu << endl;
+	for (int i = 0; i < NumofStu; i++)
+	{
+		fout << b[i][0].Name << endl;
+		fout << b[i][0].ID << endl;
+		fout << b[i][0].Password << endl;
+		fout << b[i][0].DoB << endl;
+		fout << b[i][0].active << endl;
+		fout << b[i][0].miterm << endl;
+		fout << b[i][0].final << endl;
+		fout << b[i][0].bonus << endl;
+		fout << b[i][0].total << endl;
+		for (int j = 0; j < countdays; j++)
+		{
+			fout << b[i][j].day << " " << b[i][j].month << " " << b[i][j].year << " " << b[i][j].starthour << " " << b[i][j].startminute << " " << b[i][j].endhour << " " << b[i][j].endminute << " " << b[i][j].checkin << endl;
+		}
+		fout << endl;
 	}
 }

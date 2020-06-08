@@ -237,5 +237,6 @@ void savetocoursefile(ofstream& fout, int& NumofStu, int& countdays, FileCourse*
 //Function 7.1 (Check In)
 void readcoursefile2(ifstream& fin, FileCourse**& b, int& NumofStu, int& countdays);
 void checkin(ifstream& fin, ofstream& fout, FileCourse**& a, FileCourse**& b, FileSchedule*& s, int& counts, string& username, int& NumofStu, int& countdays);
+void SaveCheckIntoCourse(ofstream& fout, FileCourse**& b, int& countdays, int& NumofStu);
 
 #endif
