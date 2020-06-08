@@ -18,7 +18,7 @@ int MenuStaff(int& choice2)
 {
 	cout << "\n-----MENU------\n";
 
-	cout << "0.Return\n1.Manully Add Student to a class\n2.Edit an existing student\n3.Remove a student\n4.Change Student's Class\n5.View list of classes\n6.View list of students in a class\n7.Change Password\n8.View Profile\n9.Create semester\n10.Import Course(Schedule)\n11.Edit a course\n12.Add a student to a course\n13.Remove Course\n14.Add new Course\n16.View List of Course\n17.View List of Student of Course\n18.View attendance list of a course\n19.View All Lecturers\n20.Search and View Scoreboard\n";
+	cout << "0.Return\n1.Manully Add Student to a class\n2.Edit an existing student\n3.Remove a student\n4.Change Student's Class\n5.View list of classes\n6.View list of students in a class\n7.Change Password\n8.View Profile\n9.Create semester\n10.Import Course(Schedule)\n11.Edit a course\n12.Add a student to a course\n13.Remove Course\n14.Add new Course\n16.View List of Course\n17.View List of Student of Course\n18.View attendance list of a course\n19.View All Lecturers\n20.Search and View Scoreboard\n21.Export Atendance list of a course\n";
 	cin >> choice2;
 	return choice2;
 }
@@ -241,6 +241,11 @@ void showmenu(int& choice1, int& choice2, string& Position, string& username, st
 				}
 
 			}
+
+			if (choice2 = 21) {
+				Export_Atendance();
+				showmenu(choice1, choice2, Position, username, password);
+			}
 		}
 		if (Position == "Lecturer")
 		{
@@ -256,6 +261,20 @@ void showmenu(int& choice1, int& choice2, string& Position, string& username, st
 				int countdays;
 				string z;
 				Edit_Attandance(fin, fout, a, s, counts, username, NumofStu, countdays);
+				showmenu(choice1, choice2, Position, username, password);
+			}
+
+			if (choice2 == 6)
+			{
+				ifstream fin;
+				ofstream fout;
+				FileCourse** a;
+				FileSchedule* s;
+				int counts;
+				int NumofStu;
+				int countdays;
+				string z;
+				EditScoreboard(fin, fout, a, s, counts, username, NumofStu, countdays);
 				showmenu(choice1, choice2, Position, username, password);
 			}
 			if (choice2 == 8) {// change pass
