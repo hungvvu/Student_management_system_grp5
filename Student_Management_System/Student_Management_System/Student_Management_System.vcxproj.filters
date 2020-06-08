@@ -90,6 +90,9 @@
     <ClCompile Include="Edit_Attandance.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="View_ATD_Result.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Declarations.h">
