@@ -4,6 +4,7 @@
 #include <iostream>
 #include <fstream>
 #include <string>
+#include <iomanip>
 using namespace std;
 
 // data types
@@ -227,4 +228,8 @@ void savetocoursefile(ofstream& fout, int& NumofStu, int& countdays, FileCourse*
 // Funciton 5.2(Export atendance)
 void Export_Atendance();
 void Export_to_CSV(string CourseID, Attendance* ATDinfo, int numofstu, Date_n_Time* Dates, int numofdates, bool* Active);
+
+//Function 6.6(Edit Scoreboard)
+void EditScoreboard(ifstream& fin, ofstream& fout, FileCourse**& a, FileSchedule*& s, int& counts, string& username, int& NumofStu, int& countdays);
+
 #endif
