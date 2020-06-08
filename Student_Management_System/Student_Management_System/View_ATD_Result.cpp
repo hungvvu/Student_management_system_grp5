@@ -1,5 +1,24 @@
 #include "Declarations.h"
 
+bool ViewStudentATD(string username, Attendance* ATDinfo, int numofstu, Date_n_Time* Dates, int numofdates, bool* Active){
+	for (int i = 0; i < numofstu; ++i) {
+		if (username == ATDinfo[i].StuInfo.ID) {
+			for (int j = 0; j < numofdates; ++j) {
+				cout << j + 1 << ". " << Dates[j].day << "/" << Dates[j].month << "/" << Dates[j].year << " - ";
+				if (ATDinfo[i].ATD_Status[j])// checking the attendance status of the current student, on the current date
+					cout << "Present";
+				else
+					cout << "Absent";
+
+				cout << endl;
+			}
+			return true;
+		}
+	}
+	
+	return false;// cannot find the student
+}
+
 void ViewATD(string username) {
 	string year;
 	string semester;
@@ -34,7 +53,9 @@ void ViewATD(string username) {
 		bool* Active;
 		SaveATD_Info(fin, ATDinfo, NumofStu, NumofDates, Active);// save the attendance info to the array
 
-		DisplayATD(ATDinfo, NumofStu, ATD_Dates, NumofDates, Active);
+		if (!ViewStudentATD(username, ATDinfo, NumofStu, ATD_Dates, NumofDates, Active))
+			cout << "You were not enrolled in this course" << endl;
+
 		delete[] ATD_Dates;
 		for (int i = 0; i < NumofStu; ++i) {// loop to delete all array that store the attendance status
 			delete[] ATDinfo[i].ATD_Status;

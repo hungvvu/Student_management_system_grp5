@@ -232,4 +232,7 @@ void Export_to_CSV(string CourseID, Attendance* ATDinfo, int numofstu, Date_n_Ti
 //Function 6.6(Edit Scoreboard)
 void EditScoreboard(ifstream& fin, ofstream& fout, FileCourse**& a, FileSchedule*& s, int& counts, string& username, int& NumofStu, int& countdays);
 
+// Function 7.2(View checkin result)
+bool ViewStudentATD(string username, Attendance* ATDinfo, int numofstu, Date_n_Time* Dates, int numofdates, bool* Active);
+void ViewATD(string username);
 #endif
