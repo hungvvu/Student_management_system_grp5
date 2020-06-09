@@ -10,7 +10,7 @@ int mainmenu(int& choice1)
 int MenuStudent(int& choice2)
 {
 	cout << "\n-----MENU------\n";
-	cout << "0.Return\n1.Attendance\n2.Timetable\n3.Grade/Score\n4.HomeWork\n5.Change Password\n6.View Profile\n";
+	cout << "0.Return\n1.Check In\n2.Timetable\n3.Grade/Score\n4.HomeWork\n5.Change Password\n6.View Profile\n";
 	cin >> choice2;
 	return choice2;
 }
@@ -49,6 +49,21 @@ void showmenu(int& choice1, int& choice2, string& Position, string& username, st
 		if (Position == "Student")
 		{
 			MenuStudent(choice2);
+
+			if (choice2 == 1) //Check In
+			{
+				ifstream fin;
+				ofstream fout;
+				FileCourse** a;
+				FileCourse** b;
+				FileSchedule* s;
+				int counts;
+				int NumofStu;
+				int countdays;
+				checkin(fin, fout, a, b, s, counts, username, NumofStu, countdays);
+				showmenu(choice1, choice2, Position, username, password);// back to main menu
+			}
+
 			if (choice2 == 5) {// Change pass
 				if (ChangePass("Student.txt", username, password)) {
 					cout << "password changed successfull" << endl;
