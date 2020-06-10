@@ -232,4 +232,8 @@ void Export_to_CSV(string CourseID, Attendance* ATDinfo, int numofstu, Date_n_Ti
 //Function 6.6(Edit Scoreboard)
 void EditScoreboard(ifstream& fin, ofstream& fout, FileCourse**& a, FileSchedule*& s, int& counts, string& username, int& NumofStu, int& countdays);
 
+// Function 7.4(Student view his/her score)
+bool LoadStuScore(ifstream& fin, string username, string& midterm, string& Final, string& bonus, string& total);
+void View_Score(string username);
+
 #endif
