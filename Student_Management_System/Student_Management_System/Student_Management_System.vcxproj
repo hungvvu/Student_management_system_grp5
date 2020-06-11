@@ -159,6 +159,7 @@
   <ItemGroup>
     <Text Include="2019-2020-HK2-19CLC5-CM101-Student.txt" />
     <Text Include="2019-2020-HK2-19CLC5-CS162-Student.txt" />
+    <Text Include="2019-2020-HK2-Schedule-19CLC5.txt" />
     <Text Include="Class.txt" />
     <Text Include="Lecturer.txt" />
     <Text Include="Score_temp.txt" />

@@ -252,7 +252,7 @@ void SaveCheckIntoCourse(ofstream& fout, FileCourse**& b, int& countdays, int& N
 int CountStu(string a, string b, string c, string Class);
 int CountDate(string a, string b, string c, string Class);
 void ReadScore(ifstream& fin, FileCourse*& a, int& count);
-int ImportScore();
+int ImportScore(string &username);
 int CreateScoreTemp(string a, string b, string c, string Class, FileCourse*& course);
 
 #endif

@@ -139,6 +139,9 @@
     <Text Include="Score_temp.txt">
       <Filter>Source Files</Filter>
     </Text>
+    <Text Include="2019-2020-HK2-Schedule-19CLC5.txt">
+      <Filter>Source Files</Filter>
+    </Text>
   </ItemGroup>
   <ItemGroup>
     <None Include="19CLC5-Schedule.csv">

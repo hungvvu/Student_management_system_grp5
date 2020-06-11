@@ -121,10 +121,10 @@ int CreateScoreTemp(string a, string b, string c, string Class, FileCourse*& cou
 	fout.close();
 }
 
-int ImportScore()
+int ImportScore(string &username)
 {
 	ifstream fin;
-	string a, b, c, f1, f2, Class;
+	string a, b, c, f, f1, f2, Class;
 	int menu = 0;
 
 	cout << "Enter academic year(YYYY-YYYY): " << endl;//2019-2020
@@ -135,8 +135,39 @@ int ImportScore()
 	getline(cin, b);
 	cout << "Enter class" << endl;//19CLC5
 	getline(cin, Class);
-	cout << "Enter Course ID:" << endl;//CM101
-	getline(cin, c);
+
+	ifstream check;
+	f = a + "-" + b + "-Schedule-" + Class + ".txt";
+
+	check.open(f.c_str());
+	if (!check)
+	{
+		cout << "SCHEDULE FILE ERROR !" << endl;
+		return 1;
+	}
+
+	FileSchedule* schedule = new FileSchedule;
+	int counts = 0;
+	Load_Schedule_txt(check, schedule, counts);
+	fin.close();
+	int i = 0;
+	while (schedule[i].LUser != username)
+	{
+		i++;
+		if (i > counts)
+		{
+			break;
+		}
+	}
+	if (i > counts)
+	{
+		cout << "\nYou do not teach " << Class << " class " << endl;
+		return 1;
+	}
+	else
+	{
+		c = schedule[i].courseID;
+	}
 
 	f1 = a + "-" + b + "-" + Class + "-" + c + "-Score" +  ".csv"; 
 
@@ -193,11 +224,12 @@ int ImportScore()
 		fout << s << endl;
 	}
 
+	check.close();
 	fin2.close();
 	fout.close();
 
 	cout << endl;
-	cout << "ADD SCORE COMPLETE !" << endl;
+	cout << "SUCCESSFULLY ADD SCORES TO CLASS " << c << endl;
 
 	delete[] scorearr;
 

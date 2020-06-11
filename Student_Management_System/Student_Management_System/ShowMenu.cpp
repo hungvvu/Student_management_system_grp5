@@ -310,7 +310,11 @@ void showmenu(int& choice1, int& choice2, string& Position, string& username, st
 
 			if (choice2 == 5)
 			{
-				ImportScore();
+				int n = ImportScore(username);
+				if (n == 1)
+				{
+					showmenu(choice1, choice2, Position, username, password);
+				}
 				showmenu(choice1, choice2, Position, username, password);
 			}
 
