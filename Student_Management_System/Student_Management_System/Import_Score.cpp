@@ -22,6 +22,35 @@ int CountStu(string a, string b, string c, string Class)
 	return count;
 }
 
+int CountDate(string a, string b, string c, string Class)
+{
+	ifstream fin;
+	string f;
+	string scount, s;
+	int count = 0;
+
+	f = a + "-" + b + "-" + Class + "-" + c + "-Student" + ".txt";
+	fin.open(f.c_str());
+	if (!fin)
+	{
+		cout << "Student Course file Error !" << endl;
+		return -1;
+	}
+
+	for (int i = 0; i < 10; i++)
+	{
+		getline(fin, scount);
+	}
+	while (scount != "")
+	{
+		getline(fin, scount);
+		count++;
+	}
+
+	fin.close();
+	return count;
+}
+
 void ReadScore(ifstream &fin, FileCourse*&a, int &count)
 {
 	int i = 0;
@@ -59,6 +88,7 @@ int CreateScoreTemp(string a, string b, string c, string Class, FileCourse*& cou
 	fin.ignore();
 	fout << count << endl;
 	int i = 0;
+	int n = CountDate(a, b, c, Class);
 
 	while (!fin.eof() && i < count)
 	{
@@ -72,43 +102,20 @@ int CreateScoreTemp(string a, string b, string c, string Class, FileCourse*& cou
 		fout << course[i].DoB << endl;
 		getline(fin, course[i].active);
 		fout << course[i].active << endl;
-		//Test cout
-		cout << course[i].Name << endl;
-		cout << course[i].ID << endl;
-		cout << course[i].Password << endl;
-		cout << course[i].DoB << endl;
-		cout << course[i].active << endl;
-		//
 		getline(fin, s); getline(fin, s); getline(fin, s);	getline(fin, s);
 		fout << course[i].miterm << endl;
 		fout << course[i].final << endl;
 		fout << course[i].bonus << endl;
 		fout << course[i].total << endl;
-		for (int j = 0; j < 29; j++)
+		for (int j = 0; j < (n - 1); j++)
 		{
 			getline(fin, s);
-			cout << s << endl;
 			fout << s << endl;
 		}
 		getline(fin, s);
+		fout << endl;
 		i++;
 	}
-
-	/*
-	for (int k = 0; k < count; k++)
-	{
-		fout << course[i].Name << endl;
-		fout << course[i].ID << endl;
-		fout << course[i].Password << endl;
-		fout << course[i].DoB << endl;
-		fout << course[i].active << endl;
-		fout << course[i].miterm << endl;
-		fout << course[i].final << endl;
-		fout << course[i].bonus << endl;
-		fout << course[i].total << endl;
-		fout << endl;
-	}
-	*/
 
 	fin.close();
 	fout.close();
@@ -117,7 +124,7 @@ int CreateScoreTemp(string a, string b, string c, string Class, FileCourse*& cou
 int ImportScore()
 {
 	ifstream fin;
-	string a, b, c, f, Class;
+	string a, b, c, f1, f2, Class;
 	int menu = 0;
 
 	cout << "Enter academic year(YYYY-YYYY): " << endl;//2019-2020
@@ -128,12 +135,12 @@ int ImportScore()
 	getline(cin, b);
 	cout << "Enter class" << endl;//19CLC5
 	getline(cin, Class);
-	cout << "Enter Course ID:" << endl;
+	cout << "Enter Course ID:" << endl;//CM101
 	getline(cin, c);
 
-	f = a + "-" + b + "-" + Class + "-" + c + "-Score" +  ".csv"; //f for example 2019-2020-HK2-Schedule-19CLC5.txt
+	f1 = a + "-" + b + "-" + Class + "-" + c + "-Score" +  ".csv"; 
 
-	fin.open(f.c_str());
+	fin.open(f1.c_str());
 	while (!fin || menu == 1)
 	{
 		cout << "INPUT ERROR !" << endl;
@@ -157,9 +164,9 @@ int ImportScore()
 			cout << "Enter class" << endl;//19CLC5
 			getline(cin, Class);
 
-			f = a + "-" + b + "-" + "Schedule-" + Class + ".txt"; //f for example 2019-2020-HK2-Schedule-19CLC5.txt
+			f1 = a + "-" + b + "-" + "Schedule-" + Class + ".txt"; //f for example 2019-2020-HK2-Schedule-19CLC5.txt
 
-			fin.open(f.c_str());
+			fin.open(f1.c_str());
 		}
 	}
 
@@ -173,16 +180,25 @@ int ImportScore()
 
 	CreateScoreTemp(a, b, c, Class, scorearr);
 	
-	/*
-	for (int i = 0; i < count; i++)
+	ofstream fout;
+	f2 = a + "-" + b + "-" + Class + "-" + c + "-Student" + ".txt";
+	fout.open(f2.c_str());
+	ifstream fin2;
+	fin2.open("Score_temp.txt");
+	string s;
+
+	while (!fin2.eof())
 	{
-		cout << scorearr[i].ID << " ";
-		cout << scorearr[i].miterm << " ";
-		cout << scorearr[i].final << " ";
-		cout << scorearr[i].bonus << " ";
-		cout << scorearr[i].total << endl;
+		getline(fin2, s);
+		fout << s << endl;
 	}
-	*/
+
+	fin2.close();
+	fout.close();
+
+	cout << endl;
+	cout << "ADD SCORE COMPLETE !" << endl;
+
 	delete[] scorearr;
 
 	return 0;

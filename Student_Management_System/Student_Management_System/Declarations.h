@@ -250,6 +250,7 @@ void SaveCheckIntoCourse(ofstream& fout, FileCourse**& b, int& countdays, int& N
 
 //Function 6.5 (Import Score CSV)
 int CountStu(string a, string b, string c, string Class);
+int CountDate(string a, string b, string c, string Class);
 void ReadScore(ifstream& fin, FileCourse*& a, int& count);
 int ImportScore();
 int CreateScoreTemp(string a, string b, string c, string Class, FileCourse*& course);
