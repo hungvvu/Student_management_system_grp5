@@ -48,7 +48,12 @@ void EditExsitingStudent(string& ID, Stu*& a, ifstream& fin, int NumofStu, int& 
 	}
 	else {
 		int x = i; //Save x for later
-		cout << "Edit Name of student: ";
+		cout <<"\nName: "<< a[i].Fullname << endl;
+		cout << "ID: " << a[i].ID << endl;
+		cout << "Password: " << a[i].Password << endl;
+		cout << "DoB: " << a[i].DoB << endl;
+
+		cout << "\nEdit Name of student: ";
 		getline(cin, a[i].Fullname);
 		cout << "Edit ID of student: ";
 		getline(cin, a[i].ID);
