@@ -308,6 +308,12 @@ void showmenu(int& choice1, int& choice2, string& Position, string& username, st
 				showmenu(choice1, choice2, Position, username, password);
 			}
 
+			if (choice2 == 5)
+			{
+				ImportScore();
+				showmenu(choice1, choice2, Position, username, password);
+			}
+
 			while (choice2 == 0 && choice1 == 1)
 			{
 				choice1 = 0;

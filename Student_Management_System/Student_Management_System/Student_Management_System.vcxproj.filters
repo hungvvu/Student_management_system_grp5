@@ -99,6 +99,9 @@
     <ClCompile Include="Check_In.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Import_Score.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Declarations.h">
@@ -127,9 +130,21 @@
     <Text Include="Semester.txt">
       <Filter>Source Files</Filter>
     </Text>
+    <Text Include="2019-2020-HK2-19CLC5-CM101-Student.txt">
+      <Filter>Source Files</Filter>
+    </Text>
+    <Text Include="2019-2020-HK2-19CLC5-CS162-Student.txt">
+      <Filter>Source Files</Filter>
+    </Text>
+    <Text Include="Score_temp.txt">
+      <Filter>Source Files</Filter>
+    </Text>
   </ItemGroup>
   <ItemGroup>
     <None Include="19CLC5-Schedule.csv">
+      <Filter>Source Files</Filter>
+    </None>
+    <None Include="2019-2020-HK2-19CLC5-CM101-Score.csv">
       <Filter>Source Files</Filter>
     </None>
   </ItemGroup>

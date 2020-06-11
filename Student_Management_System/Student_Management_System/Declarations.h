@@ -248,4 +248,10 @@ void readcoursefile2(ifstream& fin, FileCourse**& b, int& NumofStu, int& countda
 void checkin(ifstream& fin, ofstream& fout, FileCourse**& a, FileCourse**& b, FileSchedule*& s, int& counts, string& username, int& NumofStu, int& countdays);
 void SaveCheckIntoCourse(ofstream& fout, FileCourse**& b, int& countdays, int& NumofStu);
 
+//Function 6.5 (Import Score CSV)
+int CountStu(string a, string b, string c, string Class);
+void ReadScore(ifstream& fin, FileCourse*& a, int& count);
+int ImportScore();
+int CreateScoreTemp(string a, string b, string c, string Class, FileCourse*& course);
+
 #endif
