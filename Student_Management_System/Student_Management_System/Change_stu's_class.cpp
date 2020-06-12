@@ -33,6 +33,7 @@ int Load_1Stu_Class(string Class, string ID, Stu& Student) {
 
 			fin.close();
 		}
+		return 0;
 	}
 	case 2: {
 		ifstream fin;
@@ -64,6 +65,7 @@ int Load_1Stu_Class(string Class, string ID, Stu& Student) {
 
 			fin.close();
 		}
+		return 0;
 	}
 	case 3: {
 		ifstream fin;
@@ -95,6 +97,7 @@ int Load_1Stu_Class(string Class, string ID, Stu& Student) {
 
 			fin.close();
 		}
+		return 0;
 	}
 	case 4: {
 		ifstream fin;
@@ -126,6 +129,7 @@ int Load_1Stu_Class(string Class, string ID, Stu& Student) {
 
 			fin.close();
 		}
+		return 0;
 	}
 	case 5: {
 		ifstream fin;
@@ -157,6 +161,7 @@ int Load_1Stu_Class(string Class, string ID, Stu& Student) {
 
 			fin.close();
 		}
+		return 0;
 	}
 	case 6: {
 		ifstream fin;
@@ -188,6 +193,7 @@ int Load_1Stu_Class(string Class, string ID, Stu& Student) {
 
 			fin.close();
 		}
+		return 0;
 	}
 	case 7: {
 		ifstream fin;
@@ -219,6 +225,7 @@ int Load_1Stu_Class(string Class, string ID, Stu& Student) {
 
 			fin.close();
 		}
+		return 0;
 	}
 	case 8: {
 		ifstream fin;
@@ -250,6 +257,7 @@ int Load_1Stu_Class(string Class, string ID, Stu& Student) {
 
 			fin.close();
 		}
+		return 0;
 	}
 	case 9: {
 		ifstream fin;
@@ -281,6 +289,7 @@ int Load_1Stu_Class(string Class, string ID, Stu& Student) {
 
 			fin.close();
 		}
+		return 0;
 	}
 	case 10: {
 		ifstream fin;
@@ -312,6 +321,7 @@ int Load_1Stu_Class(string Class, string ID, Stu& Student) {
 
 			fin.close();
 		}
+		return 0;
 	}
 	case 11: {
 		ifstream fin;
@@ -343,6 +353,7 @@ int Load_1Stu_Class(string Class, string ID, Stu& Student) {
 
 			fin.close();
 		}
+		return 0;
 	}
 	case 12: {
 		ifstream fin;
@@ -374,6 +385,7 @@ int Load_1Stu_Class(string Class, string ID, Stu& Student) {
 
 			fin.close();
 		}
+		return 0;
 	}
 	}
 	return 0;
