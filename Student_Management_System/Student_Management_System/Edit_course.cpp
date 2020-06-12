@@ -2,14 +2,14 @@
 
 int CountCourse(ifstream& fin) {// count how many courses are there in the file
 	int count = 0;
-	while (!fin.eof()) {
+	while (true) {
 		for (int i = 0; i < 17; ++i) {// ignore a block of 17 lines (a courses)
 			fin.ignore(100, '\n');
 
-			/*
+			
 			if (fin.eof())// reached end of file, return the number of courses
 				return count;
-				*/
+				
 		}
 		++count;// each time we skip through 17 lines,
 				// increase the number of counted courses by 1
@@ -23,6 +23,9 @@ void LoadCourse(ifstream& fin, FileSchedule*& Courses, int& n) {
 	fin.seekg(0);// after count, the cursor is at the end of file, 
 				 // reset the read cursor to the beginning of the file
 
+	//string line;
+	//getline(fin, line);
+	//cout << line;
 	Courses = new FileSchedule[n];// count the number of course and alocate the needed memory
 	
 	for (int i = 0; i < n; ++i) {// load the courses
