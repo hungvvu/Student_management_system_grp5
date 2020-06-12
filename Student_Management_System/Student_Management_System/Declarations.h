@@ -270,4 +270,7 @@ void View_Score(string username);
 //Function 4.2 (Export Scoreboard to CSV)
 int ExportScoreCSV();
 
+//Function 7.3 (View Schedule)
+int ViewSchedule(string& username);
+
 #endif

@@ -111,6 +111,12 @@
     <ClCompile Include="View_Personal_Score.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Export_Score.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="View_Schedule.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Declarations.h">
@@ -159,5 +165,6 @@
     <None Include="2019-2020-HK2-19CLC5-CM101-Score.csv">
       <Filter>Source Files</Filter>
     </None>
+    <None Include="2019-2020-HK2-19CLC5-CS162-Score.csv" />
   </ItemGroup>
 </Project>
