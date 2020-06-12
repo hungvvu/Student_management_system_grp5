@@ -152,6 +152,7 @@
     <ClCompile Include="View_Attendance_List.cpp" />
     <ClCompile Include="View_Course.cpp" />
     <ClCompile Include="View_Lecturers.cpp" />
+    <ClCompile Include="View_Personal_Score.cpp" />
     <ClCompile Include="View_ScoreBoard.cpp" />
     <ClCompile Include="View_Student_in_Class.cpp" />
   </ItemGroup>

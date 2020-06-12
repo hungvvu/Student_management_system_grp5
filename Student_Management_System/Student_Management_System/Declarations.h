@@ -263,4 +263,8 @@ void TransferDataFile2(string course);
 bool ViewStudentATD(string username, Attendance* ATDinfo, int numofstu, Date_n_Time* Dates, int numofdates, bool* Active);
 void ViewATD(string username);
 
+// Function 7.4(Student view his/her score)
+bool LoadStuScore(ifstream& fin, string username, string& midterm, string& Final, string& bonus, string& total);
+void View_Score(string username);
+
 #endif
