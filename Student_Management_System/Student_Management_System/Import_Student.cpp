@@ -44,7 +44,7 @@ void CSVStudent()
 	fin.close();
 
 	//**************** Create Student file *******************
-	fout.open("All_Students.txt");
+	fout.open("Students.txt");
 
 	if (!fout.is_open())
 	{
