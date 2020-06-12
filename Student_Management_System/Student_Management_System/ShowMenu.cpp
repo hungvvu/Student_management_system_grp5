@@ -18,7 +18,7 @@ int MenuStaff(int& choice2)
 {
 	cout << "\n-----MENU------\n";
 
-	cout << "0.Return\n1.Manully Add Student to a class\n2.Edit an existing student\n3.Remove a student\n4.Change Student's Class\n5.View list of classes\n6.View list of students in a class\n7.Change Password\n8.View Profile\n9.Create semester\n10.Import Course(Schedule)\n11.Edit a course\n12.Add a student to a course\n13.Remove Course\n14.Add new Course\n16.View List of Course\n17.View List of Student of Course\n18.View attendance list of a course\n19.View All Lecturers\n20.Search and View Scoreboard\n21.Export Atendance list of a course\n22.Remove a student from a course\n";
+	cout << "0.Return\n1.Manully Add Student to a class\n2.Edit an existing student\n3.Remove a student\n4.Change Student's Class\n5.View list of classes\n6.View list of students in a class\n7.Change Password\n8.View Profile\n9.Create semester\n10.Import Course(Schedule)\n11.Edit a course\n12.Add a student to a course\n13.Remove Course\n14.Add new Course\n16.View List of Course\n17.View List of Student of Course\n18.View attendance list of a course\n19.View All Lecturers\n20.Search and View Scoreboard\n21.Export Atendance list of a course\n22.Remove a student from a course\n23. Export Scoreboard to CSV file\n";
 	cin >> choice2;
 	return choice2;
 }
@@ -266,6 +266,16 @@ void showmenu(int& choice1, int& choice2, string& Position, string& username, st
 			{
 				int removestucourse = RemoveStufromCourse();
 				if (removestucourse == 1)
+				{
+					showmenu(choice1, choice2, Position, username, password);
+				}
+				showmenu(choice1, choice2, Position, username, password);
+			}
+
+			if (choice2 == 23)
+			{
+				int exportscore = ExportScoreCSV();
+				if (exportscore == 1)
 				{
 					showmenu(choice1, choice2, Position, username, password);
 				}

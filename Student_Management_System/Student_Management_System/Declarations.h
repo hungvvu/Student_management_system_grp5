@@ -259,4 +259,7 @@ int CreateScoreTemp(string a, string b, string c, string Class, FileCourse*& cou
 int RemoveStufromCourse();
 void TransferDataFile2(string course);
 
+//Function 4.2 (Export Scoreboard to CSV)
+int ExportScoreCSV();
+
 #endif
