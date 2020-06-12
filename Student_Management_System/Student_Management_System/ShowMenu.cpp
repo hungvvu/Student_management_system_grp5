@@ -10,7 +10,7 @@ int mainmenu(int& choice1)
 int MenuStudent(int& choice2)
 {
 	cout << "\n-----MENU------\n";
-	cout << "0.Return\n1.Attendance\n2.Timetable\n3.Grade/Score\n4.HomeWork\n5.Change Password\n6.View Profile\n7.View checkin result\n8.View Score\n";
+	cout << "0.Return\n1.Attendance\n2.Timetable\n3.Grade/Score\n4.HomeWork\n5.Change Password\n6.View Profile\n7.View checkin result\n8.View Score\n9.View Schedule\n";
 	cin >> choice2;
 	return choice2;
 }
@@ -95,6 +95,16 @@ void showmenu(int& choice1, int& choice2, string& Position, string& username, st
 			{
 				choice1 = 0;
 				Position = "-2";// logout
+				showmenu(choice1, choice2, Position, username, password);
+			}
+
+			if (choice2 == 9)
+			{
+				int n = ViewSchedule(username);
+				if (n == 1)
+				{
+					showmenu(choice1, choice2, Position, username, password);
+				}
 				showmenu(choice1, choice2, Position, username, password);
 			}
 		}
@@ -299,6 +309,15 @@ void showmenu(int& choice1, int& choice2, string& Position, string& username, st
 		if (Position == "Lecturer")
 		{
 			MenuLecturer(choice2);
+
+			if (choice2 == 1)
+			{
+				FileSchedule* s;
+				int counts;
+				View_List_Of_Course(s, counts);
+				showmenu(choice1, choice2, Position, username, password);
+			}
+
 			if (choice2 == 4)
 			{
 				ifstream fin;
@@ -324,6 +343,16 @@ void showmenu(int& choice1, int& choice2, string& Position, string& username, st
 				int countdays;
 				string z;
 				EditScoreboard(fin, fout, a, s, counts, username, NumofStu, countdays);
+				showmenu(choice1, choice2, Position, username, password);
+			}
+
+			if (choice2 == 7)
+			{
+				ifstream fin;
+				FileCourse** a;
+				int NumofStu = 0;
+				int countdays = 0;
+				printoutscore(fin, a, NumofStu, countdays);
 				showmenu(choice1, choice2, Position, username, password);
 			}
 			if (choice2 == 8) {// change pass
