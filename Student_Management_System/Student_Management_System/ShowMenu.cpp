@@ -299,6 +299,15 @@ void showmenu(int& choice1, int& choice2, string& Position, string& username, st
 		if (Position == "Lecturer")
 		{
 			MenuLecturer(choice2);
+
+			if (choice2 == 1)
+			{
+				FileSchedule* s;
+				int counts;
+				View_List_Of_Course(s, counts);
+				showmenu(choice1, choice2, Position, username, password);
+			}
+
 			if (choice2 == 4)
 			{
 				ifstream fin;
@@ -324,6 +333,16 @@ void showmenu(int& choice1, int& choice2, string& Position, string& username, st
 				int countdays;
 				string z;
 				EditScoreboard(fin, fout, a, s, counts, username, NumofStu, countdays);
+				showmenu(choice1, choice2, Position, username, password);
+			}
+
+			if (choice2 == 7)
+			{
+				ifstream fin;
+				FileCourse** a;
+				int NumofStu = 0;
+				int countdays = 0;
+				printoutscore(fin, a, NumofStu, countdays);
 				showmenu(choice1, choice2, Position, username, password);
 			}
 			if (choice2 == 8) {// change pass
