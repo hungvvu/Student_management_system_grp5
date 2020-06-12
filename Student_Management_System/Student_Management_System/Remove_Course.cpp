@@ -87,8 +87,8 @@ void RemoveCourseInSchedule(string& CourseID, FileSchedule*& s, int& counts, str
 		fout << s[i].LName << endl;
 		fout << s[i].Ldegree << endl;
 		fout << s[i].Lgender << endl;
-		fout << s[i].startdate << " ";
-		fout << s[i].enddate << " ";
+		fout << s[i].startdate <<endl;
+		fout << s[i].enddate << endl;
 		fout << s[i].dayofweek << endl;
 		fout << s[i].starthour << endl;
 		fout << s[i].startminute << endl;
