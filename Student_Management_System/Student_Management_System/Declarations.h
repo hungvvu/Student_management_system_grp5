@@ -257,5 +257,6 @@ int CreateScoreTemp(string a, string b, string c, string Class, FileCourse*& cou
 
 //Function 3.6 (Remove Student from Course)
 int RemoveStufromCourse();
+void TransferDataFile2(string course);
 
 #endif

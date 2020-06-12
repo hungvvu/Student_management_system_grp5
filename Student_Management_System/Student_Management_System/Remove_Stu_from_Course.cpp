@@ -51,9 +51,11 @@ int RemoveStufromCourse()
 		}
 	}
 
+	//Enter Student ID
 	string ID;
 	cout << "Enter Student ID: " << endl;
 	getline(cin, ID);
+	bool check = false;
 
 	int count;
 	fin >> count;
@@ -66,10 +68,10 @@ int RemoveStufromCourse()
 	fout << count << endl;
 
 	FileCourse* stu = new FileCourse[count];
-	int i = 0;
+	int i = 0, k;
 	int n = CountDate(a, b, c, Class);
 
-	while (!fin.eof())
+	while (!fin.eof() && i < count)
 	{
 		getline(fin, stu[i].Name);
 		fout << stu[i].Name << endl;
@@ -79,8 +81,16 @@ int RemoveStufromCourse()
 		fout << stu[i].Password << endl;
 		getline(fin, stu[i].DoB);
 		fout << stu[i].DoB << endl;
+		//Active condition (0 if inactive)
 		getline(fin, stu[i].active);
+		if (stu[i].ID == ID)
+		{
+			stu[i].active = "0";
+			check = true;
+			k = i;
+		}
 		fout << stu[i].active << endl;
+		//
 		getline(fin, stu[i].miterm);
 		fout << stu[i].miterm << endl;
 		getline(fin, stu[i].final);
@@ -99,9 +109,45 @@ int RemoveStufromCourse()
 		i++;
 	}
 
+	cout << endl;
+
+	if (check == true)
+	{
+		cout << "Student " << stu[k].Name << " (" << stu[k].ID <<  ") is removed from course " << c << endl;
+	}
+	else
+	{
+		cout << "Student ID " << ID << " does not exist in course " << c << endl;
+	}
+
 	fout.close();
 	fin.close();
 
+	TransferDataFile2(f.c_str());
+
 	delete[] stu;
 	return 0;
+}
+
+void TransferDataFile2(string course)
+{
+	ifstream fin;
+	fin.open("temp.txt");
+	if (!fin)
+	{
+		cout << "TEMP FILE ERROR !" << endl;
+		return;
+	}
+
+	ofstream fout;
+	fout.open(course);
+
+	string line;
+	while (getline(fin, line))
+	{
+		fout << line << endl;
+	}
+
+	fout.close();
+	fin.close();
 }
