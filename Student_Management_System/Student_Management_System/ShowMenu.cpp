@@ -363,6 +363,16 @@ void showmenu(int& choice1, int& choice2, string& Position, string& username, st
 				Position = "-2";// logout
 				showmenu(choice1, choice2, Position, username, password);
 			}
+
+			if (choice2 == 2)
+			{
+				ifstream fin;
+				FileCourse** a;
+				int NumofStu = 0;
+				int countdays = 0;
+				printoutStuinfo(fin, a, NumofStu, countdays);
+				showmenu(choice1, choice2, Position, username, password);
+			}
 		}
 	}
 }
