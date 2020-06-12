@@ -305,19 +305,12 @@ void showmenu(int& choice1, int& choice2, string& Position, string& username, st
 					showmenu(choice1, choice2, Position, username, password);
 				}
 				showmenu(choice1, choice2, Position, username, password);
-                        }
-				while (choice2 == 0 && choice1 == 1)
-				{
-					showmenu(choice1, choice2, Position, username, password);
-				}
+            }
+            if (choice2 == 23)
+			{
+				CSVStudent();
 				showmenu(choice1, choice2, Position, username, password);
 			}
-
-                        if (choice2 == 23)
-				{
-					CSVStudent();
-					showmenu(choice1, choice2, Position, username, password);
-				}
 		}
 		if (Position == "Lecturer")
 		{
