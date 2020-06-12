@@ -208,7 +208,7 @@ void View_ALL_Lecturers(ifstream& fin, Lect*& a, int& NumofLect);
 void readcoursefile(ifstream& fin, FileCourse**& a, int& NumofStu, int& countdays);
 void printoutscore(ifstream& fin, FileCourse**& a, int& NumofStu, int& countdays);
 
-// Funciton 3.10 (view attendance list)
+// Funciton 3.10 + 6.3(view attendance list)
 int CountDates(ifstream& fin);// count how many study dates the course have
 void SaveDates(ifstream& fin, Date_n_Time*& arr, int n);
 void SaveATD_Info(ifstream& fin, Attendance*& ATDinfo, int& NumofStu, int NumofDates, bool*& Active);
