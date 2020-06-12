@@ -32,20 +32,3 @@ SAT
 30
 I23
 
-3
-MTH00003
-Vi tich phan
-19CLC5
-nttrung
-Nguyen Tan Trung
-Dr
-male
-12 6 2020
-12 8 2020
-TUE
-7
-30
-11
-30
-Hall I
-
