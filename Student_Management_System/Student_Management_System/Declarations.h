@@ -259,4 +259,8 @@ int CreateScoreTemp(string a, string b, string c, string Class, FileCourse*& cou
 int RemoveStufromCourse();
 void TransferDataFile2(string course);
 
+// Function 7.2(View checkin result)
+bool ViewStudentATD(string username, Attendance* ATDinfo, int numofstu, Date_n_Time* Dates, int numofdates, bool* Active);
+void ViewATD(string username);
+
 #endif

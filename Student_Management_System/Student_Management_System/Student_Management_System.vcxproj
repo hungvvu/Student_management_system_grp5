@@ -148,6 +148,7 @@
     <ClCompile Include="Update_Lect_File.cpp" />
     <ClCompile Include="ViewListClass.cpp" />
     <ClCompile Include="ViewListStudentCourse.cpp" />
+    <ClCompile Include="View_ATD_Result.cpp" />
     <ClCompile Include="View_Attendance_List.cpp" />
     <ClCompile Include="View_Course.cpp" />
     <ClCompile Include="View_Lecturers.cpp" />
