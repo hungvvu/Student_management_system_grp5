@@ -10,7 +10,7 @@ int mainmenu(int& choice1)
 int MenuStudent(int& choice2)
 {
 	cout << "\n-----MENU------\n";
-	cout << "0.Return\n1.Attendance\n2.Timetable\n3.Grade/Score\n4.HomeWork\n5.Change Password\n6.View Profile\n7.View checkin result\n8.View Score\n9.View Schedule\n";
+	cout << "0.Return\n1.Attendance\n2.Timetable\n3.Grade/Score\n4.HomeWork\n5.Change Password\n6.View Profile\n7.View checkin result\n8.View Score\n";
 	cin >> choice2;
 	return choice2;
 }
@@ -99,7 +99,7 @@ void showmenu(int& choice1, int& choice2, string& Position, string& username, st
 				showmenu(choice1, choice2, Position, username, password);
 			}
 
-			if (choice2 == 9)
+			if (choice2 == 2)
 			{
 				int n = ViewSchedule(username);
 				if (n == 1)

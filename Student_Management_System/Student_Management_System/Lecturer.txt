@@ -1,4 +1,4 @@
-4
+5
 Lecturer 1
 ltr1
 123
@@ -21,5 +21,11 @@ Duong Nguyen Vu
 dnvu
 dnvu
 GS
+0
+
+Nguyen Tan Trung
+nttrung
+nttrung
+Dr
 0
 
