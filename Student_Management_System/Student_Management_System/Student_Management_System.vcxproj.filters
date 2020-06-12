@@ -117,6 +117,9 @@
     <ClCompile Include="View_Schedule.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Import_Student.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Declarations.h">
@@ -166,5 +169,8 @@
       <Filter>Source Files</Filter>
     </None>
     <None Include="2019-2020-HK2-19CLC5-CS162-Score.csv" />
+    <None Include="Import_Student_Info.csv">
+      <Filter>Source Files</Filter>
+    </None>
   </ItemGroup>
 </Project>

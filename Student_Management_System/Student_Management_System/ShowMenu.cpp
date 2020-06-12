@@ -18,7 +18,7 @@ int MenuStaff(int& choice2)
 {
 	cout << "\n-----MENU------\n";
 
-	cout << "0.Return\n1.Manully Add Student to a class\n2.Edit an existing student\n3.Remove a student\n4.Change Student's Class\n5.View list of classes\n6.View list of students in a class\n7.Change Password\n8.View Profile\n9.Create semester\n10.Import Course(Schedule)\n11.Edit a course\n12.Remove a student from a course\n13.Add a student to a course\n14.Remove Course\n15.Add new Course\n16.View List of Course\n17.View List of Student of Course\n18.View attendance list of a course\n19.View All Lecturers\n20.Search and View Scoreboard\n21.Export Atendance list of a course\n22.Export Scoreboard to CSV file\n23.Import Student from CSV";
+	cout << "0.Return\n1.Manully Add Student to a class\n2.Edit an existing student\n3.Remove a student\n4.Change Student's Class\n5.View list of classes\n6.View list of students in a class\n7.Change Password\n8.View Profile\n9.Create semester\n10.Import Course(Schedule)\n11.Edit a course\n12.Remove a student from a course\n13.Add a student to a course\n14.Remove Course\n15.Add new Course\n16.View List of Course\n17.View List of Student of Course\n18.View attendance list of a course\n19.View All Lecturers\n20.Search and View Scoreboard\n21.Export Atendance list of a course\n22.Export Scoreboard to CSV file\n23.Import Student from CSV\n";
 
 	cin >> choice2;
 	return choice2;

@@ -276,4 +276,7 @@ int ExportScoreCSV();
 //Function 7.3 (View Schedule)
 int ViewSchedule(string& username);
 
+// Function 2.1 (Import student from csv file)
+void CSVStudent();
+
 #endif

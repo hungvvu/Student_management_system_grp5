@@ -74,7 +74,7 @@ void CSVStudent()
 	fout.close();
 
 	//**************** Create 19APCS1 file *******************
-	fout.open("19APCS1.txt");
+	fout.open("Student-19APCS1.txt");
 
 	if (!fout.is_open())
 	{
@@ -113,7 +113,7 @@ void CSVStudent()
 	fout.close();
 
 	//**************** Create 19APCS2 file *******************
-	fout.open("19APCS2.txt");
+	fout.open("Student-19APCS2.txt");
 
 	if (!fout.is_open())
 	{
@@ -152,7 +152,7 @@ void CSVStudent()
 	fout.close();
 
 	//**************** Create 19CLC1 file *******************
-	fout.open("19CLC1.txt");
+	fout.open("Student-19CLC1.txt");
 
 	if (!fout.is_open())
 	{
@@ -191,7 +191,7 @@ void CSVStudent()
 	fout.close();
 
 	//**************** Create 19CLC2 file *******************
-	fout.open("19CLC2.txt");
+	fout.open("Student-19CLC2.txt");
 
 	if (!fout.is_open())
 	{
@@ -229,7 +229,7 @@ void CSVStudent()
 	fout.close();
 
 	//**************** Create 19CLC3 file *******************
-	fout.open("19CLC3.txt");
+	fout.open("Student-19CLC3.txt");
 
 	if (!fout.is_open())
 	{
@@ -268,7 +268,7 @@ void CSVStudent()
 	fout.close();
 
 	//**************** Create 19CLC4 file *******************
-	fout.open("19CLC4.txt");
+	fout.open("Student-19CLC4.txt");
 
 	if (!fout.is_open())
 	{
@@ -307,7 +307,7 @@ void CSVStudent()
 	fout.close();
 
 	//**************** Create 19CLC5 file *******************
-	fout.open("19CLC5.txt");
+	fout.open("Student-19CLC5.txt");
 
 	if (!fout.is_open())
 	{
@@ -346,7 +346,7 @@ void CSVStudent()
 	fout.close();
 
 	//**************** Create 19CLC6 file *******************
-	fout.open("19CLC6.txt");
+	fout.open("Student-19CLC6.txt");
 
 	if (!fout.is_open())
 	{
@@ -385,7 +385,7 @@ void CSVStudent()
 	fout.close();
 
 	//**************** Create 19CLC7 file *******************
-	fout.open("19CLC7.txt");
+	fout.open("Student-19CLC7.txt");
 
 	if (!fout.is_open())
 	{
@@ -424,7 +424,7 @@ void CSVStudent()
 	fout.close();
 
 	//**************** Create 19CLC8 file *******************
-	fout.open("19CLC8.txt");
+	fout.open("Student-19CLC8.txt");
 
 	if (!fout.is_open())
 	{
@@ -463,7 +463,7 @@ void CSVStudent()
 	fout.close();
 
 	//**************** Create 19CLC9 file *******************
-	fout.open("19CLC9.txt");
+	fout.open("Student-19CLC9.txt");
 
 	if (!fout.is_open())
 	{
@@ -502,7 +502,7 @@ void CSVStudent()
 	fout.close();
 
 	//**************** Create 19CLC10 file *******************
-	fout.open("19CLC10.txt");
+	fout.open("Student-19CLC10.txt");
 
 	if (!fout.is_open())
 	{
@@ -541,6 +541,7 @@ void CSVStudent()
 	fout.close();
 
 	//cout Complete
+	cout << endl;
 	cout << "IMPORT COMPLETE !" << endl;
 
 	delete[] StuArr;
