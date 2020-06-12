@@ -95,6 +95,7 @@ int ExportScoreCSV()
 	}
 
 	cout << "EXPORT SCORE SUCCESSFULLY !" << endl;
+	cout << "File " << csv << " is created." << endl;
 
 	fout.close();
 

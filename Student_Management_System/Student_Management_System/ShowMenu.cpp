@@ -18,7 +18,7 @@ int MenuStaff(int& choice2)
 {
 	cout << "\n-----MENU------\n";
 
-	cout << "0.Return\n1.Manully Add Student to a class\n2.Edit an existing student\n3.Remove a student\n4.Change Student's Class\n5.View list of classes\n6.View list of students in a class\n7.Change Password\n8.View Profile\n9.Create semester\n10.Import Course(Schedule)\n11.Edit a course\n12.Add a student to a course\n13.Remove Course\n14.Add new Course\n16.View List of Course\n17.View List of Student of Course\n18.View attendance list of a course\n19.View All Lecturers\n20.Search and View Scoreboard\n21.Export Atendance list of a course\n22.Remove a student from a course\n23. Export Scoreboard to CSV file\n";
+	cout << "0.Return\n1.Manully Add Student to a class\n2.Edit an existing student\n3.Remove a student\n4.Change Student's Class\n5.View list of classes\n6.View list of students in a class\n7.Change Password\n8.View Profile\n9.Create semester\n10.Import Course(Schedule)\n11.Edit a course\n12.Remove a student from a course\n13.Add a student to a course\n14.Remove Course\n15.Add new Course\n16.View List of Course\n17.View List of Student of Course\n18.View attendance list of a course\n19.View All Lecturers\n20.Search and View Scoreboard\n21.Export Atendance list of a course\n22. Export Scoreboard to CSV file\n";
 	cin >> choice2;
 	return choice2;
 }
@@ -102,28 +102,12 @@ void showmenu(int& choice1, int& choice2, string& Position, string& username, st
 		if (Position == "Staff")
 		{
 			MenuStaff(choice2);
-			if (choice2 == 2)
+
+			if (choice2 == 0 && choice1 == 1)
 			{
-				Stu* a;
-				string Class;
-				EditIntoFile(a, Class);
+				choice1 = 0;
+				Position = "-2";// logout
 				showmenu(choice1, choice2, Position, username, password);
-			}
-
-			if (choice2 == 6)
-			{
-				ViewStudentChoice();
-				showmenu(choice1, choice2, Position, username, password);// back to main menu
-			}
-
-			if (choice2 == 7) {// change pass
-				if (ChangePass("Staff.txt", username, password)) {
-					cout << "password changed successfull" << endl;
-				}
-				else {
-					cout << "change password fail" << endl;
-				}
-				showmenu(choice1, choice2, Position, username, password);// back to main menu
 			}
 
 			if (choice2 == 1) {// Manually add student to class
@@ -135,6 +119,15 @@ void showmenu(int& choice1, int& choice2, string& Position, string& username, st
 				}
 				showmenu(choice1, choice2, Position, username, password);// back to main menu
 			}
+
+			if (choice2 == 2)
+			{
+				Stu* a;
+				string Class;
+				EditIntoFile(a, Class);
+				showmenu(choice1, choice2, Position, username, password);
+			}
+
 			if (choice2 == 3) {
 				if (!Remove_Student()) {
 					cout << "remove student failed" << endl;
@@ -162,11 +155,20 @@ void showmenu(int& choice1, int& choice2, string& Position, string& username, st
 				showmenu(choice1, choice2, Position, username, password);
 			}
 
-			if (choice2 == 0 && choice1 == 1)
+			if (choice2 == 6)
 			{
-				choice1 = 0;
-				Position = "-2";// logout
-				showmenu(choice1, choice2, Position, username, password);
+				ViewStudentChoice();
+				showmenu(choice1, choice2, Position, username, password);// back to main menu
+			}
+
+			if (choice2 == 7) {// change pass
+				if (ChangePass("Staff.txt", username, password)) {
+					cout << "password changed successfull" << endl;
+				}
+				else {
+					cout << "change password fail" << endl;
+				}
+				showmenu(choice1, choice2, Position, username, password);// back to main menu
 			}
 
 			if (choice2 == 8)
@@ -181,6 +183,7 @@ void showmenu(int& choice1, int& choice2, string& Position, string& username, st
 				cout << "Current semester is " << Cur_Semester() << endl;
 				showmenu(choice1, choice2, Position, username, password);
 			}
+
 			if (choice2 == 10)
 			{
 				ifstream fin;
@@ -193,7 +196,27 @@ void showmenu(int& choice1, int& choice2, string& Position, string& username, st
 				showmenu(choice1, choice2, Position, username, password);
 			}
 
-			if (choice2 == 13)
+			if (choice2 == 11) {
+				EditCourse();
+				showmenu(choice1, choice2, Position, username, password);
+			}
+
+			if (choice2 == 12)
+			{
+				int removestucourse = RemoveStufromCourse();
+				if (removestucourse == 1)
+				{
+					showmenu(choice1, choice2, Position, username, password);
+				}
+				showmenu(choice1, choice2, Position, username, password);
+			}
+
+			if (choice2 == 13) {
+				AddStu2Course();
+				showmenu(choice1, choice2, Position, username, password);
+			}
+
+			if (choice2 == 14)
 			{
 				FileSchedule* s;
 				int counts;
@@ -201,11 +224,41 @@ void showmenu(int& choice1, int& choice2, string& Position, string& username, st
 				RemoveCourse(s, counts, k);
 				showmenu(choice1, choice2, Position, username, password);
 			}
+
+			if (choice2 == 15) //Manually add course
+			{
+				int c = AddCourseManually();
+				if (c == 1)
+				{
+					showmenu(choice1, choice2, Position, username, password);
+				}
+				else
+				{
+					cout << "ADD SUCCESSFULLY" << endl;
+					showmenu(choice1, choice2, Position, username, password);
+				}
+			}
+
 			if (choice2 == 16)
 			{
 				FileSchedule* s;
 				int counts;
 				View_List_Of_Course(s, counts);
+				showmenu(choice1, choice2, Position, username, password);
+			}
+
+			if (choice2 == 17)
+			{
+				ifstream fin;
+				FileCourse** a;
+				int NumofStu = 0;
+				int countdays = 0;
+				printoutStuinfo(fin, a, NumofStu, countdays);
+				showmenu(choice1, choice2, Position, username, password);
+			}
+
+			if (choice2 == 18) {
+				ViewAttendanceList();
 				showmenu(choice1, choice2, Position, username, password);
 			}
 
@@ -228,62 +281,12 @@ void showmenu(int& choice1, int& choice2, string& Position, string& username, st
 				showmenu(choice1, choice2, Position, username, password);
 			}
 
-			if (choice2 == 11) {
-				EditCourse();
-				showmenu(choice1, choice2, Position, username, password);
-			}
-
-			if (choice2 == 12) {
-				AddStu2Course();
-				showmenu(choice1, choice2, Position, username, password);
-			}
-
-			if (choice2 == 18) {
-				ViewAttendanceList();
-				showmenu(choice1, choice2, Position, username, password);
-			}
-
-			if (choice2 == 17)
-			{
-				ifstream fin;
-				FileCourse** a;
-				int NumofStu = 0;
-				int countdays = 0;
-				printoutStuinfo(fin, a, NumofStu, countdays);
-				showmenu(choice1, choice2, Position, username, password);
-			}
-
-			if (choice2 == 14) //Manually add course
-			{
-				int c = AddCourseManually();
-				if (c == 1)
-				{
-					showmenu(choice1, choice2, Position, username, password);
-				}
-				else
-				{
-					cout << "ADD SUCCESSFULLY" << endl;
-					showmenu(choice1, choice2, Position, username, password);
-				}
-
-			}
-
 			if (choice2 == 21) {
 				Export_Atendance();
 				showmenu(choice1, choice2, Position, username, password);
 			}
 
 			if (choice2 == 22)
-			{
-				int removestucourse = RemoveStufromCourse();
-				if (removestucourse == 1)
-				{
-					showmenu(choice1, choice2, Position, username, password);
-				}
-				showmenu(choice1, choice2, Position, username, password);
-			}
-
-			if (choice2 == 23)
 			{
 				int exportscore = ExportScoreCSV();
 				if (exportscore == 1)
