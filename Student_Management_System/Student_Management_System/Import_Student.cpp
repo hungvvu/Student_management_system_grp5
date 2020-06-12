@@ -62,7 +62,7 @@ void CSVStudent()
 		
 		for (int j = 0; j < StuArr[i].Password.length(); j++) {// delete all '-' from the password
 															// Ex: 2001-11-04 will be turn into 20011104
-			if (StuArr[i].Password[j] == '/') {
+			if (StuArr[i].Password[j] == '-') {
 				StuArr[i].Password.erase(StuArr[i].Password.begin() + j);// delete the character at position i from the string
 			}
 		}
