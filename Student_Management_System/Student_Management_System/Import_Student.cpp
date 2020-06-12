@@ -44,7 +44,7 @@ void CSVStudent()
 	fin.close();
 
 	//**************** Create Student file *******************
-	fout.open("Students.txt");
+	fout.open("Student.txt");
 
 	if (!fout.is_open())
 	{
@@ -68,6 +68,7 @@ void CSVStudent()
 		}
 		fout << StuArr[i].Password << endl;
 		fout << StuArr[i].DoB << endl;
+		fout << StuArr[i].Class << endl;
 		fout << endl;
 	}
 
