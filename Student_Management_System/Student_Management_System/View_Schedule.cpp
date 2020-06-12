@@ -3,6 +3,7 @@
 int ViewSchedule(string &username)
 {
 	string Class;
+	/*
 	ifstream classfile;
 	classfile.open("Student.txt");
 
@@ -32,6 +33,7 @@ int ViewSchedule(string &username)
 
 	delete[] arr;
 	classfile.close();
+	*/
 
 	ifstream fin;
 	string a, b, f;
@@ -43,6 +45,9 @@ int ViewSchedule(string &username)
 
 	cout << "Enter semester:" << endl;//HK2
 	getline(cin, b);
+
+	cout << "Enter Class:" << endl;//19CLC5
+	getline(cin, Class);
 
 	f = a + "-" + b + "-Schedule-" + Class + ".txt"; //f for example 2019-2020-HK2-Schedule-19CLC5.txt
 
@@ -75,7 +80,7 @@ int ViewSchedule(string &username)
 	}
 
 	FileSchedule* schedule;
-	count = 0;
+	int count = 0;
 
 	Load_Schedule_txt(fin, schedule, count);
 
