@@ -136,6 +136,7 @@
     <ClCompile Include="Edit_Exsiting_Student.cpp" />
     <ClCompile Include="Edit_Scoreboard.cpp" />
     <ClCompile Include="Export_Atendance.cpp" />
+    <ClCompile Include="Export_Score.cpp" />
     <ClCompile Include="Import_Course_Schedule.cpp" />
     <ClCompile Include="Import_Score.cpp" />
     <ClCompile Include="Login.cpp" />
@@ -175,6 +176,7 @@
   <ItemGroup>
     <None Include="19CLC5-Schedule.csv" />
     <None Include="2019-2020-HK2-19CLC5-CM101-Score.csv" />
+    <None Include="2019-2020-HK2-19CLC5-CS162-Score.csv" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

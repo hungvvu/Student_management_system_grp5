@@ -267,4 +267,7 @@ void ViewATD(string username);
 bool LoadStuScore(ifstream& fin, string username, string& midterm, string& Final, string& bonus, string& total);
 void View_Score(string username);
 
+//Function 4.2 (Export Scoreboard to CSV)
+int ExportScoreCSV();
+
 #endif
