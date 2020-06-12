@@ -26,7 +26,7 @@ int MenuStaff(int& choice2)
 int MenuLecturer(int& choice2)
 {
 	cout << "\n-----MENU------\n";
-	cout << "0.Return\n1.View List of Course\n2.View List of Student of Course\n3.View Attandance List of Course\n4.Edit An Attandance\n5.Import ScoreBoard of Course\n6.Edit Grade of Student\n7.View Scoreboard\n8.Change Password\n9.View Profile\n";
+	cout << "0.Return\n1.View List of Course\n2.View List of Student of Course\n3.View Attandance List of Course\n4.Edit An Attandance\n5.Import ScoreBoard of Course\n6.Edit Grade of Student\n7.View Scoreboard\n8.Change Password\n9.View Profile\n10.View attendance list\n";
 	cin >> choice2;
 	return choice2;
 }
@@ -349,6 +349,11 @@ void showmenu(int& choice1, int& choice2, string& Position, string& username, st
 				{
 					showmenu(choice1, choice2, Position, username, password);
 				}
+				showmenu(choice1, choice2, Position, username, password);
+			}
+
+			if (choice2 == 10) {
+				ViewAttendanceList();
 				showmenu(choice1, choice2, Position, username, password);
 			}
 
