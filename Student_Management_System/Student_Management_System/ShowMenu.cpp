@@ -10,7 +10,7 @@ int mainmenu(int& choice1)
 int MenuStudent(int& choice2)
 {
 	cout << "\n-----MENU------\n";
-	cout << "0.Return\n1.Attendance\n2.Timetable\n3.Grade/Score\n4.HomeWork\n5.Change Password\n6.View Profile\n7.View checkin result\n8.View Score\n";
+	cout << "0.Return\n1.Attendance\n2.Timetable\n3.Grade/Score\n4.HomeWork\n5.Change Password\n6.View Profile\n7.View checkin result\n";
 	cin >> choice2;
 	return choice2;
 }
@@ -65,6 +65,11 @@ void showmenu(int& choice1, int& choice2, string& Position, string& username, st
 				showmenu(choice1, choice2, Position, username, password);// back to main menu
 			}
 
+			if (choice2 == 4) {
+				cout << "Function unavailable" << endl;
+				showmenu(choice1, choice2, Position, username, password);// back to main menu
+			}
+
 			if (choice2 == 5) {// Change pass
 				if (ChangePass("Student.txt", username, password)) {
 					cout << "password changed successfull" << endl;
@@ -87,7 +92,7 @@ void showmenu(int& choice1, int& choice2, string& Position, string& username, st
 				showmenu(choice1, choice2, Position, username, password);
 			}
 
-			if (choice2 == 8) {
+			if (choice2 == 3) {
 				View_Score(username);
 				showmenu(choice1, choice2, Position, username, password);
 			}
