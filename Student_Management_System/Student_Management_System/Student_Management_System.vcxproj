@@ -143,6 +143,7 @@
     <ClCompile Include="Profile.cpp" />
     <ClCompile Include="Remove_Course.cpp" />
     <ClCompile Include="Remove_Stu.cpp" />
+    <ClCompile Include="Remove_Stu_from_Course.cpp" />
     <ClCompile Include="ShowMenu.cpp" />
     <ClCompile Include="Update_Lect_File.cpp" />
     <ClCompile Include="ViewListClass.cpp" />

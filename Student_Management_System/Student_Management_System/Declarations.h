@@ -255,4 +255,7 @@ void ReadScore(ifstream& fin, FileCourse*& a, int& count);
 int ImportScore(string &username);
 int CreateScoreTemp(string a, string b, string c, string Class, FileCourse*& course);
 
+//Function 3.6 (Remove Student from Course)
+int RemoveStufromCourse();
+
 #endif

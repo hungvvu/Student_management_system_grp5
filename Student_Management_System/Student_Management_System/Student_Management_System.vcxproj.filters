@@ -102,6 +102,9 @@
     <ClCompile Include="Import_Score.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Remove_Stu_from_Course.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Declarations.h">
