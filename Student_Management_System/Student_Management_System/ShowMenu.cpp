@@ -40,16 +40,21 @@ void showmenu(int& choice1, int& choice2, string& Position, string& username, st
 	if (choice1 == 1)
 	{
 		if (Position == "-1" || Position == "-2")
+		{
 			Position = Login(username, password);
-
+			system("cls");
+		}
 		while (Position == "-1") {// can't find in the whole data base
 			cout << "username or password is incorect" << endl;
 			showmenu(choice1, choice2, Position, username, password);
+			system("cls");
 		}
 
 		if (Position == "Student")
 		{
 			MenuStudent(choice2);
+
+			system("cls");
 
 			if (choice2 == 1) //Check In
 			{
@@ -62,11 +67,15 @@ void showmenu(int& choice1, int& choice2, string& Position, string& username, st
 				int NumofStu;
 				int countdays;
 				checkin(fin, fout, a, b, s, counts, username, NumofStu, countdays);
+				system("pause");
+				system("cls");
 				showmenu(choice1, choice2, Position, username, password);// back to main menu
 			}
 
 			if (choice2 == 4) {
 				cout << "Function unavailable" << endl;
+				system("pause");
+				system("cls");
 				showmenu(choice1, choice2, Position, username, password);// back to main menu
 			}
 
@@ -77,23 +86,31 @@ void showmenu(int& choice1, int& choice2, string& Position, string& username, st
 				else {
 					cout << "change password fail" << endl;
 				}
+				system("pause");
+				system("cls");
 				showmenu(choice1, choice2, Position, username, password);// back to main menu
 			}
 
 			if (choice2 == 6)
 			{
 				Profile(username, password);
+				system("pause");
+				system("cls");
 				showmenu(choice1, choice2, Position, username, password);
 			}
 
 			if (choice2 == 7)
 			{
 				ViewATD(username);
+				system("pause");
+				system("cls");
 				showmenu(choice1, choice2, Position, username, password);
 			}
 
 			if (choice2 == 3) {
 				View_Score(username);
+				system("pause");
+				system("cls");
 				showmenu(choice1, choice2, Position, username, password);
 			}
 
@@ -109,8 +126,12 @@ void showmenu(int& choice1, int& choice2, string& Position, string& username, st
 				int n = ViewSchedule(username);
 				if (n == 1)
 				{
+					system("pause");
+					system("cls");
 					showmenu(choice1, choice2, Position, username, password);
 				}
+				system("pause");
+				system("cls");
 				showmenu(choice1, choice2, Position, username, password);
 			}
 		}
@@ -118,6 +139,7 @@ void showmenu(int& choice1, int& choice2, string& Position, string& username, st
 		if (Position == "Staff")
 		{
 			MenuStaff(choice2);
+			system("cls");
 
 			if (choice2 == 0 && choice1 == 1)
 			{
@@ -133,6 +155,8 @@ void showmenu(int& choice1, int& choice2, string& Position, string& username, st
 				else {
 					cout << "add student successful" << endl;
 				}
+				system("pause");
+				system("cls");
 				showmenu(choice1, choice2, Position, username, password);// back to main menu
 			}
 
@@ -141,6 +165,8 @@ void showmenu(int& choice1, int& choice2, string& Position, string& username, st
 				Stu* a;
 				string Class;
 				EditIntoFile(a, Class);
+				system("pause");
+				system("cls");
 				showmenu(choice1, choice2, Position, username, password);
 			}
 
@@ -149,8 +175,10 @@ void showmenu(int& choice1, int& choice2, string& Position, string& username, st
 					cout << "remove student failed" << endl;
 				}
 				else {
-					cout << "remove student successful" << endl;
+					cout << "remove student successfully" << endl;
 				}
+				system("pause");
+				system("cls");
 				showmenu(choice1, choice2, Position, username, password);// back to main menu
 			}
 
@@ -159,6 +187,8 @@ void showmenu(int& choice1, int& choice2, string& Position, string& username, st
 					cout << "change student's class successfully" << endl;
 				else
 					cout << "change student's class failed" << endl;
+				system("pause");
+				system("cls");
 				showmenu(choice1, choice2, Position, username, password);// back to main menu
 			}
 
@@ -168,12 +198,16 @@ void showmenu(int& choice1, int& choice2, string& Position, string& username, st
 				int NumOfClass;
 				School* a;
 				ViewListOfClass(fin, NumOfClass, a);
+				system("pause");
+				system("cls");
 				showmenu(choice1, choice2, Position, username, password);
 			}
 
 			if (choice2 == 6)
 			{
 				ViewStudentChoice();
+				system("pause");
+				system("cls");
 				showmenu(choice1, choice2, Position, username, password);// back to main menu
 			}
 
@@ -184,12 +218,16 @@ void showmenu(int& choice1, int& choice2, string& Position, string& username, st
 				else {
 					cout << "change password fail" << endl;
 				}
+				system("pause");
+				system("cls");
 				showmenu(choice1, choice2, Position, username, password);// back to main menu
 			}
 
 			if (choice2 == 8)
 			{
 				Profile(username, password);
+				system("pause");
+				system("cls");
 				showmenu(choice1, choice2, Position, username, password);
 			}
 
@@ -197,6 +235,8 @@ void showmenu(int& choice1, int& choice2, string& Position, string& username, st
 				if (New_Semester())
 					cout << "New semester has been created" << endl;
 				cout << "Current semester is " << Cur_Semester() << endl;
+				system("pause");
+				system("cls");
 				showmenu(choice1, choice2, Position, username, password);
 			}
 
@@ -209,11 +249,15 @@ void showmenu(int& choice1, int& choice2, string& Position, string& username, st
 				Stu* a;
 				int NumofStu;
 				ImportSchedule(fin, s, countcsv, fin2, a, NumofStu);
+				system("pause");
+				system("cls");
 				showmenu(choice1, choice2, Position, username, password);
 			}
 
 			if (choice2 == 11) {
 				EditCourse();
+				system("pause");
+				system("cls");
 				showmenu(choice1, choice2, Position, username, password);
 			}
 
@@ -224,11 +268,15 @@ void showmenu(int& choice1, int& choice2, string& Position, string& username, st
 				{
 					showmenu(choice1, choice2, Position, username, password);
 				}
+				system("pause");
+				system("cls");
 				showmenu(choice1, choice2, Position, username, password);
 			}
 
 			if (choice2 == 13) {
 				AddStu2Course();
+				system("pause");
+				system("cls");
 				showmenu(choice1, choice2, Position, username, password);
 			}
 
@@ -238,6 +286,8 @@ void showmenu(int& choice1, int& choice2, string& Position, string& username, st
 				int counts;
 				string k;
 				RemoveCourse(s, counts, k);
+				system("pause");
+				system("cls");
 				showmenu(choice1, choice2, Position, username, password);
 			}
 
@@ -246,11 +296,15 @@ void showmenu(int& choice1, int& choice2, string& Position, string& username, st
 				int c = AddCourseManually();
 				if (c == 1)
 				{
+					system("pause");
+					system("cls");
 					showmenu(choice1, choice2, Position, username, password);
 				}
 				else
 				{
 					cout << "ADD SUCCESSFULLY" << endl;
+					system("pause");
+					system("cls");
 					showmenu(choice1, choice2, Position, username, password);
 				}
 			}
@@ -260,6 +314,8 @@ void showmenu(int& choice1, int& choice2, string& Position, string& username, st
 				FileSchedule* s;
 				int counts;
 				View_List_Of_Course(s, counts);
+				system("pause");
+				system("cls");
 				showmenu(choice1, choice2, Position, username, password);
 			}
 
@@ -270,11 +326,15 @@ void showmenu(int& choice1, int& choice2, string& Position, string& username, st
 				int NumofStu = 0;
 				int countdays = 0;
 				printoutStuinfo(fin, a, NumofStu, countdays);
+				system("pause");
+				system("cls");
 				showmenu(choice1, choice2, Position, username, password);
 			}
 
 			if (choice2 == 18) {
 				ViewAttendanceList();
+				system("pause");
+				system("cls");
 				showmenu(choice1, choice2, Position, username, password);
 			}
 
@@ -284,6 +344,8 @@ void showmenu(int& choice1, int& choice2, string& Position, string& username, st
 				ifstream fin;
 				int NumofLect;
 				View_ALL_Lecturers(fin, a, NumofLect);
+				system("pause");
+				system("cls");
 				showmenu(choice1, choice2, Position, username, password);
 			}
 
@@ -294,11 +356,15 @@ void showmenu(int& choice1, int& choice2, string& Position, string& username, st
 				int NumofStu = 0;
 				int countdays = 0;
 				printoutscore(fin, a, NumofStu, countdays);
+				system("pause");
+				system("cls");
 				showmenu(choice1, choice2, Position, username, password);
 			}
 
 			if (choice2 == 21) {
 				Export_Atendance();
+				system("pause");
+				system("cls");
 				showmenu(choice1, choice2, Position, username, password);
 			}
 
@@ -307,25 +373,34 @@ void showmenu(int& choice1, int& choice2, string& Position, string& username, st
 				int exportscore = ExportScoreCSV();
 				if (exportscore == 1)
 				{
+					system("pause");
+					system("cls");
 					showmenu(choice1, choice2, Position, username, password);
 				}
+				system("pause");
+				system("cls");
 				showmenu(choice1, choice2, Position, username, password);
             }
             if (choice2 == 23)
 			{
 				CSVStudent();
+				system("pause");
+				system("cls");
 				showmenu(choice1, choice2, Position, username, password);
 			}
 		}
 		if (Position == "Lecturer")
 		{
 			MenuLecturer(choice2);
+			system("cls");
 
 			if (choice2 == 1)
 			{
 				FileSchedule* s;
 				int counts;
 				View_List_Of_Course(s, counts);
+				system("pause");
+				system("cls");
 				showmenu(choice1, choice2, Position, username, password);
 			}
 
@@ -340,6 +415,8 @@ void showmenu(int& choice1, int& choice2, string& Position, string& username, st
 				int countdays;
 				string z;
 				Edit_Attandance(fin, fout, a, s, counts, username, NumofStu, countdays);
+				system("pause");
+				system("cls");
 				showmenu(choice1, choice2, Position, username, password);
 			}
 
@@ -354,6 +431,8 @@ void showmenu(int& choice1, int& choice2, string& Position, string& username, st
 				int countdays;
 				string z;
 				EditScoreboard(fin, fout, a, s, counts, username, NumofStu, countdays);
+				system("pause");
+				system("cls");
 				showmenu(choice1, choice2, Position, username, password);
 			}
 
@@ -364,6 +443,8 @@ void showmenu(int& choice1, int& choice2, string& Position, string& username, st
 				int NumofStu = 0;
 				int countdays = 0;
 				printoutscore(fin, a, NumofStu, countdays);
+				system("pause");
+				system("cls");
 				showmenu(choice1, choice2, Position, username, password);
 			}
 			if (choice2 == 8) {// change pass
@@ -373,12 +454,16 @@ void showmenu(int& choice1, int& choice2, string& Position, string& username, st
 				else {
 					cout << "change password fail" << endl;
 				}
+				system("pause");
+				system("cls");
 				showmenu(choice1, choice2, Position, username, password);// back to main menu
 			}
 
 			if (choice2 == 9)
 			{
 				Profile(username, password);
+				system("pause");
+				system("cls");
 				showmenu(choice1, choice2, Position, username, password);
 			}
 
@@ -387,13 +472,19 @@ void showmenu(int& choice1, int& choice2, string& Position, string& username, st
 				int n = ImportScore(username);
 				if (n == 1)
 				{
+					system("pause");
+					system("cls");
 					showmenu(choice1, choice2, Position, username, password);
 				}
+				system("pause");
+				system("cls");
 				showmenu(choice1, choice2, Position, username, password);
 			}
 
 			if (choice2 == 3) {
 				ViewAttendanceList();
+				system("pause");
+				system("cls");
 				showmenu(choice1, choice2, Position, username, password);
 			}
 
@@ -411,6 +502,8 @@ void showmenu(int& choice1, int& choice2, string& Position, string& username, st
 				int NumofStu = 0;
 				int countdays = 0;
 				printoutStuinfo(fin, a, NumofStu, countdays);
+				system("pause");
+				system("cls");
 				showmenu(choice1, choice2, Position, username, password);
 			}
 		}
