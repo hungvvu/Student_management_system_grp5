@@ -9,14 +9,14 @@ int mainmenu(int& choice1)
 
 int MenuStudent(int& choice2)
 {
-	cout << "\n-----MENU------\n";
+	cout << "\n-----MENU STU------\n";
 	cout << "0.Return\n1.Attendance\n2.Timetable\n3.Grade/Score\n4.HomeWork\n5.Change Password\n6.View Profile\n7.View checkin result\n";
 	cin >> choice2;
 	return choice2;
 }
 int MenuStaff(int& choice2)
 {
-	cout << "\n-----MENU------\n";
+	cout << "\n-----MENU STAFF------\n";
 
 	cout << "0.Return\n1.Manully Add Student to a class\n2.Edit an existing student\n3.Remove a student\n4.Change Student's Class\n5.View list of classes\n6.View list of students in a class\n7.Change Password\n8.View Profile\n9.Create semester\n10.Import Course(Schedule)\n11.Edit a course\n12.Remove a student from a course\n13.Add a student to a course\n14.Remove Course\n15.Add new Course\n16.View List of Course\n17.View List of Student of Course\n18.View attendance list of a course\n19.View All Lecturers\n20.Search and View Scoreboard\n21.Export Atendance list of a course\n22.Export Scoreboard to CSV file\n23.Import Student from CSV\n";
 
@@ -26,7 +26,7 @@ int MenuStaff(int& choice2)
 
 int MenuLecturer(int& choice2)
 {
-	cout << "\n-----MENU------\n";
+	cout << "\n-----MENU LECT------\n";
 	cout << "0.Return\n1.View List of Course\n2.View List of Student of Course\n3.View Attandance List of Course\n4.Edit An Attandance\n5.Import ScoreBoard of Course\n6.Edit Grade of Student\n7.View Scoreboard\n8.Change Password\n9.View Profile\n";
 	cin >> choice2;
 	return choice2;
@@ -52,6 +52,9 @@ void showmenu(int& choice1, int& choice2, string& Position, string& username, st
 
 		if (Position == "Student")
 		{
+			cout << "WELCOME STUDENT " << username << " !" << endl;
+			cout << endl;
+
 			MenuStudent(choice2);
 
 			system("cls");
@@ -138,6 +141,9 @@ void showmenu(int& choice1, int& choice2, string& Position, string& username, st
 
 		if (Position == "Staff")
 		{
+			cout << "WELCOME STAFF " << username << " !" << endl;
+			cout << endl;
+
 			MenuStaff(choice2);
 			system("cls");
 
@@ -391,6 +397,9 @@ void showmenu(int& choice1, int& choice2, string& Position, string& username, st
 		}
 		if (Position == "Lecturer")
 		{
+			cout << "WELCOME LECTURER " << username << " !" << endl;
+			cout << endl;
+
 			MenuLecturer(choice2);
 			system("cls");
 
